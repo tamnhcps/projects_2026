@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "5fc0752968051774047d",
+  "name": "7142c6c3a8a6fedb62ab",
   "position": {
-    "x": 100.99623273336124,
-    "y": 313.74642730677914,
-    "z": 22000,
-    "height": 80.100460443700285,
-    "width": 259.45583926329004,
-    "tabOrder": 19000
+    "x": 99.402985074626869,
+    "y": 393.93034825870649,
+    "z": 8000,
+    "height": 80.9950248756219,
+    "width": 257.71144278606965,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_Danh mục_Phòng ban"
+                      "Entity": "AM_SM_Current_Month"
                     }
                   },
-                  "Property": "AM"
+                  "Property": "SM/SUP"
                 }
               },
-              "queryRef": "DIM_Danh mục_Phòng ban.AM.Tên nhân viên",
-              "nativeQueryRef": "AM",
-              "active": true,
-              "displayName": "AM"
+              "queryRef": "AM_SM_Current_Month.SM/SUP",
+              "nativeQueryRef": "SM/SUP",
+              "active": true
             }
           ]
         }

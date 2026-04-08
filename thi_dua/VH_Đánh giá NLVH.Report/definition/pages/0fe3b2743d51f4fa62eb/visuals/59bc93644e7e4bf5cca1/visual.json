@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "e3015646cd259091addc",
+  "name": "59bc93644e7e4bf5cca1",
   "position": {
-    "x": 1631.3058419243987,
+    "x": 1270.2061855670104,
     "y": 213.60824742268042,
-    "z": 24000,
+    "z": 22000,
     "height": 39.415807560137459,
     "width": 100.44673539518901,
-    "tabOrder": 23000
+    "tabOrder": 22000
   },
   "visual": {
     "visualType": "actionButton",
@@ -56,7 +56,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tỉ lệ'"
+                  "Value": "'Số lượng'"
                 }
               }
             },
@@ -172,7 +172,7 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 5,
+                      "ColorId": 2,
                       "Percent": 0.2
                     }
                   }
@@ -254,7 +254,14 @@
             "bookmark": {
               "expr": {
                 "Literal": {
-                  "Value": "'d4cff02d170360b39554'"
+                  "Value": "'35024f2918e18104d6a2'"
+                }
+              }
+            },
+            "showDefaultTooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -271,10 +278,10 @@
                 }
               }
             },
-            "titleWrap": {
+            "text": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "''"
                 }
               }
             }
@@ -290,13 +297,6 @@
                   "Value": "false"
                 }
               }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
             }
           }
         }
@@ -308,24 +308,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#F4F4F4'"
-                    }
-                  }
-                }
-              }
-            },
-            "radius": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
                 }
               }
             }
@@ -342,13 +324,6 @@
                 }
               }
             },
-            "preset": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Custom'"
-                }
-              }
-            },
             "color": {
               "solid": {
                 "color": {
@@ -361,10 +336,10 @@
                 }
               }
             },
-            "transparency": {
+            "preset": {
               "expr": {
                 "Literal": {
-                  "Value": "40D"
+                  "Value": "'Custom'"
                 }
               }
             },
@@ -395,17 +370,11 @@
                   "Value": "0D"
                 }
               }
-            }
-          }
-        }
-      ],
-      "visualHeader": [
-        {
-          "properties": {
-            "show": {
+            },
+            "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "40D"
                 }
               }
             }

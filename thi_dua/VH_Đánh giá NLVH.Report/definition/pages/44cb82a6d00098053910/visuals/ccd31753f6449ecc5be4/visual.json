@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "ccd31753f6449ecc5be4",
   "position": {
-    "x": 12.479201331114808,
-    "y": 549.08485856905156,
+    "x": 11.961722488038278,
+    "y": 521.53110047846894,
     "z": 7000,
-    "height": 185.108153078203,
-    "width": 348.3777038269551,
+    "height": 212.91866028708134,
+    "width": 348.08612440191388,
     "tabOrder": 6000
   },
   "visual": {
@@ -628,51 +628,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "893886dd0877d920ab90",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_Ghi chú_Đánh giá"
-              }
-            },
-            "Property": "Điều kiện 1: Tổng điểm NLVH (X)"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "50aee1fb1dc2f59cfc8c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_Ghi chú_Đánh giá"
-              }
-            },
-            "Property": "Điều kiện 2: (*)Tổng chi tiêu đạt (Y)"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "13ca3450efa5f71bfe79",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_Ghi chú_Đánh giá"
-              }
-            },
-            "Property": "Xếp loại"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

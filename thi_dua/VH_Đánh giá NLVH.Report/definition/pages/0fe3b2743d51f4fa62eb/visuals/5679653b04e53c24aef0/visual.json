@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "5fc0752968051774047d",
+  "name": "5679653b04e53c24aef0",
   "position": {
-    "x": 100.99623273336124,
-    "y": 313.74642730677914,
-    "z": 22000,
-    "height": 80.100460443700285,
-    "width": 259.45583926329004,
-    "tabOrder": 19000
+    "x": 100.03466204506066,
+    "y": 487.47838916535835,
+    "z": 7000,
+    "height": 79.51473136915078,
+    "width": 259.06412478336222,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -23,18 +23,120 @@
                       "Entity": "DIM_Danh mục_Phòng ban"
                     }
                   },
-                  "Property": "AM"
+                  "Property": "Size"
                 }
               },
-              "queryRef": "DIM_Danh mục_Phòng ban.AM.Tên nhân viên",
-              "nativeQueryRef": "AM",
-              "active": true,
-              "displayName": "AM"
+              "queryRef": "DIM_Danh mục_Phòng ban.Size",
+              "nativeQueryRef": "Size",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Danh mục_Phòng ban"
+                    }
+                  },
+                  "Property": "Cửa hàng"
+                }
+              },
+              "queryRef": "DIM_Danh mục_Phòng ban.Cửa hàng",
+              "active": true
             }
           ]
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "DIM_Danh mục_Phòng ban.Size"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Danh mục_Phòng ban"
+                    }
+                  },
+                  "Property": "Size"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_Danh mục_Phòng ban.Cửa hàng"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'A'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'B'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'C'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'D'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'E'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
     "objects": {
       "data": [
         {
@@ -209,7 +311,24 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "Filterc1a18dc02a3006a09578",
+        "name": "Filter03034a142303a0bbe04a",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Danh mục_Phòng ban"
+              }
+            },
+            "Property": "Province"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "Filter4e4f6f825ec9028830a4",
+        "ordinal": 1,
         "field": {
           "Measure": {
             "Expression": {
@@ -256,7 +375,23 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "Filter222020282e02b909a42b",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Danh mục_Phòng ban"
+              }
+            },
+            "Property": "Cửa hàng"
+          }
+        },
+        "type": "Categorical"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "5fc0752968051774047d",
+  "name": "3a8b10cec4b597952bf5",
   "position": {
-    "x": 100.99623273336124,
-    "y": 313.74642730677914,
-    "z": 22000,
-    "height": 80.100460443700285,
-    "width": 259.45583926329004,
-    "tabOrder": 19000
+    "x": 100.03466204506066,
+    "y": 574.05150555737316,
+    "z": 5000,
+    "height": 78.2322357019064,
+    "width": 260.34662045060657,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,21 +20,96 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DIM_Danh mục_Phòng ban"
+                      "Entity": "DIM_Danh mục_Đánh giá"
                     }
                   },
-                  "Property": "AM"
+                  "Property": "Đánh giá"
                 }
               },
-              "queryRef": "DIM_Danh mục_Phòng ban.AM.Tên nhân viên",
-              "nativeQueryRef": "AM",
+              "queryRef": "DIM_Danh mục_Đánh giá.Đánh giá",
+              "nativeQueryRef": "Kết quả Đánh giá",
               "active": true,
-              "displayName": "AM"
+              "displayName": "Kết quả Đánh giá"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Danh mục_Đánh giá"
+                    }
+                  },
+                  "Property": "Đánh giá cuối cùng"
+                }
+              },
+              "queryRef": "DIM_Danh mục_Đánh giá.Đánh giá cuối cùng",
+              "nativeQueryRef": "cuối cùng",
+              "active": true,
+              "displayName": "cuối cùng"
             }
           ]
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "DIM_Danh mục_Đánh giá.Đánh giá"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Danh mục_Đánh giá"
+                    }
+                  },
+                  "Property": "Đánh giá"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_Danh mục_Đánh giá.Đánh giá cuối cùng"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Đạt'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Không đạt'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
     "objects": {
       "data": [
         {

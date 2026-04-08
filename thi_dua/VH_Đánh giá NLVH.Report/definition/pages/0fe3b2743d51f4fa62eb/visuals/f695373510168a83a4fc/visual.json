@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "5fc0752968051774047d",
+  "name": "f695373510168a83a4fc",
   "position": {
-    "x": 100.99623273336124,
-    "y": 313.74642730677914,
-    "z": 22000,
-    "height": 80.100460443700285,
-    "width": 259.45583926329004,
-    "tabOrder": 19000
+    "x": 101.31715771230502,
+    "y": 225.89081524751992,
+    "z": 6000,
+    "height": 80.797227036395142,
+    "width": 259.06412478336222,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -17,24 +17,88 @@
           "projections": [
             {
               "field": {
+                "GroupRef": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Danh mục_Phòng ban"
+                    }
+                  },
+                  "Property": "Key City",
+                  "GroupedColumns": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_Danh mục_Phòng ban"
+                          }
+                        },
+                        "Property": "Province"
+                      }
+                    }
+                  ]
+                }
+              },
+              "queryRef": "DIM_Danh mục_Phòng ban.Key City",
+              "nativeQueryRef": "TP",
+              "active": true,
+              "displayName": "TP"
+            },
+            {
+              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "DIM_Danh mục_Phòng ban"
                     }
                   },
-                  "Property": "AM"
+                  "Property": "Province"
                 }
               },
-              "queryRef": "DIM_Danh mục_Phòng ban.AM.Tên nhân viên",
-              "nativeQueryRef": "AM",
-              "active": true,
-              "displayName": "AM"
+              "queryRef": "DIM_Danh mục_Phòng ban.Province",
+              "nativeQueryRef": "Tỉnh",
+              "active": false,
+              "displayName": "Tỉnh"
             }
           ]
         }
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Values"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "DIM_Danh mục_Phòng ban.Key City"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Danh mục_Phòng ban"
+                    }
+                  },
+                  "Property": "Key City"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DIM_Danh mục_Phòng ban.Province"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "objects": {
       "data": [
         {
@@ -209,7 +273,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "Filterc1a18dc02a3006a09578",
+        "name": "Filter692821a9e27a67e580a0",
         "field": {
           "Measure": {
             "Expression": {

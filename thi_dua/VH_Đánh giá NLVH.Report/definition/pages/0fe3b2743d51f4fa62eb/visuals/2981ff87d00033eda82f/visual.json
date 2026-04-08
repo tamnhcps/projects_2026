@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "1322e56d3607351ad037",
+  "name": "2981ff87d00033eda82f",
   "position": {
     "x": 938.35051546391753,
-    "y": 7.6288659793814437,
-    "z": 16000,
+    "y": 8.9003436426116842,
+    "z": 14000,
     "height": 199.62199312714779,
-    "width": 1131.615120274914,
-    "tabOrder": 20000
+    "width": 1127.8006872852234,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,10 +23,10 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt"
+                  "Property": "Số CH đạt"
                 }
               },
-              "queryRef": "Measure.% Số cửa hàng Đạt",
+              "queryRef": "Measure.Số cửa hàng đạt",
               "nativeQueryRef": "Tổng",
               "displayName": "Tổng"
             },
@@ -38,12 +38,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt sử dụng ESL"
+                  "Property": "Số CH đạt sử dụng ESL"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt sử dụng ESL",
-              "nativeQueryRef": "% Sử dụng ESL",
-              "displayName": "% Sử dụng ESL"
+              "queryRef": "Measure.Số CH đạt sử dụng ESL",
+              "nativeQueryRef": "Sử dụng ESL",
+              "displayName": "Sử dụng ESL"
             },
             {
               "field": {
@@ -53,12 +53,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt turnover rate"
+                  "Property": "Số CH đạt turnover rate"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt turnover rate",
-              "nativeQueryRef": "% Turnover rate",
-              "displayName": "% Turnover rate"
+              "queryRef": "Measure.Số CH đạt turnover rate",
+              "nativeQueryRef": "Turnover rate",
+              "displayName": "Turnover rate"
             },
             {
               "field": {
@@ -68,12 +68,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt năng suất định biên"
+                  "Property": "Số CH đạt năng suất định biên"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt năng suất định biên",
-              "nativeQueryRef": "% Năng suất định biên",
-              "displayName": "% Năng suất định biên"
+              "queryRef": "Measure.Số CH đạt năng suất định biên",
+              "nativeQueryRef": "Năng suất định biên",
+              "displayName": "Năng suất định biên"
             },
             {
               "field": {
@@ -83,12 +83,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt lượt tải app"
+                  "Property": "Số CH đạt lượt tải app"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt lượt tải app",
-              "nativeQueryRef": "% Lượt tải app",
-              "displayName": "% Lượt tải app"
+              "queryRef": "Measure.Số CH đạt lượt tải app",
+              "nativeQueryRef": "Lượt tải app",
+              "displayName": "Lượt tải app"
             },
             {
               "field": {
@@ -98,12 +98,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt trễ đơn giao hàng"
+                  "Property": "Số CH đạt trễ đơn giao hàng"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt trễ đơn giao hàng",
-              "nativeQueryRef": "% Trễ đơn giao hàng",
-              "displayName": "% Trễ đơn giao hàng"
+              "queryRef": "Measure.Số CH đạt trễ đơn giao hàng",
+              "nativeQueryRef": "Trễ đơn giao hàng",
+              "displayName": "Trễ đơn giao hàng"
             },
             {
               "field": {
@@ -113,12 +113,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt thành công đơn Online"
+                  "Property": "Số CH đạt thành công đơn Online"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt thành công đơn Online",
-              "nativeQueryRef": "% Thành công đơn Online",
-              "displayName": "% Thành công đơn Online"
+              "queryRef": "Measure.Số CH đạt thành công đơn Online",
+              "nativeQueryRef": "Thành công đơn Online",
+              "displayName": "Thành công đơn Online"
             },
             {
               "field": {
@@ -128,12 +128,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt thất thoát hàng hóa"
+                  "Property": "Số CH đạt thất thoát hàng hóa"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt thất thoát hàng hóa",
-              "nativeQueryRef": "% Thất thoát hàng hóa",
-              "displayName": "% Thất thoát hàng hóa"
+              "queryRef": "Measure.Số CH đạt thất thoát hàng hóa",
+              "nativeQueryRef": "Thất thoát hàng hóa",
+              "displayName": "Thất thoát hàng hóa"
             },
             {
               "field": {
@@ -143,12 +143,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt tham gia đào tạo"
+                  "Property": "Số CH đạt tham gia đào tạo"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt tham gia đào tạo",
-              "nativeQueryRef": "% Tham gia đào tạo",
-              "displayName": "% Tham gia đào tạo"
+              "queryRef": "Measure.Số CH đạt tham gia đào tạo",
+              "nativeQueryRef": "Tham gia đào tạo",
+              "displayName": "Tham gia đào tạo"
             },
             {
               "field": {
@@ -158,12 +158,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt tư vấn smember"
+                  "Property": "Số CH đạt tư vấn smember"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt tư vấn smember",
-              "nativeQueryRef": "% Tư vấn smember",
-              "displayName": "% Tư vấn smember"
+              "queryRef": "Measure.Số CH đạt tư vấn smember",
+              "nativeQueryRef": "Tư vấn smember",
+              "displayName": "Tư vấn smember"
             },
             {
               "field": {
@@ -173,12 +173,12 @@
                       "Entity": "Measure"
                     }
                   },
-                  "Property": "% Số CH đạt thu thập KHTN"
+                  "Property": "Số CH đạt thu thập KHTN"
                 }
               },
-              "queryRef": "Measure.% Số CH đạt thu thập KHTN",
-              "nativeQueryRef": "% Thu thập KHTN",
-              "displayName": "% Thu thập KHTN"
+              "queryRef": "Measure.Số CH đạt thu thập KHTN",
+              "nativeQueryRef": "Thu thập KHTN",
+              "displayName": "Thu thập KHTN"
             }
           ]
         }
@@ -193,7 +193,7 @@
                     "Entity": "Measure"
                   }
                 },
-                "Property": "% Số CH đạt"
+                "Property": "Số CH đạt"
               }
             },
             "direction": "Descending"
@@ -220,17 +220,17 @@
                 }
               }
             },
-            "columnCount": {
-              "expr": {
-                "Literal": {
-                  "Value": "6L"
-                }
-              }
-            },
             "cellPadding": {
               "expr": {
                 "Literal": {
                   "Value": "0L"
+                }
+              }
+            },
+            "columnCount": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
                 }
               }
             }
@@ -271,25 +271,23 @@
           }
         }
       ],
-      "outline": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
       "label": [
         {
           "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'belowValue'"
+                }
+              }
+            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -308,18 +306,20 @@
                   "Value": "false"
                 }
               }
-            },
-            "fontSize": {
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'belowValue'"
+                  "Value": "false"
                 }
               }
             }
@@ -337,7 +337,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Tỉ lệ Cửa hàng ĐẠT các Chỉ tiêu'"
+                  "Value": "'Số lượng Cửa hàng ĐẠT các Chỉ tiêu'"
                 }
               }
             },
@@ -511,5 +511,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "isHidden": true
 }

@@ -1,0 +1,311 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "7302236d67cdf313676b",
+  "position": {
+    "x": 450.12144323848639,
+    "y": 739.08829568788508,
+    "z": 25001,
+    "height": 497.35640950425346,
+    "width": 1630.9955998826636,
+    "tabOrder": 25001
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_Đánh giá Shop"
+                    }
+                  },
+                  "Property": "AM_DIM"
+                }
+              },
+              "queryRef": "FACT_Đánh giá Shop.AM_DIM",
+              "nativeQueryRef": "AM_DIM",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_Đánh giá Shop"
+                    }
+                  },
+                  "Property": "Đánh giá cuối cùng"
+                }
+              },
+              "queryRef": "FACT_Đánh giá Shop.Đánh giá cuối cùng",
+              "nativeQueryRef": "Đánh giá cuối cùng",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_Đánh giá Shop"
+                    }
+                  },
+                  "Property": "Quản lý"
+                }
+              },
+              "queryRef": "FACT_Đánh giá Shop.Quản lý",
+              "nativeQueryRef": "Quản lý",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "SHOP"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Min(FACT_Đánh giá Shop.SHOP)",
+              "nativeQueryRef": "Count of SHOP"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Tổng chỉ tiêu đạt"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FACT_Đánh giá Shop.Tổng chỉ tiêu đạt)",
+              "nativeQueryRef": "Tổng chỉ tiêu đạt"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_Đánh giá Shop"
+                  }
+                },
+                "Property": "AM_DIM"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_Đánh giá Shop"
+                  }
+                },
+                "Property": "Đánh giá cuối cùng"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "FACT_Đánh giá Shop.AM_DIM"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_Đánh giá Shop"
+                    }
+                  },
+                  "Property": "AM_DIM"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "FACT_Đánh giá Shop.Đánh giá cuối cùng"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_Đánh giá Shop"
+                    }
+                  },
+                  "Property": "Đánh giá cuối cùng"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "FACT_Đánh giá Shop.Quản lý"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'BÙI VĂN ĐỊNH'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "340.51801390936316D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FACT_Đánh giá Shop.AM_DIM"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "31f66b929acb4660a898",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_Đánh giá Shop"
+                  }
+                },
+                "Property": "SHOP"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3cfee54e7c846ea63fea",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FACT_Đánh giá Shop"
+                  }
+                },
+                "Property": "Tổng chỉ tiêu đạt"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ef252b52f8064332dea8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_Đánh giá Shop"
+              }
+            },
+            "Property": "Quản lý"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7e1b8e563006d7168f12",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_Đánh giá Shop"
+              }
+            },
+            "Property": "AM_DIM"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "df064c87014da434b694",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FACT_Đánh giá Shop"
+              }
+            },
+            "Property": "Đánh giá cuối cùng"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
