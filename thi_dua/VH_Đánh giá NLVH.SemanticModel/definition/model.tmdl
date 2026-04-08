@@ -34,7 +34,7 @@ queryGroup 'Query Errors - 10/21/2025 10:12:14 AM'
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["F_Combined_Metric_CS","F_PriceTag","Danh sách kho_DailyReport","FACT_Sale_Doanh số bán","FACT_Sale_Doanh số bán_realtime","Đơn không tính S-Star","S-Star_Nhóm hàng_SKU","DIM_Danh mục_Ngày","DIM_Danh mục_Miền","DIM_Danh mục_Kho","DIM_Danh mục_Phòng ban","Province","D_Sản phẩm","DIM_Danh mục_Sản phẩm_Web","DIM_Danh mục_Nhóm hàng","NhomHang_LaptopCu","DIM_Danh mục_Đánh giá","fxCalendar","MinYear","MaxYear","fxGetISO8601Week","FACT_Đánh giá SM","DIM_Danh mục_Shop_AM","DIM_Danh mục_Shop_SMKN","FACT_GSheet_Target_App","FACT_BQ_Target_Shop","FACT_GSheet_Target_Shop_Daily","Kết quả đánh giá NLQL","Kết quả đánh giá Shop","DIM_Đánh giá AM","DIM_Danh mục_Hệ số Chỉ tiêu","DIM_Danh mục_Hệ số SizeShop","DIM_Danh mục_Các loại chỉ số","DIM_Danh mục_Cách thức xếp hạng","DIM_Danh mục_Đánh giá_","DIM_Ghi chú","DIM_Ghi chú_Đánh giá","Heso_ThiDua","CurrentDate","F_Employee","F_Ngày nhận việc","F_Ngày kết thúc","F_Công chi tiết","F_Logistics","F_Xử lý hàng hóa","Kiểm kê hàng hóa","F_Hàng hóa thất thoát","F_Định biên trưng bày","DIM_Danh mục_Nhân viên","DinhBien","F_Tham gia đào tạo","Errors in DIM_Danh mục_Đánh giá_","DIM_Phân quyền user","DIM_Phân quyền vận hành_Vùng"]
+annotation PBI_QueryOrder = ["F_Combined_Metric_CS","F_PriceTag","Danh sách kho_DailyReport","FACT_Sale_Doanh số bán","FACT_Sale_Doanh số bán_realtime","Đơn không tính S-Star","S-Star_Nhóm hàng_SKU","DIM_Danh mục_Ngày","DIM_Danh mục_Miền","DIM_Danh mục_Kho","DIM_Danh mục_Phòng ban","Province","D_Sản phẩm","DIM_Danh mục_Sản phẩm_Web","DIM_Danh mục_Nhóm hàng","NhomHang_LaptopCu","DIM_Danh mục_Đánh giá","fxCalendar","MinYear","MaxYear","fxGetISO8601Week","FACT_Đánh giá SM","DIM_Danh mục_Shop_AM","DIM_Danh mục_Shop_SMKN","FACT_GSheet_Target_App","FACT_BQ_Target_Shop","FACT_GSheet_Target_Shop_Daily","Kết quả đánh giá NLQL","Kết quả đánh giá Shop","DIM_Đánh giá AM","DIM_Danh mục_Hệ số Chỉ tiêu","DIM_Danh mục_Hệ số SizeShop","DIM_Danh mục_Các loại chỉ số","DIM_Danh mục_Cách thức xếp hạng","DIM_Danh mục_Đánh giá_","DIM_Ghi chú","DIM_Ghi chú_Đánh giá","Heso_ThiDua","CurrentDate","F_Employee","F_Ngày nhận việc","F_Ngày kết thúc","F_Công chi tiết","F_Logistics","F_Xử lý hàng hóa","Kiểm kê hàng hóa","F_Hàng hóa thất thoát","F_Định biên trưng bày","DIM_Danh mục_Nhân viên","DinhBien","F_Tham gia đào tạo","Errors in DIM_Danh mục_Đánh giá_","DIM_Phân quyền user","DIM_Phân quyền vận hành_Vùng","tieu_chi_chay_nlvh_q2_2026"]
 
 annotation PBI_ProTooling = ["WebModelingEdit","DaxQueryView_Desktop","DevMode"]
 
@@ -132,6 +132,7 @@ ref table 'DIM_Phân quyền vận hành'
 ref table 'DIM_Phân quyền vận hành_Vùng'
 ref table LocalDateTable_b553739a-6cf8-41be-8e68-f42d703dcd12
 ref table LocalDateTable_cf501fc1-6cf5-49a0-940c-373af6bef841
+ref table tieu_chi_chay_nlvh_q2_2026
 
 ref role Chung
 ref role 'Kinh doanh_QLNH'

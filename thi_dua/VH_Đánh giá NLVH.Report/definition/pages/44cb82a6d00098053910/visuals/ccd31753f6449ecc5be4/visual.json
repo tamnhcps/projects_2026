@@ -278,6 +278,34 @@
           "selector": {
             "metadata": "DIM_Ghi chú_Đánh giá.Xếp loại"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.58373066839121D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_Ghi chú_Đánh giá.Điều kiện 1: Tổng điểm NLVH (X)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.42584105756504D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_Ghi chú_Đánh giá.Điều kiện 2: (*)Tổng chi tiêu đạt (Y)"
+          }
         }
       ],
       "columnHeaders": [

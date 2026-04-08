@@ -1,0 +1,60 @@
+table tieu_chi_chay_nlvh_q2_2026
+	lineageTag: 70d217b4-78a6-473b-9d63-441010758e65
+
+	column 'Tên chỉ số'
+		dataType: string
+		lineageTag: 7f62e04f-65f2-430a-b8f8-06cd6f45a095
+		summarizeBy: none
+		sourceColumn: Tên chỉ số
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Công thức tính'
+		dataType: string
+		lineageTag: dbdc120f-f463-4573-aee8-26c9fbe42b9a
+		summarizeBy: none
+		sourceColumn: Công thức tính
+
+		annotation SummarizationSetBy = Automatic
+
+	column Target
+		dataType: string
+		lineageTag: 00f868d4-dc00-4ecf-97d5-b011b4062f79
+		summarizeBy: none
+		sourceColumn: Target
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hướng dẫn cách lấy dữ liệu'
+		dataType: string
+		lineageTag: b50f02d9-830a-45fc-a59f-cfd47e860a87
+		summarizeBy: none
+		sourceColumn: Hướng dẫn cách lấy dữ liệu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nguồn dữ liệu'
+		dataType: string
+		lineageTag: 5eca2c43-5cdf-4b02-a110-17f55d3fa8f3
+		summarizeBy: none
+		sourceColumn: Nguồn dữ liệu
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tieu_chi_chay_nlvh_q2_2026 = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1DjwUko_3hMBFDqq1IqgzyoJ1sdbiftNIaf44jXEtCA8/edit?usp=sharing"),
+				    #"Q2/2026_Table" = Source{[name="Q2/2026",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Q2/2026_Table", [PromoteAllScalars=true]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"STT", "Người đề xuất", "Hạng mục", "Mô tả ý nghĩa chỉ số"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"Tên chỉ số", "Công thức tính", "Target", "Hướng dẫn cách lấy dữ liệu", "Nguồn dữ liệu", "Tần suất cập nhật dữ liệu", "Phương thức cập nhật dữ liệu", "Trọng số thành phần"}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Reordered Columns",{"Tần suất cập nhật dữ liệu", "Phương thức cập nhật dữ liệu", "Trọng số thành phần"})
+				in
+				    #"Removed Columns1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
