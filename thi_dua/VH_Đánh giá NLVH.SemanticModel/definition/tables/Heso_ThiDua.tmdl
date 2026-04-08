@@ -1,0 +1,91 @@
+table Heso_ThiDua
+	lineageTag: eaf0de7a-5194-4651-a6ff-f80a05b173e5
+
+	column nhom_hang_cap_1
+		dataType: string
+		lineageTag: 906bb6f1-a2e9-4f24-a400-de27d9bde14e
+		summarizeBy: none
+		sourceColumn: nhom_hang_cap_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column nhom_hang_cap_2
+		dataType: string
+		lineageTag: 6d9bdfd7-369e-4012-8a85-73d2358ef294
+		summarizeBy: none
+		sourceColumn: nhom_hang_cap_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column nhom_hang
+		dataType: string
+		lineageTag: 2ef4b7f6-1ad7-42f3-b8e2-2fbd3fcf5ad1
+		summarizeBy: none
+		sourceColumn: nhom_hang
+
+		annotation SummarizationSetBy = Automatic
+
+	column phan_loai
+		dataType: string
+		lineageTag: 141cae69-4173-4fa4-b4df-ef94814c2062
+		summarizeBy: none
+		sourceColumn: phan_loai
+
+		annotation SummarizationSetBy = Automatic
+
+	column he_so_thi_dua_phu_kien
+		dataType: double
+		lineageTag: cb53b95d-dc3a-4533-b247-08f976abd00b
+		summarizeBy: sum
+		sourceColumn: he_so_thi_dua_phu_kien
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ngay_bat_dau
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6c4b21c2-5abe-4aaf-bbbd-22c02a33c566
+		summarizeBy: none
+		sourceColumn: ngay_bat_dau
+
+		variation Variation
+			isDefault
+			relationship: 3840be9f-8193-4b6e-958e-12e39af8ded3
+			defaultHierarchy: LocalDateTable_c8df1d21-a5b0-4a65-b7e5-9c0f37a2319c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ngay_ket_thuc
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 844f1537-fb17-44f3-8201-8b4283ce316f
+		summarizeBy: none
+		sourceColumn: ngay_ket_thuc
+
+		variation Variation
+			isDefault
+			relationship: 4ba92aea-00f1-4a19-9c5d-1fdeebb60f0e
+			defaultHierarchy: LocalDateTable_8c9f9962-52b5-420f-8d18-d46c5107670a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Heso_ThiDua = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=6e97d189-0524-457d-bd6e-30d5e5ad63ad""#(lf)SELECT * FROM `cellphones-data-platform.cps_google_sheets_dwh.cps_he_so_thi_dua_phu_kien_history`", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"he_so_thi_dua_phu_kien", type number}, {"ngay_bat_dau", type date}, {"ngay_ket_thuc", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

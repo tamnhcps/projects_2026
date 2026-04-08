@@ -1,0 +1,40 @@
+table 'DIM_Ghi chú_Đánh giá'
+	lineageTag: 884669ab-261e-4d29-90bf-d0ed1cbe1b73
+
+	column 'Xếp loại'
+		dataType: string
+		lineageTag: c58a79a5-4f80-4c33-8e2c-516b1dd712d0
+		summarizeBy: none
+		sourceColumn: Xếp loại
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)'
+		dataType: string
+		lineageTag: e78a8acb-e376-4394-89ce-c7aa11960fa8
+		summarizeBy: none
+		sourceColumn: Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Điều kiện 2: Tổng điểm NLVH (Y)'
+		dataType: string
+		lineageTag: 5ac18d9f-f9c2-4350-b1cb-d89474c0cc49
+		summarizeBy: none
+		sourceColumn: Điều kiện 2: Tổng điểm NLVH (Y)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Ghi chú_Đánh giá' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WilR41LlUwVJJRykCzDI0MFAFcUof7lpaolD8cNf6ZIWS0sqHu9tLFI5MfLh7YqZSrA5MmzlcmwVYVwhQvgRJ3hQubw6W9844vBBJ2hgubQqRPrwyFyodU2pgYJwMVQHlQBQ5P9y1OC9DIenwwnyl2FgA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)" = _t, #"Điều kiện 2: Tổng điểm NLVH (Y)" = _t, #"Xếp loại#(lf)" = _t])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,5 @@
+role 'Kinh doanh_BOD'
+	modelPermission: read
+
+	annotation PBI_Id = 71c078c4036244598e65d8f5b0c8543c
+

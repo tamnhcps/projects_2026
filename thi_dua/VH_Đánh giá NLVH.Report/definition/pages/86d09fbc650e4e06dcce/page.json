@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "86d09fbc650e4e06dcce",
+  "displayName": "Đánh giá AM - SMKN",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "pageBinding": {
+    "name": "c68d7564d5d63d087798",
+    "type": "Default",
+    "parameters": []
+  },
+  "visualInteractions": [
+    {
+      "source": "c2cdae6a53c2d0087072",
+      "target": "78d20e6121271bd55804",
+      "type": "DataFilter"
+    }
+  ]
+}

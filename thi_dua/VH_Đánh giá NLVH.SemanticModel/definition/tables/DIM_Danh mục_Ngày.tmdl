@@ -1,0 +1,415 @@
+table 'DIM_Danh mục_Ngày'
+	lineageTag: cd0865da-b9e6-4d5b-af1e-10cda43247d7
+
+	column Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 746c3dda-790c-4d4c-8bde-ac62036a91e3
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 1bafccf2-6a81-4210-8031-f205c2a29b93
+			defaultHierarchy: LocalDateTable_f4f18e9a-e1cd-431c-a6ae-e7d0a1813719.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DateKey
+		dataType: double
+		lineageTag: a849a627-0a6d-445f-b8b8-66be341e75df
+		summarizeBy: count
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Năm
+		dataType: int64
+		formatString: 0
+		lineageTag: 514c17ae-5f8a-4522-82cd-04e34798c193
+		summarizeBy: sum
+		sourceColumn: Năm
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quý
+		dataType: int64
+		formatString: 0
+		lineageTag: b7f1a3ac-5916-4758-b56a-8dc3d9929f81
+		summarizeBy: sum
+		sourceColumn: Quý
+
+		annotation SummarizationSetBy = Automatic
+
+	column Năm/Quý
+		dataType: string
+		lineageTag: ae4b098c-dc8f-41a8-931a-dc2373a60a3a
+		summarizeBy: none
+		sourceColumn: Năm/Quý
+
+		annotation SummarizationSetBy = Automatic
+
+	column Năm/Quý_Index
+		dataType: double
+		lineageTag: 481d4592-3b55-4627-8a84-2d3fa7f64923
+		summarizeBy: sum
+		sourceColumn: Năm/Quý_Index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tháng
+		dataType: int64
+		formatString: 0
+		lineageTag: c8f3aed9-0619-45c5-84a0-97f8eb1270d7
+		summarizeBy: sum
+		sourceColumn: Tháng
+
+		annotation SummarizationSetBy = Automatic
+
+	column Năm/Tháng
+		dataType: string
+		lineageTag: 76b39c05-fe42-4f06-ac85-4bf6ed06205f
+		summarizeBy: none
+		sourceColumn: Năm/Tháng
+
+		annotation SummarizationSetBy = Automatic
+
+	column Năm/Tháng_Index
+		dataType: double
+		lineageTag: 1fdcf0a1-13b9-4097-a3d7-f3ff173e6a6a
+		summarizeBy: sum
+		sourceColumn: Năm/Tháng_Index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Cuối tháng'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 0c096415-ed1c-49c9-ad15-138d33ccf685
+		summarizeBy: none
+		sourceColumn: Cuối tháng
+
+		variation Variation
+			isDefault
+			relationship: 5c0ea1d7-3740-4ccb-a5c0-4996b18c1c4f
+			defaultHierarchy: LocalDateTable_27691a0f-8526-4c66-a3b8-5e62127a3875.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Đầu tháng'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: cb60430d-b00b-42fb-b494-9b036321ab6b
+		summarizeBy: none
+		sourceColumn: Đầu tháng
+
+		variation Variation
+			isDefault
+			relationship: aa970fc9-de3a-4207-b821-3ddcda7cc635
+			defaultHierarchy: LocalDateTable_010e3b34-a1ee-4c5c-8dbe-5c0bfd9cfbba.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Năm/Tháng/Tuần
+		dataType: string
+		lineageTag: cf4e697d-2f3b-489d-9b64-7a2ec5cd8390
+		summarizeBy: none
+		sourceColumn: Năm/Tháng/Tuần
+
+		annotation SummarizationSetBy = Automatic
+
+	column Năm/Tháng/Tuần_Index
+		dataType: double
+		lineageTag: 24c1fd2a-069b-457e-bfb2-34c4042859fd
+		summarizeBy: sum
+		sourceColumn: Năm/Tháng/Tuần_Index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tuần
+		dataType: int64
+		formatString: 0
+		lineageTag: b011b724-6cf1-4af0-b901-257a62c03a3c
+		summarizeBy: sum
+		sourceColumn: Tuần
+
+		annotation SummarizationSetBy = Automatic
+
+	column Năm/Tuần
+		dataType: string
+		lineageTag: e6bf7450-b195-4ac9-ac6e-8482c0310e86
+		summarizeBy: none
+		sourceColumn: Năm/Tuần
+
+		annotation SummarizationSetBy = Automatic
+
+	column Năm/Tuần_Index
+		dataType: double
+		lineageTag: f9422fca-f1e7-4c30-b917-efb8bf47c490
+		summarizeBy: sum
+		sourceColumn: Năm/Tuần_Index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Thứ_Index_RAW
+		dataType: int64
+		formatString: 0
+		lineageTag: 15af1ee4-ffb2-44c1-acfa-c21864b48dfc
+		summarizeBy: sum
+		sourceColumn: Thứ_Index_RAW
+
+		annotation SummarizationSetBy = Automatic
+
+	column Thứ
+		dataType: string
+		lineageTag: 238f0be5-c55f-4fab-9e5d-3459fd91589b
+		summarizeBy: none
+		sourceColumn: Thứ
+
+		annotation SummarizationSetBy = Automatic
+
+	column Thứ_Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 554de19f-930c-4db4-8380-377aede89bf0
+		summarizeBy: sum
+		sourceColumn: Thứ_Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cuối tuần'
+		dataType: string
+		lineageTag: 21afd6fa-c70b-494e-98c7-94c7d9f941be
+		summarizeBy: none
+		sourceColumn: Cuối tuần
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ngày
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ca917d5-79cf-46b6-94c6-81b47bcb39e0
+		summarizeBy: sum
+		sourceColumn: Ngày
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsHoliday
+		dataType: string
+		lineageTag: 3e95c63f-481d-4d65-822c-f052b957dbb0
+		summarizeBy: none
+		sourceColumn: IsHoliday
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tuần_Apple
+		dataType: int64
+		formatString: 0
+		lineageTag: e19a10c6-cbcc-4666-9393-2dd9065ad306
+		summarizeBy: sum
+		sourceColumn: Tuần_Apple
+
+		annotation SummarizationSetBy = Automatic
+
+	column Năm/Tuần_Apple
+		dataType: string
+		lineageTag: 951c3c81-cdd5-4560-90f5-bd27a4876a9b
+		summarizeBy: none
+		sourceColumn: Năm/Tuần_Apple
+
+		annotation SummarizationSetBy = Automatic
+
+	column Năm/Tuần_Index_Apple
+		dataType: double
+		lineageTag: 5da38e4c-70ba-4afb-8a23-0ab4de0ed72c
+		summarizeBy: sum
+		sourceColumn: Năm/Tuần_Index_Apple
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Ngày_IsActive =
+			
+			VAR mindate =
+			    MIN ( 'Kết quả đánh giá Shop'[Tháng] )
+			VAR maxdate =
+			    // MAX ( 'FACT_Sale_Doanh số bán'[Date] )
+			    MAX(CurrentDate[Date])-1
+			RETURN
+			    IF (
+			        'DIM_Danh mục_Ngày'[Date] >= mindate
+			            && 'DIM_Danh mục_Ngày'[Date] <= maxdate,
+			        1,
+			        BLANK ()
+			    )
+		formatString: 0
+		lineageTag: 1422f9ad-372e-4a0f-b10e-e3ad353edcf1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Giai đoạn' =
+			
+			VAR nam_max =
+			    CALCULATE (
+			        MAX ( 'DIM_Danh mục_Ngày'[Năm] ),
+			        FILTER (
+			            'DIM_Danh mục_Ngày',
+			            'DIM_Danh mục_Ngày'[Tháng_IsActive] = 1
+			        )
+			    )
+			VAR thang_max =
+			    CALCULATE (
+			        MAX ( 'DIM_Danh mục_Ngày'[Tháng] ),
+			        FILTER (
+			            'DIM_Danh mục_Ngày',
+			            'DIM_Danh mục_Ngày'[Tháng_IsActive] = 1
+			                && 'DIM_Danh mục_Ngày'[Năm] = nam_max
+			        )
+			    )
+			VAR thang_group =
+			    SWITCH (
+			        TRUE (),
+			        'DIM_Danh mục_Ngày'[Tháng] < thang_max,
+			            "01 - "
+			                & FORMAT (
+			                    thang_max - 1,
+			                    "0#"
+			                ) & "/"
+			                & FORMAT (
+			                    nam_max,
+			                    "#"
+			                ),
+			        'DIM_Danh mục_Ngày'[Tháng] = thang_max, "Tháng hiện tại",
+			        FORMAT (
+			            thang_max + 1,
+			            "0#"
+			        ) & " - 12/"
+			            & FORMAT (
+			                nam_max,
+			                "#"
+			            )
+			    )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        'DIM_Danh mục_Ngày'[Năm] = nam_max , thang_group,
+			        FORMAT (
+			            'DIM_Danh mục_Ngày'[Năm],
+			            "#"
+			        )
+			    )
+		lineageTag: 74c083d4-1f9b-485e-9cbe-fd868a2b5822
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tháng_IsActive =
+			
+			var monthx = calculate(sum('DIM_Danh mục_Ngày'[Ngày_IsActive]),filter('DIM_Danh mục_Ngày','DIM_Danh mục_Ngày'[Năm/Tháng] = earlier('DIM_Danh mục_Ngày'[Năm/Tháng])))
+			return if(monthx > 0,1,BLANK())
+		formatString: 0
+		lineageTag: 3d8e08af-2019-4da6-a081-d362f4799c15
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ngày_ActiveLog =
+			
+			VAR mindate =
+			    MIN ( 'Kết quả đánh giá Shop'[Tháng] )
+			VAR maxdate =
+			    MAX ( 'FACT_Sale_Doanh số bán'[Date] )
+			RETURN
+			    IF (
+			        'DIM_Danh mục_Ngày'[Date] >= DATE(YEAR(mindate), MONTH(mindate), 1)
+			            && 'DIM_Danh mục_Ngày'[Date] <= maxdate,
+			        1,
+			        BLANK ()
+			    )
+		formatString: 0
+		lineageTag: 837684c1-b030-4311-a784-d8ba69cce507
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ngày_curr =
+			
+			VAR _date =
+			    MAX(CurrentDate[Date])
+			RETURN
+			    IF (
+			        'DIM_Danh mục_Ngày'[Date] = _date,
+			        1,
+			        BLANK ()
+			    )
+		formatString: 0
+		lineageTag: b5e919b9-c28e-4ed4-866e-f06fd1384530
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column test = MAX(CurrentDate[Date])-1
+		formatString: Short Date
+		lineageTag: 4d79b9c0-6e1a-42ab-b64f-13904b5bcbb7
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: de56b3c7-8403-47b7-9760-d70f92f3be75
+			defaultHierarchy: LocalDateTable_b553739a-6cf8-41be-8e68-f42d703dcd12.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'test 2' = MIN ( 'Kết quả đánh giá Shop'[Tháng] )
+		formatString: Short Date
+		lineageTag: 99de840f-284c-484a-919a-5d9098b34953
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 8ff0a164-0840-474e-a0b8-3079a76c33a4
+			defaultHierarchy: LocalDateTable_cf501fc1-6cf5-49a0-940c-373af6bef841.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'test 3' = IF('DIM_Danh mục_Ngày'[Date] <= [Test],1,2)
+		formatString: 0
+		lineageTag: 4825c51a-b0af-4882-a195-1d180de56031
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Danh mục_Ngày' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				  Source = fxCalendar(#date(MinYear, 1, 1), #date(MaxYear, 12, 31), null, null, null),
+				  InsertAppleWeek = Table.AddColumn(Source,"Tuần_Apple", each Date.WeekOfYear(Date.AddDays([Date], 1), Day.Monday), Int64.Type),
+				  InsertAppleYearWeek = Table.TransformColumnTypes(Table.AddColumn(InsertAppleWeek, "Năm/Tuần_Apple", each Number.ToText(Date.Year(Date.AddDays([Date], 1)))&"/"&(if [Tuần_Apple]<10 then "0"& Number.ToText([Tuần_Apple]) else Number.ToText([Tuần_Apple]))), {{"Năm/Tuần_Apple", type text}}),
+				  InsertAppleYearWeekIndex = Table.TransformColumnTypes(Table.AddColumn(InsertAppleYearWeek, "Năm/Tuần_Index_Apple", each -100*Date.Year(Date.AddDays([Date], 1)) - [Tuần_Apple]), {{"Năm/Tuần_Index_Apple", type number}})
+				in
+				    InsertAppleYearWeekIndex
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

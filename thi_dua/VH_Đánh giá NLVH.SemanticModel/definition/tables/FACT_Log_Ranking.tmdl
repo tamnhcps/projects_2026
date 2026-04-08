@@ -1,0 +1,880 @@
+table FACT_Log_Ranking
+	lineageTag: ad75d9f5-7150-4aba-a6e7-e4a380f9c867
+
+	measure Measure
+		lineageTag: a9b8622f-0470-4602-95f3-d370503b203f
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	column Shop
+		lineageTag: c79f8343-7d39-40a4-9ac7-e1a6908f0c98
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: FACT_Sale_Doanh số bán[Shop]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		formatString: Short Date
+		lineageTag: 6abb1ce4-9360-41fc-81af-e67effe1405a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: FACT_Sale_Doanh số bán[Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target lượt tải app' = ```
+			
+			VAR target =
+			    'FACT_Log_Ranking'[Target lượt tải app]
+			RETURN 
+			    DIVIDE(
+			        'FACT_Log_Ranking'[Tỷ lệ lượt tải app],
+			        target,
+			        1
+			    )
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f9b321ff-c31f-49ef-9d46-86fe8a5b7c70
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target Dso' = DIVIDE('FACT_Log_Ranking'[Dso], 'FACT_Log_Ranking'[Target Dso], 1)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 596b9571-ed2e-4d8c-807b-2c6a2a6f1ca2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target năng suất định biên' = ```
+			
+			VAR target =
+			    1
+			RETURN 
+			    DIVIDE(
+			        'FACT_Log_Ranking'[Tỷ lệ năng suất định biên],
+			        target,
+			        1
+			    )
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 366ccecd-2063-41e9-be0f-20a9a6406b4b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target thu thập KHTN' = ```
+			
+			VAR target =
+			    1
+			RETURN 
+			    DIVIDE(
+			        'FACT_Log_Ranking'[Tỷ lệ thu thập KHTN],
+			        target
+			    )
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f601b800-8eb6-4b71-8c28-bfe989481911
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target sử dụng ESL' = ```
+			
+			VAR target =
+			    0.95
+			RETURN 
+			    DIVIDE(
+			        'FACT_Log_Ranking'[Tỷ lệ sử dụng ESL],
+			        target,
+			        1
+			    )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6db7b9d0-7e02-4644-89f9-6420e551b0df
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target trễ đơn giao hàng' = ```
+			
+			VAR target =
+			    (1 - 0.1)
+			RETURN 
+			    DIVIDE(
+			        (1 - 'FACT_Log_Ranking'[Tỷ lệ trễ đơn giao hàng]),
+			        target,
+			        1
+			    )
+			    
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4a02954b-cb69-41fd-9b7b-89bbdcb7757a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target tư vấn smember' = ```
+			
+			VAR target =
+			    'FACT_Log_Ranking'[Target tư vấn smember]
+			RETURN 
+			    DIVIDE(
+			        'FACT_Log_Ranking'[Tỷ lệ tư vấn smember],
+			        target,
+			        1
+			    )
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0d6ea999-f0c5-4c60-aa97-421c4e79c67a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target turnover rate' = ```
+			
+			VAR target =
+			    (1-
+			    IF('FACT_Log_Ranking'[Size] in {"A", "B"}
+			    ,0.1
+			    ,0.05))
+			RETURN 
+			    DIVIDE(
+			        (1-'FACT_Log_Ranking'[Tỷ lệ turnover rate]),
+			        target,
+			        1
+			    )
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 37103798-2184-4635-a2b4-6caff2fbe31d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target thành công đơn Online' = ```
+			
+			VAR target =
+			    0.65
+			RETURN 
+			    DIVIDE(
+			        'FACT_Log_Ranking'[Tỷ lệ thành công đơn Online],
+			        target,
+			        1
+			    )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2bed6390-19d5-406c-83f3-81424271c387
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column AM = RELATED('DIM_Danh mục_Phòng ban'[AM])
+		lineageTag: d1272726-2bec-4a94-8099-12c75a691a6d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Đánh giá cuối cùng' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    'FACT_Log_Ranking'[Score] >= 1 && 'FACT_Log_Ranking'[Tổng chỉ tiêu đạt] >= 9, "Xuất sắc tuyệt đối",
+			    'FACT_Log_Ranking'[Score] >= 0.8 && 'FACT_Log_Ranking'[Tổng chỉ tiêu đạt] >= 7, "Tốt",
+			    'FACT_Log_Ranking'[Score] >= 0.7 && 'FACT_Log_Ranking'[Tổng chỉ tiêu đạt] >= 5, "Khá",
+			    'FACT_Log_Ranking'[Score] >= 0.5 && 'FACT_Log_Ranking'[Tổng chỉ tiêu đạt] >= 3, "Kém",
+			    'FACT_Log_Ranking'[Score] < 0.5 && 'FACT_Log_Ranking'[Tổng chỉ tiêu đạt] < 3, "Cảnh cáo",
+			    "Cảnh cáo"
+			)
+			
+			```
+		lineageTag: 7c49c392-4c7f-4692-a4ba-cb66eae329b2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Điểm quy đổi' = RELATED('DIM_Danh mục_Đánh giá'[Điểm quy đổi])
+		lineageTag: 5027ca07-cef2-43f4-933a-c005f161e720
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dso =
+			
+			CALCULATE(
+			    SUM( 'FACT_Sale_Doanh số bán'[Dso] ),
+			    FILTER(
+			        'FACT_Sale_Doanh số bán',
+			        'FACT_Sale_Doanh số bán'[Shop]
+			            = EARLIER( 'FACT_Log_Ranking'[SHOP] )
+			            && 'FACT_Sale_Doanh số bán'[Date]
+			                = ( 'FACT_Log_Ranking'[MaxDate] )
+			            && 'FACT_Sale_Doanh số bán'[Check online+B2B] = 0
+			    )
+			)
+		lineageTag: 1acf82ac-2eb4-4363-938e-f407c12a8ce6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MaxDate = 'FACT_Log_Ranking'[Date]
+		formatString: General Date
+		lineageTag: c2dbb07c-5dd2-4461-a7bf-e0a7d35446be
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: cb750ab4-b755-41f0-97aa-f0da39d192df
+			defaultHierarchy: LocalDateTable_83818fa3-b54b-401c-9503-385d710ef4b5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column MIỀN = RELATED('DIM_Danh mục_Phòng ban'[Miền])
+		lineageTag: 6d7f48e5-d54c-4561-8145-a0ad65b65b33
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quản lý' = ```
+			
+			    CALCULATE(CONCATENATEX( VALUES( 'FACT_Đánh giá SM'[SM/SUP] ), 'FACT_Đánh giá SM'[SM/SUP], ", " ),
+			    FILTER('FACT_Đánh giá SM',
+			        'FACT_Đánh giá SM'[SHOP] = 'FACT_Log_Ranking'[SHOP]
+			        && YEAR('FACT_Đánh giá SM'[StartDate]) = YEAR('FACT_Log_Ranking'[Date])
+			        && MONTH('FACT_Đánh giá SM'[StartDate]) = MONTH('FACT_Log_Ranking'[Date])))
+			```
+		lineageTag: e0bf0de6-9f5b-4324-a133-78772915b6e9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ranking =
+			
+			RANKX(
+			    FILTER(
+			        'FACT_Log_Ranking',
+			        'FACT_Log_Ranking'[Date]
+			            = EARLIER( 'FACT_Log_Ranking'[Date] )
+			            && 'FACT_Log_Ranking'[MIỀN]
+			            = EARLIER( 'FACT_Log_Ranking'[MIỀN] )
+			    ),
+			    'FACT_Log_Ranking'[Score],
+			    [Score],
+			    DESC,
+			    DENSE
+			)
+		formatString: 0
+		lineageTag: 4e7aca2e-57ea-4d5d-92e7-f892e0935693
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Runrate =
+			
+			VAR SoNgay =
+			    CALCULATE(
+			        COUNT( 'DIM_Danh mục_Ngày'[Date] ),
+			        FILTER(
+			            'DIM_Danh mục_Ngày',
+			            'DIM_Danh mục_Ngày'[Đầu tháng]
+			                = EARLIER( 'FACT_Log_Ranking'[Date] )
+			        )
+			    )
+			VAR SoNgayThucHien =
+			    CALCULATE(
+			        COUNT( 'DIM_Danh mục_Ngày'[Date] ),
+			        FILTER(
+			            'DIM_Danh mục_Ngày',
+			            'DIM_Danh mục_Ngày'[Ngày_IsActive] = 1
+			                && 'DIM_Danh mục_Ngày'[Đầu tháng]
+			                    = EARLIER( 'FACT_Log_Ranking'[Date] )
+			        )
+			    )
+			RETURN MAX(DIVIDE(SoNgay,SoNgayThucHien,0),1)
+		lineageTag: 54972835-1f13-41c0-b898-848990652167
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Score =
+			
+			VAR esl = 'FACT_Log_Ranking'[% Target sử dụng ESL]
+			VAR app = 'FACT_Log_Ranking'[% Target lượt tải app]
+			VAR nang_suat = 'FACT_Log_Ranking'[% Target năng suất định biên]
+			VAR dao_tao = 'FACT_Log_Ranking'[% Target tham gia đào tạo]
+			VAR khtn = 'FACT_Log_Ranking'[% Target thu thập KHTN]
+			VAR onl = 'FACT_Log_Ranking'[% Target thành công đơn Online]
+			VAR that_thoat = 'FACT_Log_Ranking'[% Target thất thoát hàng hóa]
+			VAR tre_don = 'FACT_Log_Ranking'[% Target trễ đơn giao hàng]
+			VAR turnover = 'FACT_Log_Ranking'[% Target turnover rate]
+			VAR smem = 'FACT_Log_Ranking'[% Target tư vấn smember]
+			VAR _result =
+			0.15*(esl + turnover + nang_suat) + 0.1*(app + tre_don + onl + that_thoat) + 0.05*(dao_tao + smem + khtn)
+			RETURN _result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 556a7508-7674-4046-bd93-5bd23f8ae803
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Size = RELATED('DIM_Danh mục_Phòng ban'[Size])
+		lineageTag: b09ecd77-499c-4c0b-854d-9410f3e244b2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target Dso' = ```
+			
+			VAR _Shop = ('FACT_Log_Ranking'[SHOP])
+			VAR _StartDate = ('FACT_Log_Ranking'[Date])
+			VAR _MaxDate = ('FACT_Log_Ranking'[Date])
+			
+			VAR target =
+			    CALCULATE (
+			        SUM ( 'FACT_GSheet_Target_Shop_Daily'[Target] ),
+			        FILTER(
+			            FACT_GSheet_Target_Shop_Daily,
+			            'FACT_GSheet_Target_Shop_Daily'[Type] = "DSO TARGET"
+			            && 'FACT_GSheet_Target_Shop_Daily'[Object] = _Shop
+			            && 'FACT_GSheet_Target_Shop_Daily'[Date] >= _StartDate
+			            && 'FACT_GSheet_Target_Shop_Daily'[Date] <= _MaxDate
+			    )
+			    )
+			VAR dso_iP17 =
+			    CALCULATE (
+			        [Dso],
+			        FILTER (
+			            'FACT_Sale_Doanh số bán',
+			            CONTAINSSTRING ( 'FACT_Sale_Doanh số bán'[ProductCode], "APP-IP17" )
+			            || CONTAINSSTRING ( 'FACT_Sale_Doanh số bán'[ProductCode], "APP-IP-AIR" )
+			        ),
+			        'FACT_Sale_Doanh số bán'[Date] >= DATE (2025, 9, 19),
+			        'FACT_Sale_Doanh số bán'[Date] <= DATE (2025, 9, 24),
+			        'FACT_Sale_Doanh số bán'[Shop] = _Shop,
+			        'FACT_Sale_Doanh số bán'[Date] >= _StartDate,
+			        'FACT_Sale_Doanh số bán'[Date] <= _MaxDate
+			    )
+			
+			RETURN
+			    target + dso_iP17
+			
+			```
+		lineageTag: bc3d9925-ccfa-4a5a-ab93-5d29475f93e0
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Target tư vấn smember' =
+			
+			CALCULATE(
+			    AVERAGE(FACT_GSheet_Target_App[Target]),
+			    FILTER(
+			        FACT_GSheet_Target_App,
+			        FACT_GSheet_Target_App[Miền]
+			            = EARLIER( 'FACT_Log_Ranking'[MIỀN] )
+			            && FACT_GSheet_Target_App[Date] = 'FACT_Log_Ranking'[Date]
+			    )
+			)
+		lineageTag: 2dc4abe4-3ee1-4a47-b85c-4405b4ef2916
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tỉnh = RELATED('DIM_Danh mục_Phòng ban'[Province.Shortform])
+		lineageTag: 73c7c577-9ead-4775-a09b-f28728a9af9f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tổng chỉ tiêu đạt' = ```
+			
+			VAR esl = IF('FACT_Log_Ranking'[% Target sử dụng ESL] >= 1,1,0)
+			VAR app = IF('FACT_Log_Ranking'[% Target lượt tải app] >= 1,1,0)
+			VAR nang_suat = IF('FACT_Log_Ranking'[% Target năng suất định biên] >= 1,1,0)
+			VAR dao_tao = IF('FACT_Log_Ranking'[% Target tham gia đào tạo] >= 1,1,0)
+			VAR khtn = IF('FACT_Log_Ranking'[% Target thu thập KHTN] >= 1,1,0)
+			VAR onl = IF('FACT_Log_Ranking'[% Target thành công đơn Online] >= 1,1,0)
+			VAR that_thoat = IF('FACT_Log_Ranking'[% Target thất thoát hàng hóa] >= 1,1,0)
+			VAR tre_don = IF('FACT_Log_Ranking'[% Target trễ đơn giao hàng] >= 1,1,0)
+			VAR turnover = IF('FACT_Log_Ranking'[% Target turnover rate] >= 1,1,0)
+			VAR smem = IF('FACT_Log_Ranking'[% Target tư vấn smember] >= 1,1,0)
+			VAR _result =
+			1*(esl + turnover + nang_suat) + 1*(app + tre_don + onl + that_thoat) + 1*(dao_tao + smem + khtn)
+			RETURN _result
+			
+			```
+		formatString: 0
+		lineageTag: 49851ab3-a2e0-4c02-b16b-9b2ae816b609
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Xếp hạng cửa hàng' =
+			
+			RANKX(
+			    FILTER(
+			        'FACT_Log_Ranking',
+			        'FACT_Log_Ranking'[Date]
+			            = EARLIER( 'FACT_Log_Ranking'[Date] )
+			            && 'FACT_Log_Ranking'[MIỀN]
+			            = EARLIER( 'FACT_Log_Ranking'[MIỀN] )
+			            && 'FACT_Log_Ranking'[Đánh giá cuối cùng]
+			            = EARLIER( 'FACT_Log_Ranking'[Đánh giá cuối cùng] )
+			    ),
+			    'FACT_Log_Ranking'[Score],
+			    [Score],
+			    DESC,
+			    DENSE
+			)
+		formatString: 0
+		lineageTag: 8ce2e5aa-0b9d-4fba-8cf2-c4056a7e71f7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Xếp hạng cuối cùng' =
+			
+			VAR max_xuatsac =
+			CALCULATE(
+			    DISTINCTCOUNT( 'FACT_Log_Ranking'[SHOP] ),
+			    FILTER(
+			        'FACT_Log_Ranking',
+			            'FACT_Log_Ranking'[MIỀN] = EARLIER( 'FACT_Log_Ranking'[MIỀN] )
+			            && 'FACT_Log_Ranking'[Date] = EARLIER( 'FACT_Log_Ranking'[Date] )
+			            && 'FACT_Log_Ranking'[Đánh giá cuối cùng] = "Xuất sắc tuyệt đối"
+			    )
+			)
+			VAR max_tot =
+			CALCULATE(
+			    DISTINCTCOUNT( 'FACT_Log_Ranking'[SHOP] ),
+			    FILTER(
+			        'FACT_Log_Ranking',
+			            'FACT_Log_Ranking'[MIỀN] = EARLIER( 'FACT_Log_Ranking'[MIỀN] )
+			            && 'FACT_Log_Ranking'[Date] = EARLIER( 'FACT_Log_Ranking'[Date] )
+			            && 'FACT_Log_Ranking'[Đánh giá cuối cùng] = "Tốt"
+			    )
+			)
+			VAR max_kha =
+			CALCULATE(
+			    DISTINCTCOUNT( 'FACT_Log_Ranking'[SHOP] ),
+			    FILTER(
+			        'FACT_Log_Ranking',
+			            'FACT_Log_Ranking'[MIỀN] = EARLIER( 'FACT_Log_Ranking'[MIỀN] )
+			            && 'FACT_Log_Ranking'[Date] = EARLIER( 'FACT_Log_Ranking'[Date] )
+			            && 'FACT_Log_Ranking'[Đánh giá cuối cùng] = "Khá"
+			    )
+			)
+			VAR max_kem =
+			CALCULATE(
+			    DISTINCTCOUNT( 'FACT_Log_Ranking'[SHOP] ),
+			    FILTER(
+			        'FACT_Log_Ranking',
+			            'FACT_Log_Ranking'[MIỀN] = EARLIER( 'FACT_Log_Ranking'[MIỀN] )
+			            && 'FACT_Log_Ranking'[Date] = EARLIER( 'FACT_Log_Ranking'[Date] )
+			            && 'FACT_Log_Ranking'[Đánh giá cuối cùng] = "Kém"
+			    )
+			)
+			
+			RETURN SWITCH(TRUE(),
+			'FACT_Log_Ranking'[Đánh giá cuối cùng] = "Tốt",'FACT_Log_Ranking'[Xếp hạng cửa hàng]+max_xuatsac,
+			'FACT_Log_Ranking'[Đánh giá cuối cùng] = "Khá",'FACT_Log_Ranking'[Xếp hạng cửa hàng]+max_tot+max_xuatsac,
+			'FACT_Log_Ranking'[Đánh giá cuối cùng] = "Kém",'FACT_Log_Ranking'[Xếp hạng cửa hàng]+max_tot+max_xuatsac+max_kha,
+			'FACT_Log_Ranking'[Đánh giá cuối cùng] = "Cảnh cáo",'FACT_Log_Ranking'[Xếp hạng cửa hàng]+max_tot+max_xuatsac+max_kha+max_kem,'FACT_Log_Ranking'[Xếp hạng cửa hàng])
+		formatString: 0
+		lineageTag: 2a72fb60-1f41-45d2-ad5e-7217b9df077a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target tham gia đào tạo' = ```
+			
+			VAR target =
+			    0.88
+			RETURN 
+			    DIVIDE(
+			        'FACT_Log_Ranking'[Tỷ lệ tham gia đào tạo],
+			        target
+			    )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9c5f8047-abb6-4d51-b250-d19efee1f860
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% Target thất thoát hàng hóa' = ```
+			
+			VAR target =
+			    0.05*'FACT_Log_Ranking'[Dso]
+			RETURN 
+			    COALESCE(
+			        DIVIDE(
+			        'FACT_Log_Ranking'[Tỷ lệ thất thoát hàng hóa],
+			        target,
+			        1
+			    ),1)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d53e10b1-3836-4fe7-8369-92b0b68a50c7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tỷ lệ lượt tải app' = ```
+			
+			VAR luot_tai_app =
+			    CALCULATE(
+			        SUM( F_Combined_Metric_CS[luot_tai_app] ),
+			        FILTER(
+			            F_Combined_Metric_CS,
+			            F_Combined_Metric_CS[bo_phan]
+			                = EARLIER( 'FACT_Log_Ranking'[SHOP] )
+			                && F_Combined_Metric_CS[date] = ( 'FACT_Log_Ranking'[MaxDate] )
+			                && NOT (
+			                F_Combined_Metric_CS[date] >= DATE(2025,10,09)
+			                && F_Combined_Metric_CS[date] <= DATE(2025,10,15))  
+			        )
+			    )
+			VAR chua_co_app =
+			    CALCULATE(
+			        SUM( F_Combined_Metric_CS[chua_co_app] ),
+			        FILTER(
+			            F_Combined_Metric_CS,
+			            F_Combined_Metric_CS[bo_phan]
+			                = EARLIER( 'FACT_Log_Ranking'[SHOP] )
+			                && F_Combined_Metric_CS[date] = ( 'FACT_Log_Ranking'[MaxDate] )
+			                && NOT (
+			                F_Combined_Metric_CS[date] >= DATE(2025,10,09)
+			                && F_Combined_Metric_CS[date] <= DATE(2025,10,15))  
+			        )
+			    )
+			RETURN
+			MIN(DIVIDE(luot_tai_app,chua_co_app), 1)
+			```
+		lineageTag: b14adfca-cff8-4084-a559-51b8a9c3151a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tỷ lệ năng suất định biên' = ```
+			
+			VAR _shop = 'FACT_Log_Ranking'[SHOP]
+			VAR cong = 
+			CALCULATE(
+			    SUM( 'F_Công chi tiết'[Tổng giờ] ),
+			    FILTER(
+			        'F_Công chi tiết',
+			        'F_Công chi tiết'[Vị trí mới] <> BLANK()
+			            && 'F_Công chi tiết'[Vị trí mới] <> "PG"
+			            && 'F_Công chi tiết'[Vị trí mới] <> "Tiếp đón"
+			            && 'F_Công chi tiết'[IsHocviec] = "Không"
+			            && 'F_Công chi tiết'[Phòng ban] = _shop
+			            && 'F_Công chi tiết'[Date]
+			                = ( 'FACT_Log_Ranking'[MaxDate] )
+			    )
+			)
+			VAR dso = 
+			'FACT_Log_Ranking'[Dso]
+			VAR nang_suat = DIVIDE(dso,cong)
+			VAR target = 
+			CALCULATE(
+			    AVERAGE('FACT_Công định biên'[Định biên_Năng suất]),
+			    FILTER(
+			        'FACT_Công định biên',
+			        'FACT_Công định biên'[Shop]
+			            = EARLIER( 'FACT_Log_Ranking'[SHOP] )
+			            && 'FACT_Công định biên'[StartDate] = STARTOFMONTH('FACT_Log_Ranking'[Date])
+			    )
+			)
+			RETURN
+			DIVIDE(nang_suat,target)
+			```
+		lineageTag: 65db89ac-e89b-4720-9ccf-95f46f3d7017
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tỷ lệ sử dụng ESL' =
+			
+			VAR _shop = 'FACT_Log_Ranking'[SHOP]   -- measure trả về tên cửa hàng
+			VAR _bgdt =
+			CALCULATE(
+			    SUM(F_PriceTag[Count_MaChaWeb]),
+			    FILTER(
+			        F_PriceTag,
+			        F_PriceTag[branchname] = _shop
+			        && F_PriceTag[date] = 'FACT_Log_Ranking'[MaxDate]
+			    ))
+			VAR _dinhbien =
+			CALCULATE(
+			    SUM('F_Định biên trưng bày'[ĐỊNH BIÊN TRƯNG BÀY]),
+			    FILTER(
+			        'F_Định biên trưng bày',
+			        'F_Định biên trưng bày'[MÃ SHOP] = _shop
+			    )
+			)
+			RETURN
+			MIN(DIVIDE(_bgdt,_dinhbien), 1)
+		lineageTag: 9d8face9-6510-44a2-8713-0b93015fc61d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tỷ lệ tham gia đào tạo' = ```
+			
+			VAR _shop = 'FACT_Log_Ranking'[SHOP]
+			VAR _startdate = STARTOFMONTH('FACT_Log_Ranking'[Date])
+			VAR _maxdate = 'FACT_Log_Ranking'[MaxDate]
+			VAR Current_Month = 
+			    CALCULATE(
+			        AVERAGE('F_Tham gia đào tạo'[Tỉ lệ tham gia]),
+			        FILTER(
+			            'F_Tham gia đào tạo',
+			            'F_Tham gia đào tạo'[SHOP] = _shop
+			            && 'F_Tham gia đào tạo'[StartDate] = _startdate
+			        )
+			    )
+			
+			RETURN
+			    Current_Month
+			```
+		lineageTag: 74f94ea1-e82b-43e0-8dbf-d6f573740a41
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tỷ lệ thu thập KHTN' =
+			
+			VAR khtn_customer =
+			    CALCULATE(
+			        SUM( F_Combined_Metric_CS[khtn_customer] ),
+			        FILTER(
+			            F_Combined_Metric_CS,
+			            F_Combined_Metric_CS[bo_phan]
+			                = EARLIER( 'FACT_Log_Ranking'[SHOP] )
+			                && F_Combined_Metric_CS[date] = ( 'FACT_Log_Ranking'[MaxDate] )
+			        )
+			    )
+			VAR Target_daily =
+			    CALCULATE(
+			        SUM( F_Combined_Metric_CS[target_daily_khtn] ),
+			        FILTER(
+			            F_Combined_Metric_CS,
+			            F_Combined_Metric_CS[bo_phan]
+			                = EARLIER( 'FACT_Log_Ranking'[SHOP] )
+			                && F_Combined_Metric_CS[date] = ( 'FACT_Log_Ranking'[MaxDate] )
+			        )
+			    )
+			RETURN
+			MIN(DIVIDE(khtn_customer,Target_daily), 1)
+		lineageTag: af489ac0-39d9-411a-bce9-0ee6e5938f53
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tỷ lệ trễ đơn giao hàng' = ```
+			
+			VAR _shop = 'FACT_Log_Ranking'[SHOP]
+			VAR _maxdate = 'FACT_Log_Ranking'[MaxDate]
+			VAR tre_han_DH = 
+			CALCULATE (
+			    COUNT('F_Logistics'[Trễ hạn_DH] ),
+			    FILTER (
+			        'F_Logistics',
+			        'F_Logistics'[Trễ hạn_DH]= "Trễ hạn"
+			        && F_Logistics[Cửa hàng] = _shop
+			        && F_Logistics[Ngày tạo chuyến đi].[Date] = _maxdate
+			    )
+			)
+			VAR tong_phan_loai = 
+			CALCULATE (
+			    COUNT('F_Logistics'[Trễ hạn_DH] ),
+			    FILTER (
+			        'F_Logistics',
+			        'F_Logistics'[Trễ hạn_DH] <> BLANK()
+			        && F_Logistics[Cửa hàng] = _shop
+			        && F_Logistics[Ngày tạo chuyến đi].[Date] = _maxdate
+			    )
+			)
+			RETURN
+			DIVIDE(tre_han_DH,tong_phan_loai,BLANK())
+			```
+		lineageTag: 0d716f10-d756-4b29-bc35-118b835ab51e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tỷ lệ tư vấn smember' = ```
+			
+			VAR _shop = 'FACT_Log_Ranking'[SHOP]
+			VAR _maxdate = 'FACT_Log_Ranking'[MaxDate]
+			VAR co_tu_van = 
+			CALCULATE (
+			    SUM('F_Combined_Metric_CS'[so_luong_phieu_co_tu_van] ),
+			    FILTER (
+			        'F_Combined_Metric_CS',
+			        F_Combined_Metric_CS[bo_phan] = _shop
+			        && F_Combined_Metric_CS[Date] = _maxdate
+			    )
+			)
+			VAR tu_van = 
+			CALCULATE (
+			    SUM('F_Combined_Metric_CS'[so_luong_phieu_tu_van] ),
+			    FILTER (
+			        'F_Combined_Metric_CS',
+			        F_Combined_Metric_CS[bo_phan] = _shop
+			        && F_Combined_Metric_CS[Date] = _maxdate
+			    )
+			)
+			RETURN
+			DIVIDE(co_tu_van,tu_van,BLANK())
+			```
+		lineageTag: 5fb31b9c-fe25-44cc-b92f-9f16d1076557
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tỷ lệ turnover rate' =
+			
+			VAR _shop =
+			    ('FACT_Log_Ranking'[SHOP])
+			VAR _maxdate =
+			    ('FACT_Log_Ranking'[MaxDate])
+			
+			-- Nhân sự còn lại đầu kỳ
+			RETURN
+			CALCULATE(
+			    [TurnoverRate],
+			    FILTER(
+			        'DIM_Danh mục_Phòng ban',
+			        'DIM_Danh mục_Phòng ban'[Cửa hàng] = _shop),
+			    FILTER(
+			        'DIM_Danh mục_Ngày',
+			        'DIM_Danh mục_Ngày'[Date] = _maxdate
+			    )
+			)
+		lineageTag: 1a6bcb22-318d-4b56-9c41-24933f67b4bc
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Target lượt tải app' =
+			
+			CALCULATE(
+			    AVERAGE(FACT_GSheet_Target_App[Target]),
+			    FILTER(
+			        FACT_GSheet_Target_App,
+			        FACT_GSheet_Target_App[Cửa hàng]
+			            = EARLIER( 'FACT_Log_Ranking'[SHOP] )
+			            && FACT_GSheet_Target_App[Date] = FACT_Log_Ranking[MaxDate]
+			    )
+			)
+		lineageTag: b24175be-d631-404d-97f8-35885d70f0ee
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tỷ lệ thành công đơn Online' =
+			
+			VAR sp =
+			    CALCULATE(
+			        SUM( F_Combined_Metric_CS[slg_sp_onl] ),
+			        FILTER(
+			            F_Combined_Metric_CS,
+			            F_Combined_Metric_CS[bo_phan]
+			                = EARLIER( 'FACT_Log_Ranking'[SHOP] )
+			                && F_Combined_Metric_CS[date] = ( 'FACT_Log_Ranking'[MaxDate] )
+			        )
+			    )
+			VAR onl =
+			    CALCULATE(
+			        SUM( F_Combined_Metric_CS[slg_onl] ),
+			        FILTER(
+			            F_Combined_Metric_CS,
+			            F_Combined_Metric_CS[bo_phan]
+			                = EARLIER( 'FACT_Log_Ranking'[SHOP] )
+			                && F_Combined_Metric_CS[date] = ( 'FACT_Log_Ranking'[MaxDate] )
+			        )
+			    )
+			RETURN
+			MIN(DIVIDE(sp,onl), 1)
+		lineageTag: 10421b1d-762b-43ac-b390-9139f81250d1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tỷ lệ thất thoát hàng hóa' = ```
+			
+			VAR _shop = 'FACT_Log_Ranking'[SHOP]
+			VAR _maxdate = 'FACT_Log_Ranking'[MaxDate]
+			var Stien = 
+			    CALCULATE(
+			        SUM('F_Xử lý hàng hóa'[Số tiền]),
+			        FILTER(
+			            'F_Xử lý hàng hóa',
+			            'F_Xử lý hàng hóa'[Cửa hàng] = _shop
+			            && 'F_Xử lý hàng hóa'[Ngày kiểm kê] = _maxdate
+			        )
+			    )
+			var Dso =
+			'FACT_Log_Ranking'[Dso]
+			return 
+			DIVIDE(Stien, Dso, BLANK())
+			```
+		lineageTag: b4d76136-e6e4-4e5e-bc33-947a2833b8f5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FACT_Log_Ranking = calculated
+		mode: import
+		source = ```
+				
+				var _start = CALCULATE (
+				    MAX ( 'DIM_Danh mục_Ngày'[Đầu tháng] ),
+				    FILTER (
+				        'DIM_Danh mục_Ngày',
+				        'DIM_Danh mục_Ngày'[Ngày_IsActive] = 1
+				    )
+				)
+				RETURN
+				SUMMARIZE(FILTER('FACT_Sale_Doanh số bán', 'FACT_Sale_Doanh số bán'[StartDate] = _start && 'FACT_Sale_Doanh số bán'[StartDate] <= [Maxdate_D] && not 'FACT_Sale_Doanh số bán'[StoreCode] in {"HN.HL","HCM.ONL","HN.B2B","HCM.B2B"}), 'FACT_Sale_Doanh số bán'[Shop],'FACT_Sale_Doanh số bán'[Date])
+				
+				```
+
+	annotation PBI_Id = aeaab12caafe4b33ae58d1a1b6508853
+

@@ -1,0 +1,170 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "a0a4fa4bb776485edf0f",
+  "position": {
+    "x": 13.36998350742166,
+    "y": 503.13358988455195,
+    "z": 7000,
+    "height": 160.43980208905992,
+    "width": 226.58603628367234,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Ghi chú_Đánh giá"
+                    }
+                  },
+                  "Property": "Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)"
+                }
+              },
+              "queryRef": "DIM_Ghi chú_Đánh giá.Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)",
+              "nativeQueryRef": "Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Ghi chú_Đánh giá"
+                    }
+                  },
+                  "Property": "Điều kiện 2: Tổng điểm NLVH (Y)"
+                }
+              },
+              "queryRef": "DIM_Ghi chú_Đánh giá.Điều kiện 2: Tổng điểm NLVH (Y)",
+              "nativeQueryRef": "Điều kiện 2: Tổng điểm NLVH (Y)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Ghi chú_Đánh giá"
+                    }
+                  },
+                  "Property": "Xếp loại"
+                }
+              },
+              "queryRef": "DIM_Ghi chú_Đánh giá.Xếp loại",
+              "nativeQueryRef": "Xếp loại"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_Ghi chú_Đánh giá"
+                  }
+                },
+                "Property": "Xếp loại"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "76.27627756028264D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_Ghi chú_Đánh giá.Xếp loại"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.18635607321131D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_Ghi chú_Đánh giá.Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.83527454242929D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_Ghi chú_Đánh giá.Điều kiện 2: Tổng điểm NLVH (Y)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

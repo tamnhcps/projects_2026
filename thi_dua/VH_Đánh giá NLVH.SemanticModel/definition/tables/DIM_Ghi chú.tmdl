@@ -1,0 +1,96 @@
+table 'DIM_Ghi chú'
+	lineageTag: 52f1b2bf-e6a3-45ba-8bf3-82853eab71fd
+
+	column STT
+		dataType: double
+		lineageTag: 9be890b6-5459-435b-8ca5-27e85a24264d
+		summarizeBy: sum
+		sourceColumn: STT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Chỉ số'
+		dataType: string
+		lineageTag: d7aef1c2-e238-4f47-9ddb-58da3dea255f
+		summarizeBy: none
+		sourceColumn: Chỉ số
+		sortByColumn: Index
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mô tả'
+		dataType: string
+		lineageTag: 05b67429-339b-4e5b-b80e-531d3030a499
+		summarizeBy: none
+		sourceColumn: Mô tả
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Công thức tính'
+		dataType: string
+		lineageTag: 34bd3cea-2ff4-4ef3-afd4-fe9365c553df
+		summarizeBy: none
+		sourceColumn: Công thức tính
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Target hiện tại'
+		dataType: string
+		lineageTag: bc38eb77-a168-48dd-8425-70e1f81d1b7d
+		summarizeBy: none
+		sourceColumn: Target hiện tại
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ghi chú khác'
+		dataType: string
+		lineageTag: 7356823e-64a6-401f-8a54-a69c4cbf4c6d
+		summarizeBy: none
+		sourceColumn: Ghi chú khác
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nguồn dữ liệu'
+		dataType: string
+		lineageTag: 99b3b36b-d379-4a00-b615-80c3064b70cf
+		summarizeBy: none
+		sourceColumn: Nguồn dữ liệu
+
+		annotation SummarizationSetBy = Automatic
+
+	column Link
+		dataType: string
+		lineageTag: 57ece582-c73a-45b9-9091-993c0281c147
+		summarizeBy: none
+		sourceColumn: Link
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: f5d52f97-dd61-4adb-bee3-ae32ae682f65
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Ghi chú' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("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", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [STT = _t, #"Chỉ số" = _t, #"Mô tả" = _t, #"Công thức tính" = _t, #"Target hiện tại" = _t, #"Ghi chú khác" = _t, #"Nguồn dữ liệu" = _t, Link = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"STT", type number}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 1, Int64.Type)
+				in
+				    #"Added Index"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

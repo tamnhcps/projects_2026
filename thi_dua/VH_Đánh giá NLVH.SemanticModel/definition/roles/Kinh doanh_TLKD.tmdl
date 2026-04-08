@@ -1,0 +1,5 @@
+role 'Kinh doanh_TLKD'
+	modelPermission: read
+
+	annotation PBI_Id = 9bcd72079b094568bbe2df89dfdcfa7a
+

@@ -1,0 +1,27 @@
+DEFINE
+	VAR __DS0FilterTable = 
+		TREATAS({"Tháng hiện tại"}, 'DIM_Danh mục_Ngày'[Giai đoạn])
+
+	VAR __DS0FilterTable2 = 
+		TREATAS({"Miền Nam"}, 'DIM_Danh mục_Miền'[Miền])
+
+	VAR __DS0FilterTable3 = 
+		TREATAS({1}, 'DIM_Danh mục_Ngày'[Tháng_IsActive])
+
+	VAR __DS0Core = 
+		SUMMARIZECOLUMNS(
+			'DIM_Danh mục_Ngày'[Date],
+			__DS0FilterTable,
+			__DS0FilterTable2,
+			__DS0FilterTable3,
+			"Số_quản_lý", 'Measure'[Số quản lý]
+		)
+
+	VAR __DS0BodyLimited = 
+		TOPN(1002, __DS0Core, 'DIM_Danh mục_Ngày'[Date], 0)
+
+EVALUATE
+	__DS0BodyLimited
+
+ORDER BY
+	'DIM_Danh mục_Ngày'[Date]

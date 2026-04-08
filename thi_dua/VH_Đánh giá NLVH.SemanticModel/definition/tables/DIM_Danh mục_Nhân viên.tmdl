@@ -1,0 +1,144 @@
+table 'DIM_Danh mục_Nhân viên'
+	lineageTag: a82a16ba-2250-4b5c-ad7b-1322d91d0ea2
+
+	column 'Mã nhân viên'
+		dataType: string
+		lineageTag: 89c5b8ff-1b39-4a9f-aac5-80abcee90c96
+		summarizeBy: none
+		sourceColumn: Mã nhân viên
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tên nhân viên'
+		dataType: string
+		lineageTag: 6efceb7c-98d9-49cc-954a-39da2d74c92e
+		summarizeBy: none
+		sourceColumn: Tên nhân viên
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inactive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5bea5239-79ef-4254-b300-981e0c5edc04
+		summarizeBy: none
+		sourceColumn: Inactive
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngày sinh'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f988a8fa-2341-484f-9233-ddab9931e620
+		summarizeBy: none
+		sourceColumn: Ngày sinh
+
+		variation Variation
+			isDefault
+			relationship: 1e54224d-5114-4e77-8d1a-5b7a9a8a017e
+			defaultHierarchy: LocalDateTable_0054dddf-93d7-40e9-b0bc-12068865518f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Tuổi
+		dataType: int64
+		formatString: 0
+		lineageTag: 14c95100-d92c-4581-b108-133b0588acb8
+		summarizeBy: sum
+		sourceColumn: Tuổi
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Giới tính'
+		dataType: string
+		lineageTag: b063f91a-f964-4470-9cd5-02c731380cdb
+		summarizeBy: none
+		sourceColumn: Giới tính
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vị trí'
+		dataType: string
+		lineageTag: d9669a68-6ba7-4574-a4fc-57db1cbc1b4d
+		summarizeBy: none
+		sourceColumn: Vị trí
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Đơn vị'
+		dataType: string
+		lineageTag: d5415f84-4f23-4e1c-9718-2c895bd50cdb
+		summarizeBy: none
+		sourceColumn: Đơn vị
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hình thức làm việc'
+		dataType: string
+		lineageTag: b9267456-aff7-4594-b310-ca235fc88b20
+		summarizeBy: none
+		sourceColumn: Hình thức làm việc
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trạng thái làm việc'
+		dataType: string
+		lineageTag: 415db967-6023-4f4c-a5ea-a7873b42e488
+		summarizeBy: none
+		sourceColumn: Trạng thái làm việc
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsIncludedInRate = ```
+			
+			VAR _pos = UPPER('DIM_Danh mục_Nhân viên'[Vị trí])
+			RETURN
+			    IF (
+			        NOT _pos IN {
+			            "QUẢN LÝ VÙNG (AM)",
+			            "TRƯỞNG CỬA HÀNG",
+			            "TRỢ LÝ CỬA HÀNG",
+			            "TRỢ LÝ SHOP ONLINE",
+			            "QUẢN LÝ SHOP ONLINE"
+			        }
+			        && NOT CONTAINSSTRING ( _pos, "TIẾP ĐÓN" ),
+			        TRUE(),
+			        FALSE()
+			    )
+			
+			```
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7ebfd785-7344-4d46-9b31-10ce30e0c1ae
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsProbation = ```
+			
+			LOOKUPVALUE(
+			    'F_Ngày kết thúc'[Trạng thái làm việc],
+			    'F_Ngày kết thúc'[Mã nhân viên], 'DIM_Danh mục_Nhân viên'[Mã nhân viên]
+			)
+			
+			```
+		lineageTag: 0d7b7991-e3fb-4ccb-b788-f7b1b0ca2508
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Danh mục_Nhân viên' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=9968744d-0b17-472e-8313-797f520f52ac""#(lf)SELECT#(lf)  user_id AS `Mã nhân viên`, #(lf)  full_name AS `Tên nhân viên`,#(lf)  CASE #(lf)    WHEN p.status = 1 THEN FALSE#(lf)    WHEN p.status = 0 THEN TRUE#(lf)  END AS Inactive,#(lf)  DATE(birthday) AS `Ngày sinh`,#(lf)  DATE_DIFF(CURRENT_DATE('+7'), DATE(birthday), YEAR) AS `Tuổi`,#(lf)  CASE p.gender#(lf)    WHEN 1 THEN 'Nam'#(lf)    WHEN 0 THEN 'Nữ'#(lf)  END AS `Giới tính`,#(lf)  CASE #(lf)    WHEN j.name = 'Trưởng nhóm DA/DE' THEN 'Trưởng phòng DA/DE'#(lf)    WHEN j.name = 'Chuyên viên DataAnalyst' THEN 'Chuyên viên Data Analyst'#(lf)  ELSE j.name#(lf)  END AS `Vị trí`,#(lf)  d.name AS `Đơn vị`,#(lf)  CASE p.working_form_type#(lf)    WHEN 2 THEN 'Bán thời gian' #(lf)    WHEN 3 THEN 'Cộng tác viên' #(lf)  ELSE 'Toàn thời gian'#(lf)  END AS `Hình thức làm việc`,#(lf)  CASE p.working_type#(lf)    WHEN 5 THEN 'Thực tập'#(lf)    WHEN 15 THEN 'Cộng tác viên' #(lf)  ELSE 'Đang làm việc/Nghỉ việc'#(lf)  END AS `Trạng thái làm việc`#(lf)FROM `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_profile`  p  #(lf)LEFT JOIN `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_jobtitle` j  ON j.id =  p.jobtitle_id#(lf)LEFT JOIN `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_department` d ON d.id = p.department_id#(lf)WHERE LEFT(user_id, 1) = 'S'#(lf)AND LEFT(d.name, 3) <> 'PG_'#(lf)AND d.working_place_name IN ('CPS - Văn Phòng (Miền Nam)', 'CPS - Văn Phòng (Miền Bắc)', 'CPS - Shop (Miền Nam)', 'CPS - Shop (Miền Bắc)')", null, [EnableFolding=true]),
+				    #"Replaced Value" = Table.ReplaceValue(Source,"CPS-HNO-CGI-306CG","CPS-HNO-CGI-310CG",Replacer.ReplaceText,{"Đơn vị"})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

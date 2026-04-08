@@ -1,0 +1,39 @@
+table LastUpdate
+	lineageTag: 980f5217-8b6d-49d0-9f20-7bb7a1e5b4bc
+
+	column CreateDate
+		formatString: General Date
+		lineageTag: e9131472-435d-48de-a44f-08f5faff27ad
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: FACT_Sale_Doanh số bán[CreateDate]
+
+		variation Variation
+			isDefault
+			relationship: db892f81-dea8-4a41-b3e7-01250104e034
+			defaultHierarchy: LocalDateTable_daddb39b-593f-44a9-9a84-107ab99aa409.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column _lastUpdate_calculate = CONVERT(ROUNDDOWN(LastUpdate[CreateDate],0) + if( ( time(HOUR(LastUpdate[CreateDate]), MINUTE(LastUpdate[CreateDate]),0) ) <= TIME(22,30,0), -1, 0 ), DATETIME)
+		formatString: Short Date
+		lineageTag: 1b47c99e-5a49-4924-a11b-a58bcf9d8c75
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 0fe23985-bf74-4440-a6ba-4de408c1c06b
+			defaultHierarchy: LocalDateTable_8659d9c1-b0b2-4931-a69c-bfdfa21c6ae0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition LastUpdate = calculated
+		mode: import
+		source =
+				
+				SUMMARIZE( FILTER( 'FACT_Sale_Doanh số bán', 'FACT_Sale_Doanh số bán'[CreateDate] = max('FACT_Sale_Doanh số bán'[CreateDate])), 'FACT_Sale_Doanh số bán'[CreateDate])
+
+	annotation PBI_Id = 24cf9583cdc54a6ca60349431046cb92
+

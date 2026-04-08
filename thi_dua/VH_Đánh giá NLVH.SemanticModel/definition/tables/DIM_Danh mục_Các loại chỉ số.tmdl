@@ -1,0 +1,46 @@
+table 'DIM_Danh mục_Các loại chỉ số'
+	excludeFromModelRefresh
+	lineageTag: 2a32a526-e4bc-4667-91f0-330d89f1aa3b
+
+	column 'Các loại chỉ số'
+		dataType: string
+		lineageTag: a8e2d0c4-1ac2-47ca-9320-b494f777d7a5
+		summarizeBy: none
+		sourceColumn: Các loại chỉ số
+		sortByColumn: Index
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Công thức tính'
+		dataType: string
+		lineageTag: 872e5ced-c3d4-4555-95b5-e736ee9db35e
+		summarizeBy: none
+		sourceColumn: Công thức tính
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: bbd398c9-295d-4894-9a01-21e663e2a3b9
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Danh mục_Các loại chỉ số' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("lVKxSsNQFP2VS6DQoqUpnTu4FRSXFpckQ4whCW0T276IunaoHYRmKK4tWsRqoaAueRSHF/ofr1/iTV6ERqnikge55557zrlXUaQGp2PXAsPmdAjEYXMfooCHUyLtS3VOA2itl5zeI0QUDZstwGCvkKt5bOICsfFrQ0PvWiaBzXAGZVnOSdq+IkUjh9N+Gwinz5l+pN7cBPmddSQ1PTA4XegQ01twCTVOB9CLBXX8q1giHTsCV3euTejZ3jmQ9XI9RTSnT65VgBLglH/3JdLTVKJAKDw+OqmJpo7PVqn8RtdHyCl7Qfuo9VGHNqd3TsZH10NIJQ4J+QuCOhsjEcGpEkanSkidzbUKZdgDJX9gEF9vQTENulASr/YH5cMvlOnKiiC4d1I2bfaWZBFfBXoMZwRsHn4QtMfpLZbieHFMNEoQVdWX5YoJP6biXajuYYZtFza9oC0VLdzEgECTzZMl9sU6zti7g5O3cD0erlJElvRbF1ywyZc1whYIwB9e1pKmfQI=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Các loại chỉ số" = _t, #"Công thức tính" = _t]),
+				    #"Added Index" = Table.AddIndexColumn(Source, "Index", 1, 1, Int64.Type)
+				in
+				    #"Added Index"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

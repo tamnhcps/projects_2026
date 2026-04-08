@@ -1,0 +1,34 @@
+table 'F_Định biên trưng bày'
+	lineageTag: eed7c064-215b-4244-8b4a-289d7eea3aed
+
+	column 'MÃ SHOP'
+		dataType: string
+		lineageTag: 2f8cc1c2-2d9b-4010-902e-d92074f047e6
+		summarizeBy: none
+		sourceColumn: MÃ SHOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ĐỊNH BIÊN TRƯNG BÀY'
+		dataType: int64
+		formatString: 0
+		lineageTag: c6b27906-6ea5-4493-b481-ba83f85df74b
+		summarizeBy: sum
+		sourceColumn: ĐỊNH BIÊN TRƯNG BÀY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'F_Định biên trưng bày' = m
+		mode: import
+		queryGroup: NLVH
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "select*from cellphones-data-platform.cps_larksheet.dinh_bien_tb2", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"iferror_xludf_dummyfunctioncomputed_valuema_shop", "MÃ SHOP"}, {"dinh_bien_trung_bay", "ĐỊNH BIÊN TRƯNG BÀY"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

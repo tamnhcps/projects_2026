@@ -1,0 +1,50 @@
+table CurrentDate
+	lineageTag: 4cf28c4a-f344-44e1-b9af-800b9c633696
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e98c6c5-9826-4e2b-a6fe-9f97d5dec82a
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 927d6e0c-2359-46f7-a3bf-ea2654be029f
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: df949e8c-e139-4b31-ab0d-7b24a471d1b2
+		summarizeBy: none
+		sourceColumn: datetime
+
+		variation Variation
+			isDefault
+			relationship: eddb7865-eac2-4b48-9b37-86f532a904a6
+			defaultHierarchy: LocalDateTable_1fc41b9c-1454-4466-9696-138df71a4dc8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CurrentDate = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=6e97d189-0524-457d-bd6e-30d5e5ad63ad""#(lf)select#(lf)1 as Index,#(lf)current_datetime(""Asia/Ho_Chi_Minh"") as datetime,#(lf)current_datetime(""Asia/Ho_Chi_Minh"") as Date", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

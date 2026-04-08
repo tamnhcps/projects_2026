@@ -1,0 +1,252 @@
+table 'DIM_Danh mục_Nhóm hàng'
+	excludeFromModelRefresh
+	lineageTag: bf69697e-019c-4f45-8c02-9deda707d45d
+
+	column 'Nhóm hàng'
+		dataType: string
+		lineageTag: 98b4f250-a0ed-49cd-9e3b-12c710e0c6d7
+		summarizeBy: none
+		sourceColumn: Nhóm hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nhóm hàng cấp 1'
+		dataType: string
+		lineageTag: e452622c-1700-4ab7-9d8d-f6575cdfabf1
+		summarizeBy: none
+		sourceColumn: Nhóm hàng cấp 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nhóm hàng cấp 2'
+		dataType: string
+		lineageTag: 1a28e693-6774-4c2a-a31c-271b085e24c3
+		summarizeBy: none
+		sourceColumn: Nhóm hàng cấp 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngành hàng'
+		dataType: string
+		lineageTag: fa1bf4ac-233b-4ac1-8d3e-e3143b7cd9dd
+		summarizeBy: none
+		sourceColumn: Ngành hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Thuộc tính'
+		dataType: string
+		lineageTag: d4a03669-f3c5-441f-b285-7aa08e52cdbc
+		summarizeBy: none
+		sourceColumn: Thuộc tính
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level
+		dataType: int64
+		formatString: 0
+		lineageTag: 654bec6d-e48d-4849-8364-03b5baf5d495
+		summarizeBy: sum
+		sourceColumn: Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level1
+		dataType: string
+		lineageTag: fbfa8206-5791-45bc-8ee7-3e5efac8eb19
+		summarizeBy: none
+		sourceColumn: Level1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level2
+		dataType: string
+		lineageTag: 2b7a7df9-a327-4cfb-adf9-166a63962722
+		summarizeBy: none
+		sourceColumn: Level2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level3
+		dataType: string
+		lineageTag: fc8bfa51-0ea0-4626-9511-9c534bcb46e7
+		summarizeBy: none
+		sourceColumn: Level3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Level4
+		dataType: string
+		lineageTag: 73a0cda9-79c1-44b7-8eec-1b98b523f69d
+		summarizeBy: none
+		sourceColumn: Level4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bán kèm'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3916e8cc-2b75-40e3-ab25-689023519053
+		summarizeBy: sum
+		sourceColumn: Bán kèm
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubBrand
+		dataType: string
+		lineageTag: 16d5dd72-9dbe-460a-80ae-be38a77343da
+		summarizeBy: none
+		sourceColumn: SubBrand
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: 326a2134-0cac-4dab-b0b5-d90243806370
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nhóm S-Star'
+		dataType: string
+		lineageTag: 6fbb9d31-f6e7-4fe3-90ca-b4bae4f182e0
+		summarizeBy: none
+		sourceColumn: Nhóm S-Star
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hệ số thi đua phụ kiện'
+		dataType: double
+		lineageTag: 2f860a3b-16ff-4afd-bfd0-b9e28714445e
+		summarizeBy: sum
+		sourceColumn: Hệ số thi đua phụ kiện
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Nhóm S-Star_Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: c7a052e4-9403-496b-bf53-00c289261b82
+		summarizeBy: sum
+		sourceColumn: Nhóm S-Star_Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand_Nhóm =
+			
+			IF(
+			    'DIM_Danh mục_Nhóm hàng'[Nhóm] = "ANDROID"
+			        && 'DIM_Danh mục_Nhóm hàng'[Phân nhóm] = "NHÓM 3",
+			    IF(
+			        'DIM_Danh mục_Nhóm hàng'[Nhóm hàng] = "NUBIA CTM"
+			            || 'DIM_Danh mục_Nhóm hàng'[Nhóm hàng] = "TCL MỚI"
+			            || 'DIM_Danh mục_Nhóm hàng'[Nhóm hàng] = "BENCO CTM",
+			        'DIM_Danh mục_Nhóm hàng'[Brand],
+			        "KHÁC"
+			    ),
+			    'DIM_Danh mục_Nhóm hàng'[Brand]
+			)
+		lineageTag: e778eaf1-9729-4f80-89c1-703b127e1324
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nhóm =
+			
+			SWITCH (
+			    TRUE (),
+			    'DIM_Danh mục_Nhóm hàng'[Nhóm hàng cấp 2] = "ĐIỆN MÁY", "ĐIỆN MÁY",
+			    'DIM_Danh mục_Nhóm hàng'[Nhóm hàng cấp 2] = "Gia Dụng", "GIA DỤNG",
+			    'DIM_Danh mục_Nhóm hàng'[Brand] = "APPLE", "APPLE",
+			    'DIM_Danh mục_Nhóm hàng'[Brand] = "DEMO", "DEMO",
+			    'DIM_Danh mục_Nhóm hàng'[Brand] = "LAPTOP"
+			        || 'DIM_Danh mục_Nhóm hàng'[Brand] = "PC"
+			        || 'DIM_Danh mục_Nhóm hàng'[Brand] = "SURFACE", "LAPTOP/PC",
+			    'DIM_Danh mục_Nhóm hàng'[Brand] <> BLANK() && NOT 'DIM_Danh mục_Nhóm hàng'[Nhóm hàng] IN {"TRANG TRÍ", "VẬT TƯ ĐIỆN TỬ", "MASSTEL CTM", "NOKIA CTM", "NOKIA CŨ"}, "ANDROID",
+			    BLANK ()
+			)
+		lineageTag: 3a92f159-2f4f-48f4-85c2-99dde3c0938c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nhóm Apple' =
+			
+			SWITCH( TRUE(),
+			'DIM_Danh mục_Nhóm hàng'[Nhóm] = "APPLE" && 'DIM_Danh mục_Nhóm hàng'[Level2] = "CTM" && 'DIM_Danh mục_Nhóm hàng'[Level4] <> BLANK(), 'DIM_Danh mục_Nhóm hàng'[SubBrand],
+			'DIM_Danh mục_Nhóm hàng'[Nhóm hàng] = "PHỤ KIỆN APPLE", "PK APPLE",
+			BLANK())
+		lineageTag: 94d48d09-bd64-442c-9d43-218cf0b27039
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column NhomHang_isMay = ```
+			
+			if(  'DIM_Danh mục_Nhóm hàng'[Nhóm hàng cấp 1] = "HÀNG HÓA" -- || 'DIM_Danh mục_Nhóm hàng'[nhom_hang_cap_1] = "LAPTOP CŨ" )
+			        && 'DIM_Danh mục_Nhóm hàng'[Nhóm hàng cấp 2] <> "Gia Dụng"
+			        && 'DIM_Danh mục_Nhóm hàng'[Nhóm hàng cấp 2] <> "ĐIỆN MÁY"
+			        && 'DIM_Danh mục_Nhóm hàng'[Nhóm hàng cấp 2] <> "DEMO"
+			        && 'DIM_Danh mục_Nhóm hàng'[Nhóm hàng cấp 2] <> "ĐIỆN TỬ"        
+			        && 'DIM_Danh mục_Nhóm hàng'[Nhóm hàng] <> "PC CTM", 1, 0)
+			```
+		formatString: 0
+		lineageTag: b4deefe1-41b4-40e1-a5ee-3a1107c8df68
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Phân nhóm' =
+			
+			VAR phannhom =
+			    SWITCH (
+			        TRUE (),
+			        'DIM_Danh mục_Nhóm hàng'[Brand] = "NOKIA"
+			            || 'DIM_Danh mục_Nhóm hàng'[Brand] = "OPPO"
+			            || 'DIM_Danh mục_Nhóm hàng'[Brand] = "REALME"
+			            || 'DIM_Danh mục_Nhóm hàng'[Brand] = "VIVO", "NHÓM 1",
+			        'DIM_Danh mục_Nhóm hàng'[Brand] = "SAMSUNG"
+			            || 'DIM_Danh mục_Nhóm hàng'[Brand] = "XIAOMI", "NHÓM 2",
+			        "NHÓM 3"
+			    )
+			RETURN
+			    IF (
+			        'DIM_Danh mục_Nhóm hàng'[Nhóm] = "ANDROID",
+			        phannhom,
+			        'DIM_Danh mục_Nhóm hàng'[Nhóm]
+			    )
+		lineageTag: 70119a54-6d1b-4726-bbd6-797818f79b18
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Thi đua S-Star' =
+			
+			SWITCH(
+			    TRUE(),
+			    'DIM_Danh mục_Nhóm hàng'[Nhóm S-Star] IN {"Loa", "Camera giám sát", "Gia dụng"},0,
+			    'DIM_Danh mục_Nhóm hàng'[Nhóm S-Star] <> BLANK(),1,0)
+		formatString: 0
+		lineageTag: 05644801-bd7e-495f-8c92-dab5b02a9461
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Danh mục_Nhóm hàng' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=6e97d189-0524-457d-bd6e-30d5e5ad63ad""#(lf)Select #(lf)nhom_hang#(tab)`Nhóm hàng`,#(tab)#(tab)#(lf)nhom_hang_cap_1 `Nhóm hàng cấp 1`,#(tab)#(tab)#(tab)#(lf)case when nhom_hang in ('TIVI', 'Máy Ảnh') then 'ĐIỆN MÁY' else nhom_hang_cap_2 end as#(tab)`Nhóm hàng cấp 2`,#(tab)#(tab)#(lf)case when nhom_hang in ('DỊCH VỤ','Nhóm hàng Voucher','VC SAMSUNG','SAMSUNG BH') then 'DỊCH VỤ'#(lf)when nhom_hang in ('CÔNG CỤ DỤNG CỤ','HÀNG HÓA','Đồng phục - kho HC') then 'HÀNG HÓA'#(lf)when nhom_hang = 'CHUA SỬ DỤNG' then 'HÀNG HÓA ĐƠN'#(lf)when nhom_hang in ('LAPTOP CŨ','LAPTOP CTM','SURFACE CTM','LAPTOP BH','PC_SSD') then 'LAPTOP'#(lf)when nhom_hang in ('LINH KIỆN','PC_CASE','PC_CPU','PC_KHÁC','PC_MAIN','PC_NGUỒN','PC_Ổ CỨNG','PC_RAM','PC_TẢN NHIỆT','PC_VGA','PC_VỎ') then 'LINH KIỆN'#(lf)when nhom_hang in ('PHỤ KIỆN','PHỤ KIỆN SALE','PK - XẢ TỒN','PKDEMO') then 'PHỤ KIỆN'#(lf)when nhom_hang in ('APPLE WATCH CTM','APPLE WATCH CŨ','APPLE WATCH BH') then 'SMARTWATCH'#(lf)else nganh_hang end as `Ngành hàng`,#(tab)#(tab)#(tab)#(lf)thuoc_tinh `Thuộc tính`,#(tab)#(tab)#(tab)#(lf)level Level,#(tab)#(tab)#(tab)#(lf)level1 Level1,#(tab)#(tab)#(tab)#(lf)case when nhom_hang in ('TIVI', 'Máy Ảnh') then 'ĐIỆN MÁY' else level2 end as Level2,#(tab)#(tab)#(tab)#(lf)Level3 Level3,#(tab)#(tab)#(tab)#(lf)Level4 Level4,#(tab)#(tab)#(tab)#(lf)ban_kem#(tab)`Bán kèm`,#(tab)#(tab)#(lf)sub_brand SubBrand,#(lf)brand#(tab)Brand,#(tab)#(tab)#(lf)thi_dua_s_star `Thi đua S-Star`,#(tab)#(tab)#(tab)#(lf)nhom_s_star#(tab)`Nhóm S-Star`,#(tab)#(tab)#(lf)he_so_thi_dua_phu_kien `Hệ số thi đua phụ kiện`,#(tab)#(tab)#(tab)#(lf)nhom_s_star_index `Nhóm S-Star_Index`#(tab)#(tab)#(tab)#(lf)from `cellphones-data-platform.cps_DA_General_Transform.dim_product_group`#(lf)where not nhom_hang in ('DỊCH VỤ LAPTOP','KIỂM TRA NHÓM HÀNG  - ACITON SỬA','PHỤ KIỆN MACBOOK','DÁN MÀN HÌNH','DỊCH VỤ TIVI','LINH KIỆN LAPTOP','LAPTOP_MÀN HÌNH','LAPTOP_PIN LINH KIỆN','LAPTOP_BÀN PHÍM','LAPTOP_MAIN','LAPTOP_RAM','LAPTOP_Ổ CỨNG','LAPTOP_KHÁC','LAPTOP_LOA','LAPTOP_VỎ MÁY','DÁN VA ĐẬP','DÁN VA ĐẬP CAO CẤP','erp test nhóm hàng','IPHONECTM','LAPTOP_PIN CHÍNH HÃNG','MÀN HÌNH ANDROID','MÀN HÌNH APPLE','ỐP BAO DA', 'LAPTOP CŨ','HÀNG BẢO HÀNH', 'ĐIỆN TỬ', 'CŨ', 'DTH CŨ', 'CTM')", null, [EnableFolding=true]),
+				    #"Appended Query" = Table.Combine({Source, NhomHang_LaptopCu}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Appended Query",{"Thi đua S-Star"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

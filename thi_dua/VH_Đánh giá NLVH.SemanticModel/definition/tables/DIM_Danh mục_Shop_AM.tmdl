@@ -1,0 +1,83 @@
+table 'DIM_Danh mục_Shop_AM'
+	lineageTag: ca3e4bd2-4ae2-40ac-9515-80a99303e119
+
+	column MIỀN
+		dataType: string
+		lineageTag: b7f7715f-4225-4830-a5c2-165f83d6a5fa
+		summarizeBy: none
+		sourceColumn: MIỀN
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHOP
+		dataType: string
+		lineageTag: 02a8a031-f45a-416e-8662-5b27635b537d
+		summarizeBy: none
+		sourceColumn: SHOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: d7b529a9-75f0-4cbc-a9de-71c1f8130721
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: 26e16fe4-c319-4d11-86f8-aa5ea636605c
+			defaultHierarchy: LocalDateTable_eba9f7c1-e530-40f6-8886-c5ae9487b15d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column AM
+		dataType: string
+		lineageTag: 1d276313-1847-4c7c-8793-b7258ed194ab
+		summarizeBy: none
+		sourceColumn: AM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CuaHang_NamThang = 'DIM_Danh mục_Shop_AM'[SHOP] & " - " & FORMAT('DIM_Danh mục_Shop_AM'[StartDate], "YYYY/MM")
+		lineageTag: c10065c6-893a-4c41-bd22-c33744690370
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quý = RELATED('DIM_Danh mục_Ngày'[Năm/Quý])
+		lineageTag: 00b9f688-827b-4038-9b77-e5794b339581
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column AM_NamThang = 'DIM_Danh mục_Shop_AM'[AM] & " - " & FORMAT('DIM_Danh mục_Shop_AM'[StartDate], "YYYY/MM")
+		lineageTag: 0e1e1c5a-bb9d-4e81-a8f8-c36137a7b1a8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Danh mục_Shop_AM' = m
+		mode: import
+		queryGroup: 'Đánh giá'
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vTwHaFyF_TWXVJLFL98imtp7wkwVkkQR_LnmBiN0h2P6uNXh7HTWHJ_tfEf12O55RbvAmth1hD1fbkS/pub?output=xlsx"), null, true),
+				    Shop_SM_YM_Sheet = Source{[Item="Shop_AM_YM",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Shop_SM_YM_Sheet, [PromoteAllScalars=true]),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Promoted Headers", {"MIỀN", "SHOP"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "StartDate"}, {"Value", "AM"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"MIỀN", type text}, {"SHOP", type text}, {"StartDate", type date}, {"AM", type text}}),
+				    #"Uppercased Text" = Table.TransformColumns(#"Changed Type",{{"AM", Text.Upper, type text}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Uppercased Text", each [StartDate] >= #date(2024, 1, 1)),
+				    #"Replaced Value" = Table.ReplaceValue(#"Filtered Rows",#date(2025, 2, 1),#date(2025, 2, 2),Replacer.ReplaceValue,{"StartDate"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","CPS-HNO-DDA-384XD","CPS-HNO-DDA-360XD",Replacer.ReplaceText,{"SHOP"})
+				in
+				    #"Replaced Value1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

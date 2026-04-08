@@ -1,0 +1,115 @@
+table 'DIM_Danh mục_Kho'
+	lineageTag: f5ba8fb8-54f6-438b-8e36-b6ab3181cf70
+
+	column 'Mã kho'
+		dataType: string
+		lineageTag: b1173092-727c-4956-b65a-74d47b291290
+		summarizeBy: none
+		sourceColumn: Mã kho
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tên kho'
+		dataType: string
+		lineageTag: e7fbd115-0fb8-4398-8db2-9a1962eb0305
+		summarizeBy: none
+		sourceColumn: Tên kho
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Địa chỉ kho'
+		dataType: string
+		lineageTag: c9125af0-5b5e-4b43-a987-aee5688c2b5d
+		summarizeBy: none
+		sourceColumn: Địa chỉ kho
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kho phân tích'
+		dataType: string
+		lineageTag: 8216ca50-dfe7-4603-b0c8-048f11c01466
+		summarizeBy: none
+		sourceColumn: Kho phân tích
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loại kho'
+		dataType: string
+		lineageTag: 599d9c37-3efb-430c-9a86-20081a3b0183
+		summarizeBy: none
+		sourceColumn: Loại kho
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreInactive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ac7d7683-8972-4909-b381-e4949d4ebcaa
+		summarizeBy: none
+		sourceColumn: StoreInactive
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Công ty'
+		dataType: string
+		lineageTag: c7513395-cf97-4599-90ef-6d6c65bdb8f4
+		summarizeBy: none
+		sourceColumn: Công ty
+
+		annotation SummarizationSetBy = Automatic
+
+	column Miền
+		dataType: string
+		lineageTag: da265684-95d7-4b32-846c-122cca01c4d3
+		summarizeBy: none
+		sourceColumn: Miền
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: 166beabb-f357-4966-abb3-8c6851e58914
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Phân loại kho'
+		dataType: string
+		lineageTag: 1258b7d1-89cc-40bc-a351-3054d06fe697
+		summarizeBy: none
+		sourceColumn: Phân loại kho
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mục đích quản lý'
+		dataType: string
+		lineageTag: e27b874e-7a9a-40cd-8d50-84e0f6573755
+		summarizeBy: none
+		sourceColumn: Mục đích quản lý
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: c938c6e8-c513-4553-b526-8ff9f47463d0
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Danh mục_Kho' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=6e97d189-0524-457d-bd6e-30d5e5ad63ad""#(lf)select #(lf)  ma_kho `Mã kho`,#(lf)  ten_kho `Tên kho`,#(lf)  dia_chi_kho `Địa chỉ kho`,#(lf)  kho_phan_tich `Kho phân tích`,#(lf)  loai_kho `Loại kho`,#(lf)  is_inactive StoreInactive,#(lf)  cong_ty `Công ty`,#(lf)  mien `Miền`,#(lf)  cua_hang `Cửa hàng`,#(lf)  phan_loai_kho `Phân loại kho`,#(lf)  muc_dich_quan_ly `Mục đích quản lý`#(lf)from#(lf)  `cellphones-data-platform.cps_DA_General_Transform.dim_storage`", null, [EnableFolding=true]),
+				    #"Added Index" = Table.AddIndexColumn(Source, "Index", 1, 1, Int64.Type)
+				in
+				    #"Added Index"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

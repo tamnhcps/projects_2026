@@ -1,0 +1,275 @@
+expression 'Đơn không tính S-Star' =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vTcJpWwluftR8WvRxCaCNx827FuSi33w56XAOE9xkKXs7qru7-M1ojU4jKBw1wPgXQLBDXxsUJhCvxH/pub?output=xlsx"), null, true),
+		    #"Đơn không tính điểm ERP_Sheet" = Source{[Item="Đơn không tính điểm ERP",Kind="Sheet"]}[Data],
+		    #"Removed Other Columns" = Table.SelectColumns(#"Đơn không tính điểm ERP_Sheet",{"Column1", "Column2", "Column3", "Column4", "Column5"}),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Other Columns", [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Tháng tính lương", type text}, {"Số phiếu", type text}, {"Lý do", type text}, {"S-Star", Int64.Type}, {"ERP", Int64.Type}}),
+		    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+		in
+		    #"Removed Blank Rows"
+	lineageTag: 98cde383-6635-4ba9-bf37-ac1deef665bf
+
+	annotation PBI_ResultType = Table
+
+expression 'S-Star_Nhóm hàng_SKU' =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/1tcV5PnqvhSybBjAoIG_8uZTD0LknEWRd_uaDrUAI8lA/pub?output=xlsx"), null, true),
+		    #"S-Star_Nhóm hàng_SKU_Sheet" = Source{[Item="S-Star_Nhóm hàng_SKU",Kind="Sheet"]}[Data],
+		    #"Removed Other Columns" = Table.SelectColumns(#"S-Star_Nhóm hàng_SKU_Sheet",{"Column1", "Column2", "Column3", "Column4"}),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Other Columns", [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Nhóm hàng", type text}, {"SKU", type text}, {"Thi đua S-Star", Int64.Type}, {"Nhóm", type text}}),
+		    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+		in
+		    #"Removed Blank Rows"
+	lineageTag: 7046eadd-0bed-4744-b5ec-1a5969a491a3
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'DIM_Danh mục_Sản phẩm_Web' =
+		let
+		    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=6e97d189-0524-457d-bd6e-30d5e5ad63ad""#(lf)SELECT DISTINCT#(lf)    cpeMain.sku,#(lf)    CASE#(lf)        WHEN cpeParentName.value IS NOT NULL THEN#(lf)            cpeParentName.value#(lf)        ELSE#(lf)            cpeName.value#(lf)    END AS Name,#(lf)    CASE#(lf)        WHEN cpeMain.attribute_set_id = 10 THEN 'Dienthoai'#(lf)        WHEN cpeMain.attribute_set_id = 11 THEN 'MTB'#(lf)        WHEN cpeMain.attribute_set_id = 12 THEN 'PhuKien'#(lf)        WHEN cpeMain.attribute_set_id = 23 THEN 'Laptop'#(lf)        ELSE 'PhuKienMTB'#(lf)    END AS WebUrl,#(lf)    CASE#(lf)        WHEN cpeParentLink.value IS NULL THEN#(lf)            CONCAT('https://cellphones.com.vn/', cpeChildLink.value, '.html')#(lf)        ELSE#(lf)            CONCAT('https://cellphones.com.vn/', cpeParentLink.value, '.html')#(lf)    END AS product_url#(lf)FROM `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity` as cpeMain#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_super_link` AS psl#(lf)        ON psl.product_id = cpeMain.entity_id#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity_varchar` AS cpeParentLink#(lf)        ON cpeParentLink.entity_id = psl.parent_id#(lf)           AND cpeParentLink.attribute_id = 86#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity_varchar` AS cpeChildLink#(lf)        ON cpeChildLink.entity_id = cpeMain.entity_id#(lf)           AND cpeChildLink.attribute_id = 86#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity_varchar` AS cpeParentName#(lf)        ON cpeParentName.entity_id = cpeParentLink.entity_id#(lf)           AND cpeParentName.attribute_id = 60#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity_varchar` AS cpeName#(lf)        ON cpeName.entity_id = cpeMain.entity_id#(lf)           AND cpeName.attribute_id = 60#(lf)WHERE cpeMain.sku IS NOT NULL#(lf)      AND cpeMain.updated_at >= '2015-12-12'", null, [EnableFolding=true])
+		in
+		    Source
+	lineageTag: 02adfe01-cd5b-41eb-9239-c08f911ac195
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression NhomHang_LaptopCu =
+		let
+		    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8nEMCPEPUHA+ukJJR8njcIOfu4LH4cmOQI5LiAc2YYiQCXZhhB4Uc+F8ZAYEGYCo2FgA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Nhóm hàng" = _t, #"Nhóm hàng cấp 1" = _t, #"Nhóm hàng cấp 2" = _t, #"Ngành hàng" = _t, #"Thuộc tính" = _t, Level = _t, Level1 = _t, Level2 = _t, Level3 = _t, Level4 = _t, #"Bán kèm" = _t, Brand = _t, SubBrand = _t, #"Thi đua S-Star" = _t, #"Nhóm S-Star" = _t, #"Hệ số thi đua phụ kiện" = _t, #"Nhóm S-Star_Index" = _t]),
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Level", Int64.Type}, {"Bán kèm", Int64.Type}, {"Thi đua S-Star", Int64.Type}, {"Hệ số thi đua phụ kiện", type number}, {"Nhóm S-Star_Index", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: ca6b2ff7-28c8-4f66-beb9-67f46f811fa7
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression fxCalendar = ```
+		let
+		  fnDateTable = (StartDate as date, EndDate as date, optional FYStartMonthNum as number, optional Holidays as list, optional WDStartNum as number ) as table =>
+		  let
+		    FYStartMonth = if List.Contains( {1..12}, FYStartMonthNum ) then FYStartMonthNum else 1,
+		    StartOfWeekDayName = Text.Proper( Text.Start( Date.DayOfWeekName( #date(2021, 2,1) ), 3)),
+		    WDStart = if List.Contains( {0, 1}, WDStartNum ) then WDStartNum else 0,
+		    CurrentDate = Date.From(DateTime.FixedLocalNow()),
+		    DayCount = Duration.Days(Duration.From(EndDate - StartDate))+1,
+		    Source = List.Dates(StartDate,DayCount,#duration(1,0,0,0)),
+		    AddToday = if EndDate < CurrentDate then List.Combine( {Source, {CurrentDate}}) else Source,
+		    TableFromList = Table.FromList(AddToday, Splitter.SplitByNothing()),
+		    ChangedType = Table.TransformColumnTypes(TableFromList,{{"Column1", type date}}),
+		    RenamedColumns = Table.RenameColumns(ChangedType,{{"Column1", "Date"}}),
+		    InsertDateKey = Table.AddColumn(RenamedColumns, "DateKey", each Date.Year([Date]) * 10000 + Date.Month([Date]) * 100 + Date.Day([Date]), type number),
+		    InsertYear = Table.AddColumn(InsertDateKey, "Năm", each Date.Year([Date]), Int64.Type),
+		    InsertQuarter = Table.AddColumn(InsertYear, "Quý", each Date.QuarterOfYear([Date]), Int64.Type),
+		    InsertYearQuarter = Table.AddColumn(InsertQuarter, "Năm/Quý", each Number.ToText([Năm])&"/Q" & Number.ToText([Quý]), type text),
+		    InsertYearQuarterIndex = Table.AddColumn(InsertYearQuarter,"Năm/Quý_Index",each -100*Date.Year([Date])-Number.RoundUp(Date.Month([Date])/3,0), type number),
+		    InsertMonth = Table.AddColumn(InsertYearQuarterIndex, "Tháng", each Date.Month([Date]), Int64.Type),
+		    InsertYearMonth = Table.AddColumn(InsertMonth, "Năm/Tháng", each Number.ToText([Năm])&"/"&(if [Tháng]<10 then "0"& Number.ToText([Tháng]) else Number.ToText([Tháng])), type text),
+		    InsertYearMonthIndex = Table.AddColumn(InsertYearMonth,"Năm/Tháng_Index", each -100*Date.Year([Date]) - Date.Month([Date]), type number),
+		    InsertMonthEnding = Table.AddColumn(InsertYearMonthIndex, "Cuối tháng", each Date.EndOfMonth([Date]), type date),
+		    InsertMonthStarting = Table.AddColumn(InsertMonthEnding, "Đầu tháng", each Date.StartOfMonth([Date]), type date),
+		    InsertYearMonthWeek = Table.AddColumn(InsertMonthStarting,"Năm/Tháng/Tuần", each Number.ToText([Năm])&"/" & (if [Tháng]<10 then "0"& Number.ToText([Tháng]) else Number.ToText([Tháng])) &"/" & (if Date.Day([Date])<8 then "W1" else if Date.Day([Date])<15 then "W2" else if Date.Day([Date])<22 then "W3" else if Date.Day([Date])<29 then "W4" else "W5"), type text),
+		    InsertYearMonthWeekIndex = Table.AddColumn(InsertYearMonthWeek,"Năm/Tháng/Tuần_Index", each -100*Date.Year([Date]) - Date.Month([Date]) - (if Date.Day([Date])<8 then 0.1 else if Date.Day([Date])<15 then 0.2 else if Date.Day([Date])<22 then 0.3 else if Date.Day([Date])<29 then 0.4 else 0.5), type number),
+		    InsertWeek = Table.AddColumn(InsertYearMonthWeekIndex,"Tuần", each fxGetISO8601Week([Date]), Int64.Type), // Date.WeekOfYear([Date],Day.Monday)
+		    InsertYearWeek = Table.AddColumn(InsertWeek, "Năm/Tuần", each Number.ToText(Date.Year( Date.AddDays( [Date], 26 - [Tuần] ) ))&"/"&(if [Tuần]<10 then "0"& Number.ToText([Tuần]) else Number.ToText([Tuần])), type text),
+		    InsertYearWeekIndex = Table.AddColumn(InsertYearWeek,"Năm/Tuần_Index", each -100*Date.Year( Date.AddDays( [Date], 26 - [Tuần] ) ) - [Tuần], type number),
+		    InsertWeekdayIndexRAW = Table.AddColumn(InsertYearWeekIndex, "Thứ_Index_RAW", each Date.DayOfWeek([Date]) + WDStart+1, Int64.Type),
+		    InsertWeekday = Table.AddColumn(InsertWeekdayIndexRAW, "Thứ", each if [Thứ_Index_RAW]=1 then "Chủ Nhật" else "Thứ "& Number.ToText([Thứ_Index_RAW]), type text),
+		    InsertWeekdayIndex = Table.AddColumn(InsertWeekday, "Thứ_Index", each if [Thứ_Index_RAW]=1 then 8 else [Thứ_Index_RAW], Int64.Type),
+		    InsertWeekend = Table.AddColumn(InsertWeekdayIndex, "Cuối tuần", each if [Thứ_Index]<=6 then "Trong tuần" else "Cuối tuần", type text),
+		    InsertDay = Table.AddColumn(InsertWeekend, "Ngày", each Date.Day([Date]), Int64.Type),
+		    InsertIsHoliday = Table.AddColumn( InsertDay, "IsHoliday", each if Holidays = null then "Unknown" else List.Contains( Holidays, [Date] ), if Holidays = null then type text else type logical)
+		  in
+		    InsertIsHoliday,
+		  documentation = [
+		    Documentation.Name =  " fxCalendar", 
+		    Documentation.Description = " Date table function to create an ISO-8601 calendar", 
+		    Documentation.LongDescription = " Date table function to create an ISO-8601 calendar", 
+		    Documentation.Category = " Table", 
+		    Documentation.Version = " 1.28: Fixed fiscal years when FYStartMonth =1",
+		    Documentation.Source = " local", 
+		    Documentation.Author = " Melissa de Korte", 
+		    Documentation.Examples = { [Description =  " See: https://forum.enterprisedna.co/t/extended-date-table-power-query-m-function/6390", 
+		      Code = " Optional paramters: #(lf)
+		      (FYStartMonthNum) Month number the fiscal year starts, Januari if omitted #(lf) 
+		      (Holidays) Select a query (and column) that contains a list of holiday dates #(lf) 
+		      (WDStartNum) Switch default weekday numbering from 0-6 to 1-7 by entering a 1 #(lf)
+		      #(lf)
+		      Important to note: #(lf)
+		      [Fiscal Week] starts on a Monday and can contain less than 7 days in a First- and/or Last Week of a FY #(lf)
+		      [IsWorkingDay] does not take holiday dates into account  #(lf)
+		      [IsBusinessDay] does take optional holiday dates into account  #(lf)
+		      [IsPYTD] and [IsPFYTD] compare Previous [Ngày] with the Current [Ngày] number, so dates don't align in leap years", 
+		      Result = " " ] }
+		    ],
+		  Custom = Value.ReplaceType(fnDateTable, Value.ReplaceMetadata(Value.Type(fnDateTable), documentation))
+		in
+		  Custom
+		```
+	lineageTag: f9435bbf-9817-474a-92f3-fa1a308bf192
+	queryGroup: 'Danh mục'
+
+expression MinYear =
+		let
+		  Source = Date.Year(DateTime.FixedLocalNow())-1
+		in
+		    Source
+	lineageTag: 040e6b80-a53d-4b02-bd16-ddb603378034
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+
+expression MaxYear =
+		let
+		  Source = Date.Year(DateTime.FixedLocalNow())+1
+		in
+		  Source
+	lineageTag: c0cc17fe-a747-4d81-b6a1-09579b7aff51
+	queryGroup: 'Danh mục'
+
+expression fxGetISO8601Week =
+		let
+		    getISO8601Week = (someDate as date) =>
+		    let
+		        getNaiveWeek = (inDate as date) =>
+		            let
+		                // monday = 1, sunday = 7
+		                weekday = 1 + Date.DayOfWeek(inDate, Day.Monday),
+		                weekdayOfJan4th = 1 + Date.DayOfWeek(#date(Date.Year(inDate), 1, 4), Day.Monday),
+		                ordinal = Date.DayOfYear(inDate),
+		                naiveWeek = Number.RoundDown(
+		                    (ordinal - weekday + 10) / 7
+		                )
+		            in
+		                naiveWeek,
+		        thisYear = Date.Year(someDate),
+		        priorYear = thisYear - 1,
+		        nwn = getNaiveWeek(someDate),
+		        lastWeekOfPriorYear =
+		        getNaiveWeek(#date(priorYear, 12, 28)),
+		
+		        // http://stackoverflow.com/a/34092382/2014893
+		        lastWeekOfThisYear =
+		            getNaiveWeek(#date(thisYear, 12, 28)),
+		
+		        weekNumber =
+		            if
+		                nwn < 1
+		            then
+		                lastWeekOfPriorYear
+		            else
+		                if
+		                    nwn > lastWeekOfThisYear
+		                then
+		                    1
+		                else
+		                    nwn
+		    in
+		        weekNumber
+		in
+		    getISO8601Week
+	lineageTag: e07ad20f-c210-40e3-9905-24c3cfc7a54c
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression Province =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/1O-BzLBPYUOCASSqhygx2s9BT0gK0QZAk1271U9OFZJY/pub?output=xlsx"), null, true),
+		    Province_Sheet = Source{[Item="Province",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Province_Sheet, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Province", type text}, {"Fishing boat", type text}, {"Short form", type text}, {"Plate number", type text}, {"Postcode", type text}, {"Tel area code", type text}, {"FULL", type text}}),
+		    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+		in
+		    #"Removed Blank Rows"
+	lineageTag: 33550d52-0348-423b-b785-38043731de1e
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Kết quả đánh giá NLQL' = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuNWkElw2fyGuq7o-HFMFGzm1AceefH93IcAmmvyu_wMbudfNzOjihBYpUEQaMTbjz-Eld9p34bMeX/pub?output=xlsx" meta [IsParameterQuery=true, List={"https://docs.google.com/spreadsheets/d/e/2PACX-1vRuNWkElw2fyGuq7o-HFMFGzm1AceefH93IcAmmvyu_wMbudfNzOjihBYpUEQaMTbjz-Eld9p34bMeX/pub?output=xlsx"}, DefaultValue="https://docs.google.com/spreadsheets/d/e/2PACX-1vRuNWkElw2fyGuq7o-HFMFGzm1AceefH93IcAmmvyu_wMbudfNzOjihBYpUEQaMTbjz-Eld9p34bMeX/pub?output=xlsx", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 13cce9b9-c2e8-4cee-90e3-385073659b57
+	queryGroup: 'Đánh giá\Kết quả Shop'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression 'FACT_Sale_Doanh số bán_realtime' =
+		let
+		    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=079001d0-99cb-48c3-86c4-0130e59b27d3""#(lf)SELECT#(lf)  DATETIME(CreateDate) AS CreateDate,#(lf)  Date,#(lf)  DMC3,#(lf)  AutoCode,#(lf)  ProductCode,#(lf)  ProductName,#(lf)  MethodName,#(lf)  centerid,#(lf)  StoreCode,#(lf)  Price,#(lf)  SaleEmployeeCode,#(lf)  SUM(amount) AS Dso,#(lf)  SUM(quantity) AS SL,#(lf)  IsSales AS IsSale,#(lf)FROM#(lf)  `cellphones-data-platform.cps_sales_datamart.cps_stream_sep_union_dbo_sales_transaction`#(lf)WHERE#(lf)  IsSales = 1#(lf)  AND IsB2B = 0#(lf)  AND DATE(CreateDate) = CURRENT_DATE()#(lf)  AND NOT ContactPhone in ('0942482682','0979453264')#(lf)  AND NOT AutoCode LIKE '%#%'#(lf)GROUP BY 1,2,3,4,5,6,7,8,9,10,11,14", null, [EnableFolding=true])
+		in
+		    Source
+	lineageTag: a104c3d8-cebf-4304-b799-366fd88405d6
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Danh sách kho_DailyReport' =
+		let
+		    Source = #"DIM_Danh mục_Kho",
+		    #"Filtered Rows" = Table.SelectRows(Source, each ([Phân loại kho] = "Kho cửa hàng")),
+		    #"Filtered Rows1" = Table.SelectRows(#"Filtered Rows", each Text.StartsWith([Cửa hàng], "CPS-")),
+		    #"Filtered Rows2" = Table.SelectRows(#"Filtered Rows1", each ([StoreInactive] = false)),
+		    #"Filtered Rows3" = Table.SelectRows(#"Filtered Rows2", each [Mã kho] <> "HCM.HM"),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows3",{"Mã kho", "Miền"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"Mã kho", "StoreCode"}}),
+		    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Index", each 1),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Index", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: 42c6c8bf-cfd8-4ba8-b9a5-6109ce4638f8
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Kiểm kê hàng hóa' =
+		let
+		    Source = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdGFeOqHwhG3CeednbWOsiNNiKK1PvSzJ1fPViCQUsuJPXNtIvr0iOSd5yQ03x76IUggrzN4e6RQdy/pub?output=xlsx" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = type text, List = {"https://docs.google.com/spreadsheets/d/e/2PACX-1vRGvMoHUidwN3cUAdWhjlD486eIRz-GjvecoUGHwSBTC0UdHkirJWb-UyH3bucvBTC_M5vs1cKj41IL/pub?output=xlsx"}, DefaultValue = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGvMoHUidwN3cUAdWhjlD486eIRz-GjvecoUGHwSBTC0UdHkirJWb-UyH3bucvBTC_M5vs1cKj41IL/pub?output=xlsx"]
+		in
+		    Source
+	lineageTag: d7f8daac-e421-404a-972e-fba23e2d97b2
+	queryGroup: NLVH
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression 'Errors in DIM_Danh mục_Đánh giá_' =
+		let
+		Source = #"DIM_Danh mục_Đánh giá_",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Tháng", "Chỉ tiêu", "Hệ số"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Tháng", "Chỉ tiêu", "Hệ số"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 06acc20b-9798-4a4e-adc6-e959f70d7f94
+	queryGroup: 'Query Errors - 10/21/2025 10:12:14 AM'
+
+	annotation PBI_NavigationStepName = Navigation
+
