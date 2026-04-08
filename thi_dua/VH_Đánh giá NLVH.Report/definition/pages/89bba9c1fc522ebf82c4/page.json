@@ -1,0 +1,210 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "89bba9c1fc522ebf82c4",
+  "displayName": "Duplicate of Duplicate of Tháng hiện tại",
+  "displayOption": "FitToPage",
+  "height": 1480,
+  "width": 2080,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6b74abdb18aa0dc83187",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Danh mục_Ngày"
+              }
+            },
+            "Property": "Ngày_ActiveLog"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ]
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "194L"
+              }
+            }
+          },
+          "foregroundColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 4,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#AFCDDE'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "50D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "filterCard": [
+      {
+        "properties": {
+          "foregroundColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 4,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0L"
+              }
+            }
+          }
+        },
+        "selector": {
+          "id": "Available"
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "431d8005781724756d0f",
+      "target": "4af08dac9df19c4d259a",
+      "type": "DataFilter"
+    },
+    {
+      "source": "431d8005781724756d0f",
+      "target": "1fa5cfb8f556733ca7e3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "431d8005781724756d0f",
+      "target": "f1b9fa968b9e9290107c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "431d8005781724756d0f",
+      "target": "dfc8cadba4f177ed2adf",
+      "type": "DataFilter"
+    },
+    {
+      "source": "431d8005781724756d0f",
+      "target": "3b5bb4744e8b42542896",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "dfc8cadba4f177ed2adf",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "3b5bb4744e8b42542896",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "f1b9fa968b9e9290107c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "1fa5cfb8f556733ca7e3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "4af08dac9df19c4d259a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "431d8005781724756d0f",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "bd80c5ed785f795e4010",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "6b38efc7eeab3257bed8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "dc14c2378da46431a5c6",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "a9c32b9c3536be1c9966",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "d1af069b1691d04305a9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "82779fa6cf84fc7d18de",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "7a8675d80917a24a6ef9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d8cf8d4941b76439ddad",
+      "target": "6eaac223faa16f7e32e7",
+      "type": "DataFilter"
+    }
+  ]
+}

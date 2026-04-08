@@ -169,50 +169,6 @@
   ],
   "resourcePackages": [
     {
-      "name": "BarChartF5983CEA542C47889C9DE852B430DE5F",
-      "type": "CustomVisual",
-      "items": [
-        {
-          "name": "BarChartF5983CEA542C47889C9DE852B430DE5F.pbiviz.json",
-          "path": "BarChartF5983CEA542C47889C9DE852B430DE5F.pbiviz.json",
-          "type": "CustomVisualMetadata"
-        }
-      ]
-    },
-    {
-      "name": "textFilter25A4896A83E0487089E2B90C9AE57C8A",
-      "type": "CustomVisual",
-      "items": [
-        {
-          "name": "textFilter25A4896A83E0487089E2B90C9AE57C8A.pbiviz.json",
-          "path": "textFilter25A4896A83E0487089E2B90C9AE57C8A.pbiviz.json",
-          "type": "CustomVisualMetadata"
-        }
-      ]
-    },
-    {
-      "name": "ZoomChartsFacetChartFree33C9F325D337408C98D4E1D4E1EAD704",
-      "type": "CustomVisual",
-      "items": [
-        {
-          "name": "ZoomChartsFacetChartFree33C9F325D337408C98D4E1D4E1EAD704.pbiviz.json",
-          "path": "ZoomChartsFacetChartFree33C9F325D337408C98D4E1D4E1EAD704.pbiviz.json",
-          "type": "CustomVisualMetadata"
-        }
-      ]
-    },
-    {
-      "name": "ZoomChartsPieChartFree33C9F325D337408C98D4E1D4E1EAD703",
-      "type": "CustomVisual",
-      "items": [
-        {
-          "name": "ZoomChartsPieChartFree33C9F325D337408C98D4E1D4E1EAD703.pbiviz.json",
-          "path": "ZoomChartsPieChartFree33C9F325D337408C98D4E1D4E1EAD703.pbiviz.json",
-          "type": "CustomVisualMetadata"
-        }
-      ]
-    },
-    {
       "name": "RegisteredResources",
       "type": "RegisteredResources",
       "items": [
