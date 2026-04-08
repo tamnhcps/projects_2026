@@ -806,6 +806,90 @@
         },
         "type": "Categorical",
         "howCreated": "User"
+      },
+      {
+        "name": "ddc1306270ce39e4fe16",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Ghi chú"
+              }
+            },
+            "Property": "Chỉ số"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8dc8ac0db903b275adeb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Ghi chú"
+              }
+            },
+            "Property": "Mô tả"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e7d99ca5d0d2816ca98e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Ghi chú"
+              }
+            },
+            "Property": "Công thức tính"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a30c3f2cd064bc442415",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Ghi chú"
+              }
+            },
+            "Property": "Target hiện tại"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8e269aea7e6ebf4e8fc2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Ghi chú"
+              }
+            },
+            "Property": "Ghi chú khác"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "83d9fd193381edbfb88d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Ghi chú"
+              }
+            },
+            "Property": "Nguồn dữ liệu"
+          }
+        },
+        "type": "Categorical"
       }
     ],
     "filterSortOrder": "Custom"

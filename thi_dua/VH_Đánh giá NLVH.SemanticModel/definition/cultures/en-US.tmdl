@@ -41311,50 +41311,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "DIM_Ghi_chú_Đánh_giá.điều_kiện_1_tổng_chỉ_tiêu_đạt_x": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_Ghi chú_Đánh giá",
-			          "ConceptualProperty": "Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "điều kiện 1: (*)tổng chỉ tiêu đạt (x)": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "điều kiện 1: (*)tổng chỉ tiêu đạt": {
-			            "State": "Generated",
-			            "Weight": 0.75
-			          }
-			        }
-			      ]
-			    },
-			    "DIM_Ghi_chú_Đánh_giá.điều_kiện_2_tổng_điểm_NLVH_y": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_Ghi chú_Đánh giá",
-			          "ConceptualProperty": "Điều kiện 2: Tổng điểm NLVH (Y)"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "điều kiện 2: tổng điểm NLVH (y)": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "điều kiện 2: tổng điểm NLVH": {
-			            "State": "Generated",
-			            "Weight": 0.75
-			          }
-			        }
-			      ]
-			    },
 			    "DIM_Phân_quyền_user": {
 			      "Definition": {
 			        "Binding": {

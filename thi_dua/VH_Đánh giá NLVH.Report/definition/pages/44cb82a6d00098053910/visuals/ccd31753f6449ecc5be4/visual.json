@@ -23,11 +23,11 @@
                       "Entity": "DIM_Ghi chú_Đánh giá"
                     }
                   },
-                  "Property": "Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)"
+                  "Property": "Điều kiện 1: Tổng điểm NLVH (X)"
                 }
               },
-              "queryRef": "DIM_Ghi chú_Đánh giá.Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)",
-              "nativeQueryRef": "Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)"
+              "queryRef": "DIM_Ghi chú_Đánh giá.Điều kiện 1: Tổng điểm NLVH (X)",
+              "nativeQueryRef": "Điều kiện 1: Tổng điểm NLVH (X)"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "DIM_Ghi chú_Đánh giá"
                     }
                   },
-                  "Property": "Điều kiện 2: Tổng điểm NLVH (Y)"
+                  "Property": "Điều kiện 2: (*)Tổng chi tiêu đạt (Y)"
                 }
               },
-              "queryRef": "DIM_Ghi chú_Đánh giá.Điều kiện 2: Tổng điểm NLVH (Y)",
-              "nativeQueryRef": "Điều kiện 2: Tổng điểm NLVH (Y)"
+              "queryRef": "DIM_Ghi chú_Đánh giá.Điều kiện 2: (*)Tổng chi tiêu đạt (Y)",
+              "nativeQueryRef": "Điều kiện 2: (*)Tổng chi tiêu đạt (Y)"
             },
             {
               "field": {
@@ -277,34 +277,6 @@
           },
           "selector": {
             "metadata": "DIM_Ghi chú_Đánh giá.Xếp loại"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "95.72545319279843D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "DIM_Ghi chú_Đánh giá.Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "86.76538781327949D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "DIM_Ghi chú_Đánh giá.Điều kiện 2: Tổng điểm NLVH (Y)"
           }
         }
       ],
@@ -605,8 +577,74 @@
             }
           }
         }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Xem chi tiết tại đây'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "893886dd0877d920ab90",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Ghi chú_Đánh giá"
+              }
+            },
+            "Property": "Điều kiện 1: Tổng điểm NLVH (X)"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "50aee1fb1dc2f59cfc8c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Ghi chú_Đánh giá"
+              }
+            },
+            "Property": "Điều kiện 2: (*)Tổng chi tiêu đạt (Y)"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "13ca3450efa5f71bfe79",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Ghi chú_Đánh giá"
+              }
+            },
+            "Property": "Xếp loại"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -580,37 +580,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4ebeb17e887e876e990b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_Danh mục_Các loại chỉ số"
-              }
-            },
-            "Property": "Các loại chỉ số"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b877a9d4177a2b7b0818",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_Danh mục_Các loại chỉ số"
-              }
-            },
-            "Property": "Công thức tính"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

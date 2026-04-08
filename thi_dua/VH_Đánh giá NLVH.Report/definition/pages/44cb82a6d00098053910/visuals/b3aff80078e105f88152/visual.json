@@ -549,5 +549,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "92f43cf899d39469df6d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Danh mục_Cách thức xếp hạng"
+              }
+            },
+            "Property": "Cách thức xếp hạng"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "73697c399d9e7619428a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Danh mục_Cách thức xếp hạng"
+              }
+            },
+            "Property": "Thứ tự xếp hạng"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

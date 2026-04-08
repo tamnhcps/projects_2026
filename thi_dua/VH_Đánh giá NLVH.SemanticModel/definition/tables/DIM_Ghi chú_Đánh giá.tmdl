@@ -9,19 +9,19 @@ table 'DIM_Ghi chú_Đánh giá'
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)'
+	column 'Điều kiện 1: Tổng điểm NLVH (X)'
 		dataType: string
-		lineageTag: e78a8acb-e376-4394-89ce-c7aa11960fa8
+		lineageTag: f2f91323-cbf8-439e-89bc-4decd982cfcb
 		summarizeBy: none
-		sourceColumn: Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)
+		sourceColumn: Điều kiện 1: Tổng điểm NLVH (X)
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Điều kiện 2: Tổng điểm NLVH (Y)'
+	column 'Điều kiện 2: (*)Tổng chi tiêu đạt (Y)'
 		dataType: string
-		lineageTag: 5ac18d9f-f9c2-4350-b1cb-d89474c0cc49
+		lineageTag: b423015a-402c-4288-8d5b-e11cbf3ab727
 		summarizeBy: none
-		sourceColumn: Điều kiện 2: Tổng điểm NLVH (Y)
+		sourceColumn: Điều kiện 2: (*)Tổng chi tiêu đạt (Y)
 
 		annotation SummarizationSetBy = Automatic
 
@@ -30,7 +30,7 @@ table 'DIM_Ghi chú_Đánh giá'
 		queryGroup: 'Danh mục'
 		source =
 				let
-				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WilR41LlUwVJJRykCzDI0MFAFcUof7lpaolD8cNf6ZIWS0sqHu9tLFI5MfLh7YqZSrA5MmzlcmwVYVwhQvgRJ3hQubw6W9844vBBJ2hgubQqRPrwyFyodU2pgYJwMVQHlQBQ5P9y1OC9DIenwwnyl2FgA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Điều kiện 1: (*)Tổng chỉ tiêu đạt (X)" = _t, #"Điều kiện 2: Tổng điểm NLVH (Y)" = _t, #"Xếp loại#(lf)" = _t])
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WilB41LlUwdDAQFVJRykSzDEHsiJKH+5aWqJQ/HDX+mSFktLKh7vbSxSOTHy4e2KmUqwOTJsFki5TICsEKF+CJG+OJG8MZHlnHF6IJG2KJG0Ekj68MhcqHVNqYGCcDFcB5YIUOT/ctTgvQyHp8MJ8pdhYAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Điều kiện 1: Tổng điểm NLVH (X)" = _t, #"Điều kiện 2: (*)Tổng chi tiêu đạt (Y)" = _t, #"Xếp loại#(lf)" = _t])
 				in
 				    Source
 

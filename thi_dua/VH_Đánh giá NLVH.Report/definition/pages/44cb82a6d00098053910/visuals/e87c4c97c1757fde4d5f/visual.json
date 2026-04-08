@@ -581,5 +581,42 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b50fbdde90a78a926312",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Danh mục_Hệ số SizeShop"
+              }
+            },
+            "Property": "Size"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "12d7d6e09ebea943b828",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_Danh mục_Hệ số SizeShop"
+                  }
+                },
+                "Property": "Hệ số"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
