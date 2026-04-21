@@ -1,0 +1,91 @@
+table adhoc_chi_so_nghi_viec
+	lineageTag: a317b106-9fd4-4d83-99ea-61d6ab7d2a59
+
+	measure '% Chỉ số nghỉ việc hoàn thành' =
+			
+			VAR region = SELECTEDVALUE('DIM_Danh mục_Miền'[Miền])
+			VAR size   = SELECTEDVALUE('DIM_Danh mục_Phòng ban'[Size])
+			
+			VAR target =
+			    SWITCH(
+			        TRUE(),
+			
+			        -- MN
+			        region = "Miền Nam" && size = "S", 2.0,
+			        region = "Miền Nam" && size IN {"A","B"}, 1.5,
+			        region = "Miền Nam" && size IN {"C","D"}, 1.0,
+			
+			        -- MB
+			        region = "Miền Bắc" && size IN {"S","A"}, 2.0,
+			        region = "Miền Bắc" && size = "B", 1.5,
+			        region = "Miền Bắc" && size IN {"C","D"}, 1.0,
+			
+			        BLANK()
+			    )
+			
+			VAR actual = SELECTEDVALUE(adhoc_chi_so_nghi_viec[Chỉ số nghỉ việc])
+			
+			VAR score = divide(target - actual, target)
+			
+			RETURN
+			IF(
+			    ISBLANK(actual) || ISBLANK(target),
+			    BLANK(),
+			    MAX(
+			        -1.2,
+			        MIN(
+			            1.2,
+			            score
+			        )
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9bf04760-7215-4c77-ba59-9b221f30b5e1
+
+	column Tháng_năm
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9d0ae2be-067c-4a79-a13c-012c7f1572ff
+		summarizeBy: none
+		sourceColumn: Tháng_năm
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: c5235e47-7181-4341-a5e0-c56715427b57
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chỉ số nghỉ việc'
+		dataType: double
+		lineageTag: 794a4f7d-497e-428f-a085-a73fb2a7482e
+		summarizeBy: sum
+		sourceColumn: Chỉ số nghỉ việc
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition adhoc_chi_so_nghi_viec = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\S16276\Desktop\chi_so_nghi_viec.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true])
+				in
+				    #"Promoted Headers"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

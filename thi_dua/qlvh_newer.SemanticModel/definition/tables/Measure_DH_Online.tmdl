@@ -1,0 +1,576 @@
+table Measure_DH_Online
+	lineageTag: 6fb2e053-3ddb-4f6f-a995-69139c77043b
+	sourceLineageTag: 34ce4b1e-5d82-4037-9f3e-3f31604daba7
+
+	measure 'Slg DH' = EXTERNALMEASURE("Slg DH", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 57a4089e-3dfa-4afe-b427-c5fdc10e7efe
+		sourceLineageTag: 6f74ce1f-3765-416f-a4f7-e37c8f502b73
+		dataCategory: Uncategorized
+
+	measure 'TyTrong DH' = EXTERNALMEASURE("TyTrong DH", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 9ca927c4-9bc6-4345-956b-5632fbbc234f
+		sourceLineageTag: 36cea0aa-61de-4811-9f87-9e5e31cab236
+		dataCategory: Uncategorized
+
+	measure 'TyTrong DH_Tong' = EXTERNALMEASURE("TyTrong DH_Tong", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 5c1636d0-0157-4292-b3eb-fd989c35082f
+		sourceLineageTag: 2da603d1-9900-414c-b8ce-d72f92b15124
+		dataCategory: Uncategorized
+
+	measure 'Slg sp' = EXTERNALMEASURE("Slg sp", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 37297d6c-b0c2-4549-bd6a-670c795f82b1
+		sourceLineageTag: 7254647a-aa97-4d9a-81e4-f83cea2277cd
+		dataCategory: Uncategorized
+
+	measure 'Thời gian cập nhật_DH' = EXTERNALMEASURE("Thời gian cập nhật_DH", DATETIME, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: General Number
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: cfea1c40-7fcc-45e0-a315-ab524e1754a5
+		sourceLineageTag: 9ff027aa-f73a-4978-9c4f-7cefed1bb298
+		dataCategory: Uncategorized
+
+	measure 'Gia tri DH' = EXTERNALMEASURE("Gia tri DH", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 7de7c7e6-e3ba-442c-ae9e-d8b775a11259
+		sourceLineageTag: 4d10dc67-d97b-44f8-bbc4-6cec86712eba
+		dataCategory: Uncategorized
+
+	measure 'AVG_Gia tri DH' = EXTERNALMEASURE("AVG_Gia tri DH", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: a06a5680-730b-4c6f-a8e3-bb0d52d8e23c
+		sourceLineageTag: a53df194-dc34-4c0c-b862-5c1492967a60
+		dataCategory: Uncategorized
+
+	measure Title_ChiTietDSDH = EXTERNALMEASURE("Title_ChiTietDSDH", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: cff1114f-ef74-4576-bd51-71fd522ce03e
+		sourceLineageTag: 6fa2b195-5a42-428e-b00a-412890bbc6a3
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Slg Online_Huy' = EXTERNALMEASURE("Slg Online_Huy", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 2. DS Online
+		lineageTag: 0771b671-c404-42a6-991f-ac748f85f4f3
+		sourceLineageTag: 417a85cb-0695-4a16-884e-db6d77df5b24
+		dataCategory: Uncategorized
+
+	measure 'Slg Online_TongHuy' = EXTERNALMEASURE("Slg Online_TongHuy", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 2. DS Online
+		lineageTag: 36dfd734-efd6-46af-8d8b-13ed8fbd8941
+		sourceLineageTag: f1bd374e-ff87-489e-ace0-2bf9f6ba354c
+		dataCategory: Uncategorized
+
+	measure 'TyTrong Online_Huy' = EXTERNALMEASURE("TyTrong Online_Huy", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 2. DS Online
+		lineageTag: 3150aa6f-194e-4fd0-9d62-dd713e2c1e7c
+		sourceLineageTag: 0efc6b12-8508-476e-916c-c61c3e3bd5b7
+		dataCategory: Uncategorized
+
+	measure 'Gia tri Online' = EXTERNALMEASURE("Gia tri Online", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 2. DS Online
+		lineageTag: 057f7e3c-0529-47a0-bd3e-4ca9f5d3515d
+		sourceLineageTag: 1ff75025-b6aa-493b-be85-ce008ee43230
+		dataCategory: Uncategorized
+
+	measure 'TyTrong DH_Huy' = EXTERNALMEASURE("TyTrong DH_Huy", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: c131724d-9a3c-4cb4-b7ee-90c99384df39
+		sourceLineageTag: 99122c40-ef98-470b-9557-0bbbad63408d
+		dataCategory: Uncategorized
+
+	measure 'TyTrong DH_Huy LM' = EXTERNALMEASURE("TyTrong DH_Huy LM", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: d562c492-e2a2-4228-9d64-ca7d7ae724b5
+		sourceLineageTag: acda7308-209e-45d5-81dc-8638822a261d
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_LM' = EXTERNALMEASURE("Slg DH_LM", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 2d7fffa4-f563-40dd-9c41-36c2b62ad38f
+		sourceLineageTag: 64e2191f-7266-48c9-8ceb-e9572ac7a88e
+		dataCategory: Uncategorized
+
+	measure 'g% LM' = EXTERNALMEASURE("g% LM", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 19ca42df-54af-4544-986a-b360378622a8
+		sourceLineageTag: 860cb53b-9189-4ed5-a0b6-4081653882f6
+		dataCategory: Uncategorized
+
+	measure 'AVG_Gia tri Online' = EXTERNALMEASURE("AVG_Gia tri Online", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 2. DS Online
+		lineageTag: 071f69e5-b1be-4487-89e8-102494200d45
+		sourceLineageTag: 3472a618-ba66-4d92-ad94-efabc484df93
+		dataCategory: Uncategorized
+
+	measure 'Thời gian cập nhật_Online' = EXTERNALMEASURE("Thời gian cập nhật_Online", DATETIME, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: General Number
+		displayFolder: 2. DS Online
+		lineageTag: 9d178acf-7721-430a-b993-30b58eefbc7e
+		sourceLineageTag: 47577a12-db93-4b73-a358-262421f32faf
+		dataCategory: Uncategorized
+
+	measure 'Slg Online_Huy LM' = EXTERNALMEASURE("Slg Online_Huy LM", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 2. DS Online
+		lineageTag: 26f1e459-d328-4c14-b0ba-aa037f2f571c
+		sourceLineageTag: 09cdf12f-5a4a-411b-8457-513e35eee19d
+		dataCategory: Uncategorized
+
+	measure 'Slg sp Online' = EXTERNALMEASURE("Slg sp Online", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 2. DS Online
+		lineageTag: 97ee8aee-d3bb-44a9-85c6-594466a1c660
+		sourceLineageTag: b9667fd5-f067-4751-b1ce-987a64e54450
+		dataCategory: Uncategorized
+
+	measure Title_ChiTietDSOnline = EXTERNALMEASURE("Title_ChiTietDSOnline", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 2. DS Online
+		lineageTag: 9bb1aa94-0cac-4d76-8d38-f71359fd9669
+		sourceLineageTag: 93419a8b-95c5-4ab9-9605-ba1228116b88
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'TyTrong Online_Huy LM' = EXTERNALMEASURE("TyTrong Online_Huy LM", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 2. DS Online
+		lineageTag: 36672db4-a74a-4aed-a84c-ec0387838db5
+		sourceLineageTag: a176d4c6-b60c-4e1b-9af8-915f0d1178d4
+		dataCategory: Uncategorized
+
+	measure 'g% LM Online' = EXTERNALMEASURE("g% LM Online", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 2. DS Online
+		lineageTag: f54fd14a-d0c1-4221-acf3-2bc82078d9fd
+		sourceLineageTag: 2a531264-acd2-464d-b2d2-a5e8020ada10
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_TC' = EXTERNALMEASURE("Slg DH_TC", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 891aab4b-2b45-409d-986c-403e743171a5
+		sourceLineageTag: 7e255b08-3c99-47fb-87a1-c11c42af1dfd
+		dataCategory: Uncategorized
+
+	measure 'Slg Online' = EXTERNALMEASURE("Slg Online", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 3. XLDH
+		lineageTag: a11975b7-7462-420b-8b9c-c741fe3fdbe0
+		sourceLineageTag: 14f37880-f440-471c-8536-737a695e0aab
+		dataCategory: Uncategorized
+
+	measure 'TyTrong Online ra SP' = EXTERNALMEASURE("TyTrong Online ra SP", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: 97a42a62-52ef-4d8b-8696-86739bb19ebc
+		sourceLineageTag: d932acbf-844d-47b4-8ce0-0fbc09e1e739
+		dataCategory: Uncategorized
+
+	measure 'TyTrong Online ra DH' = EXTERNALMEASURE("TyTrong Online ra DH", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: 97fbf2f6-7521-4896-91f2-5e4beb2cb545
+		sourceLineageTag: 787c133c-74a5-4829-bd45-10a15dfcc212
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_TC_LM' = EXTERNALMEASURE("Slg DH_TC_LM", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 178fe542-d345-4c16-9c4a-b45ccf9305c0
+		sourceLineageTag: efce976b-dbde-4ed5-9347-bebb9233b1aa
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_LM g%' = EXTERNALMEASURE("Slg DH_LM g%", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: bf20ae15-4ff5-4cd8-a577-a8950af561cd
+		sourceLineageTag: bbc4987c-3406-4a8d-8ee3-4dc4d35cc4a5
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_TC_LM g%' = EXTERNALMEASURE("Slg DH_TC_LM g%", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 1. DS Đơn hàng
+		lineageTag: 932eee4f-695c-4768-acce-526e28dab459
+		sourceLineageTag: bc2f343c-8023-4f25-96ce-1b5f9fee0b4c
+		dataCategory: Uncategorized
+
+	measure 'Slg Online_LM' = EXTERNALMEASURE("Slg Online_LM", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 2. DS Online
+		lineageTag: e3a4338a-c209-44e5-9280-9834630ed3fe
+		sourceLineageTag: ebed30fa-89b0-438f-8c73-1eacb96985fe
+		dataCategory: Uncategorized
+
+	measure 'Slg Online_LM g%' = EXTERNALMEASURE("Slg Online_LM g%", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 2. DS Online
+		lineageTag: 5ecb63cf-ed35-4b86-ba7a-e6740d426ece
+		sourceLineageTag: 5941e504-3665-4d97-8a10-fa04f43def18
+		dataCategory: Uncategorized
+
+	measure Avg_SLA_DH = EXTERNALMEASURE("Avg_SLA_DH", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 3. XLDH
+		lineageTag: 32ac4799-8771-48aa-989d-d64267f3f705
+		sourceLineageTag: 47ddd75f-ec36-44a0-9542-2956159ca2f4
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Med_SLA_DH = EXTERNALMEASURE("Med_SLA_DH", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 3. XLDH
+		lineageTag: c53c0061-c428-4813-88d7-88b816cd4aaf
+		sourceLineageTag: a9d89961-e750-4ba7-8f80-1cec779977ac
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Avg_SLA_SP = EXTERNALMEASURE("Avg_SLA_SP", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 3. XLDH
+		lineageTag: f5f294b3-9355-4a83-9d83-1df5567ec2d1
+		sourceLineageTag: c6ed2729-c48e-437e-8937-21121df980f4
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Med_SLA_SP = EXTERNALMEASURE("Med_SLA_SP", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 3. XLDH
+		lineageTag: 6ccf3b45-32f6-450e-bc14-2d507840091d
+		sourceLineageTag: 73621896-b201-4923-a637-d208affc6a5a
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Avg_SLA_DH_LM g%' = EXTERNALMEASURE("Avg_SLA_DH_LM g%", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: e2c1a06e-c4e1-452d-8fab-bb07728ccce5
+		sourceLineageTag: fd0d46f1-56ca-4416-8f5b-7c1ef0b86a05
+		dataCategory: Uncategorized
+
+	measure 'Avg_SLA_SP_LM g%' = EXTERNALMEASURE("Avg_SLA_SP_LM g%", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: f7b8c050-3ace-4516-8152-233d27c6dc42
+		sourceLineageTag: 717111d7-2815-45a0-8693-e8b76dc1af26
+		dataCategory: Uncategorized
+
+	measure Avg_SLA_DH_LM = EXTERNALMEASURE("Avg_SLA_DH_LM", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 3. XLDH
+		lineageTag: 0dd1c963-1e55-4976-a359-830e7dbc8e99
+		sourceLineageTag: 85822683-abde-406d-9841-3adfc3ea249f
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Med_SLA_DH_LM g%' = EXTERNALMEASURE("Med_SLA_DH_LM g%", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: 89cef283-2995-4264-b855-a377442ffaf1
+		sourceLineageTag: 9ad2942c-e152-42d1-9480-b67fb062aadd
+		dataCategory: Uncategorized
+
+	measure 'Med_SLA_SP_LM g%' = EXTERNALMEASURE("Med_SLA_SP_LM g%", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: be826e02-a452-4026-a682-a63470986789
+		sourceLineageTag: 638348dc-e800-4526-bf15-2da771829b85
+		dataCategory: Uncategorized
+
+	measure 'TyTrong Online' = EXTERNALMEASURE("TyTrong Online", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 2. DS Online
+		lineageTag: a9310f82-e8d7-45be-94db-f898e951c8f9
+		sourceLineageTag: 9a7b7b96-2fbf-4371-9dd7-d2c055bee513
+		dataCategory: Uncategorized
+
+	measure Select_Slg = EXTERNALMEASURE("Select_Slg", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 3. XLDH
+		lineageTag: 7ac5aacd-7df3-4d89-985c-ed80ba080f59
+		sourceLineageTag: 30a33c54-41c8-416a-882e-3cd6add45c5e
+		dataCategory: Uncategorized
+
+	measure Select_Slg_LM = EXTERNALMEASURE("Select_Slg_LM", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 3. XLDH
+		lineageTag: 93813ffd-0bd1-427c-a236-3e9b32647561
+		sourceLineageTag: 82916ed3-3938-4dd6-b6cd-880ba859ee27
+		dataCategory: Uncategorized
+
+	measure Avg_Item = EXTERNALMEASURE("Avg_Item", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 3. XLDH
+		lineageTag: f946a64c-242f-49ec-8fe7-e81f197861e0
+		sourceLineageTag: ae269882-cd56-4795-a6a7-d5ea4323966a
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Slg DH_onl' = EXTERNALMEASURE("Slg DH_onl", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 3. XLDH
+		lineageTag: 7fe1a053-523f-460e-abae-8c4a122ec6a0
+		sourceLineageTag: af3ebbc7-691d-4136-9249-57a30e242aec
+		dataCategory: Uncategorized
+
+	measure 'Slg SP_onl' = EXTERNALMEASURE("Slg SP_onl", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 3. XLDH
+		lineageTag: 3ae6ca5a-e91a-471a-80da-2c784f0dbb82
+		sourceLineageTag: 85a11dc9-6bb7-4a04-b946-e8bc07972568
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_onl LM' = EXTERNALMEASURE("Slg DH_onl LM", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 3. XLDH
+		lineageTag: 663805a3-ab0e-4d8a-ac59-ae1d7099c749
+		sourceLineageTag: 4e17631a-6e13-46a1-aec8-01018f67b9bd
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_onl LM g%' = EXTERNALMEASURE("Slg DH_onl LM g%", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: 57a7750f-560e-4727-b4fe-16c1a661171b
+		sourceLineageTag: 59021e49-95e3-497a-bf1c-fbcf21d8d143
+		dataCategory: Uncategorized
+
+	measure 'Slg SP_onl LM' = EXTERNALMEASURE("Slg SP_onl LM", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 3. XLDH
+		lineageTag: 98761999-48c6-41dc-94ef-46adfb9d3725
+		sourceLineageTag: a71cce2b-adae-4b20-89c8-f69d361af0a7
+		dataCategory: Uncategorized
+
+	measure 'Slg SP_onl LM g%' = EXTERNALMEASURE("Slg SP_onl LM g%", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: cc14b7cf-fa2a-4503-87b0-06d01f8b9b1c
+		sourceLineageTag: 27dcc17a-1361-40e1-a7a1-ea983ce373e1
+		dataCategory: Uncategorized
+
+	measure 'Avg_Gia trị DH_onl' = EXTERNALMEASURE("Avg_Gia trị DH_onl", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: 3. XLDH
+		lineageTag: 645980a3-03f0-49a5-b6ae-484e2e7d5fa5
+		sourceLineageTag: c10f649e-21fb-4228-a741-9e89208939a2
+		dataCategory: Uncategorized
+
+	measure Avg_SLA_DH_Comt = EXTERNALMEASURE("Avg_SLA_DH_Comt", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 3. XLDH
+		lineageTag: 9afa86c5-b565-457f-89f7-c0a91bd7ae41
+		sourceLineageTag: 79f7581d-095a-451a-a669-29040bd305f5
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Slg_tồn = EXTERNALMEASURE("Slg_tồn", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: TỒN
+		lineageTag: 4033799b-f762-48c8-a8ae-3de16363c1b1
+		sourceLineageTag: 7d071022-2b20-4def-a123-ec1166730b9d
+		dataCategory: Uncategorized
+
+	measure Slg_tồn_đi_đường = EXTERNALMEASURE("Slg_tồn_đi_đường", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: TỒN
+		lineageTag: 8186551e-730b-4470-b328-a59e9d79e9fe
+		sourceLineageTag: 18b8db9e-831f-4416-b983-659a7eb06006
+		dataCategory: Uncategorized
+
+	measure Slg_sp_DH = EXTERNALMEASURE("Slg_sp_DH", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: TỒN
+		lineageTag: e03e0480-9698-4388-afdd-92bcc7c7cf2c
+		sourceLineageTag: 532bef20-06b3-476c-a7a5-0feb086cd106
+		dataCategory: Uncategorized
+
+	measure Slg_DH_tiềm_năng = EXTERNALMEASURE("Slg_DH_tiềm_năng", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: TỒN
+		lineageTag: ae2010a5-60a8-407a-9864-918ac611ceac
+		sourceLineageTag: bd1d0d76-ba66-4848-843d-c0d6c95bbbbd
+		dataCategory: Uncategorized
+
+	measure Slg_DH_CXL_2-3Day = EXTERNALMEASURE("Slg_DH_CXL_2-3Day", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: TỒN
+		lineageTag: 485f5dd7-5684-46cb-9ab3-81bb47c852be
+		sourceLineageTag: 3891fe20-c090-4972-9890-389bfa6ddf60
+		dataCategory: Uncategorized
+
+	measure Slg_DH_CXL1 = EXTERNALMEASURE("Slg_DH_CXL1", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: TỒN
+		lineageTag: c4a46105-d4d1-4832-842b-92cf42cf02d6
+		sourceLineageTag: 99066955-896d-4a8a-b3f4-0e4cc07149ea
+		dataCategory: Uncategorized
+
+	measure Slg_DH_CXL_4DayPlus = EXTERNALMEASURE("Slg_DH_CXL_4DayPlus", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: TỒN
+		lineageTag: 28baeb69-56a5-4643-a058-7a9cc512ee5a
+		sourceLineageTag: 883e0b2c-f278-49f2-a276-9423a30d6672
+		dataCategory: Uncategorized
+
+	measure Dso_DH = EXTERNALMEASURE("Dso_DH", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: TỒN
+		lineageTag: 6d824952-59bd-431b-ade8-a2782550a684
+		sourceLineageTag: b526105a-29a2-42c7-bf25-fb3df06954ba
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Dso_DH_tiềm_năng = EXTERNALMEASURE("Dso_DH_tiềm_năng", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: TỒN
+		lineageTag: d7825a91-4ae5-425b-a4bc-b0f224a48c88
+		sourceLineageTag: 2f050819-03ed-4d3b-bcb3-8cc876ecdccf
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_CXL' = EXTERNALMEASURE("Slg DH_CXL", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: #,0
+		displayFolder: TỒN
+		lineageTag: 8e93bf6d-aa62-4eff-9306-e798a1586bf4
+		sourceLineageTag: 4f008d9b-b19c-470f-8a18-3108e49a83d3
+		dataCategory: Uncategorized
+
+	measure _Slg_DH_CXL1 = EXTERNALMEASURE("_Slg_DH_CXL1", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: "LUẬN TRỄ :" \#\,\#
+		displayFolder: TỒN
+		lineageTag: d85d3b99-365f-4a55-b7b8-b434f8d5e6f7
+		sourceLineageTag: 4f6e753a-3b0a-4a0e-a7b6-85bf9c551ff2
+		dataCategory: Uncategorized
+
+	measure _Slg_DH_CXL_2-3Day = EXTERNALMEASURE("_Slg_DH_CXL_2-3Day", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: TỒN
+		lineageTag: 2ad748a7-c008-47ef-9528-af314cb7e34e
+		sourceLineageTag: 13a00b89-8fcc-484e-a213-42e5de3a6066
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure _Slg_DH_CXL_4DayPlus = EXTERNALMEASURE("_Slg_DH_CXL_4DayPlus", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: TỒN
+		lineageTag: fd17cdc9-5ff3-4f99-9c02-7733849284e2
+		sourceLineageTag: ced40209-0b1c-4ca0-9024-db0ebd8d45a0
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'TyTrong Online huy' = EXTERNALMEASURE("TyTrong Online huy", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: a32e73fb-50da-4fd9-b595-6b580cb768de
+		sourceLineageTag: f0c5b429-c867-410f-b33a-cca34658b6e2
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_huy' = EXTERNALMEASURE("Slg DH_huy", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 3. XLDH
+		lineageTag: d9d411dc-e372-4b7f-bae3-4627e3d24c2b
+		sourceLineageTag: 2480de47-86f4-40ae-993a-67f5b3fee58f
+		dataCategory: Uncategorized
+
+	measure 'Slg Onl_Huy' = EXTERNALMEASURE("Slg Onl_Huy", INTEGER, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0
+		displayFolder: 3. XLDH
+		lineageTag: 5aa38acf-bc4e-48b6-b80a-0f790acefa05
+		sourceLineageTag: 36318f7d-ca8e-4148-ac57-8a15fc4c7469
+		dataCategory: Uncategorized
+
+	measure 'TyTrong DH huy' = EXTERNALMEASURE("TyTrong DH huy", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: d5dc4b55-7395-48f9-afb4-53f9d292b370
+		sourceLineageTag: fdb1143e-ab04-4104-8385-30c697384419
+		dataCategory: Uncategorized
+
+	measure __Dso_DH_tiem_nang = EXTERNALMEASURE("__Dso_DH_tiem_nang", DOUBLE, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: TỒN
+		lineageTag: 305360da-c368-4000-960f-9ded0cb7dd75
+		sourceLineageTag: c74d694d-fd3c-44da-971f-e12b11cd8179
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Avg_SLA_SSHH = EXTERNALMEASURE("Avg_SLA_SSHH", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 3. XLDH
+		lineageTag: c37914a1-fd84-4145-855d-e899fd0aaf6e
+		sourceLineageTag: 0bbb49cf-9300-4b88-9681-5ae22f5f0fb3
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Avg_SLA_SSHH_Comt = EXTERNALMEASURE("Avg_SLA_SSHH_Comt", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		displayFolder: 3. XLDH
+		lineageTag: 7c1a37f2-93ff-4f7c-8487-022db9672a7e
+		sourceLineageTag: 8959a450-5036-41c1-b403-7fc6fd60f022
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Med_SLA_SSHH = EXTERNALMEASURE("Med_SLA_SSHH", STRING, "DirectQuery to AS - VH_Xử lý Đơn hàng_new")
+		lineageTag: 214093b8-660a-47df-9ad2-42c74ad1d888
+		sourceLineageTag: 32220aef-1a4c-4f06-bd75-c6869c6f5dbe
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure '% Thành công đơn Online' = ```
+			VAR target = 0.65 VAR actual = [TyTrong Online ra SP] RETURN MIN(
+			    1.2,
+			    ROUND(
+			        1 + DIVIDE(actual - target, target, 0),
+			        4
+			    )
+			)  
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: 3. XLDH
+		lineageTag: 84fbbcb6-f66e-4cc2-a1de-65b4f7cc83c5
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	column Column
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 58d1c183-2d19-4e2c-961a-c1f76c6d5b3a
+		sourceLineageTag: c116a164-16a6-4a62-94d5-1d8a48daed77
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = User
+
+	partition Measure_DH_Online = entity
+		mode: directQuery
+		source
+			entityName: Measure
+			expressionSource: 'DirectQuery to AS - VH_Xử lý Đơn hàng_new'
+
+	changedProperty = Name
+

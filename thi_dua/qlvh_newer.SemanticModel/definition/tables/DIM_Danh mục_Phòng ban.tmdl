@@ -1,0 +1,480 @@
+table 'DIM_Danh mục_Phòng ban'
+	lineageTag: f8dc71c4-0941-42f7-95b0-516cd83063c4
+
+	column HaraID
+		dataType: int64
+		formatString: 0
+		lineageTag: 33a34c15-32bd-4784-ac5d-b7c03db097c6
+		summarizeBy: none
+		sourceColumn: HaraID
+
+		annotation SummarizationSetBy = Automatic
+
+	column HaraWorkPlaceName
+		dataType: string
+		lineageTag: cf7238a5-f9bc-4c5c-a59a-3e0a3101c303
+		summarizeBy: none
+		sourceColumn: HaraWorkPlaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mã Bộ phận'
+		dataType: string
+		lineageTag: 82240a5b-eb0b-4611-9f70-d5685070848d
+		summarizeBy: none
+		sourceColumn: Mã Bộ phận
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: ec232f49-934e-4a7a-b8e6-08f926258d1c
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column lv2
+		dataType: string
+		lineageTag: 4ce35433-33b5-4128-a9db-0af384a2e6a0
+		summarizeBy: none
+		sourceColumn: lv2
+
+		annotation SummarizationSetBy = Automatic
+
+	column lv3
+		dataType: string
+		lineageTag: 7a3f92a8-9f71-44ca-9d57-e30dccbf1bc2
+		summarizeBy: none
+		sourceColumn: lv3
+
+		annotation SummarizationSetBy = Automatic
+
+	column lv4
+		dataType: string
+		lineageTag: 6977b53a-dde9-43db-a8d2-88abd9371870
+		summarizeBy: none
+		sourceColumn: lv4
+
+		annotation SummarizationSetBy = Automatic
+
+	column lv5
+		dataType: string
+		lineageTag: 86a8c36a-37bd-40b8-99e6-26c754b372f4
+		summarizeBy: none
+		sourceColumn: lv5
+
+		annotation SummarizationSetBy = Automatic
+
+	column lv6
+		dataType: string
+		lineageTag: 8ed9b929-454c-487b-9906-a830786ca602
+		summarizeBy: none
+		sourceColumn: lv6
+
+		annotation SummarizationSetBy = Automatic
+
+	column lv7
+		dataType: string
+		lineageTag: 74a87e9b-366f-40df-a2b2-d7371efd9bff
+		summarizeBy: none
+		sourceColumn: lv7
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tên ngắn gọn'
+		dataType: string
+		lineageTag: d1d16236-a078-4ca6-adfb-e4e9b9018999
+		summarizeBy: none
+		sourceColumn: Tên ngắn gọn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Địa chỉ'
+		dataType: string
+		lineageTag: cdc5e608-c458-4af0-8187-1e9c213c15ec
+		summarizeBy: none
+		sourceColumn: Địa chỉ
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: f8d73b95-6d85-498f-b88c-c4b960043a3f
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: c48f2c86-f92e-4cab-b196-e1904d01a83d
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BranchId
+		dataType: int64
+		formatString: 0
+		lineageTag: 73b9d8d8-dcb8-4a9b-94e1-b440bfe36a85
+		summarizeBy: count
+		sourceColumn: BranchId
+
+		annotation SummarizationSetBy = Automatic
+
+	column apple_location_id
+		dataType: string
+		lineageTag: 33fd60c3-c843-41e5-990f-f8684895d744
+		summarizeBy: none
+		sourceColumn: apple_location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostCenter
+		dataType: string
+		lineageTag: 2ed71dbe-c65b-4482-b59d-b6f426eee811
+		summarizeBy: none
+		sourceColumn: CostCenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: f905cb46-34a5-452d-92c0-1fd3e3db5146
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Công ty'
+		dataType: string
+		lineageTag: cbd218ad-53c5-494d-82c1-439339ed8cd6
+		summarizeBy: none
+		sourceColumn: Công ty
+
+		annotation SummarizationSetBy = Automatic
+
+	column Miền
+		dataType: string
+		lineageTag: cdbc9444-f649-447b-ba37-7d06a28eba74
+		summarizeBy: none
+		sourceColumn: Miền
+
+		annotation SummarizationSetBy = Automatic
+
+	column Province
+		dataType: string
+		lineageTag: f94d552c-c7c2-4d38-a91c-914cd19811cb
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: Province
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"DIM_Danh mục_Phòng ban","TableItemName":"Key City","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column District
+		dataType: string
+		lineageTag: 54178618-f2f5-4777-940d-3c52f7ade73a
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: District
+
+		annotation SummarizationSetBy = Automatic
+
+	column Vùng
+		dataType: string
+		lineageTag: 9a1365ba-6837-423f-8ceb-8379b613d536
+		summarizeBy: none
+		sourceColumn: Vùng
+
+		annotation SummarizationSetBy = Automatic
+
+	column Khối
+		dataType: string
+		lineageTag: 7a2a65c2-781e-49d2-be01-9497c318a31c
+		summarizeBy: none
+		sourceColumn: Khối
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phòng
+		dataType: string
+		lineageTag: 497ebefb-296f-4be0-a7ee-df67aebed1ac
+		summarizeBy: none
+		sourceColumn: Phòng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngày khai trương'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bac098e0-c686-4525-aac0-7c46c8571c0e
+		summarizeBy: none
+		sourceColumn: Ngày khai trương
+
+		variation Variation
+			isDefault
+			relationship: d0cb5d6c-6b8b-4ce0-a2d4-930b42a26656
+			defaultHierarchy: LocalDateTable_f5c63688-e370-4308-8037-57ba2b0162e9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ngày bán cuối cùng'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: edfb5276-8c4d-40f8-aeb7-0d9075dbcd3f
+		summarizeBy: none
+		sourceColumn: Ngày bán cuối cùng
+
+		variation Variation
+			isDefault
+			relationship: 15a5152c-bee2-4158-8ded-928f273a620a
+			defaultHierarchy: LocalDateTable_3a2fb66a-0da7-4f3e-b0f3-edd1fd1f37ef.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Chiều ngang'
+		dataType: double
+		lineageTag: 8a347efa-de0b-4dbc-8f17-4f9e69b2c252
+		summarizeBy: sum
+		sourceColumn: Chiều ngang
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Chiều rộng'
+		dataType: double
+		lineageTag: ce33eb9b-cb10-49f2-949d-55daa3f15ffc
+		summarizeBy: sum
+		sourceColumn: Chiều rộng
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Diện tích tổng'
+		dataType: double
+		lineageTag: 0e48bb68-0a30-4060-a24a-0345d850c83e
+		summarizeBy: sum
+		sourceColumn: Diện tích tổng
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Diện tích bán hàng'
+		dataType: double
+		lineageTag: 32d1daf3-f800-4b41-bf01-f4896e460eb5
+		summarizeBy: sum
+		sourceColumn: Diện tích bán hàng
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Size
+		dataType: string
+		lineageTag: c87660e3-084a-427f-8dce-60d3b340e0e8
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column AM
+		dataType: string
+		lineageTag: 5353234b-c559-4943-b275-20d5226a4357
+		summarizeBy: none
+		sourceColumn: AM
+
+		annotation SummarizationSetBy = Automatic
+
+	column RSM
+		dataType: string
+		lineageTag: b7a8f088-f7f9-4b77-9523-6f2422b7dc3f
+		summarizeBy: none
+		sourceColumn: RSM
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsActive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 951121f6-2978-4217-a101-6293888cd661
+		summarizeBy: none
+		sourceColumn: IsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsInactive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: db39d5e3-00e7-4cc9-aef8-dce54298b462
+		summarizeBy: none
+		sourceColumn: IsInactive
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Province.Shortform'
+		dataType: string
+		lineageTag: 56b45320-389c-4acf-91fa-1ab1309d47a9
+		summarizeBy: none
+		sourceColumn: Province.Shortform
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Key City' =
+			SWITCH(
+				TRUE,
+				ISBLANK('DIM_Danh mục_Phòng ban'[Province]),
+				"(Blank)",
+				'DIM_Danh mục_Phòng ban'[Province] IN {"Hà Nội",
+					"Hồ Chí Minh"},
+				"Key City",
+				'DIM_Danh mục_Phòng ban'[Province] IN {"An Giang",
+					"Bà Rịa - Vũng Tàu",
+					"Bắc Giang",
+					"Bắc Ninh",
+					"Bến Tre",
+					"Bình Định",
+					"Bình Dương",
+					"Bình Phước",
+					"Bình Thuận",
+					"Cà Mau",
+					"Cần Thơ",
+					"Đà Nẵng",
+					"Đắk Lắk",
+					"Đồng Nai",
+					"Đồng Tháp",
+					"Gia Lai",
+					"Hà Tĩnh",
+					"Hải Dương",
+					"Hải Phòng",
+					"Hậu Giang",
+					"Khánh Hòa",
+					"Kiên Giang",
+					"Lâm Đồng",
+					"Lạng Sơn",
+					"Long An",
+					"Nam Định",
+					"Nghệ An",
+					"Ninh Thuận",
+					"Phú Thọ",
+					"Quảng Bình",
+					"Quảng Ngãi",
+					"Quảng Ninh",
+					"Sóc Trăng",
+					"Tây Ninh",
+					"Thái Bình",
+					"Thái Nguyên",
+					"Thanh Hóa",
+					"Thừa Thiên Huế",
+					"Tiền Giang",
+					"Trà Vinh",
+					"Vĩnh Long",
+					"Vĩnh Phúc"},
+				"Tỉnh",
+				'DIM_Danh mục_Phòng ban'[Province]
+			)
+		lineageTag: fb8f5e3b-05ba-4930-9571-5f06152e5b1b
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "DIM_Danh mục_Phòng ban"
+				          }
+				        },
+				        "Property": "Province"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"d","Entity":"DIM_Danh mục_Phòng ban"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Province"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"Key City","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Province"}}],"Values":[[{"Literal":{"Value":"'Hà Nội'"}}],[{"Literal":{"Value":"'Hồ Chí Minh'"}}]]}}},{"DisplayName":"Tỉnh","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"d"}},"Property":"Province"}}],"Values":[[{"Literal":{"Value":"'An Giang'"}}],[{"Literal":{"Value":"'Bà Rịa - Vũng Tàu'"}}],[{"Literal":{"Value":"'Bắc Giang'"}}],[{"Literal":{"Value":"'Bắc Ninh'"}}],[{"Literal":{"Value":"'Bến Tre'"}}],[{"Literal":{"Value":"'Bình Định'"}}],[{"Literal":{"Value":"'Bình Dương'"}}],[{"Literal":{"Value":"'Bình Phước'"}}],[{"Literal":{"Value":"'Bình Thuận'"}}],[{"Literal":{"Value":"'Cà Mau'"}}],[{"Literal":{"Value":"'Cần Thơ'"}}],[{"Literal":{"Value":"'Đà Nẵng'"}}],[{"Literal":{"Value":"'Đắk Lắk'"}}],[{"Literal":{"Value":"'Đồng Nai'"}}],[{"Literal":{"Value":"'Đồng Tháp'"}}],[{"Literal":{"Value":"'Gia Lai'"}}],[{"Literal":{"Value":"'Hà Tĩnh'"}}],[{"Literal":{"Value":"'Hải Dương'"}}],[{"Literal":{"Value":"'Hải Phòng'"}}],[{"Literal":{"Value":"'Hậu Giang'"}}],[{"Literal":{"Value":"'Khánh Hòa'"}}],[{"Literal":{"Value":"'Kiên Giang'"}}],[{"Literal":{"Value":"'Lâm Đồng'"}}],[{"Literal":{"Value":"'Lạng Sơn'"}}],[{"Literal":{"Value":"'Long An'"}}],[{"Literal":{"Value":"'Nam Định'"}}],[{"Literal":{"Value":"'Nghệ An'"}}],[{"Literal":{"Value":"'Ninh Thuận'"}}],[{"Literal":{"Value":"'Phú Thọ'"}}],[{"Literal":{"Value":"'Quảng Bình'"}}],[{"Literal":{"Value":"'Quảng Ngãi'"}}],[{"Literal":{"Value":"'Quảng Ninh'"}}],[{"Literal":{"Value":"'Sóc Trăng'"}}],[{"Literal":{"Value":"'Tây Ninh'"}}],[{"Literal":{"Value":"'Thái Bình'"}}],[{"Literal":{"Value":"'Thái Nguyên'"}}],[{"Literal":{"Value":"'Thanh Hóa'"}}],[{"Literal":{"Value":"'Thừa Thiên Huế'"}}],[{"Literal":{"Value":"'Tiền Giang'"}}],[{"Literal":{"Value":"'Trà Vinh'"}}],[{"Literal":{"Value":"'Vĩnh Long'"}}],[{"Literal":{"Value":"'Vĩnh Phúc'"}}]]}}}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	column Custom
+		dataType: string
+		lineageTag: aa1dfe86-4943-4f3e-b94b-e1c1b8f36549
+		summarizeBy: none
+		sourceColumn: Custom
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ma_Kho = ```
+			
+			VAR _OneRow =
+			    TOPN(
+			        1,
+			        FILTER(
+			            'DIM_Phân quyền vận hành',
+			            'DIM_Phân quyền vận hành'[Cửa hàng] = 'DIM_Danh mục_Phòng ban'[Cửa hàng]
+			                && NOT CONTAINSSTRING( 'DIM_Phân quyền vận hành'[Mã kho], "KM" )
+			        ),
+			        'DIM_Phân quyền vận hành'[Mã kho]
+			    )
+			RETURN
+			MAXX(_OneRow, 'DIM_Phân quyền vận hành'[Mã kho])
+			
+			```
+		lineageTag: 4758b7ab-f250-41ac-a9ee-c213405a2f96
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column OP =
+			
+			VAR Mien =
+			    LOOKUPVALUE(
+			        'DIM_Danh mục_Kho'[Miền],
+			        'DIM_Danh mục_Kho'[Mã kho], 'DIM_Danh mục_Phòng ban'[Ma_Kho]
+			    )
+			RETURN
+			    LOOKUPVALUE( 'DIM_Phân quyền vận hành_Vùng'[Tên],'DIM_Phân quyền vận hành_Vùng'[Miền],Mien)
+		lineageTag: 440a1e0b-b2a6-48c4-a28a-4348c4979a73
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Leader = LOOKUPVALUE('DIM_Phân quyền user'[Leader],'DIM_Phân quyền user'[Tên],'DIM_Danh mục_Phòng ban'[Cửa hàng],BLANK())
+		lineageTag: c95f96f9-64af-4193-9b9b-0a366e7930c7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Danh mục_Phòng ban' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=6e97d189-0524-457d-bd6e-30d5e5ad63ad""#(lf)select #(lf)hara_id#(tab)HaraID,#(lf)hara_workplace_name HaraWorkPlaceName,#(lf)ma_bo_phan#(tab)`Mã Bộ phận`,#(lf)bo_phan#(tab)`Cửa hàng`,#(lf)level_2#(tab)lv2,#(lf)level_3#(tab)lv3,#(lf)level_4#(tab)lv4,#(lf)level_5#(tab)lv5,#(lf)level_6#(tab)lv6,#(lf)level_7#(tab)lv7,#(lf)short_name#(tab)`Tên ngắn gọn`,#(lf)dia_chi_shop#(tab)`Địa chỉ`,#(lf)Latitude#(tab),#(lf)Longitude#(tab),#(lf)branch_id#(tab)BranchId,#(lf)apple_location_id,#(tab)#(lf)oracle_code#(tab)CostCenter,#(lf)van_phong_cua_hang Type,#(lf)cong_ty#(tab)`Công ty`,#(lf)mien `Miền`,#(lf)tinh_thanh_pho#(tab)Province,#(lf)quan_huyen#(tab)District,#(lf)vung#(tab)`Vùng`,#(lf)khoi#(tab)`Khối`,#(lf)phong#(tab)`Phòng`,#(lf)khai_truong#(tab)`Ngày khai trương`,#(lf)dong_cua#(tab)`Ngày bán cuối cùng`,#(lf)ngang_m#(tab)`Chiều ngang`,#(lf)sau_m#(tab)`Chiều rộng`,#(lf)tong_m2#(tab)`Diện tích tổng`,#(lf)dien_tich_ban_hang#(tab)`Diện tích bán hàng`,#(lf)size#(tab)Size,#(lf)am#(tab)AM,#(lf)rsm#(tab)RSM,#(lf)is_active#(tab)IsActive,#(lf)is_inactive#(tab)IsInactive,#(lf)from#(lf)  `cellphones-data-platform.cps_DA_General_Transform.dim_department`#(lf)where cong_ty = 'CPS' and mien is not null", null, [EnableFolding=true]),
+				    #"Merged Queries" = Table.NestedJoin(Source, {"Province"}, Province, {"FULL"}, "Province.1", JoinKind.LeftOuter),
+				    #"Expanded Province.1" = Table.ExpandTableColumn(#"Merged Queries", "Province.1", {"Short form"}, {"Province.Shortform"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Expanded Province.1","Tỉnh ","",Replacer.ReplaceText,{"Province"}),
+				    #"Replaced Value1" = Table.ReplaceValue(#"Replaced Value","Thành phố ","",Replacer.ReplaceText,{"Province"}),
+				    #"Added Custom" = Table.AddColumn(#"Replaced Value1", "Custom", each if [Province.Shortform] = "HCM" then "HCM" else if [Province.Shortform] = "HNO" then "HNO" else "KHÁC"),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([AM] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,7 @@
+role 'VH_RSM_Miền Bắc'
+	modelPermission: read
+
+	tablePermission 'DIM_Danh mục_Miền' = 'DIM_Danh mục_Miền'[Miền]="Miền Bắc"
+
+	annotation PBI_Id = 7cafae80985e41d99f844ebcaae35c17
+

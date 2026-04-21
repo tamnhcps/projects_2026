@@ -1,0 +1,73 @@
+table DinhBien
+	lineageTag: de0f24f6-f79b-40f0-8a34-9bb4c725cf06
+
+	column SHOP
+		dataType: string
+		lineageTag: 93ff4832-7834-458b-b36b-5d68e8ea1658
+		summarizeBy: none
+		sourceColumn: SHOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column AM
+		dataType: string
+		lineageTag: 424e4917-65f4-4980-a20c-03535d18495c
+		summarizeBy: none
+		sourceColumn: AM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Định biên'
+		dataType: int64
+		formatString: 0
+		lineageTag: 88388d8a-744b-4a80-aa9a-446dcc2ac2a8
+		summarizeBy: sum
+		sourceColumn: Định biên
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 80951c04-0b09-466a-a990-50d381c5f681
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		variation Variation
+			isDefault
+			relationship: b269d45c-3ee6-4657-85c6-9cc23f1968f9
+			defaultHierarchy: LocalDateTable_cfb667fc-3bcb-4a71-bee7-a935c65ceb85.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EndDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f5d81b2a-8fd7-433f-b3cd-ceec52b3df2b
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		variation Variation
+			isDefault
+			relationship: 411e8e50-7818-4a6b-98d1-e4a3602b9132
+			defaultHierarchy: LocalDateTable_9a7bc844-a5eb-4a71-892e-6939e26114b1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition DinhBien = m
+		mode: import
+		queryGroup: NLVH
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=6e97d189-0524-457d-bd6e-30d5e5ad63ad""#(lf)#(lf)SELECT#(lf)  shop AS SHOP,#(lf)  am AS AM,#(lf)  dinh_bien AS `Định biên`,#(lf)  DATE(start_date, ""Asia/Ho_Chi_Minh"") AS StartDate,#(lf)  DATE(end_date, ""Asia/Ho_Chi_Minh"")   AS EndDate#(lf)FROM `cellphones-data-platform.cps_larkbase.dinh_bien_shop`", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

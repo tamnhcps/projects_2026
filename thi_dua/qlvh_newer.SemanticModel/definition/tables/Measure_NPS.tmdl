@@ -1,0 +1,604 @@
+table Measure_NPS
+	lineageTag: ae57be31-8570-4889-9875-af474177949e
+	sourceLineageTag: 24aa7ac1-f2f2-4608-a5fa-3857639e89e5
+
+	measure 'Số phiếu Hài lòng_HaveTicket' = EXTERNALMEASURE("Số phiếu Hài lòng_HaveTicket", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: f79bae9a-6303-4c13-979d-cd72a8b965cc
+		sourceLineageTag: 67aa5632-8720-4d76-bba4-a41d3a737494
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu Hài lòng_NoTicket' = EXTERNALMEASURE("Số phiếu Hài lòng_NoTicket", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: fc560630-f906-4342-9768-e96c57ec10ec
+		sourceLineageTag: 54b0a0bb-266c-4b83-95e0-acff7bc54bf8
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu Hài lòng' = EXTERNALMEASURE("Số phiếu Hài lòng", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: #,0
+		lineageTag: 00e04a3b-6d82-4805-a782-94a5d394461e
+		sourceLineageTag: 35a07c4f-151d-44e2-8aee-f919f862fbe1
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu Bình thường' = EXTERNALMEASURE("Số phiếu Bình thường", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: cf16ee09-f806-4675-8eed-3a594c5446ca
+		sourceLineageTag: 77ca9813-190e-4d0e-b849-080b05a3f46e
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu Không hài lòng' = EXTERNALMEASURE("Số phiếu Không hài lòng", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: #,0
+		lineageTag: d19a50c0-3b31-414f-9049-021ba056519a
+		sourceLineageTag: fcee3a98-c951-4068-8b88-2d772e279ea6
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu Vi phạm_HaveTicket' = EXTERNALMEASURE("Số phiếu Vi phạm_HaveTicket", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: #,0
+		lineageTag: 90941e13-7081-4b3f-87c3-afb727bfd11c
+		sourceLineageTag: a68ab2c9-57c7-4592-b7f2-18b198c5f71b
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu Nhắc nhở_HaveTicket' = EXTERNALMEASURE("Số phiếu Nhắc nhở_HaveTicket", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 53ec42c7-fe20-4be4-827d-43636ba484f0
+		sourceLineageTag: c4939aa0-878c-4025-abb0-482bbe6a7f51
+		dataCategory: Uncategorized
+
+	measure 'Tổng khảo sát' = EXTERNALMEASURE("Tổng khảo sát", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: #,0
+		lineageTag: 76529597-6016-43ff-8582-dcac506f3dcb
+		sourceLineageTag: 6accdc74-faee-48a2-a883-e40188b610c5
+		dataCategory: Uncategorized
+
+	measure NPS_Shop = EXTERNALMEASURE("NPS_Shop", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b5e03a6d-ae4e-409d-90d4-c78a9d981a4b
+		sourceLineageTag: 42e29637-98bb-4963-8f8e-13b23f7b6c7d
+		dataCategory: Uncategorized
+
+	measure '%Hài lòng_Shop' = EXTERNALMEASURE("%Hài lòng_Shop", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 34c3a9ac-0a5b-4e83-84f8-9033ba3418d5
+		sourceLineageTag: f1265249-65b6-40c7-bcb2-cf6aac05ecbc
+		dataCategory: Uncategorized
+
+	measure '%Vi phạm_Shop' = EXTERNALMEASURE("%Vi phạm_Shop", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: af927aa7-78bf-405e-8b9d-fe5e043afdba
+		sourceLineageTag: 970ee5b2-6bbf-4b5f-8f02-6250c60d9c77
+		dataCategory: Uncategorized
+
+	measure 'Xếp hạng_Shop' = EXTERNALMEASURE("Xếp hạng_Shop", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: e3d294d9-38d5-4b5e-ba41-7483558091bc
+		sourceLineageTag: a1917a7a-53f9-4b92-9e28-2bcbaa352108
+		dataCategory: Uncategorized
+
+	measure 'Ngày cập nhật' = EXTERNALMEASURE("Ngày cập nhật", DATETIME, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: Short Date
+		lineageTag: 97818a7e-466e-4514-b56b-76819c85be21
+		sourceLineageTag: da351599-768c-446c-a6bf-20f96c6a4353
+		dataCategory: Uncategorized
+
+	measure 'SLg Shop' = EXTERNALMEASURE("SLg Shop", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: a8c11b0f-fa63-49ea-a785-d1048dd079ed
+		sourceLineageTag: 1eb0cd3e-d206-40e4-9264-b49e99ee1dfb
+		dataCategory: Uncategorized
+
+	measure 'SLg Quản lý' = EXTERNALMEASURE("SLg Quản lý", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 4966a993-a0ad-4fc9-b6aa-aa22ee0f1966
+		sourceLineageTag: 8906b57c-cc81-439a-afbe-527b300a5e3a
+		dataCategory: Uncategorized
+
+	measure 'SLg Nhân viên' = EXTERNALMEASURE("SLg Nhân viên", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 97cc3ca5-5c16-4a35-90c9-1bf81f826893
+		sourceLineageTag: 752b890e-e10d-4ce5-a5cc-10f825cf79c7
+		dataCategory: Uncategorized
+
+	measure 'Số cửa hàng đạt %Vi phạm' = EXTERNALMEASURE("Số cửa hàng đạt %Vi phạm", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 4f6e980e-f812-4667-ae6f-90215bd70fda
+		sourceLineageTag: 0bfe585a-3473-4ae9-ac7d-bc087a6d6d75
+		dataCategory: Uncategorized
+
+	measure 'Số cửa hàng ko đạt %Vi phạm' = EXTERNALMEASURE("Số cửa hàng ko đạt %Vi phạm", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: bd37188c-f7a1-4285-a2a2-e3da3c9487f1
+		sourceLineageTag: 35cf5a57-966d-49c2-b848-82c78a1e8d6f
+		dataCategory: Uncategorized
+
+	measure 'Số lượng đơn hàng' = EXTERNALMEASURE("Số lượng đơn hàng", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 2b69aea4-05e5-47a9-a2ae-abfc849db96c
+		sourceLineageTag: 0278b962-3276-4041-b8e2-051bf5d21799
+		dataCategory: Uncategorized
+
+	measure 'Số lượng đơn hàng chưa khảo sát' = EXTERNALMEASURE("Số lượng đơn hàng chưa khảo sát", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: a344be96-d464-45a1-b401-20cf85423cd4
+		sourceLineageTag: 9704aa23-a505-4a10-809f-1a64de413d01
+		dataCategory: Uncategorized
+
+	measure 'Số lượng đơn hàng đã khảo sát' = EXTERNALMEASURE("Số lượng đơn hàng đã khảo sát", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: c23e5b2d-7aec-4aa5-8812-d26efffd9775
+		sourceLineageTag: 462c7d80-da6a-4de9-836b-79fde97365d1
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ khảo sát' = EXTERNALMEASURE("Tỷ lệ khảo sát", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 92fec468-3eb2-442e-89fa-e08108906091
+		sourceLineageTag: 84a0a61f-cd33-4432-bb62-21d248b4b1c8
+		dataCategory: Uncategorized
+
+	measure 'Số lượng đơn hàng đã khảo sát_SMS' = EXTERNALMEASURE("Số lượng đơn hàng đã khảo sát_SMS", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 5b003595-38af-45f1-b84d-fc35c7a52337
+		sourceLineageTag: 752f7b9c-0a53-4944-9177-3716c756ec57
+		dataCategory: Uncategorized
+
+	measure 'Số lượng đơn hàng đã khảo sát_Autocall' = EXTERNALMEASURE("Số lượng đơn hàng đã khảo sát_Autocall", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 302b5f1e-bd5d-4b38-9924-83332ee7b080
+		sourceLineageTag: 4b207490-b916-4233-bfcf-0ae1af80f603
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ khảo sát_Autocall' = EXTERNALMEASURE("Tỷ lệ khảo sát_Autocall", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 10cd5b1f-f587-4be8-9449-30aee1eb4805
+		sourceLineageTag: 638e2257-7d2c-4bb7-97a1-f36b748eb32d
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ khảo sát_SMS' = EXTERNALMEASURE("Tỷ lệ khảo sát_SMS", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f244c143-82a4-409a-a3f5-ae7c4fdb4ee6
+		sourceLineageTag: 44d5e3bc-0066-460d-b665-b335e0f100a3
+		dataCategory: Uncategorized
+
+	measure 'Số lượng đơn hàng đã khảo sát_Happycall' = EXTERNALMEASURE("Số lượng đơn hàng đã khảo sát_Happycall", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 3372c7e2-a171-43d0-b1b7-f9713e565da2
+		sourceLineageTag: e7ec60ad-b903-4a6e-ad59-38c6bc42c511
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ khảo sát_Happycall' = EXTERNALMEASURE("Tỷ lệ khảo sát_Happycall", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 17638374-749d-4484-9725-8b2867c67768
+		sourceLineageTag: 948b211d-ac29-4961-9633-99e99a2e2c7f
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu có tư vấn' = EXTERNALMEASURE("Số lượng phiếu có tư vấn", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 38230b82-a38f-4c8f-b520-be7ba71e4e65
+		sourceLineageTag: 85e07e83-b6e9-48b1-92eb-5f7fc6943c90
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu có tư vấn_SMS' = EXTERNALMEASURE("Số lượng phiếu có tư vấn_SMS", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 378c18af-e3ff-4d02-a7da-f3eb206b96f6
+		sourceLineageTag: 1a185bf0-d427-4b9d-9615-0aa70a6df31d
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu có tư vấn_Happycall' = EXTERNALMEASURE("Số lượng phiếu có tư vấn_Happycall", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 1b04a813-5d5f-4679-b0f9-219260f4def1
+		sourceLineageTag: a476438d-c7be-4dd3-aa6f-fff5551936a4
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu không tư vấn' = EXTERNALMEASURE("Số lượng phiếu không tư vấn", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: a52f85d1-ff14-4c71-a761-dd3b683dd07d
+		sourceLineageTag: 92f5561a-f7b1-40ba-b79f-437992b2d947
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu tư vấn' = EXTERNALMEASURE("Số lượng phiếu tư vấn", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: ba28cbae-9d9d-48a8-b054-4e9ce4edc5d0
+		sourceLineageTag: ede05572-3585-4a65-95eb-f8e707d7d4ba
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ có tư vấn' = EXTERNALMEASURE("Tỷ lệ có tư vấn", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9eb02318-af2b-494a-a9e4-3c26d23dfdc5
+		sourceLineageTag: e54051d1-5613-4c8b-90a0-e2495795145d
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ có tư vấn_SMS' = EXTERNALMEASURE("Tỷ lệ có tư vấn_SMS", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7a911689-cd01-4d60-823c-34e4eb61e2c2
+		sourceLineageTag: cf739e8b-0714-4b90-99f7-d07f0eab40e9
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ có tư vấn_Happycall' = EXTERNALMEASURE("Tỷ lệ có tư vấn_Happycall", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8b2f585f-d375-4c24-944f-fc20441c6fa3
+		sourceLineageTag: 554fb35b-f980-4150-8247-9b949f2864b6
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ có tư vấn/phiếu bán' = EXTERNALMEASURE("Tỷ lệ có tư vấn/phiếu bán", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e5b216a9-89ba-4a13-a038-3636a222db88
+		sourceLineageTag: 4f7f8352-93a4-478c-ad48-485fc33fc85d
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ không tư vấn' = EXTERNALMEASURE("Tỷ lệ không tư vấn", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4462c0d0-1461-4bbe-92c2-273dd753a43f
+		sourceLineageTag: 35243eb0-e2f9-4eb9-aa1f-314d799891aa
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ không tư vấn/phiếu bán' = EXTERNALMEASURE("Tỷ lệ không tư vấn/phiếu bán", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bc365f89-5988-44c7-9f32-d8e92696c63c
+		sourceLineageTag: fea41891-75cc-496e-9b7d-be9553b0395b
+		dataCategory: Uncategorized
+
+	measure 'Color_Có tư vấn_sp' = EXTERNALMEASURE("Color_Có tư vấn_sp", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: b0798bb8-d386-46da-81fc-74a47fa25b45
+		sourceLineageTag: a8b38423-1beb-42df-9fb3-38e25928f2e2
+		dataCategory: Uncategorized
+
+	measure 'Color_Ko tư vấn_sp' = EXTERNALMEASURE("Color_Ko tư vấn_sp", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 9e58323c-4df5-4293-b851-d40fca2cc3c2
+		sourceLineageTag: 154a4f06-8477-44c4-9b79-aedd51b07106
+		dataCategory: Uncategorized
+
+	measure 'Color_Có tư vấn_s' = EXTERNALMEASURE("Color_Có tư vấn_s", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: bd841e49-6ed3-472b-b86f-e253edcf6143
+		sourceLineageTag: 95dc2e18-6f77-4074-9bef-417d883aa1d5
+		dataCategory: Uncategorized
+
+	measure 'Color_Ko tư vấn_s' = EXTERNALMEASURE("Color_Ko tư vấn_s", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 943e1327-92d0-4d5b-b586-5d5579a2ef38
+		sourceLineageTag: 2f81a27e-5aea-4459-99ba-1737ac26024e
+		dataCategory: Uncategorized
+
+	measure 'Rank_Ko tư vấn_s' = EXTERNALMEASURE("Rank_Ko tư vấn_s", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 688a421a-8c71-40db-b8f5-12d979934117
+		sourceLineageTag: ea48c4ca-036f-4332-b8a5-af17cb41a636
+		dataCategory: Uncategorized
+
+	measure StartDate = EXTERNALMEASURE("StartDate", DATETIME, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: m/d/yyyy
+		lineageTag: a34e5c35-dabf-460d-ac7a-55bb54efd752
+		sourceLineageTag: e7161af1-9656-4f5b-845b-b1eb9ea917e0
+		dataCategory: Uncategorized
+
+	measure 'Số lượng đơn hàng đã khảo sát_Shop' = EXTERNALMEASURE("Số lượng đơn hàng đã khảo sát_Shop", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: fbfb6190-0f29-4458-9214-a06a4eaf306c
+		sourceLineageTag: 400e1744-ec48-452a-9ddc-86001112a2af
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ khảo sát_Shop' = EXTERNALMEASURE("Tỷ lệ khảo sát_Shop", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7ce3ba09-3ffd-486b-9c96-341dcd6bf14e
+		sourceLineageTag: af05b51b-da2a-4083-981a-5ba77faef92c
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ có tư vấn_LD g%' = EXTERNALMEASURE("Tỷ lệ có tư vấn_LD g%", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 219a205b-6577-4faa-ba41-23472d895549
+		sourceLineageTag: 71c0862b-3b09-408c-bfe0-6d0656a0dad0
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ có tư vấn_LD' = EXTERNALMEASURE("Tỷ lệ có tư vấn_LD", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		lineageTag: 3448595d-2ce1-422c-a203-4cd386327291
+		sourceLineageTag: a378bfe2-6800-4319-9786-a97a7eca3435
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Target NPS' = EXTERNALMEASURE("Target NPS", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 00c04bb2-5eff-4748-bb02-f3cbfb643808
+		sourceLineageTag: 1a4ca499-d442-478a-be14-37193cb1ba09
+		dataCategory: Uncategorized
+
+	measure '%Target NPS' = EXTERNALMEASURE("%Target NPS", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dce07c02-256b-469a-97ad-f4a78a46b92b
+		sourceLineageTag: 4df5589c-c6c3-469d-b6c2-49174e7511f3
+		dataCategory: Uncategorized
+
+	measure 'Color_Lỗi phạt NV' = EXTERNALMEASURE("Color_Lỗi phạt NV", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 3e787d9a-64c0-4147-a7d4-c8627a4bc0d6
+		sourceLineageTag: 3c99e17b-f8b0-430e-ab91-b8d84311275c
+		dataCategory: Uncategorized
+
+	measure Shop_NPS_notachieve = EXTERNALMEASURE("Shop_NPS_notachieve", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: a5748732-dfa5-4d71-a0c4-07583dfb4791
+		sourceLineageTag: 856dc634-d0dd-4ca5-8a38-f4eb35a2b9e4
+		dataCategory: Uncategorized
+
+	measure Shop_NPS_achieve = EXTERNALMEASURE("Shop_NPS_achieve", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 0045cedb-da20-4e0c-934f-36c7cc092a22
+		sourceLineageTag: b52f708b-1859-4c51-8f1b-e72cee5f3b47
+		dataCategory: Uncategorized
+
+	measure %Shop_achieve = EXTERNALMEASURE("%Shop_achieve", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2c03e70a-e82e-490f-973c-8053e84ec39c
+		sourceLineageTag: c114c0b1-cef9-4360-b0a2-5d1060fdef34
+		dataCategory: Uncategorized
+
+	measure %Shop_notachieve = EXTERNALMEASURE("%Shop_notachieve", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a675673a-d8d2-4200-8ed6-661a23a288a4
+		sourceLineageTag: 6e4700bb-f5de-4cc2-8441-b016c41ac91c
+		dataCategory: Uncategorized
+
+	measure 'Shop_Slg cửa hàng' = EXTERNALMEASURE("Shop_Slg cửa hàng", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: baba0da3-8363-4e9e-8733-07fe22033542
+		sourceLineageTag: 71e9b8ce-026a-48ca-b4f4-8ea7dae03770
+		dataCategory: Uncategorized
+
+	measure 'Chi tiết Vi phạm' = EXTERNALMEASURE("Chi tiết Vi phạm", STRING, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		lineageTag: c6aaf0cb-2c0a-4038-a400-5649e1b59e9b
+		sourceLineageTag: f39b3130-6106-4c85-bdcc-6583c773e290
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure SizeShop = EXTERNALMEASURE("SizeShop", STRING, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		lineageTag: 56637192-410d-4ff4-8ecc-c5b8f1569c29
+		sourceLineageTag: 3ffbc1f7-8c46-44e9-8707-c7e7251540b7
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Tổng hợp Vi phạm' = EXTERNALMEASURE("Tổng hợp Vi phạm", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 809a78d4-fe73-4058-a52b-3d5503dd5f8e
+		sourceLineageTag: 78c1a8c4-50fa-470c-8fa1-4f3cbc901e13
+		dataCategory: Uncategorized
+
+	measure SM/SUP = EXTERNALMEASURE("SM/SUP", STRING, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		lineageTag: 46739658-ae4b-4d9f-91f6-aa24d7e6ba79
+		sourceLineageTag: 4a012ea6-5259-4ebd-b54c-583dd1160f8b
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Đánh giá 2' = EXTERNALMEASURE("Đánh giá", STRING, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		lineageTag: 204a0bb1-79c0-4503-b585-35cb6961bebf
+		sourceLineageTag: 9f8dae78-444c-4297-bcea-ea5ce52b167d
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure SM/SUP_show = EXTERNALMEASURE("SM/SUP_show", STRING, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		lineageTag: c7013383-f69a-49a8-8c1f-9cc7fdcc7ee0
+		sourceLineageTag: 85b891d0-6072-44da-89fb-dd5f3a9c9c64
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Số lượng phiếu không tư vấn_Happycall' = EXTERNALMEASURE("Số lượng phiếu không tư vấn_Happycall", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 69e798be-807c-4540-9461-dae92e0ea9ce
+		sourceLineageTag: f7af517b-1037-41bf-9306-886489535773
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu không tư vấn_SMS' = EXTERNALMEASURE("Số lượng phiếu không tư vấn_SMS", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: aa88fda4-cdf8-497c-b600-6ffc99f7c53a
+		sourceLineageTag: 4e0cb0bc-2805-4620-a263-0508bdf829ed
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu có tư vấn_QC AI' = EXTERNALMEASURE("Số lượng phiếu có tư vấn_QC AI", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 17a50498-4810-4550-b604-ffe62b8fec80
+		sourceLineageTag: 710fa642-d9b1-49aa-ad70-1f252c131629
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu không tư vấn_QC AI' = EXTERNALMEASURE("Số lượng phiếu không tư vấn_QC AI", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		lineageTag: 8c125e82-fc49-4470-b53d-b9a0aff2b4b2
+		sourceLineageTag: 4ef04c7e-0ecc-4262-9bf5-c2f438b52725
+		dataCategory: Uncategorized
+
+	measure 'Phạt tư vấn_NV' = EXTERNALMEASURE("Phạt tư vấn_NV", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: #,0
+		lineageTag: 48fce434-c456-4460-8238-f776334bc849
+		sourceLineageTag: 5880619e-e0e2-42e9-a618-6e55eb6a6719
+		dataCategory: Uncategorized
+
+	measure NPS_NV = EXTERNALMEASURE("NPS_NV", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 305d6fd8-4900-4b01-992b-76480da0474a
+		sourceLineageTag: f20a4ce6-0fd7-46d1-9b9e-9a2ed901cbaa
+		dataCategory: Uncategorized
+
+	measure NPS_NV_target = EXTERNALMEASURE("NPS_NV_target", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2815b36d-2377-426b-b6be-21abff2c4de2
+		sourceLineageTag: 18fe2b24-dfac-4984-8c76-544965711d2b
+		dataCategory: Uncategorized
+
+	measure 'NPS_NV_target %' = EXTERNALMEASURE("NPS_NV_target %", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0070275f-2840-4cc9-a0b2-8be2d1b07595
+		sourceLineageTag: eb549ca6-0ea7-40cd-a7a6-fcb0168198a1
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu có tư vấn SStudent' = EXTERNALMEASURE("Số lượng phiếu có tư vấn SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: 277a0a65-f130-4825-a29b-56fb49dc924e
+		sourceLineageTag: fed394d9-f3ff-4cde-b6c5-69f9cda177fb
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu không tư vấn SStudent' = EXTERNALMEASURE("Số lượng phiếu không tư vấn SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: b143aa23-0248-4780-8599-14b36f4d2705
+		sourceLineageTag: 9d314677-9fc8-4ca2-9761-273de8717d97
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu tư vấn SStudent' = EXTERNALMEASURE("Số lượng phiếu tư vấn SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: aa35c95b-9430-4737-a793-5dc36026ed04
+		sourceLineageTag: fbfbdcf6-b21b-4c74-9300-76812f20e6cb
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ có tư vấn SStudent' = EXTERNALMEASURE("Tỷ lệ có tư vấn SStudent", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: SStudent
+		lineageTag: 5164b94a-3727-4543-88ba-6fe2d0904450
+		sourceLineageTag: 7cc25a5e-8442-44e7-90b7-36899fba4c27
+		dataCategory: Uncategorized
+
+	measure 'Tỉ lệ không tư vấn SStudent' = EXTERNALMEASURE("Tỉ lệ không tư vấn SStudent", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: SStudent
+		lineageTag: c8855757-9097-4b55-a7ba-b7b35d05ed98
+		sourceLineageTag: 39db927f-f6ce-49bd-857c-4c6e63331081
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu có tư vấn SMS SStudent' = EXTERNALMEASURE("Số lượng phiếu có tư vấn SMS SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: d909356e-c530-4f84-8b7b-d37671e38ba7
+		sourceLineageTag: 485eed3f-7575-4bb5-bea6-c1ce5c96a9df
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu không tư vấn SMS SStudent' = EXTERNALMEASURE("Số lượng phiếu không tư vấn SMS SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: 4580bb96-e4e0-4c68-acbe-f81d1fbe7645
+		sourceLineageTag: c410d180-098c-49c7-816e-01906d532529
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu có tư vấn_Happycall SStudent' = EXTERNALMEASURE("Số lượng phiếu có tư vấn_Happycall SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: b778227a-c9b0-4760-8fcd-c36cd12480ff
+		sourceLineageTag: eeaaebc6-e40c-4f9c-886a-7001aa772096
+		dataCategory: Uncategorized
+
+	measure 'Số lượng đơn hàng đã khảo sát SStudent' = EXTERNALMEASURE("Số lượng đơn hàng đã khảo sát SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: ebd3c2d2-7173-481d-95eb-e2c2ca156636
+		sourceLineageTag: 10a3708b-2560-4d77-8fba-d4a98519b23f
+		dataCategory: Uncategorized
+
+	measure 'Số lượng đơn hàng chưa khảo sát SStudent' = EXTERNALMEASURE("Số lượng đơn hàng chưa khảo sát SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: 6d0ee5e1-0c34-4720-b6ad-fbede4a7dece
+		sourceLineageTag: 25e1cb25-f320-41af-93a2-c089bd847c77
+		dataCategory: Uncategorized
+
+	measure 'Tổng số lượng đơn hàng SStudent' = EXTERNALMEASURE("Tổng số lượng đơn hàng SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: bfd4e790-212d-49b4-a176-eef9305ade13
+		sourceLineageTag: 8ec857db-81e9-470b-a699-e7706f25ad00
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ có tư vấn/phiếu bán SStudent' = EXTERNALMEASURE("Tỷ lệ có tư vấn/phiếu bán SStudent", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: SStudent
+		lineageTag: 9ee29570-8470-4714-9d26-e212f82c0b4d
+		sourceLineageTag: db5873f2-2371-4530-a972-3d875de4efbe
+		dataCategory: Uncategorized
+
+	measure 'Tỷ lệ không tư vấn/phiếu bán SStudent' = EXTERNALMEASURE("Tỷ lệ không tư vấn/phiếu bán SStudent", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: SStudent
+		lineageTag: 1c102c43-b550-4a39-90fb-64d8864ac1f7
+		sourceLineageTag: a00c33d0-5cc0-423b-8cae-f6d6b270ec1a
+		dataCategory: Uncategorized
+
+	measure 'Số lượng phiếu không tư vấn_Happycall SStudent' = EXTERNALMEASURE("Số lượng phiếu không tư vấn_Happycall SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: 1009cd83-0693-498f-902b-4be7c95df49c
+		sourceLineageTag: 3d6df073-a847-46c8-8fd7-166d21b0e6bc
+		dataCategory: Uncategorized
+
+	measure 'Phạt tư vấn_NV SStudent' = EXTERNALMEASURE("Phạt tư vấn_NV SStudent", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: SStudent
+		lineageTag: 14c26990-b136-4d80-9184-8431cdd1f80c
+		sourceLineageTag: 611948e4-358e-4a73-9c85-21e5b643cc69
+		dataCategory: Uncategorized
+
+	measure 'SL_Bình thường_Bán lẻ' = EXTERNALMEASURE("SL_Bình thường_Bán lẻ", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		isHidden
+		displayFolder: Phương thức
+		lineageTag: 145f6439-0530-473c-866d-5316e117202e
+		sourceLineageTag: 3419f25b-e6e0-41b3-a2ca-091fa9d12bed
+		dataCategory: Uncategorized
+
+	measure 'SL_Bình thường_All' = EXTERNALMEASURE("SL_Bình thường_All", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: Phương thức
+		lineageTag: e427e8f8-061b-4974-b7a5-3a2750c13573
+		sourceLineageTag: cf005c0c-2ee7-4de2-a00a-59be2f83df57
+		dataCategory: Uncategorized
+
+	measure 'SL_Vi phạm_Trạng thái' = EXTERNALMEASURE("SL_Vi phạm_Trạng thái", INTEGER, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0
+		displayFolder: Vi phạm
+		lineageTag: 900a34e2-5d64-4a96-a7c0-78a7742157f0
+		sourceLineageTag: 84b3b9cb-c924-4203-98e9-b2e296f2b8c0
+		dataCategory: Uncategorized
+
+	measure '% Số lượng Ticket' = EXTERNALMEASURE("% Số lượng Ticket", DOUBLE, "DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 56be7dbf-c9c2-4c26-9d3e-67514d841ad6
+		sourceLineageTag: 6149a329-1619-4fd9-b4f6-1c0a1416d53b
+		dataCategory: Uncategorized
+
+	measure '% NPS' =
+			VAR target = 0.94 VAR actual = Measure_NPS[NPS_Shop] return MIN(
+			    1.2,
+			    ROUND(
+			        DIVIDE(actual, target, 0),
+			        4
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f27c97a4-f2fb-4ace-b162-41766fac6dc7
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	column Column
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b43002b3-2584-4e44-b728-a65c0cd87db9
+		sourceLineageTag: 9ad48553-a2df-43d3-a92c-367fb5cdab85
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = User
+
+	partition Measure_NPS = entity
+		mode: directQuery
+		source
+			entityName: _Measure
+			expressionSource: 'DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2'
+
+	changedProperty = Name
+

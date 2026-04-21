@@ -1,0 +1,379 @@
+expression 'Đơn không tính S-Star' =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vTcJpWwluftR8WvRxCaCNx827FuSi33w56XAOE9xkKXs7qru7-M1ojU4jKBw1wPgXQLBDXxsUJhCvxH/pub?output=xlsx"), null, true),
+		    #"Đơn không tính điểm ERP_Sheet" = Source{[Item="Đơn không tính điểm ERP",Kind="Sheet"]}[Data],
+		    #"Removed Other Columns" = Table.SelectColumns(#"Đơn không tính điểm ERP_Sheet",{"Column1", "Column2", "Column3", "Column4", "Column5"}),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Other Columns", [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Tháng tính lương", type text}, {"Số phiếu", type text}, {"Lý do", type text}, {"S-Star", Int64.Type}, {"ERP", Int64.Type}}),
+		    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+		in
+		    #"Removed Blank Rows"
+	lineageTag: 98cde383-6635-4ba9-bf37-ac1deef665bf
+
+	annotation PBI_ResultType = Table
+
+expression 'S-Star_Nhóm hàng_SKU' =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/1tcV5PnqvhSybBjAoIG_8uZTD0LknEWRd_uaDrUAI8lA/pub?output=xlsx"), null, true),
+		    #"S-Star_Nhóm hàng_SKU_Sheet" = Source{[Item="S-Star_Nhóm hàng_SKU",Kind="Sheet"]}[Data],
+		    #"Removed Other Columns" = Table.SelectColumns(#"S-Star_Nhóm hàng_SKU_Sheet",{"Column1", "Column2", "Column3", "Column4"}),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Other Columns", [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Nhóm hàng", type text}, {"SKU", type text}, {"Thi đua S-Star", Int64.Type}, {"Nhóm", type text}}),
+		    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+		in
+		    #"Removed Blank Rows"
+	lineageTag: 7046eadd-0bed-4744-b5ec-1a5969a491a3
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'DIM_Danh mục_Sản phẩm_Web' =
+		let
+		    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=6e97d189-0524-457d-bd6e-30d5e5ad63ad""#(lf)SELECT DISTINCT#(lf)    cpeMain.sku,#(lf)    CASE#(lf)        WHEN cpeParentName.value IS NOT NULL THEN#(lf)            cpeParentName.value#(lf)        ELSE#(lf)            cpeName.value#(lf)    END AS Name,#(lf)    CASE#(lf)        WHEN cpeMain.attribute_set_id = 10 THEN 'Dienthoai'#(lf)        WHEN cpeMain.attribute_set_id = 11 THEN 'MTB'#(lf)        WHEN cpeMain.attribute_set_id = 12 THEN 'PhuKien'#(lf)        WHEN cpeMain.attribute_set_id = 23 THEN 'Laptop'#(lf)        ELSE 'PhuKienMTB'#(lf)    END AS WebUrl,#(lf)    CASE#(lf)        WHEN cpeParentLink.value IS NULL THEN#(lf)            CONCAT('https://cellphones.com.vn/', cpeChildLink.value, '.html')#(lf)        ELSE#(lf)            CONCAT('https://cellphones.com.vn/', cpeParentLink.value, '.html')#(lf)    END AS product_url#(lf)FROM `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity` as cpeMain#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_super_link` AS psl#(lf)        ON psl.product_id = cpeMain.entity_id#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity_varchar` AS cpeParentLink#(lf)        ON cpeParentLink.entity_id = psl.parent_id#(lf)           AND cpeParentLink.attribute_id = 86#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity_varchar` AS cpeChildLink#(lf)        ON cpeChildLink.entity_id = cpeMain.entity_id#(lf)           AND cpeChildLink.attribute_id = 86#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity_varchar` AS cpeParentName#(lf)        ON cpeParentName.entity_id = cpeParentLink.entity_id#(lf)           AND cpeParentName.attribute_id = 60#(lf)    LEFT JOIN `cellphones-data-platform.cps_magento_mysql_dwh.catalog_product_entity_varchar` AS cpeName#(lf)        ON cpeName.entity_id = cpeMain.entity_id#(lf)           AND cpeName.attribute_id = 60#(lf)WHERE cpeMain.sku IS NOT NULL#(lf)      AND cpeMain.updated_at >= '2015-12-12'", null, [EnableFolding=true])
+		in
+		    Source
+	lineageTag: 02adfe01-cd5b-41eb-9239-c08f911ac195
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression NhomHang_LaptopCu =
+		let
+		    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8nEMCPEPUHA+ukJJR8njcIOfu4LH4cmOQI5LiAc2YYiQCXZhhB4Uc+F8ZAYEGYCo2FgA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Nhóm hàng" = _t, #"Nhóm hàng cấp 1" = _t, #"Nhóm hàng cấp 2" = _t, #"Ngành hàng" = _t, #"Thuộc tính" = _t, Level = _t, Level1 = _t, Level2 = _t, Level3 = _t, Level4 = _t, #"Bán kèm" = _t, Brand = _t, SubBrand = _t, #"Thi đua S-Star" = _t, #"Nhóm S-Star" = _t, #"Hệ số thi đua phụ kiện" = _t, #"Nhóm S-Star_Index" = _t]),
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Level", Int64.Type}, {"Bán kèm", Int64.Type}, {"Thi đua S-Star", Int64.Type}, {"Hệ số thi đua phụ kiện", type number}, {"Nhóm S-Star_Index", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: ca6b2ff7-28c8-4f66-beb9-67f46f811fa7
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression fxCalendar = ```
+		let
+		  fnDateTable = (StartDate as date, EndDate as date, optional FYStartMonthNum as number, optional Holidays as list, optional WDStartNum as number ) as table =>
+		  let
+		    FYStartMonth = if List.Contains( {1..12}, FYStartMonthNum ) then FYStartMonthNum else 1,
+		    StartOfWeekDayName = Text.Proper( Text.Start( Date.DayOfWeekName( #date(2021, 2,1) ), 3)),
+		    WDStart = if List.Contains( {0, 1}, WDStartNum ) then WDStartNum else 0,
+		    CurrentDate = Date.From(DateTime.FixedLocalNow()),
+		    DayCount = Duration.Days(Duration.From(EndDate - StartDate))+1,
+		    Source = List.Dates(StartDate,DayCount,#duration(1,0,0,0)),
+		    AddToday = if EndDate < CurrentDate then List.Combine( {Source, {CurrentDate}}) else Source,
+		    TableFromList = Table.FromList(AddToday, Splitter.SplitByNothing()),
+		    ChangedType = Table.TransformColumnTypes(TableFromList,{{"Column1", type date}}),
+		    RenamedColumns = Table.RenameColumns(ChangedType,{{"Column1", "Date"}}),
+		    InsertDateKey = Table.AddColumn(RenamedColumns, "DateKey", each Date.Year([Date]) * 10000 + Date.Month([Date]) * 100 + Date.Day([Date]), type number),
+		    InsertYear = Table.AddColumn(InsertDateKey, "Năm", each Date.Year([Date]), Int64.Type),
+		    InsertQuarter = Table.AddColumn(InsertYear, "Quý", each Date.QuarterOfYear([Date]), Int64.Type),
+		    InsertYearQuarter = Table.AddColumn(InsertQuarter, "Năm/Quý", each Number.ToText([Năm])&"/Q" & Number.ToText([Quý]), type text),
+		    InsertYearQuarterIndex = Table.AddColumn(InsertYearQuarter,"Năm/Quý_Index",each -100*Date.Year([Date])-Number.RoundUp(Date.Month([Date])/3,0), type number),
+		    InsertMonth = Table.AddColumn(InsertYearQuarterIndex, "Tháng", each Date.Month([Date]), Int64.Type),
+		    InsertYearMonth = Table.AddColumn(InsertMonth, "Năm/Tháng", each Number.ToText([Năm])&"/"&(if [Tháng]<10 then "0"& Number.ToText([Tháng]) else Number.ToText([Tháng])), type text),
+		    InsertYearMonthIndex = Table.AddColumn(InsertYearMonth,"Năm/Tháng_Index", each -100*Date.Year([Date]) - Date.Month([Date]), type number),
+		    InsertMonthEnding = Table.AddColumn(InsertYearMonthIndex, "Cuối tháng", each Date.EndOfMonth([Date]), type date),
+		    InsertMonthStarting = Table.AddColumn(InsertMonthEnding, "Đầu tháng", each Date.StartOfMonth([Date]), type date),
+		    InsertYearMonthWeek = Table.AddColumn(InsertMonthStarting,"Năm/Tháng/Tuần", each Number.ToText([Năm])&"/" & (if [Tháng]<10 then "0"& Number.ToText([Tháng]) else Number.ToText([Tháng])) &"/" & (if Date.Day([Date])<8 then "W1" else if Date.Day([Date])<15 then "W2" else if Date.Day([Date])<22 then "W3" else if Date.Day([Date])<29 then "W4" else "W5"), type text),
+		    InsertYearMonthWeekIndex = Table.AddColumn(InsertYearMonthWeek,"Năm/Tháng/Tuần_Index", each -100*Date.Year([Date]) - Date.Month([Date]) - (if Date.Day([Date])<8 then 0.1 else if Date.Day([Date])<15 then 0.2 else if Date.Day([Date])<22 then 0.3 else if Date.Day([Date])<29 then 0.4 else 0.5), type number),
+		    InsertWeek = Table.AddColumn(InsertYearMonthWeekIndex,"Tuần", each fxGetISO8601Week([Date]), Int64.Type), // Date.WeekOfYear([Date],Day.Monday)
+		    InsertYearWeek = Table.AddColumn(InsertWeek, "Năm/Tuần", each Number.ToText(Date.Year( Date.AddDays( [Date], 26 - [Tuần] ) ))&"/"&(if [Tuần]<10 then "0"& Number.ToText([Tuần]) else Number.ToText([Tuần])), type text),
+		    InsertYearWeekIndex = Table.AddColumn(InsertYearWeek,"Năm/Tuần_Index", each -100*Date.Year( Date.AddDays( [Date], 26 - [Tuần] ) ) - [Tuần], type number),
+		    InsertWeekdayIndexRAW = Table.AddColumn(InsertYearWeekIndex, "Thứ_Index_RAW", each Date.DayOfWeek([Date]) + WDStart+1, Int64.Type),
+		    InsertWeekday = Table.AddColumn(InsertWeekdayIndexRAW, "Thứ", each if [Thứ_Index_RAW]=1 then "Chủ Nhật" else "Thứ "& Number.ToText([Thứ_Index_RAW]), type text),
+		    InsertWeekdayIndex = Table.AddColumn(InsertWeekday, "Thứ_Index", each if [Thứ_Index_RAW]=1 then 8 else [Thứ_Index_RAW], Int64.Type),
+		    InsertWeekend = Table.AddColumn(InsertWeekdayIndex, "Cuối tuần", each if [Thứ_Index]<=6 then "Trong tuần" else "Cuối tuần", type text),
+		    InsertDay = Table.AddColumn(InsertWeekend, "Ngày", each Date.Day([Date]), Int64.Type),
+		    InsertIsHoliday = Table.AddColumn( InsertDay, "IsHoliday", each if Holidays = null then "Unknown" else List.Contains( Holidays, [Date] ), if Holidays = null then type text else type logical)
+		  in
+		    InsertIsHoliday,
+		  documentation = [
+		    Documentation.Name =  " fxCalendar", 
+		    Documentation.Description = " Date table function to create an ISO-8601 calendar", 
+		    Documentation.LongDescription = " Date table function to create an ISO-8601 calendar", 
+		    Documentation.Category = " Table", 
+		    Documentation.Version = " 1.28: Fixed fiscal years when FYStartMonth =1",
+		    Documentation.Source = " local", 
+		    Documentation.Author = " Melissa de Korte", 
+		    Documentation.Examples = { [Description =  " See: https://forum.enterprisedna.co/t/extended-date-table-power-query-m-function/6390", 
+		      Code = " Optional paramters: #(lf)
+		      (FYStartMonthNum) Month number the fiscal year starts, Januari if omitted #(lf) 
+		      (Holidays) Select a query (and column) that contains a list of holiday dates #(lf) 
+		      (WDStartNum) Switch default weekday numbering from 0-6 to 1-7 by entering a 1 #(lf)
+		      #(lf)
+		      Important to note: #(lf)
+		      [Fiscal Week] starts on a Monday and can contain less than 7 days in a First- and/or Last Week of a FY #(lf)
+		      [IsWorkingDay] does not take holiday dates into account  #(lf)
+		      [IsBusinessDay] does take optional holiday dates into account  #(lf)
+		      [IsPYTD] and [IsPFYTD] compare Previous [Ngày] with the Current [Ngày] number, so dates don't align in leap years", 
+		      Result = " " ] }
+		    ],
+		  Custom = Value.ReplaceType(fnDateTable, Value.ReplaceMetadata(Value.Type(fnDateTable), documentation))
+		in
+		  Custom
+		```
+	lineageTag: f9435bbf-9817-474a-92f3-fa1a308bf192
+	queryGroup: 'Danh mục'
+
+expression MinYear =
+		let
+		  Source = Date.Year(DateTime.FixedLocalNow())-1
+		in
+		    Source
+	lineageTag: 040e6b80-a53d-4b02-bd16-ddb603378034
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Number
+
+expression MaxYear =
+		let
+		  Source = Date.Year(DateTime.FixedLocalNow())+1
+		in
+		  Source
+	lineageTag: c0cc17fe-a747-4d81-b6a1-09579b7aff51
+	queryGroup: 'Danh mục'
+
+expression fxGetISO8601Week =
+		let
+		    getISO8601Week = (someDate as date) =>
+		    let
+		        getNaiveWeek = (inDate as date) =>
+		            let
+		                // monday = 1, sunday = 7
+		                weekday = 1 + Date.DayOfWeek(inDate, Day.Monday),
+		                weekdayOfJan4th = 1 + Date.DayOfWeek(#date(Date.Year(inDate), 1, 4), Day.Monday),
+		                ordinal = Date.DayOfYear(inDate),
+		                naiveWeek = Number.RoundDown(
+		                    (ordinal - weekday + 10) / 7
+		                )
+		            in
+		                naiveWeek,
+		        thisYear = Date.Year(someDate),
+		        priorYear = thisYear - 1,
+		        nwn = getNaiveWeek(someDate),
+		        lastWeekOfPriorYear =
+		        getNaiveWeek(#date(priorYear, 12, 28)),
+		
+		        // http://stackoverflow.com/a/34092382/2014893
+		        lastWeekOfThisYear =
+		            getNaiveWeek(#date(thisYear, 12, 28)),
+		
+		        weekNumber =
+		            if
+		                nwn < 1
+		            then
+		                lastWeekOfPriorYear
+		            else
+		                if
+		                    nwn > lastWeekOfThisYear
+		                then
+		                    1
+		                else
+		                    nwn
+		    in
+		        weekNumber
+		in
+		    getISO8601Week
+	lineageTag: e07ad20f-c210-40e3-9905-24c3cfc7a54c
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+
+expression Province =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/1O-BzLBPYUOCASSqhygx2s9BT0gK0QZAk1271U9OFZJY/pub?output=xlsx"), null, true),
+		    Province_Sheet = Source{[Item="Province",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Province_Sheet, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Province", type text}, {"Fishing boat", type text}, {"Short form", type text}, {"Plate number", type text}, {"Postcode", type text}, {"Tel area code", type text}, {"FULL", type text}}),
+		    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
+		in
+		    #"Removed Blank Rows"
+	lineageTag: 33550d52-0348-423b-b785-38043731de1e
+	queryGroup: 'Danh mục'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Kết quả đánh giá NLQL' = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRuNWkElw2fyGuq7o-HFMFGzm1AceefH93IcAmmvyu_wMbudfNzOjihBYpUEQaMTbjz-Eld9p34bMeX/pub?output=xlsx" meta [IsParameterQuery=true, List={"https://docs.google.com/spreadsheets/d/e/2PACX-1vRuNWkElw2fyGuq7o-HFMFGzm1AceefH93IcAmmvyu_wMbudfNzOjihBYpUEQaMTbjz-Eld9p34bMeX/pub?output=xlsx"}, DefaultValue="https://docs.google.com/spreadsheets/d/e/2PACX-1vRuNWkElw2fyGuq7o-HFMFGzm1AceefH93IcAmmvyu_wMbudfNzOjihBYpUEQaMTbjz-Eld9p34bMeX/pub?output=xlsx", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 13cce9b9-c2e8-4cee-90e3-385073659b57
+	queryGroup: 'Đánh giá\Kết quả Shop'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression 'FACT_Sale_Doanh số bán_realtime' =
+		let
+		    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=079001d0-99cb-48c3-86c4-0130e59b27d3""#(lf)SELECT#(lf)  DATETIME(CreateDate) AS CreateDate,#(lf)  Date,#(lf)  DMC3,#(lf)  AutoCode,#(lf)  ProductCode,#(lf)  ProductName,#(lf)  MethodName,#(lf)  centerid,#(lf)  StoreCode,#(lf)  Price,#(lf)  SaleEmployeeCode,#(lf)  SUM(amount) AS Dso,#(lf)  SUM(quantity) AS SL,#(lf)  IsSales AS IsSale,#(lf)FROM#(lf)  `cellphones-data-platform.cps_sales_datamart.cps_stream_sep_union_dbo_sales_transaction`#(lf)WHERE#(lf)  IsSales = 1#(lf)  AND IsB2B = 0#(lf)  AND DATE(CreateDate) = CURRENT_DATE()#(lf)  AND NOT ContactPhone in ('0942482682','0979453264')#(lf)  AND NOT AutoCode LIKE '%#%'#(lf)GROUP BY 1,2,3,4,5,6,7,8,9,10,11,14", null, [EnableFolding=true])
+		in
+		    Source
+	lineageTag: a104c3d8-cebf-4304-b799-366fd88405d6
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Danh sách kho_DailyReport' =
+		let
+		    Source = #"DIM_Danh mục_Kho",
+		    #"Filtered Rows" = Table.SelectRows(Source, each ([Phân loại kho] = "Kho cửa hàng")),
+		    #"Filtered Rows1" = Table.SelectRows(#"Filtered Rows", each Text.StartsWith([Cửa hàng], "CPS-")),
+		    #"Filtered Rows2" = Table.SelectRows(#"Filtered Rows1", each ([StoreInactive] = false)),
+		    #"Filtered Rows3" = Table.SelectRows(#"Filtered Rows2", each [Mã kho] <> "HCM.HM"),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows3",{"Mã kho", "Miền"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Removed Other Columns",{{"Mã kho", "StoreCode"}}),
+		    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Index", each 1),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Index", Int64.Type}})
+		in
+		    #"Changed Type"
+	lineageTag: 42c6c8bf-cfd8-4ba8-b9a5-6109ce4638f8
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Kiểm kê hàng hóa' =
+		let
+		    Source = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTdGFeOqHwhG3CeednbWOsiNNiKK1PvSzJ1fPViCQUsuJPXNtIvr0iOSd5yQ03x76IUggrzN4e6RQdy/pub?output=xlsx" meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = type text, List = {"https://docs.google.com/spreadsheets/d/e/2PACX-1vRGvMoHUidwN3cUAdWhjlD486eIRz-GjvecoUGHwSBTC0UdHkirJWb-UyH3bucvBTC_M5vs1cKj41IL/pub?output=xlsx"}, DefaultValue = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGvMoHUidwN3cUAdWhjlD486eIRz-GjvecoUGHwSBTC0UdHkirJWb-UyH3bucvBTC_M5vs1cKj41IL/pub?output=xlsx"]
+		in
+		    Source
+	lineageTag: d7f8daac-e421-404a-972e-fba23e2d97b2
+	queryGroup: NLVH
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression 'Errors in DIM_Danh mục_Đánh giá_' =
+		let
+		Source = #"DIM_Danh mục_Đánh giá_",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Tháng", "Chỉ tiêu", "Hệ số"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Tháng", "Chỉ tiêu", "Hệ số"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 06acc20b-9798-4a4e-adc6-e959f70d7f94
+	queryGroup: 'Query Errors - 10/21/2025 10:12:14 AM'
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression 'DirectQuery to AS - VH_Xử lý Đơn hàng_new' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/V%E1%BA%ADn%20h%C3%A0nh", "VH_Xử lý Đơn hàng_new"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 11152009-2278-48cb-91d8-d298c75b14e3
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5d0e1395-9919-4bf0-91e7-0b5ba1deb1e9"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"752987ae-73bb-424d-a3e3-6aac4bf53e86"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"939e3645-e132-45ae-80eb-f5bc2f97e5f2"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8ef10c13-070a-4d15-a305-4c395c28882b"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"20a00465-83ab-4201-99df-d0e5e2bd83cb"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"be075165-ec3b-4b86-bb3e-a2c447c41708"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"958eb045-e37f-4657-be91-45cae597d753"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4a9d3cb6-e3eb-4d6d-9281-60b1105a8d34"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"766c276a-93f5-4f76-838f-cd0c3fc5637f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e9aa4e4b-8f14-4495-aecd-5050827b45af"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b55e37a6-178c-4c23-81a6-299a9a147d62"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"52bac3ea-a542-4ce7-afb5-3d2d056f58fe"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"97614ab2-f02a-4e5e-893d-0f07718f5efe"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"1287839c-c84f-48f5-aef5-87adcceb8a5e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"285c58cf-a6e3-452e-9327-93fdd93c32d6"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"6049e492-46fb-4276-88d2-886ad2877f53"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"985eb3de-2881-4798-bc09-952aa21647ac"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"01c4a419-9051-45f2-a724-ec54d616df18"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d03e3d08-bf9c-4404-9a7d-51ae3d3c0ada"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8f7e9968-ff31-4227-b38b-e922664c67e1"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"0cf6612d-6583-4298-b70c-060fce361cab"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d638fb38-8f47-4c15-bbb6-29e733ada90d"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a6b3d9b8-a15a-413c-9cca-460af76ecccc"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9e7076a6-ab1c-4c6c-9f47-cbf6f68283ba"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9794d280-d165-4ff8-89a0-db9f3bc3ec35"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"68d6b2f1-7c8c-46c7-b9d5-0ac0a3ae8bbb"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b9351053-d8f0-4a4d-819e-b0edf51158af"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"bba4440a-8ad6-4097-8265-b6d395afd93a"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"27bf6bc8-f6c0-4f21-9efc-1178d197cb17"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"746f5886-221b-40c4-a1fe-27501a0982f5"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"dc1d975c-de47-4e7a-a48d-b0b4d774d243"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ae16e50c-9523-4271-82da-05d817084c2c"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"c2b94c6e-022c-4f75-9f96-457d5c521d20"}},"objectType":"Table"}]
+
+expression 'DirectQuery to AS - VH_Theo dõi AIOv2' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/V%E1%BA%ADn%20h%C3%A0nh", "VH_Theo dõi AIOv2"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: f49c3b52-a0c2-4a92-9a9c-cfa809d64f11
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5d0e1395-9919-4bf0-91e7-0b5ba1deb1e9"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"752987ae-73bb-424d-a3e3-6aac4bf53e86"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"939e3645-e132-45ae-80eb-f5bc2f97e5f2"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8ef10c13-070a-4d15-a305-4c395c28882b"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"20a00465-83ab-4201-99df-d0e5e2bd83cb"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"be075165-ec3b-4b86-bb3e-a2c447c41708"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"958eb045-e37f-4657-be91-45cae597d753"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e9aa4e4b-8f14-4495-aecd-5050827b45af"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"97614ab2-f02a-4e5e-893d-0f07718f5efe"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"1287839c-c84f-48f5-aef5-87adcceb8a5e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8f7e9968-ff31-4227-b38b-e922664c67e1"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d638fb38-8f47-4c15-bbb6-29e733ada90d"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a6b3d9b8-a15a-413c-9cca-460af76ecccc"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9e7076a6-ab1c-4c6c-9f47-cbf6f68283ba"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9794d280-d165-4ff8-89a0-db9f3bc3ec35"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"bba4440a-8ad6-4097-8265-b6d395afd93a"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"746f5886-221b-40c4-a1fe-27501a0982f5"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"dc1d975c-de47-4e7a-a48d-b0b4d774d243"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ae16e50c-9523-4271-82da-05d817084c2c"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a2530db8-7817-4417-8eb2-492190b06ecf"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"bbc60ac4-574e-4e1a-afc8-4b40bcc2d6e8"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"683fd89d-a425-4a18-8b9c-d38bfc54f827"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"bfb91105-7416-4883-a431-2e89b9f7a223"}},"objectType":"Table"}]
+
+expression 'DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Ch%C4%83m%20s%C3%B3c%20kh%C3%A1ch%20h%C3%A0ng", "CS_Kết quả khảo sát CS 202603180168 and 202603180178"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 9d1ea5b6-f402-486d-9fc9-c57acfa975a5
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"edecd406-29c9-41cd-8f5d-a582bbb83659"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"20fade4d-5767-4867-9d9c-299842b24819"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"24aa7ac1-f2f2-4608-a5fa-3857639e89e5"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"11c8ce4d-afdb-44c7-996d-2feb8bfee21a"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"0ddee663-f190-43ae-8b5f-6a8a9942299a"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8763d5e6-3fed-4c89-ac3e-8da50280a311"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"bc14b4b1-a676-4af5-b8ea-2fa4f6d4320f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"763703cb-2eea-47f4-a83d-f73f60c24264"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9cef53d1-f726-4020-a605-63f345c3f174"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"f373c64a-cb31-4975-8f24-f0cb39a0cc7c"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7d1f4515-4488-4f73-b8b2-3d7aaf6e19cb"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"3f909939-a51a-465f-ab90-6b17dc52e427"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9d90171c-9e94-4640-87dc-55ab2a38cc52"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4417c145-797f-47df-bcea-774da743334e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e782d5ca-45a5-4416-b5d9-8f1f84cc83df"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5ad1f446-b2d4-4979-8f38-88338091d3e8"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ac703d81-c644-4f1c-92cc-4b0c626e7fcd"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b5c72709-81e8-4576-9bb4-6b31d1c208ac"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"2b7688a6-be25-4fd9-ac42-ec4eb843a7e1"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"2156d27f-b116-4201-a32e-b9ffc58ca74a"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8ae85ff6-08d9-4256-896f-f1feee3d2cbc"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"17d6522a-7642-42c9-8bc4-2c7321a1b38b"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ab8ed97b-3f17-4007-989e-f32e935843c4"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"74d9758e-5a0c-4e2f-b378-e096b3ef0827"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8a3200ec-5972-43a7-8031-6483bc05a712"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4c0fb19a-4cea-4481-9f72-d0c7dbdeeb68"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5f2c636a-8843-46e3-af45-876ecc07cf5e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7cfa31bc-d531-4bd8-9be6-7fa82dc32a8f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"3b62c12a-4d55-429e-8aee-d906ba5fa53b"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"268fe75b-2bf6-416f-8006-052d13b27c95"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ebcebe4e-ac18-40d8-adc7-76589b0615e9"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5114f5aa-1143-44a8-8a7c-80601fbeeff1"}},"objectType":"Table"}]
+
+expression 'DirectQuery to AS - CS_Báo cáo Lượt tải App' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Ch%C4%83m%20s%C3%B3c%20kh%C3%A1ch%20h%C3%A0ng", "CS_Báo cáo Lượt tải App"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: a10a59b0-4169-44b9-b7b1-4d19e02ec9b0
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"1bc91dc3-b2e1-44e9-b361-b1640d317940"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b63c1988-e4c3-41df-866a-a4b728b4951c"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e981d984-ee31-48d4-b13c-c3ab645573ca"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d56c42fa-c60e-4a96-ad26-47554b2b0c28"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7fcbb161-3e70-40d0-89ed-db2e371b9d41"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8f209858-ebf0-477d-b9b8-f7894493e12e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"f9ec4ffa-6329-42f9-bed9-cef35c286a8f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d1ad37dc-8a5a-47d0-ac1d-74624a5f81ad"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d1b0e42e-6486-4187-8f25-6a2e0427c78e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5cae756c-26ca-4b4f-aae5-322abce29d74"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4a9ed876-ff60-4023-9e62-e5e941ab6270"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"c47d9a8a-014c-4428-85f6-5c52948d8195"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a3dfcf05-a660-41ff-85ef-647a1647d1fc"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"aa706fe2-a2f3-41cb-9357-b9e573983cac"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ade7f688-fe9d-4578-ba48-50a594814620"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4a3591d0-eebf-4322-a9c2-2d91bbad69db"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"0d87fbf1-9385-4ff4-8ba1-07a92ffeb9a7"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"dcc23d22-77ae-49f1-9c4e-43b8f28caa5f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7f2355e4-dd4e-4fbb-b80f-33d032397154"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"abcb8b1b-a8ea-4d31-a660-5f436348b9bb"}},"objectType":"Table"}]
+
+expression 'DirectQuery to AS - CS_Báo cáo Lượt tải App 2' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Ch%C4%83m%20s%C3%B3c%20kh%C3%A1ch%20h%C3%A0ng", "CS_Báo cáo Lượt tải App"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 961efa0e-4f16-403f-9e95-9cdd7b6acf32
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"1bc91dc3-b2e1-44e9-b361-b1640d317940"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b63c1988-e4c3-41df-866a-a4b728b4951c"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e981d984-ee31-48d4-b13c-c3ab645573ca"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d56c42fa-c60e-4a96-ad26-47554b2b0c28"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7fcbb161-3e70-40d0-89ed-db2e371b9d41"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a55949cc-ddbc-4e3f-bc32-d19d25c951d5"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8f209858-ebf0-477d-b9b8-f7894493e12e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"f9ec4ffa-6329-42f9-bed9-cef35c286a8f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d1ad37dc-8a5a-47d0-ac1d-74624a5f81ad"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d1b0e42e-6486-4187-8f25-6a2e0427c78e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5cae756c-26ca-4b4f-aae5-322abce29d74"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4a9ed876-ff60-4023-9e62-e5e941ab6270"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"c47d9a8a-014c-4428-85f6-5c52948d8195"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a3dfcf05-a660-41ff-85ef-647a1647d1fc"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"aa706fe2-a2f3-41cb-9357-b9e573983cac"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ade7f688-fe9d-4578-ba48-50a594814620"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4a3591d0-eebf-4322-a9c2-2d91bbad69db"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"0d87fbf1-9385-4ff4-8ba1-07a92ffeb9a7"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"dcc23d22-77ae-49f1-9c4e-43b8f28caa5f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7f2355e4-dd4e-4fbb-b80f-33d032397154"}},"objectType":"Table"}]
+
+expression 'DirectQuery to AS - LOG_Logistics tổng quan' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Logistics", "LOG_Logistics tổng quan"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 13d4aa49-561c-4eca-8146-cfd1b8087723
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"fb3bf887-18c3-4046-998a-50e2c1207ff9"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"bb680b2c-31d4-4e3c-968b-8585816a719d"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"c3465ceb-c98d-4c15-823f-068301066cf2"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8f76d43a-1b9b-42dc-bbb2-e3fca438d03d"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b9b8805b-67d0-4a60-af77-6d9269c0e4b3"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"cd536cd2-cc1d-41d5-a761-09ed30acb99b"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"2c116821-16e2-45d6-9481-6ac9847f52b8"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"0665ae95-5879-4daa-a2e6-d6ae0fe69ed3"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e9310432-a804-4b33-8fa4-254b4030a62a"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ac1d8b57-2d72-4593-8a3d-646e49cd8191"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"bdb5fc75-41cc-4332-903a-79c34fb93805"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"f720622b-bd8f-4fc1-be68-7fed81612994"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"6b7af03b-fb47-4a13-adf3-8568181e6533"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e3ef0c20-60e8-4c25-aaf8-b6f1b5dd4ae2"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a20fc89d-a213-485e-a39a-ab9f2d0cec67"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e2634ea9-4581-4b1b-aaa4-1c8ae1f84332"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b2b785ad-a07a-4fd4-a82e-ced1139180ca"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a1818ae2-31a4-4067-83f8-f89438d8e749"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"01bd17f2-c42d-4e0e-b4fd-3fba4c606687"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9077b50d-ebbf-4962-bfb6-f79a0c39d0f5"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"cd07243d-2bc7-4a63-8234-cc79eb067761"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"abda8b3c-57c9-43b7-918e-6fa4472fc100"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"662a041d-8bb6-4490-ab75-9f29794a2baf"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"93710986-ec7d-4669-b45c-825159f75041"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7a1933a0-0201-4753-8aad-96554ed673dd"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5b3ee38b-400e-454b-93b7-6dc60949a7c3"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7fdf64ef-c715-4073-98aa-7e6b23597524"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9ab1b0d3-2088-41dd-802e-1a9bb0139bc5"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a195ec67-119b-4f93-95d7-1374dddeacf5"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"cd6fe298-eb35-450d-b445-d7c0be983287"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"1af0b82b-88e0-49cc-aeab-b9108b46043c"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a95fe148-6f4e-496d-acb8-5b4272123f75"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9e391ea3-e12f-43f6-a036-e6b2cb15e916"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"89b7514f-f7c7-4d2b-a244-08a83554bb0b"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"cc8b4560-4ff8-4f72-95af-70a304703afd"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"95f3ab06-10b1-4c52-8c01-c4b1e6e24b54"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"093c2b05-4962-4a4d-a58f-660383622af9"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"715e1b81-9a0d-4805-ada6-99b81105b654"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"bd220c6b-9afe-4313-ae01-70fc93d34b7b"}},"objectType":"Table"}]
+
+expression 'DirectQuery to AS - CS_Báo cáo Lượt tải App 3' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Ch%C4%83m%20s%C3%B3c%20kh%C3%A1ch%20h%C3%A0ng", "CS_Báo cáo Lượt tải App"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 5a8faf5d-66f8-495d-8c1b-dbd20a5be64b
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b63c1988-e4c3-41df-866a-a4b728b4951c"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e981d984-ee31-48d4-b13c-c3ab645573ca"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d56c42fa-c60e-4a96-ad26-47554b2b0c28"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7fcbb161-3e70-40d0-89ed-db2e371b9d41"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a55949cc-ddbc-4e3f-bc32-d19d25c951d5"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8f209858-ebf0-477d-b9b8-f7894493e12e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"f9ec4ffa-6329-42f9-bed9-cef35c286a8f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d1ad37dc-8a5a-47d0-ac1d-74624a5f81ad"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"abcb8b1b-a8ea-4d31-a660-5f436348b9bb"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"d1b0e42e-6486-4187-8f25-6a2e0427c78e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5cae756c-26ca-4b4f-aae5-322abce29d74"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"c47d9a8a-014c-4428-85f6-5c52948d8195"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"a3dfcf05-a660-41ff-85ef-647a1647d1fc"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"aa706fe2-a2f3-41cb-9357-b9e573983cac"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ade7f688-fe9d-4578-ba48-50a594814620"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4a3591d0-eebf-4322-a9c2-2d91bbad69db"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"0d87fbf1-9385-4ff4-8ba1-07a92ffeb9a7"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7f2355e4-dd4e-4fbb-b80f-33d032397154"}},"objectType":"Table"}]
+
+expression 'DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/Ch%C4%83m%20s%C3%B3c%20kh%C3%A1ch%20h%C3%A0ng", "CS_Kết quả khảo sát CS 202603180168 and 202603180178"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: b5b3e8d0-897f-4468-965b-88c235553b32
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"da3451cc-e6ff-420d-9c34-61358a9c6cb2"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"cd53e27a-9776-40b9-b8e8-96771cc3bc71"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"edecd406-29c9-41cd-8f5d-a582bbb83659"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"20fade4d-5767-4867-9d9c-299842b24819"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"11c8ce4d-afdb-44c7-996d-2feb8bfee21a"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"0ddee663-f190-43ae-8b5f-6a8a9942299a"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8763d5e6-3fed-4c89-ac3e-8da50280a311"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"bc14b4b1-a676-4af5-b8ea-2fa4f6d4320f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"763703cb-2eea-47f4-a83d-f73f60c24264"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9cef53d1-f726-4020-a605-63f345c3f174"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"f373c64a-cb31-4975-8f24-f0cb39a0cc7c"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7d1f4515-4488-4f73-b8b2-3d7aaf6e19cb"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"3f909939-a51a-465f-ab90-6b17dc52e427"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"9d90171c-9e94-4640-87dc-55ab2a38cc52"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4417c145-797f-47df-bcea-774da743334e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"e782d5ca-45a5-4416-b5d9-8f1f84cc83df"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5ad1f446-b2d4-4979-8f38-88338091d3e8"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ac703d81-c644-4f1c-92cc-4b0c626e7fcd"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"b5c72709-81e8-4576-9bb4-6b31d1c208ac"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"2b7688a6-be25-4fd9-ac42-ec4eb843a7e1"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"2156d27f-b116-4201-a32e-b9ffc58ca74a"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8c89a739-4d40-4c35-9029-bcf89a2f936e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8ae85ff6-08d9-4256-896f-f1feee3d2cbc"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"17d6522a-7642-42c9-8bc4-2c7321a1b38b"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ab8ed97b-3f17-4007-989e-f32e935843c4"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"74d9758e-5a0c-4e2f-b378-e096b3ef0827"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"8a3200ec-5972-43a7-8031-6483bc05a712"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"4c0fb19a-4cea-4481-9f72-d0c7dbdeeb68"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5f2c636a-8843-46e3-af45-876ecc07cf5e"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"7cfa31bc-d531-4bd8-9be6-7fa82dc32a8f"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"3b62c12a-4d55-429e-8aee-d906ba5fa53b"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"268fe75b-2bf6-416f-8006-052d13b27c95"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"ebcebe4e-ac18-40d8-adc7-76589b0615e9"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"5114f5aa-1143-44a8-8a7c-80601fbeeff1"}},"objectType":"Table"}]
+

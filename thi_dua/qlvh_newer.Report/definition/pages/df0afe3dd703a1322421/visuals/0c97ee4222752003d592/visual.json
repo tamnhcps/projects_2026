@@ -1,0 +1,579 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "0c97ee4222752003d592",
+  "position": {
+    "x": 31.662829583074259,
+    "y": 27.532895289629792,
+    "z": 0,
+    "height": 651.15297359974454,
+    "width": 1083.4194296469323,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Danh mục_Phòng ban"
+                    }
+                  },
+                  "Property": "Cửa hàng"
+                }
+              },
+              "queryRef": "DIM_Danh mục_Phòng ban.Cửa hàng",
+              "nativeQueryRef": "Cửa hàng"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_DH_Online"
+                    }
+                  },
+                  "Property": "TyTrong Online ra SP"
+                }
+              },
+              "queryRef": "Measure_DH_Online.TyTrong Online ra SP",
+              "nativeQueryRef": "TyTrong Online ra SP"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_DH_Online"
+                    }
+                  },
+                  "Property": "% Thành công đơn Online"
+                }
+              },
+              "queryRef": "Measure_DH_Online.% Thành công đơn Online",
+              "nativeQueryRef": "% Thành công đơn Online"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_AIOV2"
+                    }
+                  },
+                  "Property": "TyTrong SP_AioV2"
+                }
+              },
+              "queryRef": "Measure_AIOV2.TyTrong SP_AioV2",
+              "nativeQueryRef": "TyTrong SP_AioV2"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_AIOV2"
+                    }
+                  },
+                  "Property": "% Sử dụng AIOv2"
+                }
+              },
+              "queryRef": "Measure_AIOV2.% Sử dụng AIOv2",
+              "nativeQueryRef": "% Sử dụng AIOv2"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_NPS"
+                    }
+                  },
+                  "Property": "NPS_Shop"
+                }
+              },
+              "queryRef": "Measure_NPS.NPS_Shop",
+              "nativeQueryRef": "NPS_Shop"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_NPS"
+                    }
+                  },
+                  "Property": "% NPS"
+                }
+              },
+              "queryRef": "Measure_NPS.% NPS",
+              "nativeQueryRef": "% NPS"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Tai_App"
+                    }
+                  },
+                  "Property": "%Tải app"
+                }
+              },
+              "queryRef": "Measure_Tai_App.%Tải app",
+              "nativeQueryRef": "%Tải app"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Tai_App"
+                    }
+                  },
+                  "Property": "%Tải app_area"
+                }
+              },
+              "queryRef": "Measure_Tai_App.%Tải app_area",
+              "nativeQueryRef": "%Tải app_area"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Giao_Hàng_Trễ"
+                    }
+                  },
+                  "Property": "% Trễ hạn_DH (Giao 2 giờ)"
+                }
+              },
+              "queryRef": "Measure_Giao_Hàng_Trễ.% Trễ hạn_DH (Giao 2 giờ)",
+              "nativeQueryRef": "% Trễ hạn_DH (Giao 2 giờ)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Giao_Hàng_Trễ"
+                    }
+                  },
+                  "Property": "% Trễ DH_2h"
+                }
+              },
+              "queryRef": "Measure_Giao_Hàng_Trễ.% Trễ DH_2h",
+              "nativeQueryRef": "% Trễ DH_2h"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Giao_Hàng_Trễ"
+                    }
+                  },
+                  "Property": "% Trễ hạn_DH (Giao thông thường)"
+                }
+              },
+              "queryRef": "Measure_Giao_Hàng_Trễ.% Trễ hạn_DH (Giao thông thường)",
+              "nativeQueryRef": "% Trễ hạn_DH (Giao thông thường)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measure_Giao_Hàng_Trễ"
+                    }
+                  },
+                  "Property": "% Trễ DH_TT"
+                }
+              },
+              "queryRef": "Measure_Giao_Hàng_Trễ.% Trễ DH_TT",
+              "nativeQueryRef": "% Trễ DH_TT"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "adhoc_tkkd"
+                        }
+                      },
+                      "Property": "Final score"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(adhoc_tkkd.Final score)",
+              "nativeQueryRef": "Final score"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "adhoc_tkkd"
+                    }
+                  },
+                  "Property": "%TKKD Hoàn Thành"
+                }
+              },
+              "queryRef": "adhoc_tkkd.%TKKD Hoàn Thành",
+              "nativeQueryRef": "%TKKD Hoàn Thành"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "adhoc_chi_so_nghi_viec"
+                        }
+                      },
+                      "Property": "Chỉ số nghỉ việc"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(adhoc_chi_so_nghi_viec.Chỉ số nghỉ việc)",
+              "nativeQueryRef": "Chỉ số nghỉ việc"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "adhoc_chi_so_nghi_viec"
+                    }
+                  },
+                  "Property": "% Chỉ số nghỉ việc hoàn thành"
+                }
+              },
+              "queryRef": "adhoc_chi_so_nghi_viec.% Chỉ số nghỉ việc hoàn thành",
+              "nativeQueryRef": "% Chỉ số nghỉ việc hoàn thành"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_Danh mục_Phòng ban"
+                  }
+                },
+                "Property": "Cửa hàng"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3bf1db9779d3612543aa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Danh mục_Phòng ban"
+              }
+            },
+            "Property": "Cửa hàng"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DIM_Danh mục_Phòng ban",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Property": "Cửa hàng"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "3e3cdb97d330b57c2183",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_DH_Online"
+              }
+            },
+            "Property": "TyTrong Online ra SP"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "747bbcd28a1eb17a60e4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_DH_Online"
+              }
+            },
+            "Property": "% Thành công đơn Online"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e919f50fe0147ed48749",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_AIOV2"
+              }
+            },
+            "Property": "TyTrong SP_AioV2"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fbc50584dbd7d0e46167",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_AIOV2"
+              }
+            },
+            "Property": "% Sử dụng AIOv2"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "936993e30502c37950a2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_NPS"
+              }
+            },
+            "Property": "NPS_Shop"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dfba7b5080aecb61a135",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_NPS"
+              }
+            },
+            "Property": "% NPS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "625f73b0a57cb123859d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_Tai_App"
+              }
+            },
+            "Property": "%Tải app"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b3fd98e839000b345a7d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_Tai_App"
+              }
+            },
+            "Property": "%Tải app_area"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "816482cda03a413e00da",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_Giao_Hàng_Trễ"
+              }
+            },
+            "Property": "% Trễ hạn_DH (Giao 2 giờ)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "98512cf5c15206d49e06",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_Giao_Hàng_Trễ"
+              }
+            },
+            "Property": "% Trễ DH_2h"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "619047432d587088619a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_Giao_Hàng_Trễ"
+              }
+            },
+            "Property": "% Trễ hạn_DH (Giao thông thường)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a2d98db7e1e75d2eb506",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measure_Giao_Hàng_Trễ"
+              }
+            },
+            "Property": "% Trễ DH_TT"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1ce8251011e7330554a8",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "adhoc_tkkd"
+                  }
+                },
+                "Property": "Final score"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3bf00291e0123db76882",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "adhoc_tkkd"
+              }
+            },
+            "Property": "%TKKD Hoàn Thành"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "99f1bd72905ce54b5a8e",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "adhoc_chi_so_nghi_viec"
+                  }
+                },
+                "Property": "Chỉ số nghỉ việc"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "59e123a3d9cc8b15a0aa",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "adhoc_chi_so_nghi_viec"
+              }
+            },
+            "Property": "% Chỉ số nghỉ việc hoàn thành"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

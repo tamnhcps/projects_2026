@@ -1,0 +1,193 @@
+table 'D_Sản phẩm'
+	lineageTag: 53a1af48-7404-4e00-ab62-62236cbc5f63
+
+	column 'Nhóm hàng'
+		dataType: string
+		lineageTag: 83a94d7a-464d-4b74-952a-f3f1c4e880ef
+		summarizeBy: none
+		sourceColumn: Nhóm hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Loại hàng'
+		dataType: string
+		lineageTag: b2e1e258-da8f-4e68-be56-0a717aa106d7
+		summarizeBy: none
+		sourceColumn: Loại hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mã hàng'
+		dataType: string
+		lineageTag: ccdcc6b8-156e-441f-9210-47cab8b70c66
+		summarizeBy: none
+		sourceColumn: Mã hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tên hàng'
+		dataType: string
+		lineageTag: afd5947e-b2fb-41ba-9d8c-295ef2c655bc
+		summarizeBy: none
+		sourceColumn: Tên hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inactive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c76660c0-94fc-4afc-a228-3bad2c7216ad
+		summarizeBy: none
+		sourceColumn: Inactive
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngày tạo mã'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8a2b33ac-d689-4626-bcbc-d500d4df6810
+		summarizeBy: none
+		sourceColumn: Ngày tạo mã
+
+		variation Variation
+			isDefault
+			relationship: 63b89f62-2c26-4b30-a73b-bd2ee83202b2
+			defaultHierarchy: LocalDateTable_a604ea34-89fa-4764-abd7-2c661f9e250d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Tên hàng loại màu'
+		dataType: string
+		lineageTag: 328ff573-b9c6-46fe-8570-74aff1f41d6c
+		summarizeBy: none
+		sourceColumn: Tên hàng loại màu
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAT
+		dataType: int64
+		formatString: 0
+		lineageTag: c8cdf103-ec4b-4b6e-88d2-727fedfd1f34
+		summarizeBy: sum
+		sourceColumn: VAT
+
+		annotation SummarizationSetBy = Automatic
+
+	column URL
+		dataType: string
+		lineageTag: b13ff0ee-b7c8-4f33-ad4c-61720c78e6fe
+		summarizeBy: none
+		sourceColumn: URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: 1dcb9169-4af7-4f10-91c7-cea1c114c9ef
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column Model
+		dataType: string
+		lineageTag: 7f8ad954-4a8a-41e3-9659-4ac387ccb76f
+		summarizeBy: none
+		sourceColumn: Model
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nhóm chức năng nhỏ'
+		dataType: string
+		lineageTag: 98f3e9bc-7330-4053-84d9-e3d9b12c1740
+		summarizeBy: none
+		sourceColumn: Nhóm chức năng nhỏ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nhóm chức năng'
+		dataType: string
+		lineageTag: f1ca7e7d-2046-4410-ba24-f406b6971032
+		summarizeBy: none
+		sourceColumn: Nhóm chức năng
+
+		annotation SummarizationSetBy = Automatic
+
+	column Android_exp
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b4f67f1-016b-4baf-b488-c7a3fa178850
+		summarizeBy: sum
+		sourceColumn: Android_exp
+
+		annotation SummarizationSetBy = Automatic
+
+	column S-Star_exp
+		dataType: int64
+		formatString: 0
+		lineageTag: 88a881a5-30b8-451a-bf36-2d95071caea6
+		summarizeBy: sum
+		sourceColumn: S-Star_exp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tên chương trình'
+		dataType: string
+		lineageTag: f22d6146-90db-40c0-8a0b-a03c3d62b6ee
+		summarizeBy: none
+		sourceColumn: Tên chương trình
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 45441f50-ce17-47fd-8ebc-26aac8cd2b73
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column Is_C-Brand =
+			
+			IF (
+			   'D_Sản phẩm'[Nhóm hàng] = "REALME CTM"
+			   ||'D_Sản phẩm'[Nhóm hàng] =  "OPPO CTM"
+			        ||'D_Sản phẩm'[Nhóm hàng] = "VIVO CTM"
+			        ||'D_Sản phẩm'[Nhóm hàng] = "NUBIA CTM"
+			        ||'D_Sản phẩm'[Nhóm hàng] = "TCL MỚI"
+			        ||'D_Sản phẩm'[Nhóm hàng] = "ONEPLUS CTM"
+			        ||'D_Sản phẩm'[Nhóm hàng] = "BENCO CTM",
+			    1,
+			    BLANK ()
+			)
+		formatString: 0
+		lineageTag: a5c3e64a-0d7f-4ad6-ab07-dbfba8427285
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column ten_hang_cha
+		dataType: string
+		lineageTag: 6236cd8c-f991-4e0f-b19d-004c886d1e5c
+		summarizeBy: none
+		sourceColumn: ten_hang_cha
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'D_Sản phẩm' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=6e97d189-0524-457d-bd6e-30d5e5ad63ad""#(lf)select#(lf)case #(lf)  when ma_hang in ('DV.PM.06', 'DV.PM.07', 'DV.PM.09', 'DV.PM.10', 'DV.PM.11', 'DV.PM.12')  #(lf)  then 'CÀI ĐẶT PHẦN MỀM'#(lf)else nhom_hang end as `Nhóm hàng`,#(lf)loai_hang#(tab)`Loại hàng`,#(lf)ma_hang#(tab)`Mã hàng`,#(lf)ten_hang#(tab)`Tên hàng`,#(lf)inactive#(tab)Inactive,#(lf)ngay_tao_ma#(tab)`Ngày tạo mã`,#(lf)ten_hang_loai_mau#(tab)`Tên hàng loại màu`,#(lf)VAT,#(lf)url#(tab)URL,#(lf)thuong_hieu#(tab)Brand,#(lf)model#(tab)Model,#(lf)nhom_chuc_nang_nho#(tab)`Nhóm chức năng nhỏ`,#(lf)nhom_chuc_nang#(tab)`Nhóm chức năng`,#(lf)Android_exp,#(lf)s_star_exp#(tab)`S-Star_exp`,#(lf)ten_chuong_trinh#(tab)`Tên chương trình`,#(lf)coalesce(web_parent_product_name,ten_hang) as ten_hang_cha,#(lf)from#(lf)`cellphones-data-platform.cps_DA_General_Transform.dim_product`", null, [EnableFolding=true]),
+				    #"Added Index" = Table.AddIndexColumn(Source, "Index", 1, 1, Int64.Type)
+				in
+				    #"Added Index"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

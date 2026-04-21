@@ -1,0 +1,896 @@
+table Measure_Giao_Hàng_Trễ
+	lineageTag: bf4f4b68-0709-458e-a8e5-24d8a6df5dc8
+	sourceLineageTag: dc78e311-43d8-4a2f-be23-c7f4a9a468b5
+
+	/// Số phiếu SP/DC
+	/// 
+	measure 'Số phiếu' = EXTERNALMEASURE("Số phiếu", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Giao hàng combined\Số phiếu
+		lineageTag: 987748f7-a78f-4e00-88ea-ada34c168d80
+		sourceLineageTag: ef6a5b1e-dc2e-4a1e-a4f2-009a19bed672
+		dataCategory: Uncategorized
+
+	measure 'Hoàn tất %' = EXTERNALMEASURE("Hoàn tất %", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0%;-0%;0%
+		displayFolder: Giao hàng combined\Số phiếu
+		lineageTag: 03fceb77-b862-4e1d-ae8b-08c29121ce91
+		sourceLineageTag: d6f026ad-af89-4330-a05d-937e99f302f5
+		dataCategory: Uncategorized
+
+	/// Số phiếu SP/DC có trạng thái hoàn tất
+	/// 
+	measure 'Hoàn tất' = EXTERNALMEASURE("Hoàn tất", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Giao hàng combined\Số phiếu
+		lineageTag: f0314920-de89-41bf-89e1-71103ec7c245
+		sourceLineageTag: dce4f497-f354-4f63-b7a3-038cdecdb01b
+		dataCategory: Uncategorized
+
+	measure 'Maxdate_Nội bộ' = EXTERNALMEASURE("Maxdate_Nội bộ", DATETIME, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: General Number
+		displayFolder: Other
+		lineageTag: 916cf8cb-394a-49c8-a527-e4e8d8e8070f
+		sourceLineageTag: 4132cb1a-4646-4b90-96f1-01768c2ebf2f
+		dataCategory: Uncategorized
+
+	/// Tổng khoảng cách từ CH theo bản đồ (DVT: m)
+	/// 
+	measure 'Khoảng cách' = EXTERNALMEASURE("Khoảng cách", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Giao hàng combined\Khoảng cách
+		lineageTag: f9223569-bad3-46b4-9703-4ad39762ae32
+		sourceLineageTag: d40ca420-b938-41c1-984e-f259763b69c6
+		dataCategory: Uncategorized
+
+	measure 'Số giờ trong ngày' = EXTERNALMEASURE("Số giờ trong ngày", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Other
+		lineageTag: 865a6dc2-49b7-4158-a3c5-a2774a4e73c3
+		sourceLineageTag: 5c918d6e-9326-4810-8224-34a4199395d8
+		dataCategory: Uncategorized
+
+	/// Khoảng cách từ CH theo bản đồ trung bình (DVT: m)
+	measure 'Khoảng cách_TB' = EXTERNALMEASURE("Khoảng cách_TB", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0.00
+		displayFolder: Giao hàng combined\Khoảng cách
+		lineageTag: 187ed4c2-72a3-4ce8-ab0d-dcc94bd4b645
+		sourceLineageTag: ce69d39d-b2a7-44fa-b58d-cd4f49d9fe35
+		dataCategory: Uncategorized
+
+	/// (Ngày tạo chuyến đi - Ngày đơn hàng) trung bình (DVT: giờ)
+	/// *Không bao gồm phiếu có tổng thời gian giao hàng vượt quá 1 tuần
+	measure 'TG xử lý đơn_TB' = EXTERNALMEASURE("TG xử lý đơn_TB", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0.00
+		displayFolder: Giao hàng combined\Thời gian giao hàng
+		lineageTag: c3f7d2f3-b799-4183-96e8-7e6b33df3771
+		sourceLineageTag: 5e312014-e026-45d2-b32d-5d9a89afd1a7
+		dataCategory: Uncategorized
+
+	/// Nội bộ: (Thời gian kết thúc đơn hàng - Thời gian nhận lúc) trung bình (DVT: giờ)
+	/// Đối tác: (Thời gian giao thành công - Thời gian đang giao) trung bình (DVT: giờ)
+	/// *Không bao gồm phiếu có tổng thời gian giao hàng vượt quá 1 tuần
+	measure 'TG giao cho khách_TB' = EXTERNALMEASURE("TG giao cho khách_TB", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0.00
+		displayFolder: Giao hàng combined\Thời gian giao hàng
+		lineageTag: 88fce421-b097-44f5-863e-0453037ab531
+		sourceLineageTag: d8b1500f-642d-413b-b193-41c131790fcb
+		dataCategory: Uncategorized
+
+	/// Nội bộ: (Thời gian nhận lúc lần đầu - Thời gian tạo số tuyến) trung bình (DVT: giờ)
+	/// Đối tác: (Thời gian đã lấy hàng - Thời gian tạo vận đơn) trung bình (DVT: giờ)
+	/// *Không bao gồm phiếu có tổng thời gian giao hàng vượt quá 1 tuần
+	/// 
+	measure 'TG chờ lấy hàng_TB' = EXTERNALMEASURE("TG chờ lấy hàng_TB", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00
+		displayFolder: Giao hàng combined\Thời gian giao hàng
+		lineageTag: 4374d1bd-a747-45c0-808e-bdc2a8e283ab
+		sourceLineageTag: f0ccad06-bb5f-4cbf-b6c7-2ed2441151af
+		dataCategory: Uncategorized
+
+	measure 'Giá trị đơn' = EXTERNALMEASURE("Giá trị đơn", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Giao hàng combined\Doanh thu
+		lineageTag: 8978b940-0405-46fc-873b-8958faeca85b
+		sourceLineageTag: d67200b6-0b54-4119-a1ff-19f6099e5c39
+		dataCategory: Uncategorized
+
+	/// Khoảng cách từ CH theo bản đồ trung bình đơn (DVT: m)
+	measure 'Khoảng cách TB/đơn' = EXTERNALMEASURE("Khoảng cách TB/đơn", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Giao hàng combined\Khoảng cách
+		lineageTag: 72e18adf-6775-4467-88ad-15ba5f5f1582
+		sourceLineageTag: 4213304a-e95f-48e1-939b-e06fc9e1091e
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Giá trị đơn_LM' = EXTERNALMEASURE("Giá trị đơn_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Doanh thu
+		lineageTag: 7d5e5749-85de-44c4-98f6-11e61e0068cf
+		sourceLineageTag: f91928b6-eac8-4fa9-971a-c253a5048f97
+		dataCategory: Uncategorized
+
+	/// Giá trị đơn so với tháng trước (DVT: %)
+	measure 'g% Giá trị đơn' = EXTERNALMEASURE("g% Giá trị đơn", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Doanh thu
+		lineageTag: 9fd95117-6638-4eac-bcc4-dda509f7cd2a
+		sourceLineageTag: 12cbb744-5c83-4d49-9553-56029bd074dc
+		dataCategory: Uncategorized
+
+	/// (Ngày tạo chuyến đi - ngày đơn hàng) quá 15 phút
+	/// 
+	measure 'Trễ hạn_Shop' = EXTERNALMEASURE("Trễ hạn_Shop", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: beff65b7-6c5d-4e6e-a0fb-6ee3909775ba
+		sourceLineageTag: 2d035713-71e9-4893-9607-f89ff914789b
+		dataCategory: Uncategorized
+
+	/// (Thời gian hoàn tất - Ngày tạo chuyến đi) quá 105 phút đối với loại đơn giao 2h, tương tự cho loại đơn giao 3h và 4h
+	/// 
+	measure 'Trễ hạn_Shipper' = EXTERNALMEASURE("Trễ hạn_Shipper", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 8083ee23-19dd-4ab0-96e2-527a650c7ee3
+		sourceLineageTag: c34ff185-590c-4db4-8907-07ab748ad511
+		dataCategory: Uncategorized
+
+	/// Thoả đồng thời điều kiện [% Late by shop] và [% Late by shipper]
+	/// 
+	measure 'Trễ hạn_Shop & Shipper' = EXTERNALMEASURE("Trễ hạn_Shop & Shipper", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: bab234f4-5952-4591-829c-b85ff52215a5
+		sourceLineageTag: 39f5e7da-fdda-4f93-9daf-57daffe86a61
+		dataCategory: Uncategorized
+
+	measure 'Đúng hạn_Shop & Shipper' = EXTERNALMEASURE("Đúng hạn_Shop & Shipper", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: c25c4010-3412-46e4-a295-155cf3243c23
+		sourceLineageTag: e823295f-ce68-4753-984d-1b7e19182150
+		dataCategory: Uncategorized
+
+	measure 'Tổng phân loại' = EXTERNALMEASURE("Tổng phân loại", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 6111125f-311e-4f12-8188-642e625e1dea
+		sourceLineageTag: bb22013c-b0ab-4989-9235-9c0122533899
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_Shop' = EXTERNALMEASURE("% Trễ hạn_Shop", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 7185895b-cc7c-46bb-a9d5-dea1e0b2c601
+		sourceLineageTag: a6a6f636-9633-4205-8394-613857921db6
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_Shipper' = EXTERNALMEASURE("% Trễ hạn_Shipper", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 9963ef01-c5e0-45b7-986c-18ec9a56e362
+		sourceLineageTag: 503dac04-fb31-4137-8847-fce4d687c21f
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_Shop & Shipper' = EXTERNALMEASURE("% Trễ hạn_Shop & Shipper", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: ce0f0a0f-35ad-4cd1-89f1-1d69240ce376
+		sourceLineageTag: ea0dc653-80ba-4aa9-a0f1-4ec5803ef352
+		dataCategory: Uncategorized
+
+	measure '% Đúng hạn_Shop & Shipper' = EXTERNALMEASURE("% Đúng hạn_Shop & Shipper", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 4bfbc0be-92f8-4499-978a-8a8982a4fad2
+		sourceLineageTag: b8213957-92c5-4974-8b34-4eaa77d4463b
+		dataCategory: Uncategorized
+
+	/// Trễ hạn theo thời gian hẹn trên RT = (Thời gian hoàn tất/Thời gian huỷ - Giao hàng trước) > 0
+	measure 'Trễ hạn_RT' = EXTERNALMEASURE("Trễ hạn_RT", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 6655d958-948a-4b2e-91af-9b09d764b3a9
+		sourceLineageTag: 802eb0c5-a959-42a2-8c53-9ece37d5bfe9
+		dataCategory: Uncategorized
+
+	/// Trễ hạn theo thời gian hẹn trên DH = (Thời gian hoàn tất - Thời gian giao) > 0
+	/// 
+	/// 
+	measure 'Trễ hạn_DH' = EXTERNALMEASURE("Trễ hạn_DH", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 4808774b-5413-4eb2-b703-f8908f583e36
+		sourceLineageTag: fee2236d-9275-48d1-91dc-f4dd140b60ab
+		dataCategory: Uncategorized
+
+	measure 'Tổng phân loại_Trễ hạn_DH' = EXTERNALMEASURE("Tổng phân loại_Trễ hạn_DH", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 77b0b2cb-9046-4590-827e-e8b27e6666c9
+		sourceLineageTag: ef005644-5082-44af-908a-e9ab1a296bd6
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_RT' = EXTERNALMEASURE("% Trễ hạn_RT", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: f3236054-93b1-48f5-bf21-0ee44485492f
+		sourceLineageTag: 4339d7bb-0d25-4a34-be05-70180b7cf2d2
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_DH' = EXTERNALMEASURE("% Trễ hạn_DH", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: aec29ae6-e7e2-4525-9f0d-6560a728bd33
+		sourceLineageTag: 173e9044-54b4-463c-8106-a2fd82cd9888
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu DC_Hoàn tất' = EXTERNALMEASURE("Số phiếu DC_Hoàn tất", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phiếu DC
+		lineageTag: 6d9735a1-4e55-4991-b00e-ddf4e1b8c228
+		sourceLineageTag: 2980ef36-72ba-435d-8865-ae38c806b025
+		dataCategory: Uncategorized
+
+	/// (Thời gian hoàn tất - Ngày lập phiếu) trung bình (DVT: ngày)
+	/// 
+	measure 'TG hoàn thành phiếu_TB' = EXTERNALMEASURE("TG hoàn thành phiếu_TB", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Phiếu DC
+		lineageTag: d5a5b495-1d9b-4912-b6a1-4a4bc8d250d3
+		sourceLineageTag: da4e183d-74ac-4ad8-9e07-220877800792
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Số lượng sản phẩm điều chuyển có trạng thái hoàn tất
+	measure 'Slg Chuyển' = EXTERNALMEASURE("Slg Chuyển", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phiếu DC
+		lineageTag: b2dbc0cc-a26b-4d7f-b3d5-328cd0f552de
+		sourceLineageTag: c65e7c5c-bab8-498f-acc7-0024f583ae1a
+		dataCategory: Uncategorized
+
+	/// (Thời gian hoàn tất - Nhận lần đầu lúc) trung bình (DVT: ngày)
+	measure 'TG đi đường_TB' = EXTERNALMEASURE("TG đi đường_TB", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Phiếu DC
+		lineageTag: a552a142-2c60-47f5-b1e3-cc094aaaae60
+		sourceLineageTag: 4a6d82b4-0455-4c3c-8028-fbd08fa781c4
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Số lượng sản phẩm điều chuyển có trạng thái hoàn tất so với tháng trước (DVT: %)
+	/// 
+	measure '% Slg Chuyển LM' = EXTERNALMEASURE("% Slg Chuyển LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: So sánh nhập chuyển
+		lineageTag: 104a7a20-14fa-4c5b-aeac-3b9da0c004c6
+		sourceLineageTag: 5f09aefe-9535-497e-ae4d-4e551b417bf7
+		dataCategory: Uncategorized
+
+	/// Số lượng sản phẩm theo phương thức nhập mua trong nước và trạng thái đã hoàn thành
+	/// 
+	measure 'Slg Nhập' = EXTERNALMEASURE("Slg Nhập", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: So sánh nhập chuyển
+		lineageTag: 3e6005e5-e98a-472c-b153-fbcc40ef397a
+		sourceLineageTag: 0391cfd7-a2be-42cc-bae1-e00fe8cd6aab
+		dataCategory: Uncategorized
+
+	measure Maxdate_Item = EXTERNALMEASURE("Maxdate_Item", DATETIME, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: General Number
+		displayFolder: Other
+		lineageTag: 5b3356f5-e66c-457b-a416-fd9f7b29b8d3
+		sourceLineageTag: 5747fbbd-ba56-4339-8d33-04556befe6bf
+		dataCategory: Uncategorized
+
+	/// Số lượng sản phẩm theo phương thức nhập mua trong nước và trạng thái đã hoàn thành so với tháng trước (DVT: %)
+	/// 
+	/// 
+	measure '% Slg Nhập LM' = EXTERNALMEASURE("% Slg Nhập LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: So sánh nhập chuyển
+		lineageTag: 6e8691d2-bc26-4c65-9485-c545d365b4f3
+		sourceLineageTag: 091e957f-4e77-4e37-bbaa-7dc720854ead
+		dataCategory: Uncategorized
+
+	measure 'Slg_Hoàn tất' = EXTERNALMEASURE("Slg_Hoàn tất", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Tài xế
+		lineageTag: 9f7867d1-d644-4eb8-8557-33d26b689742
+		sourceLineageTag: c22a7cbf-9f7e-499d-9177-679380dfe027
+		dataCategory: Uncategorized
+
+	measure 'Slg_Chưa hoàn tất' = EXTERNALMEASURE("Slg_Chưa hoàn tất", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Tài xế
+		lineageTag: afcb2545-c551-4bad-9373-a8946d28824c
+		sourceLineageTag: b4529ad6-f8cc-42b4-acf9-c869990e91fc
+		dataCategory: Uncategorized
+
+	measure 'Slg_Hủy giao' = EXTERNALMEASURE("Slg_Hủy giao", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Tài xế
+		lineageTag: dc98c4c3-9340-46e1-8497-da52e8e26c15
+		sourceLineageTag: ba6b5b3f-c02d-4436-9ff4-9be3183fd877
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu SP' = EXTERNALMEASURE("Số phiếu SP", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Tài xế
+		lineageTag: 5fe16e20-5652-4f0d-89d8-c74302e9e5a1
+		sourceLineageTag: a550ae50-a002-4a55-b814-41a4fe75f4eb
+		dataCategory: Uncategorized
+
+	/// Khoảng cách từ CH theo bản đồ trung bình ngày (DVT: m)
+	measure 'Khoảng cách TB/Ngày' = EXTERNALMEASURE("Khoảng cách TB/Ngày", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Giao hàng combined\Khoảng cách
+		lineageTag: 9517d121-cee0-4c33-8f51-d482e3226806
+		sourceLineageTag: 520a5275-069c-4126-9b3e-47ed8e729623
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Giá trị đơn_nội bộ' = EXTERNALMEASURE("Giá trị đơn_nội bộ", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: 29669120-5e3e-4e14-930b-d9c654a91e12
+		sourceLineageTag: 1b06c030-d22c-4c2e-941e-e37ecdaf85ec
+		dataCategory: Uncategorized
+
+	measure 'Giá trị đơn_đối tác' = EXTERNALMEASURE("Giá trị đơn_đối tác", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: ed1c6d20-4a8b-4448-9455-7984f3ef2021
+		sourceLineageTag: 3aa8e5b0-e3c1-44f3-9e3f-9107dc4262d6
+		dataCategory: Uncategorized
+
+	/// Tổng doanh số nội thành của nhân viên cửa hàng
+	measure 'Dso_Nội thành_NV Shop' = EXTERNALMEASURE("Dso_Nội thành_NV Shop", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: 68793b8b-0130-45e5-b881-d946ed89691a
+		sourceLineageTag: 0df4ef1d-a460-41e0-8070-5ca15bceafd4
+		dataCategory: Uncategorized
+
+	/// Tổng doanh số nội thành của nhân viên log
+	measure 'Dso_Nội thành_NV Log' = EXTERNALMEASURE("Dso_Nội thành_NV Log", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: 90c2277b-b589-4967-bde7-764c7a31b007
+		sourceLineageTag: 0c0abd2d-0588-4592-ac2c-d1dde530b62c
+		dataCategory: Uncategorized
+
+	/// Tổng doanh số nội thành của Ahamove
+	measure 'Dso_Nội thành_Ahamove' = EXTERNALMEASURE("Dso_Nội thành_Ahamove", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: 326a941f-720f-49b4-9adf-6d9962825c51
+		sourceLineageTag: d2c385aa-2b51-4476-a42c-90ba98c50ea9
+		dataCategory: Uncategorized
+
+	/// [Phí VC] nội thành của Ahamove (Sau khi thêm 10% VAT)
+	/// 
+	measure 'Phí VC_Nội thành_Ahamove' = EXTERNALMEASURE("Phí VC_Nội thành_Ahamove", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: ac3a1ba3-3190-4e8a-abc1-dbf5476730b3
+		sourceLineageTag: 0a7a3dc5-3968-4419-95ea-e57958cfaf54
+		dataCategory: Uncategorized
+
+	/// [Phí VC] nội thành của nhân viên cửa hàng
+	/// 
+	measure 'Phí VC_Nội thành_NV Shop' = EXTERNALMEASURE("Phí VC_Nội thành_NV Shop", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 9c564611-22c4-4d7e-9ec5-40cc59976a04
+		sourceLineageTag: a1a0642f-af88-46f7-99a3-0c2c4bea6cdd
+		dataCategory: Uncategorized
+
+	/// [Phí VC] nội thành của nhân viên kho
+	/// 
+	measure 'Phí VC_Nội thành_NV Log' = EXTERNALMEASURE("Phí VC_Nội thành_NV Log", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 86a15009-f14c-47e1-9b5b-69bb9067010e
+		sourceLineageTag: dea60a9d-0f24-46e9-b360-862f48f82fb8
+		dataCategory: Uncategorized
+
+	/// [Phí VC] ngoại thành của Lazada (loại SP gửi chứng từ về 30 mai anh tuấn)
+	measure 'Phí VC_Ngoại thành_Lazada' = EXTERNALMEASURE("Phí VC_Ngoại thành_Lazada", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 951f9b2c-abbc-4338-9c93-834554cb5781
+		sourceLineageTag: 89e2502f-44b0-4df2-9834-89c12a1b796d
+		dataCategory: Uncategorized
+
+	/// [Phí VC] ngoại thành của Nhất Tín
+	/// 
+	measure 'Phí VC_Ngoại thành_Nhất Tín' = EXTERNALMEASURE("Phí VC_Ngoại thành_Nhất Tín", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: b0aed28d-78d2-439e-9d17-18cc2681ceb8
+		sourceLineageTag: 58b1f096-da73-4495-8236-997a8fa936a2
+		dataCategory: Uncategorized
+
+	/// Tổng doanh số ngoại thành của Lazada
+	/// 
+	measure 'Dso_Ngoại thành_Lazada' = EXTERNALMEASURE("Dso_Ngoại thành_Lazada", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: 6c117839-5543-4120-9842-cc539b9c444d
+		sourceLineageTag: 423796da-b330-41cd-a6d2-1d3e7fe86f08
+		dataCategory: Uncategorized
+
+	/// Tổng doanh số ngoại thành của Nhất Tín
+	/// 
+	measure 'Dso_Ngoại thành_Nhất Tín' = EXTERNALMEASURE("Dso_Ngoại thành_Nhất Tín", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: 80794003-73a7-41ad-b230-d71d7834e28f
+		sourceLineageTag: 370fc689-121a-4b27-a2de-88d93620da41
+		dataCategory: Uncategorized
+
+	/// [Phí VC] nội thành của nhân viên kho, nhân viên cửa hàng và Ahamove
+	measure 'Phí VC_Nội thành' = EXTERNALMEASURE("Phí VC_Nội thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 8b382460-a1fd-483e-b00e-530be3638afc
+		sourceLineageTag: 002b12d6-8600-40b9-a373-f1f9534501d6
+		dataCategory: Uncategorized
+
+	/// Tổng doanh số nội thành của nhân viên kho, nhân viên cửa hàng và Ahamove
+	measure 'Dso_Nội thành' = EXTERNALMEASURE("Dso_Nội thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: 75d06974-a52e-46d4-800b-0d93083d9498
+		sourceLineageTag: 9480b52c-a512-4b72-8eef-5829699b3521
+		dataCategory: Uncategorized
+
+	/// Tổng doanh số ngoại thành của Lazada và Nhất Tín
+	/// 
+	measure 'Dso_Ngoại thành' = EXTERNALMEASURE("Dso_Ngoại thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: cf114ca8-1e07-4ea1-92c7-f4148cc22601
+		sourceLineageTag: f453d0bd-56e2-4a7b-8708-04ba8319eab3
+		dataCategory: Uncategorized
+
+	/// [Phí VC] ngoại thành của Lazada và Nhất Tín
+	/// 
+	measure 'Phí VC_Ngoại thành' = EXTERNALMEASURE("Phí VC_Ngoại thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 0e6fb7fb-1ded-453f-acf8-6c9a8470b594
+		sourceLineageTag: 5b81960b-a0bb-4890-bfa8-e3497b92c9b0
+		dataCategory: Uncategorized
+
+	measure '% Phí VC_Nội thành' = EXTERNALMEASURE("% Phí VC_Nội thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 16564a93-f1b4-4b8e-a820-22dea9fc3815
+		sourceLineageTag: 671e7e3f-8e88-4654-80db-b745aedba791
+		dataCategory: Uncategorized
+
+	measure '% Phí VC_Ngoại thành' = EXTERNALMEASURE("% Phí VC_Ngoại thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 92384421-9b25-4c6f-9534-b6473ba3d528
+		sourceLineageTag: ac3b3946-fb23-45bc-b914-8a80012f9eff
+		dataCategory: Uncategorized
+
+	measure 'Chi phí dự báo_Nội thành' = EXTERNALMEASURE("Chi phí dự báo_Nội thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Chi phí dự báo_Nội ngoại thành
+		lineageTag: 3d9ede0f-fed3-4514-936f-bcbbe1297d65
+		sourceLineageTag: c9a37ea9-c754-4176-b151-5eb23e3e9f5a
+		dataCategory: Uncategorized
+
+	measure 'Chi phí dự báo_Ngoại thành' = EXTERNALMEASURE("Chi phí dự báo_Ngoại thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Chi phí dự báo_Nội ngoại thành
+		lineageTag: 95de00a0-911b-4c9b-961a-bac76a1e91b2
+		sourceLineageTag: f4f19b85-3052-46bc-827f-a4764cd69f65
+		dataCategory: Uncategorized
+
+	/// Phí vận chuyển nội thành/Số phiếu giao hàng nội thành
+	measure 'Chi phí TB đơn_Nội thành' = EXTERNALMEASURE("Chi phí TB đơn_Nội thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Chi phí dự báo_Nội ngoại thành
+		lineageTag: 27bbe987-f09d-411a-a68d-1683a016e038
+		sourceLineageTag: 47d39bbe-4b7c-4a93-a225-49d1c2b0b73f
+		dataCategory: Uncategorized
+
+	/// Phí vận chuyển ngoại thành/Số phiếu giao hàng ngoại thành
+	measure 'Chi phí TB đơn_Ngoại thành' = EXTERNALMEASURE("Chi phí TB đơn_Ngoại thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Chi phí dự báo_Nội ngoại thành
+		lineageTag: fedc4340-3e34-4e46-ac09-3dd429ff82e3
+		sourceLineageTag: 381867dd-b0c9-4613-9b45-c3cbed34c0a8
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Chi phí trung bình đơn nội thành dự báo dựa trên 3 tháng gần nhất
+	measure 'Chi phí TB đơn dự báo_Nội thành' = EXTERNALMEASURE("Chi phí TB đơn dự báo_Nội thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Chi phí dự báo_Nội ngoại thành
+		lineageTag: b86538b1-4c57-4443-8cb3-9e7ff8998fb7
+		sourceLineageTag: 69088b8f-6071-4d76-b655-c94a38b46ad8
+		dataCategory: Uncategorized
+
+	/// Chi phí trung bình đơn ngoại thành dự báo dựa trên 3 tháng gần nhất
+	/// 
+	measure 'Chi phí TB đơn dự báo_Ngoại thành' = EXTERNALMEASURE("Chi phí TB đơn dự báo_Ngoại thành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Chi phí dự báo_Nội ngoại thành
+		lineageTag: 1df4ca07-1f87-4e67-b532-742815d5b65d
+		sourceLineageTag: d31b9c98-a0e0-469f-a63e-2c265a7f8a73
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu_Tình trạng đơn' = EXTERNALMEASURE("Số phiếu_Tình trạng đơn", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Tài xế
+		lineageTag: 110c8a35-f617-441d-a60e-7e7a8dbe2827
+		sourceLineageTag: 69ca7083-1167-4d0c-b72c-5f988a82a328
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu_LM' = EXTERNALMEASURE("Số phiếu_LM", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Giao hàng combined\Số phiếu
+		lineageTag: 4777e165-8614-40de-8913-fc046620c4d5
+		sourceLineageTag: 52eaf3f3-efe1-40da-a09f-5719ed5bc37c
+		dataCategory: Uncategorized
+
+	/// Số phiếu so với tháng trước (DVT: %)
+	/// 
+	measure 'g% Số phiếu' = EXTERNALMEASURE("g% Số phiếu", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Số phiếu
+		lineageTag: cb94275c-6fa9-4c7f-b0a5-ae0cd58dd297
+		sourceLineageTag: c4095ef6-71ea-414c-8ea0-712b9d31b798
+		dataCategory: Uncategorized
+
+	measure 'Slg Nhập_LM' = EXTERNALMEASURE("Slg Nhập_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: So sánh nhập chuyển
+		lineageTag: 4ba6df46-49c8-49c9-84ce-8dcf4e75cb54
+		sourceLineageTag: 00add612-0ece-4d29-b823-5e76279ba322
+		dataCategory: Uncategorized
+
+	measure 'Slg Chuyển_LM' = EXTERNALMEASURE("Slg Chuyển_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: So sánh nhập chuyển
+		lineageTag: 7c02daad-dad4-4e14-9a75-443120df85fd
+		sourceLineageTag: c015a11e-44ad-4840-8f8b-57f0eb142251
+		dataCategory: Uncategorized
+
+	/// Tổng phí vận chuyển bảo hành, lấy từ phiếu SP giao vận chuyển bảo hành và phiếu SO (gồm cả B2B và B2C)
+	measure 'Phí VC_Bảo hành' = EXTERNALMEASURE("Phí VC_Bảo hành", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: d3c45102-c8ff-42ad-a370-9e8b00a41b1b
+		sourceLineageTag: 68991ea3-5804-4d96-9788-7e73401821e7
+		dataCategory: Uncategorized
+
+	/// Tổng phí vận chuyển từ phiếu SP có trạng thái Hoàn tất (Chỉ gồm B2C)
+	measure 'Phí VC' = EXTERNALMEASURE("Phí VC", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: e8214c01-c030-49fb-9cd4-bf99ccb4f81e
+		sourceLineageTag: 244b6a1b-e04a-404b-bf37-39da82ba7c38
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Số phiếu_Nội thành' = EXTERNALMEASURE("Số phiếu_Nội thành", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Số phiếu
+		lineageTag: fcabf8e9-7a95-4021-9a2b-0389a686518c
+		sourceLineageTag: 5a717119-2758-4ee3-8aff-58e032c69e96
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu_Ngoại thành' = EXTERNALMEASURE("Số phiếu_Ngoại thành", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Số phiếu
+		lineageTag: e4e6dc82-1a4e-4ff7-bf6f-9eb6149a890e
+		sourceLineageTag: 0ca6cafe-3b08-43e6-9d4d-4e97c099608c
+		dataCategory: Uncategorized
+
+	measure 'Selected_% Trễ hạn' = EXTERNALMEASURE("Selected_% Trễ hạn", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Other
+		lineageTag: d534ea41-3a3d-4b3f-bd52-af0eb7a4dc3d
+		sourceLineageTag: 8a8f6f1b-70fc-4728-8b80-02fc6aacf590
+		dataCategory: Uncategorized
+
+	measure 'Selected_Trễ hạn' = EXTERNALMEASURE("Selected_Trễ hạn", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Other
+		lineageTag: dfac4242-a8ec-48fd-9915-1bc618dcfbdb
+		sourceLineageTag: 424a8b1a-1b2a-43d6-a262-3a0659c16781
+		dataCategory: Uncategorized
+
+	measure 'Phí VC_Visual' = EXTERNALMEASURE("Phí VC_Visual", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 9cf554a8-ec7d-4992-9f4c-4ae63f8cbdf7
+		sourceLineageTag: d66767b0-ca5a-4979-9434-49cb3cdafb0d
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Update-Filtered 2' = EXTERNALMEASURE("Update-Filtered", STRING, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Other
+		lineageTag: 3d7e83d2-2e63-47ed-a04f-7c5333161bb4
+		sourceLineageTag: 2f6dd29a-199d-4bd4-b98a-7ad898954ce6
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure '% Trễ hạn_Shop_LM' = EXTERNALMEASURE("% Trễ hạn_Shop_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 5d9d89b8-7743-4fe0-9afa-d657bd89a71d
+		sourceLineageTag: 487b585f-154d-477a-a3ef-86ced0dd7740
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_Shop_MoM%' = EXTERNALMEASURE("% Trễ hạn_Shop_MoM%", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 8365cbc2-e4ac-4de3-9b99-c69827a51364
+		sourceLineageTag: c584b5d2-28c8-4827-9fba-5a5eaff31e27
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_Shipper_LM' = EXTERNALMEASURE("% Trễ hạn_Shipper_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: b4ea3841-cb26-4253-bcea-82ec414822be
+		sourceLineageTag: e93c55d6-bd9c-41ba-bb35-bf465697da0b
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_Shipper_MoM%' = EXTERNALMEASURE("% Trễ hạn_Shipper_MoM%", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: f838b27c-627f-41c5-b255-cfb3908fd4f6
+		sourceLineageTag: d41bb67e-9ab1-43be-8e5e-621be555d78a
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_DH_LM' = EXTERNALMEASURE("% Trễ hạn_DH_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 96247ecf-1608-479b-a411-7bc6f0e1d8b1
+		sourceLineageTag: 5e20720e-ed9b-4497-b5e3-76e43168e319
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_DH_MoM%' = EXTERNALMEASURE("% Trễ hạn_DH_MoM%", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 6528e08c-63ec-4fa3-a147-063865b0983b
+		sourceLineageTag: 96a2ba0a-fcae-4845-8ff2-fb1449b9318f
+		dataCategory: Uncategorized
+
+	measure '% Phí VC_Nội thành_LM' = EXTERNALMEASURE("% Phí VC_Nội thành_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 64073b41-49b7-4bb5-a233-5c1e184f8ab1
+		sourceLineageTag: b4df5216-df02-4a13-b8a2-a44db9755676
+		dataCategory: Uncategorized
+
+	measure '% Phí VC_Ngoại thành_LM' = EXTERNALMEASURE("% Phí VC_Ngoại thành_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 77ced7f0-cb50-4e7e-b895-4f13871dcff6
+		sourceLineageTag: 0eac30d3-6d6c-4724-bb84-e4e31a437673
+		dataCategory: Uncategorized
+
+	measure '% Phí VC_Nội thành_MoM%' = EXTERNALMEASURE("% Phí VC_Nội thành_MoM%", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 7735f52f-abec-44e5-aa04-f11820ad64d1
+		sourceLineageTag: b73e1754-dc14-496f-a737-ab26980b1df7
+		dataCategory: Uncategorized
+
+	measure '% Phí VC_Ngoại thành_MoM%' = EXTERNALMEASURE("% Phí VC_Ngoại thành_MoM%", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 1b0d27bf-5b8d-40b3-8b75-6828e554af18
+		sourceLineageTag: d63e4c7c-d682-419b-884e-151345b1312e
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_DH (Giao 2 giờ)' = EXTERNALMEASURE("% Trễ hạn_DH (Giao 2 giờ)", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 6fb8334b-7121-41d2-91e7-0652a2d33782
+		sourceLineageTag: e0ffc5fa-7890-4533-a447-753ae6ccb000
+		dataCategory: Uncategorized
+
+	measure Date_LogsFrom = EXTERNALMEASURE("Date_LogsFrom", DATETIME, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: General Number
+		displayFolder: Other
+		lineageTag: fc48b3ad-7a51-4ace-aa2e-18e36cdde481
+		sourceLineageTag: bb07da24-334d-4a3f-afbd-2fc763098562
+		dataCategory: Uncategorized
+
+	measure 'Khoảng cách_TB_LM' = EXTERNALMEASURE("Khoảng cách_TB_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Giao hàng combined\Khoảng cách
+		lineageTag: 7214361a-74be-4371-9233-5c364fa8bf9c
+		sourceLineageTag: 0e6fbccb-02af-4401-9450-4728090c4ee7
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Trễ hạn_RT_LM' = EXTERNALMEASURE("% Trễ hạn_RT_LM", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: bd4026a9-7a0e-4cf2-873e-66a71705ce48
+		sourceLineageTag: 0119a213-4c87-4392-9d15-2ac934c4b7a3
+		dataCategory: Uncategorized
+
+	measure '% Trễ hạn_RT_MoM%' = EXTERNALMEASURE("% Trễ hạn_RT_MoM%", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: a43006e0-7aee-4f01-aa2d-07a8a96de82b
+		sourceLineageTag: 59d4d42b-f90d-4733-ab20-981fa22bfbdd
+		dataCategory: Uncategorized
+
+	measure 'Số phiếu_MoM%' = EXTERNALMEASURE("Số phiếu_MoM%", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Số phiếu
+		lineageTag: fd0a881e-c9fa-462b-9c86-b1d56797dce5
+		sourceLineageTag: 7f61af45-c2f7-4229-bcb3-f80b802839c3
+		dataCategory: Uncategorized
+
+	measure 'Khoảng cách_TB_MoM%' = EXTERNALMEASURE("Khoảng cách_TB_MoM%", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Khoảng cách
+		lineageTag: ec168e4b-fcf7-4518-b79a-fa36fbf6ea3d
+		sourceLineageTag: fdef3043-13ed-463b-9db3-5f5c9ac5bd41
+		dataCategory: Uncategorized
+
+	measure 'Tổng phân loại_Trễ hạn_RT' = EXTERNALMEASURE("Tổng phân loại_Trễ hạn_RT", INTEGER, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: 0
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: a459d638-9b6d-428f-8f31-fe38e2aac434
+		sourceLineageTag: 1aa60e47-793c-4771-aeb1-ad861d6d1ed3
+		dataCategory: Uncategorized
+
+	measure 'Phí VC_Ngoại thành_GHTK' = EXTERNALMEASURE("Phí VC_Ngoại thành_GHTK", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Phí VC_Nội ngoại thành
+		lineageTag: 7931d004-5087-43e8-924b-ebb92fc52027
+		sourceLineageTag: d51cb23f-beca-4a13-b8b0-5b2b536920df
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Dso_Ngoại thành_GHTK' = EXTERNALMEASURE("Dso_Ngoại thành_GHTK", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Dso_Nội ngoại thành
+		lineageTag: 382479dd-3872-4bbe-9b27-6b756a5aeae7
+		sourceLineageTag: 7e399300-f51f-4b22-bad1-8fea311d84b6
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// (Ngày lập phiếu SP   - Ngày đơn hàng) ) trung bình (DVT: giờ)
+	/// *Không bao gồm phiếu có tổng thời gian giao hàng vượt quá 1 tuần
+	measure 'TG xử lý DH ra SP' = EXTERNALMEASURE("TG xử lý DH ra SP", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		formatString: #,0.00
+		displayFolder: Giao hàng combined\Thời gian giao hàng
+		lineageTag: 6ca46954-8c73-4c29-bfb2-123fffab286c
+		sourceLineageTag: 1afd19ba-99aa-482f-8b47-896a440f8117
+		dataCategory: Uncategorized
+
+	/// (Ngày tạo chuyến đi - Ngày lập phiếu SP) trung bình (DVT: giờ)
+	/// *Không bao gồm phiếu có tổng thời gian giao hàng vượt quá 1 tuần
+	measure 'TG xử lý SP ra RT' = EXTERNALMEASURE("TG xử lý SP ra RT", DOUBLE, "DirectQuery to AS - LOG_Logistics tổng quan")
+		displayFolder: Giao hàng combined\Thời gian giao hàng
+		lineageTag: e395c120-ac74-4666-967a-48061ac8b705
+		sourceLineageTag: df3b6cef-d7f2-49f8-a4f5-b3a808d5ca95
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Trễ hạn_DH (Giao thông thường)' =
+			
+			CALCULATE(
+			    [% Trễ hạn_DH],
+			    FILTER(
+			        'F_Logistics 2',
+			        'F_Logistics 2'[loại giao hàng] = "Giao thông thường"
+			    )
+			)
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: ff081178-3737-4cab-9d06-323c381dd5c7
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Trễ DH_2h' =
+			
+			VAR actual = [% Trễ hạn_DH (Giao 2 giờ)]
+			VAR target = 0.15
+			VAR score =
+			    DIVIDE(target - actual, target)
+			RETURN
+			IF(
+			    ISBLANK(actual),
+			    BLANK(),           -- không có data → không tính
+			    MAX(
+			        -1.2,
+			        MIN(
+			            1.2,
+			            ROUND(score, 4)
+			        )
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 03a69173-31de-48e0-aaf3-3653d2bc9dda
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure '% Trễ DH_TT' =
+			
+			VAR actual = [% Trễ hạn_DH (Giao thông thường)]
+			VAR target_default = 0.15
+			VAR target_zone3   = 0.2
+			VAR zone = SELECTEDVALUE('adhoc_shop_zone_mappings'[zone])
+			
+			VAR target =
+			    IF(
+			        zone = "Zone 3",
+			        target_zone3,
+			        target_default
+			    )
+			
+			VAR score =
+			    DIVIDE(target - actual, target)
+			
+			RETURN
+			IF(
+			    ISBLANK(actual),
+			    BLANK(),
+			    MAX(
+			        -1.2,
+			        MIN(
+			            1.2,
+			            ROUND(score, 4)
+			        )
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Giao hàng combined\Phân loại trễ hạn
+		lineageTag: 4e98b42b-d6f2-4a91-b424-5ebbebcf052c
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	column Column
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ba991004-d1c2-40aa-b932-caaa8dd6d532
+		sourceLineageTag: 854a69c2-bb8d-40f0-9724-e45f263817a8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = User
+
+	partition Measure_Giao_Hàng_Trễ = entity
+		mode: directQuery
+		source
+			entityName: Measure
+			expressionSource: 'DirectQuery to AS - LOG_Logistics tổng quan'
+
+	changedProperty = Name
+

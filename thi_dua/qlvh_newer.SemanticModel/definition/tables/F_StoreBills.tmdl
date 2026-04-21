@@ -1,0 +1,303 @@
+table F_StoreBills
+	lineageTag: 4b70522e-914f-4f03-9d86-c4f3b7ec6348
+	sourceLineageTag: b9351053-d8f0-4a4d-819e-b0edf51158af
+
+	column BranchId
+		dataType: int64
+		formatString: 0
+		lineageTag: e54fd7ba-0750-4abb-abc0-cbfda2946bac
+		sourceLineageTag: 921d1838-a8c4-456c-8548-6d5ba5ebf626
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: BranchId
+
+		annotation SummarizationSetBy = User
+
+	column BranchName
+		dataType: string
+		lineageTag: 649ef129-bddb-441c-a94d-0b40da18d9e9
+		sourceLineageTag: 0dc32ce7-b1ac-4ce3-bbcf-188fa772ee48
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BranchName
+
+		annotation SummarizationSetBy = User
+
+	column PaymentType
+		dataType: string
+		lineageTag: 61daf894-7063-448d-b0ac-f2073725c67e
+		sourceLineageTag: 2951007c-6dd2-481b-8f17-59af3baa9bb9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PaymentType
+
+		annotation SummarizationSetBy = User
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cc78c8f0-5431-4f3e-a7e7-810b804f8aed
+		sourceLineageTag: 157eb38e-a252-4f27-a5dc-6d47e09da8fa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = User
+
+	column PaymentName
+		dataType: string
+		lineageTag: 7d68340b-4fba-4223-b50a-3357225d9eee
+		sourceLineageTag: 93afff54-45ec-460c-be61-6f4900c64eb3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PaymentName
+
+		annotation SummarizationSetBy = User
+
+	column Name
+		dataType: string
+		lineageTag: 5507852c-5c8d-4635-aebd-8d5b2b840357
+		sourceLineageTag: f7398a2b-c6ab-4c9b-a89a-bc8e99490ff4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = User
+
+	column AutoCode
+		dataType: string
+		lineageTag: 69d79029-72e0-40f6-ad00-702fd2f26205
+		sourceLineageTag: dde29379-9a86-419a-be90-6012949c1c86
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AutoCode
+
+		annotation SummarizationSetBy = User
+
+	column RefAutoCode
+		dataType: string
+		lineageTag: ba1104e4-a2c5-4855-85e4-9a3b9b01cab1
+		sourceLineageTag: 417ce2f6-8f10-460c-b235-7e149549bfff
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RefAutoCode
+
+		annotation SummarizationSetBy = User
+
+	column client_session_id
+		dataType: string
+		lineageTag: ff3fc77c-8599-4a5e-8771-4b7a7ee145e4
+		sourceLineageTag: 01e14b36-9908-4c34-b20a-c9443e05fe12
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: client_session_id
+
+		annotation SummarizationSetBy = User
+
+	column branch_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ff027e9e-6e9a-42aa-aee9-c9bc177cf453
+		sourceLineageTag: c738dafc-29c6-486a-8c57-0990d830bf83
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: branch_id
+
+		annotation SummarizationSetBy = User
+
+	column event_name
+		dataType: string
+		lineageTag: 62d69688-c674-448d-99d1-70d36e1881c0
+		sourceLineageTag: 4bf32a71-a947-4190-a585-0441fbf802ab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: event_name
+
+		annotation SummarizationSetBy = User
+
+	column current_key
+		dataType: string
+		lineageTag: 9c9e2226-b25b-4f53-8b78-53aec130dbbe
+		sourceLineageTag: 0c42b7c8-d151-4766-9838-249052ac5bee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: current_key
+
+		annotation SummarizationSetBy = User
+
+	column save_event_time
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: ad3d981f-3abf-40c5-a3ee-b97ee0ac7de7
+		sourceLineageTag: 97cc8780-eecd-49e5-a5f8-342f96a1f2f9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: save_event_time
+
+		annotation SummarizationSetBy = User
+
+	column first_event_time
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 6dbcbe7f-9b47-4722-a24c-7d04f91d6c0d
+		sourceLineageTag: 200a3735-bed9-4295-89e7-e9244c657b57
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: first_event_time
+
+		annotation SummarizationSetBy = User
+
+	column completion_time_minutes
+		dataType: double
+		lineageTag: 3442edcb-ba40-46eb-b72f-155519c75134
+		sourceLineageTag: 7819b0e2-2cb4-41b9-9ab2-28bbca14080d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: completion_time_minutes
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column minuteRange
+		dataType: string
+		lineageTag: 972a842c-22f5-42cc-a4b2-a4f95a553ff0
+		sourceLineageTag: fc1c44bb-7afe-4111-bf01-ca761d647544
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: minuteRange
+		sortByColumn: minuteRangeOrder
+
+		annotation SummarizationSetBy = User
+
+	column minuteRangeOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: 217e7175-5eec-4365-b1b1-cff4e316f3b1
+		sourceLineageTag: d2ef51aa-e151-49a4-bedc-0adadbf77954
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: minuteRangeOrder
+
+		annotation SummarizationSetBy = User
+
+	column title_emp
+		dataType: string
+		lineageTag: 6ed28835-163d-4f63-81bf-88d4f124252b
+		sourceLineageTag: 9e33659b-652b-4748-a2ea-3ba06c15d528
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: title_emp
+
+		annotation SummarizationSetBy = User
+
+	column department_emp
+		dataType: string
+		lineageTag: e4094322-567f-4263-a2df-eb280fbf5a52
+		sourceLineageTag: 361dcf94-6708-404b-930b-35922aab9e0f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: department_emp
+
+		annotation SummarizationSetBy = User
+
+	column msnv
+		dataType: string
+		lineageTag: 1ce51408-4aa5-48e2-8fec-d0d3c880e0ba
+		sourceLineageTag: 64771fdd-54bf-4f24-88c1-47861941eda3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: msnv
+
+		annotation SummarizationSetBy = User
+
+	column full_name
+		dataType: string
+		lineageTag: 73a01e2f-993d-40ac-82ad-5061062865a2
+		sourceLineageTag: 58dfaf00-c9a3-4e00-82ee-e9fb6f74abdb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: full_name
+
+		annotation SummarizationSetBy = User
+
+	column is_aio
+		dataType: int64
+		formatString: 0
+		lineageTag: e5bff9e4-e13a-4b06-affb-a3726b8badd0
+		sourceLineageTag: 2d165ab6-5305-4782-8c48-5622e188ba76
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: is_aio
+
+		annotation SummarizationSetBy = User
+
+	column is_aio_support
+		dataType: int64
+		formatString: 0
+		lineageTag: 5da90e02-1cd9-4d43-82b1-d1efe7cc8005
+		sourceLineageTag: 0dcb8e9e-4aad-4cf7-bf35-dc6d02beee06
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: is_aio_support
+
+		annotation SummarizationSetBy = User
+
+	column is_online
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 13d7ba34-1d64-49de-9e56-8ba1a3b6e14a
+		sourceLineageTag: 5b9c9d81-cb17-4590-b3b9-56b7d5f17500
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: is_online
+
+		annotation SummarizationSetBy = User
+
+	column OrderSource
+		dataType: string
+		lineageTag: e39d64a6-f68a-4ce3-8f80-88df40598320
+		sourceLineageTag: bd4f3160-dc69-4237-b591-2e241bf0c459
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OrderSource
+
+		annotation SummarizationSetBy = User
+
+	column is_PG
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c417bc9-f45f-49ab-9111-9f486cc4d653
+		sourceLineageTag: 9441cffa-8753-4d2f-a68d-d33408d3fd09
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: is_PG
+
+		annotation SummarizationSetBy = User
+
+	column OnlineNo
+		dataType: string
+		lineageTag: 3d8d6348-20d7-419e-ace8-4edeb3f9113e
+		sourceLineageTag: 8374fcad-3183-4d3d-a1fb-849f483c053d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OnlineNo
+
+		annotation SummarizationSetBy = User
+
+	column size
+		dataType: string
+		lineageTag: 0ef78173-e703-4115-acd7-b10630ec8752
+		sourceLineageTag: 4a55ddf8-088d-4bfa-a456-b234582e22ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: size
+
+		annotation SummarizationSetBy = User
+
+	partition F_StoreBills = entity
+		mode: directQuery
+		source
+			entityName: F_StoreBills
+			expressionSource: 'DirectQuery to AS - VH_Theo dõi AIOv2'
+

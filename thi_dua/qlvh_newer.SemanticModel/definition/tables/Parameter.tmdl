@@ -1,0 +1,47 @@
+table Parameter
+	lineageTag: fb85cbf1-c03e-4896-bd6f-9fcaa549a202
+
+	column Parameter
+		lineageTag: d92b9f31-32ea-4b4f-bf34-a2b48b4069d1
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: ecdf5ade-ea11-4030-a449-06ccbaddb41c
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: ffa2a8b2-e781-43d2-995a-79a3c7996ab5
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Parameter = calculated
+		mode: import
+		source =
+				{
+				    ("Miền", NAMEOF('DIM_Danh mục_Phòng ban'[Miền]), 0)
+				}
+
+	annotation PBI_Id = cff1d27613cd48b09c5b696ca02a9855
+

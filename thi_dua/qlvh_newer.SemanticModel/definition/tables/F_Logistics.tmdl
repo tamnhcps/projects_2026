@@ -1,0 +1,270 @@
+table F_Logistics
+	lineageTag: 548974f8-ea8f-46c9-94ad-b8a9dc9598ea
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: 07fba25c-7dc3-435a-b8b5-c3e688ddeec2
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngày đơn hàng'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 74cd99d8-b63f-4c54-8343-4b223d639bef
+		summarizeBy: none
+		sourceColumn: Ngày đơn hàng
+
+		variation Variation
+			isDefault
+			relationship: 76e850ec-2a2a-4ef1-b6bd-75acadbf5796
+			defaultHierarchy: LocalDateTable_f9ebceb0-a76d-457a-a16c-86b31dae89d7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tình trạng đơn'
+		dataType: string
+		lineageTag: f2ae92a1-723f-4f04-b02a-dc85d762e6c0
+		summarizeBy: none
+		sourceColumn: Tình trạng đơn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Số phiếu'
+		dataType: string
+		lineageTag: a01416b4-04ae-42c1-b972-0f1ab38a2de8
+		summarizeBy: none
+		sourceColumn: Số phiếu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngày lập phiếu'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dc6e708a-03d0-4dc6-bda5-ecf442a4b003
+		summarizeBy: none
+		sourceColumn: Ngày lập phiếu
+
+		variation Variation
+			isDefault
+			relationship: 3f64404c-7065-4618-ad7a-b74468ba33ed
+			defaultHierarchy: LocalDateTable_3fc620d0-1129-4247-b4bc-0f8ef0b59467.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Giá trị đơn'
+		dataType: double
+		lineageTag: aea48934-bc91-4166-88e1-028fb8e733e5
+		summarizeBy: sum
+		sourceColumn: Giá trị đơn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Phí VC'
+		dataType: double
+		lineageTag: 22f11a14-3f11-4271-9f51-db02e1186cf3
+		summarizeBy: sum
+		sourceColumn: Phí VC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Loại giao hàng'
+		dataType: string
+		lineageTag: db041666-ce8d-4448-ae47-6e996dea0614
+		summarizeBy: none
+		sourceColumn: Loại giao hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Giao hàng trước'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3e36063d-2cb2-47bc-b30d-d71bc450bde9
+		summarizeBy: none
+		sourceColumn: Giao hàng trước
+
+		variation Variation
+			isDefault
+			relationship: e77eee6d-f357-4b8e-8f1f-08ad25cd4556
+			defaultHierarchy: LocalDateTable_f57aed29-a13c-455c-8659-60bf2d7ab910.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nhận lúc'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: de6396a6-0d7a-483b-9de6-b7b3587f7542
+		summarizeBy: none
+		sourceColumn: Nhận lúc
+
+		variation Variation
+			isDefault
+			relationship: 8bd8049e-73ee-4993-8083-26fa74b7bee5
+			defaultHierarchy: LocalDateTable_c624589e-e242-4d9a-96f0-5d70b4bf4c6f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngày tạo chuyến đi'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 208ce25f-2d56-4412-be95-4ebd9811a154
+		summarizeBy: none
+		sourceColumn: Ngày tạo chuyến đi
+
+		variation Variation
+			isDefault
+			relationship: 6e513cd9-a45d-49de-9f70-f4a16bf4b2cf
+			defaultHierarchy: LocalDateTable_3a4d7bcc-feba-47ea-b6cf-648345d8397d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mã chuyến đi'
+		dataType: string
+		lineageTag: 7576eb54-aef4-438e-b7c9-5debfa659ffc
+		summarizeBy: none
+		sourceColumn: Mã chuyến đi
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tên xe'
+		dataType: string
+		lineageTag: 0c200be1-7f5c-447d-a0d0-ff226c31d674
+		summarizeBy: none
+		sourceColumn: Tên xe
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mã tài xế'
+		dataType: string
+		lineageTag: d207dee7-8201-4a1f-a1da-77416b8727e9
+		summarizeBy: none
+		sourceColumn: Mã tài xế
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Thời gian hoàn tất'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8db40695-adcb-429c-b95b-80a645067b95
+		summarizeBy: none
+		sourceColumn: Thời gian hoàn tất
+
+		variation Variation
+			isDefault
+			relationship: 809f7069-ee12-4d16-bfb0-27261e024d2d
+			defaultHierarchy: LocalDateTable_5194b9e3-f102-492f-a9c5-1985fe14ab5e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'K.Cách từ CH theo bản đồ'
+		dataType: double
+		lineageTag: 9b2dacfb-d1c9-483c-ae84-858a5746af65
+		summarizeBy: sum
+		sourceColumn: K.Cách từ CH theo bản đồ
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Thời gian hủy'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 17fac992-db5e-45a2-9015-4bfa7497ec13
+		summarizeBy: none
+		sourceColumn: Thời gian hủy
+
+		variation Variation
+			isDefault
+			relationship: add63cfc-d677-46c0-9eee-b878e3ca4f65
+			defaultHierarchy: LocalDateTable_ae95b281-0ee6-47a3-81ef-495fd30c0667.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Thời gian giao'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 035379bf-f83e-4842-bb45-5db385b80769
+		summarizeBy: none
+		sourceColumn: Thời gian giao
+
+		variation Variation
+			isDefault
+			relationship: 0a951f52-a707-4e4d-b8b4-3ba8e3939b93
+			defaultHierarchy: LocalDateTable_84e01e1c-5eba-4f44-9e90-1e61361c2f74.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSentDocument
+		dataType: int64
+		formatString: 0
+		lineageTag: 941cc0b8-f680-4055-b22d-ae93cccf1162
+		summarizeBy: sum
+		sourceColumn: IsSentDocument
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsCareService
+		dataType: int64
+		formatString: 0
+		lineageTag: c3c0772c-f7e0-4d4e-9709-b29be3e52b3e
+		summarizeBy: sum
+		sourceColumn: IsCareService
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tỉnh thành'
+		dataType: string
+		lineageTag: 66e7207e-bb40-4b6f-8024-01212c63c607
+		summarizeBy: none
+		sourceColumn: Tỉnh thành
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datasource
+		dataType: string
+		lineageTag: 4b94ab9e-5c1f-47b0-a5e4-fbc05bb8c087
+		summarizeBy: none
+		sourceColumn: Datasource
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trễ hạn_DH' =
+			
+			VAR starts = 'F_Logistics'[Thời gian giao]
+			VAR ends = 'F_Logistics'[Thời gian hoàn tất]
+			VAR thoigiantaodon_taophieu =max( ends - starts,0) -- Thời gian ngoài giờ làm việc (không ghi nhận)
+			VAR zTG = IF (starts = BLANK () || ends = BLANK (), BLANK (), thoigiantaodon_taophieu )
+			RETURN
+			IF(
+			    ISBLANK(zTG),
+			    BLANK(),
+			        IF(
+			            zTG > 0,
+			            "Trễ hạn",
+			            "Đúng hạn"
+			        )
+			    )
+		lineageTag: 041b9413-09ce-4d1b-8e93-4dba5aa0b814
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Logistics = m
+		mode: import
+		queryGroup: NLVH
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "--“dataset_id=0c443b5c-c2db-4617-b273-e61ac25f9b66”#(lf)SELECT #(lf)  cua_hang AS `Cửa hàng`,#(lf)  ngay_don_hang  AS `Ngày đơn hàng`,#(lf)  tinh_trang_don AS `Tình trạng đơn`,#(lf)  so_phieu AS `Số phiếu`,#(lf)  ngay_lap_phieu AS `Ngày lập phiếu`,#(lf)  gia_tri_don AS `Giá trị đơn`,#(lf)  phi_van_chuyen AS `Phí VC`,#(lf)  loai_giao_hang AS `Loại giao hàng`,#(lf)  giao_hang_truoc AS `Giao hàng trước`,#(lf)  nhan_luc AS `Nhận lúc`,#(lf)  ngay_tao_chuyen_di AS `Ngày tạo chuyến đi`,#(lf)  ma_chuyen_di AS `Mã chuyến đi`,#(lf)  ten_xe AS `Tên xe`,#(lf)  ma_tai_xe AS `Mã tài xế`,#(lf)  thoi_gian_hoan_tat AS `Thời gian hoàn tất`,#(lf)  khoang_cach_tu_cua_hang_theo_ban_do AS `K_Cách từ CH theo bản đồ`,#(lf)  thoi_gian_huy AS `Thời gian hủy`,#(lf)  thoi_gian_giao AS `Thời gian giao`,#(lf)  is_sent_document AS IsSentDocument,#(lf)  is_care_service AS IsCareService,#(lf)  tinh_thanh AS `Tỉnh thành`,#(lf)  data_source AS Datasource#(lf)FROM cellphones-data-platform.datamart_cps_logistics.rpt_logistics#(lf)WHERE DATE(ngay_tao_chuyen_di) >= DATE_SUB(DATE_TRUNC(CURRENT_DATE(), MONTH), INTERVAL 6 MONTH)", null, [EnableFolding=true]),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"K_Cách từ CH theo bản đồ", "K.Cách từ CH theo bản đồ"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

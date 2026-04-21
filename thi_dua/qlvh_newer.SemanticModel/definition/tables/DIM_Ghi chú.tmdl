@@ -1,0 +1,77 @@
+table 'DIM_Ghi chú'
+	lineageTag: 52f1b2bf-e6a3-45ba-8bf3-82853eab71fd
+
+	column STT
+		dataType: double
+		lineageTag: 9be890b6-5459-435b-8ca5-27e85a24264d
+		summarizeBy: sum
+		sourceColumn: STT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Công thức tính'
+		dataType: string
+		lineageTag: 34bd3cea-2ff4-4ef3-afd4-fe9365c553df
+		summarizeBy: none
+		sourceColumn: Công thức tính
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: f5d52f97-dd61-4adb-bee3-ae32ae682f65
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tên chỉ số'
+		dataType: string
+		lineageTag: cdb1434c-29af-44c3-8f66-f65e4175b674
+		summarizeBy: none
+		sourceColumn: Tên chỉ số
+
+		annotation SummarizationSetBy = Automatic
+
+	column Target
+		dataType: string
+		lineageTag: 7c8fdb58-93d3-4d7a-9f2b-c0d6583837e0
+		summarizeBy: none
+		sourceColumn: Target
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hướng dẫn cách lấy dữ liệu'
+		dataType: string
+		lineageTag: e7616b89-1d31-4011-b08a-a8c547e504be
+		summarizeBy: none
+		sourceColumn: Hướng dẫn cách lấy dữ liệu
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nguồn
+		dataType: string
+		lineageTag: d0056097-32de-45b4-9271-e3d51567281b
+		summarizeBy: none
+		sourceColumn: Nguồn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Ghi chú' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("rVdbaxtHFP4rg8FgE621O3s3mBI7UAfXjhubErCCmdtqF0uzirRyLm+llNSUQt1SSh5K46ampInpxYWAROjDmvyPzS/pmdmVIjl2m0JexO7OOTNnzved7xzt7MxYM7WZ7WL4ArWK4UOUxfljGSOW/yWb6Ozw1ZFEN2QrkQKsZtHKTfWGjEbfNG2BtjbREtpOM9JSj/Xq8ZzX64Nj5Lmz8PRRMTi+DyeIFM2e3yfrpnBg1iXw+yYaFhfDw6zaMSuGzxDNj1KIDn5uFcMT1MpfVqsq7uauFHfhoDjLOr3Fep10Ogud9K7o0mSBpe16s5v2O706FoIF8GNQR7iG42DPoKEdGT71zcBz/TASrN4VnbSb9eqebwrqhMywbCoMJwpMI6AuM2zLZy7mfhB6Zt0lwvI9O4hCz4oY9kLbsT9gWcKXTJe7LsPMcKgFZ1EHGyQivuELGnBMSWhTW2UBe+JeR3QTIZlY0jEbNJm5XduZwdP4dIvh59WVmwlJy3trcMqla6uAySzqxEkx+LtffYyLAdjDUl1l8TvIcbUOjiv5EUO9OO0AMv1i+Ig15INUCmQtoox0myJDOEavD35GljtbU/xQzGjILH71ezH8AZ6rtcoN/5vbtBM2R0722Okyw/P0uTgPiBXDX8gESVppM+llCevVNJcOUH7UQbwYHivbWK1DZpJyB4h3P3/8VgQ1tFd+mXCddGsl+a+anAcy/m/utYVaAVpZjLlOZBqMeaHheNg2AtsKDGJ5zOImdy3fH3PQEaHPuBkars3A2DZ9I3QDbNAoEKaNA6CnqN/UxlsCaJdK7nse9n3fMUnIGAscLOh7IGS5wFrwNdtKuLjaz+IlU9PUnqJpTxVnlayr12/sY81Q/TRFT0BKont9QBag76pEljZjnsJGh2Nrlp8CLsXws5GLdp/wq+TGn+DL6NRSYMbMqJ1nQkmls0M4SCoanZCKUooT+pxWMRjWEGm1kGxCoXwrS593x5xzKjzLiQxukQhS7wGCruuAnmDs2NzhjDpjzCk1RRSywHBcDmAFFgeCAPok5KbpEAuky7tYdy4TEgciPfs6gfS10fba2rVzr4CLa86iOIVbT7eBfTB6yNAVvQ5lNDhuw9VLT9ksBs/6SMa6CuY2xL1+Dyy3BYFdu4QLZTlyAnXnaXu+QimcQAkS/igbbxolkrTUWiL3dOiuos92MXiSIMgkvGwpWrRUhT6BAKFAj1gMlKkM6hcuV9hqqWNQ3UTzqdxvLe6j/WL4B0OrK+v11Q2kAnSVPr1ZKUu8XNH9bLuk6J0+keNWFiWtTHSnWDJamrrA+2xRxAkJI9QGqpjccLhpGxQzC5oV5RF2CcORX/dt4gvsusIMAux41BaOeylVPIhwVaHeh9tB1FP1LJv5T5BGlVMw+zDJj7QafzllxFKAvo5WdeNpF8OnTFdZJ86favzWd9fJ/V1sYrsh4WVzrXpehlzuiTZaXl2/ubu13pANuRIDtWKtK4Bic+I8DtWt4FA4NeQnGu8MWeXhQOHnENLgJRyvtMKq29rvq0pVIAoD3YKjiuGP1eAxUfaNd6jr/wWSy0PKsekZ2PWg+L2IGKC3oUGFa9uhaTsE6nlKw5kV+ZbleBanEcwd1MKudSlivurkusNpxZRN/VxW7huqylhDB3SetoDaf/3FIZrTdXOpUf79xGh2dpifwo7N/LQzr7K/rfVVfa2pSnnbSglpitY2ry825Ea5r57o9hWUoOEnQJD8BIBWCv+ULSLLVLhebKpsTqq4FstCBdPLAtcsALFW/GCKg2DWJQirq562UaaPjaGnv2CjZl9+g2jPbaW6wZTJ6Faqq7CJCCmMBk2o//Yi+liVkFSzag00EWLQY+sE2eCzanCdMl2qPJIHMBWXs8+COYFI/U4/fwkVo9av1tByOWEtuJeYrNTQtcrkrV3UMbGAkavixh5EkMHHdbjopxJtkHZDVs/LxeA3pmkWgMHG5lb5C6zZmVuLhVRdYAjSdgWt5o8TuN2fsjkPjPoGrYDC7ieQctCB9m0QhEvt4WU5f67hH41+V9Bamel40mpqS3jfiFV0cDuo43FrcZQ+Txe3CnhLaf9chd9ohhgBBfxLUKaAyN4cMP/u7Z14keOGMFRBpcI/BRv+KVBMTcMSwgs82+ShGY3lIPJEhD2fG2GEocd7YEy45Rg2sTgJfO7TgEzLQeR4LrUJp6ELE4CAeRCHF8vB7X8A", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [STT = _t, #"Tên chỉ số" = _t, #"Công thức tính" = _t, Target = _t, #"Hướng dẫn cách lấy dữ liệu" = _t, Nguồn = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"STT", type number}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 1, Int64.Type)
+				in
+				    #"Added Index"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

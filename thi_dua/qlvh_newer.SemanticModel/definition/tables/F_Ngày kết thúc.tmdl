@@ -1,0 +1,45 @@
+table 'F_Ngày kết thúc'
+	lineageTag: a0285b96-6745-41f8-be43-7195440497ca
+
+	column 'Mã nhân viên'
+		dataType: string
+		lineageTag: b396867d-678c-41ea-b2e5-6b76ab0ac1c9
+		summarizeBy: none
+		sourceColumn: Mã nhân viên
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngày kết thúc'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bf94146e-190f-4daa-a70d-edb065fc49a9
+		summarizeBy: none
+		sourceColumn: Ngày kết thúc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Trạng thái làm việc'
+		dataType: string
+		lineageTag: d4e1cc2e-1f0a-4d30-aa35-30ba993d7b4a
+		summarizeBy: none
+		sourceColumn: Trạng thái làm việc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'F_Ngày kết thúc' = m
+		mode: import
+		queryGroup: NLVH
+		source =
+				let
+				    Source = #"F_Ngày nhận việc",
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"Ngày nhận việc", "Thâm niên"}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Removed Columns", each ([Ngày kết thúc] <> null))
+				in
+				    #"Filtered Rows1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

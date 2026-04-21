@@ -1,0 +1,66 @@
+table adhoc_tkkd
+	lineageTag: f599b0b3-4ecc-4174-a071-908beab39a86
+
+	measure '%TKKD Hoàn Thành' =
+			
+			VAR actual = SELECTEDVALUE('adhoc_tkkd'[Final score])
+			VAR target = 0.9
+			VAR score = 1 + DIVIDE(actual - target, target)
+			RETURN
+			IF(
+			    ISBLANK(actual),
+			    BLANK(),
+			        MIN(
+			            1.2,
+			            ROUND(score, 4)
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e4624bb3-9678-450c-a208-d1a311c87f82
+
+	column Tháng_Năm
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1014d6da-5d03-419f-8151-0106309fbd39
+		summarizeBy: none
+		sourceColumn: Tháng_Năm
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: 09216309-82cd-4c42-b06e-65c4e48b669d
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Final score'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0cee2402-6c8f-4a0f-89e8-6b5d419d03ce
+		summarizeBy: sum
+		sourceColumn: Final score
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition adhoc_tkkd = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1vxK8tZuyhtTMQY0BtUoP-SAuWJfGSiyKBIKqwB__CRM/edit?usp=sharing"),
+				    Sheet1_Table = Source{[name="Sheet1",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Table, [PromoteAllScalars=true])
+				in
+				    #"Promoted Headers"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

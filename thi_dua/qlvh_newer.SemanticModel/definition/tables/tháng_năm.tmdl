@@ -1,0 +1,47 @@
+table tháng_năm
+	lineageTag: 29d11a01-efb5-4700-8413-cff2d2f894ce
+
+	column tháng_năm
+		lineageTag: 1483a794-592d-4c90-aa2a-0e321c7010f7
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'tháng_năm Order'
+
+		relatedColumnDetails
+			groupByColumn: 'tháng_năm Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'tháng_năm Fields'
+		isHidden
+		lineageTag: a450dfab-d624-4c7d-a854-e3ab5414ad52
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'tháng_năm Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'tháng_năm Order'
+		isHidden
+		formatString: 0
+		lineageTag: c5bb3414-a44e-4fb9-9f98-63557ebeebe0
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tháng_năm = calculated
+		mode: import
+		source =
+				{
+				    ("Năm/Tháng", NAMEOF('DIM_Danh mục_Ngày'[Năm/Tháng]), 0)
+				}
+
+	annotation PBI_Id = 113bf4b1ba544f079c2955bcf1199302
+

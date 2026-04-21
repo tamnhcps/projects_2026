@@ -1,0 +1,509 @@
+table 'F_Logistics 2'
+	lineageTag: c80ff6e3-3f59-46f3-988c-e4b07c49d14c
+	sourceLineageTag: d1bdd543-1573-480a-8d50-b847c782a1fd
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: 93979057-a16a-4ce7-b10c-73583e9290de
+		sourceLineageTag: 977bdb6f-ce25-4ba3-8781-6f22817b515e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = User
+
+	column 'Ngày đơn hàng'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: e0676b79-4c08-4d44-a177-b1fc9209c539
+		sourceLineageTag: 40abea60-3548-4f1e-aa67-d55b3e850081
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ngày đơn hàng
+
+		variation Variation
+			isDefault
+			relationship: 72fa02c9-943b-43ee-80a9-de34e146d1a3
+			defaultHierarchy: LocalDateTable_d9c79dd0-c6bc-42c3-b194-5127d882cf25.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Tình trạng đơn'
+		dataType: string
+		lineageTag: cf2268b0-9d5e-49e3-b5db-4da370ffba96
+		sourceLineageTag: 70b56192-9fb9-4d7d-881f-c7d567b822ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tình trạng đơn
+
+		annotation SummarizationSetBy = User
+
+	column 'Số phiếu'
+		dataType: string
+		lineageTag: c7580a27-b204-4906-95e8-bc9ac353679a
+		sourceLineageTag: 2e279bdf-6173-4c5b-aadc-f9e02d334db3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Số phiếu
+
+		annotation SummarizationSetBy = User
+
+	column 'Giá trị đơn'
+		dataType: double
+		formatString: #,0
+		lineageTag: e33a01b9-5834-46ed-b3f2-dec50c45e2d1
+		sourceLineageTag: 75cedb05-dda3-4b85-8b06-50fe94b589e0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Giá trị đơn
+
+		annotation SummarizationSetBy = User
+
+	column 'Ngày tạo chuyến đi'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 0b61a8c4-7d34-4e61-852c-d8e22f5125ef
+		sourceLineageTag: e5a5088c-9232-4146-9751-dc12c8bf35d0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ngày tạo chuyến đi
+
+		variation Variation
+			isDefault
+			relationship: 68560ee7-758f-4a46-ac87-22496d89e46f
+			defaultHierarchy: LocalDateTable_499db68b-f487-45af-9a34-d0bfa6ce8116.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Ngày lập phiếu'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 55f4cd57-2319-486a-96e7-ea8d0cc92797
+		sourceLineageTag: 1ae561e8-b02b-4939-af0b-da9b46d4d382
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ngày lập phiếu
+
+		variation Variation
+			isDefault
+			relationship: 211e3128-3796-4490-a40f-95a0e0714150
+			defaultHierarchy: LocalDateTable_d2ac3caf-162d-4f63-83b6-867d9f39df0b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Mã chuyến đi'
+		dataType: string
+		lineageTag: 8746f805-b7d6-4081-9677-1532dae17a11
+		sourceLineageTag: ab2a8d47-f3bc-4adb-aced-17eca2fc9e40
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã chuyến đi
+
+		annotation SummarizationSetBy = User
+
+	column 'Tên xe'
+		dataType: string
+		lineageTag: c7537843-448f-404b-b537-d62a7a3b9d0d
+		sourceLineageTag: 980184a3-aab5-416d-ae44-1219e7f4d815
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tên xe
+
+		annotation SummarizationSetBy = User
+
+	column 'Loại giao hàng'
+		dataType: string
+		lineageTag: 3412b909-4f4e-4e52-b198-e2b4b98ecc74
+		sourceLineageTag: 846672eb-b6a7-45ce-8fb5-c4099e221b7c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Loại giao hàng
+
+		annotation SummarizationSetBy = User
+
+	column 'Thời gian hoàn tất'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: f7427123-6888-45bc-8762-cb812cbf9095
+		sourceLineageTag: 061ec50d-569b-4c8b-b81b-665f84e8d1ab
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Thời gian hoàn tất
+
+		variation Variation
+			isDefault
+			relationship: 989b2118-c4bc-47dc-92eb-fedb13a8adcb
+			defaultHierarchy: LocalDateTable_b60e48ab-7d68-49be-9d81-12350cd53431.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Thời gian hủy'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: fff2866e-1c9d-4799-b916-abea79da600c
+		sourceLineageTag: 34ff6a26-b029-44a1-951f-436d19cccff1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Thời gian hủy
+
+		variation Variation
+			isDefault
+			relationship: c829f20f-9463-42cc-9cde-f5faa0ec3351
+			defaultHierarchy: LocalDateTable_c3582277-f171-47ae-9b32-7c83088f4435.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column Datasource
+		dataType: string
+		lineageTag: 7119b0c5-6e1a-44d3-bae9-b6f67845ca52
+		sourceLineageTag: 31273267-67e4-4959-b6c6-8dd40bbf7a76
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Datasource
+
+		annotation SummarizationSetBy = User
+
+	column 'Phân loại trễ hạn'
+		dataType: string
+		lineageTag: 25f12e2e-a7ee-4d58-af3f-cb267ae5aef6
+		sourceLineageTag: 7ede6266-186b-4d7c-9c00-28370a92dc24
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Phân loại trễ hạn
+
+		annotation SummarizationSetBy = User
+
+	column 'Trạng thái phiếu'
+		dataType: string
+		lineageTag: c6ce5887-98c6-4cf5-8868-401b0cad55fd
+		sourceLineageTag: 56cdc6bd-7b0b-4267-adb4-281c50565f5f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trạng thái phiếu
+
+		annotation SummarizationSetBy = User
+
+	column B2B/B2C
+		dataType: string
+		lineageTag: 27c37126-8b68-4cc4-8870-fe689c901a24
+		sourceLineageTag: 3e3c5a32-1f60-4bd4-84dc-792d2dad9d35
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: B2B/B2C
+
+		annotation SummarizationSetBy = User
+
+	column 'Tính chất phiếu giao'
+		dataType: string
+		lineageTag: f4ee84e2-411f-4120-94ce-35af8daafc1d
+		sourceLineageTag: b33845c8-2e24-4ecb-ab48-d75fd53b5598
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tính chất phiếu giao
+
+		annotation SummarizationSetBy = User
+
+	column 'Thời gian xử lý đơn'
+		dataType: double
+		lineageTag: 4895f4b4-55d7-45b6-b95b-0db33941a28e
+		sourceLineageTag: cfdd97b0-e725-4ba5-af5e-968ff920cf7a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thời gian xử lý đơn
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Thời gian chờ lấy hàng'
+		dataType: double
+		lineageTag: f91af96f-108a-40cf-8456-14ee7d5923bc
+		sourceLineageTag: 11e70f95-c9f5-4c90-8861-754212f03af8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thời gian chờ lấy hàng
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Thời gian giao cho khách'
+		dataType: double
+		lineageTag: 1502845d-2a29-44d1-ad9f-91dfaa582455
+		sourceLineageTag: 8db8895c-c1d7-41b8-839a-a09f34c0785b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thời gian giao cho khách
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: eab1c733-e261-469e-9958-97b8aabe4cfc
+		sourceLineageTag: 3d800f77-1155-45f7-8777-76966afe8430
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Trễ hạn_RT'
+		dataType: string
+		lineageTag: 92c83bb0-2359-460f-92d7-fcc50d509513
+		sourceLineageTag: ec8daa2e-d71c-42b9-8418-4e83475fa9ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trễ hạn_RT
+
+		annotation SummarizationSetBy = User
+
+	column 'Trễ hạn_DH'
+		dataType: string
+		lineageTag: fdc505bf-aa1d-4f1b-8d05-22517bd32c98
+		sourceLineageTag: 55fcc054-0e24-42b9-8598-fd46d3cc2583
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trễ hạn_DH
+
+		annotation SummarizationSetBy = User
+
+	column 'K.Cách từ CH theo bản đồ'
+		dataType: double
+		lineageTag: 53227cd9-5452-44d6-b3c5-30450ba6fd59
+		sourceLineageTag: 0f76a601-8c60-4287-a6a9-43d6c3862681
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: K.Cách từ CH theo bản đồ
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Giao hàng trước'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 6ef6b39e-7e35-49fa-9616-7c0a9ffaaa44
+		sourceLineageTag: a9e094e2-1ba5-46ce-a945-84e988cea35f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Giao hàng trước
+
+		variation Variation
+			isDefault
+			relationship: 6c167030-85d0-4a74-bfe7-67b0e3604967
+			defaultHierarchy: LocalDateTable_52b5b49a-596c-4e3d-86a3-f9fb6513ccaa.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Thời gian giao'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 1f1d94be-e1f6-499c-bc4d-4cf6d9542631
+		sourceLineageTag: 0cf75c74-9975-4aa4-a348-8f2ad17472d6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Thời gian giao
+
+		variation Variation
+			isDefault
+			relationship: 72e7e506-7e5a-45a4-a0e7-f064b9f2ac79
+			defaultHierarchy: LocalDateTable_d8fd0895-3104-4aa5-abfc-4184fbbe9496.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Nhận lúc'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: dca6c3f7-5fe7-45db-aecc-ff18bb887437
+		sourceLineageTag: f05667fc-8b2f-4c6e-9803-38acfcac63bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nhận lúc
+
+		variation Variation
+			isDefault
+			relationship: 91d31c93-184a-40f0-809b-eb0f83077252
+			defaultHierarchy: LocalDateTable_3f3e30ae-d2e8-49cf-8ebc-77eb946cfe06.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Phí VC'
+		dataType: double
+		formatString: #,0
+		lineageTag: 0f8c2812-5518-47e2-b435-0f29eee78a12
+		sourceLineageTag: 31abcfbb-9898-4959-a52f-796269c039b3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Phí VC
+
+		annotation SummarizationSetBy = User
+
+	column 'Phí VC_All'
+		dataType: double
+		formatString: #,0
+		lineageTag: 34d6328b-8af6-41de-81f4-748cc2f5ba6f
+		sourceLineageTag: dfc052d7-4d2b-4f84-a56d-b6c6ef760718
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Phí VC_All
+
+		annotation SummarizationSetBy = User
+
+	column MethodId
+		dataType: string
+		lineageTag: e9a45244-f94a-4677-a544-ce768e8aabf4
+		sourceLineageTag: 711b6cf2-c38d-4e24-b297-8fd2174ccc2c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MethodId
+
+		annotation SummarizationSetBy = User
+
+	column IsSentDocument
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c62acb1-08d4-4f40-86fa-96b068276995
+		sourceLineageTag: 4e17260e-2885-4639-8f35-c05e526afe20
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IsSentDocument
+
+		annotation SummarizationSetBy = User
+
+	column IsCareService
+		dataType: int64
+		formatString: 0
+		lineageTag: 40018dc2-f116-4c4f-88f4-db4707a51562
+		sourceLineageTag: 5761eaab-c3bd-4fd3-95b1-7ff861543fae
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IsCareService
+
+		annotation SummarizationSetBy = User
+
+	column 'Tỉnh thành'
+		dataType: string
+		lineageTag: b16a1a6b-2213-49d7-a21a-7afe507589ef
+		sourceLineageTag: a7cef40d-6a39-4185-bfff-735588f7f147
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tỉnh thành
+
+		annotation SummarizationSetBy = User
+
+	column 'Slg phiếu'
+		dataType: int64
+		formatString: 0
+		lineageTag: d9e14b15-89f0-4c6b-82e2-ea9d9a0c9540
+		sourceLineageTag: 9a85c867-1aa8-4509-b23b-6229da3d10a2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Slg phiếu
+
+		annotation SummarizationSetBy = User
+
+	column IsUnique
+		dataType: int64
+		formatString: 0
+		lineageTag: 37dd9756-f723-4571-b60b-253a121ffe45
+		sourceLineageTag: 47bdd758-af56-4f64-9fc3-f1e9d09dc4dc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IsUnique
+
+		annotation SummarizationSetBy = User
+
+	column Miền
+		dataType: string
+		lineageTag: deb5d953-52e2-4200-adf2-f320665662b9
+		sourceLineageTag: bfac7304-078d-40ef-961a-b8d41e16784d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Miền
+
+		annotation SummarizationSetBy = User
+
+	column 'Hình thức vận chuyển'
+		dataType: string
+		lineageTag: 70f97e01-2d9b-4e0e-bf55-5171af65f250
+		sourceLineageTag: da470db6-622e-4af7-8f67-6502ba842e3c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Hình thức vận chuyển
+
+		annotation SummarizationSetBy = User
+
+	column 'Mã tài xế'
+		dataType: string
+		lineageTag: f4885f6c-ae6a-4bfa-868c-610fadeb89e6
+		sourceLineageTag: e3573018-6984-4aa1-8e1a-9d3ffc42f209
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã tài xế
+
+		annotation SummarizationSetBy = User
+
+	column IsOutlier
+		dataType: int64
+		formatString: 0
+		lineageTag: 645bb1af-7525-4787-800c-aa5275dd1dbd
+		sourceLineageTag: a3a30291-c6df-45b5-936e-fc36b34b2bbc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IsOutlier
+
+		annotation SummarizationSetBy = User
+
+	column 'Thời gian DH ra SP'
+		dataType: double
+		lineageTag: ba69ac47-5990-4531-9f97-725f3bd6cc7d
+		sourceLineageTag: b5b0873a-7ca9-4f3d-8c3c-ad824a68768d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thời gian DH ra SP
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Thời gian SP ra RT'
+		dataType: double
+		lineageTag: 7e7946a1-c90e-4ed9-90a6-49556afd7ddc
+		sourceLineageTag: 1b2df34a-9188-4348-b504-5e2bb8f7f7e6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thời gian SP ra RT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Distance Group'
+		dataType: string
+		lineageTag: 8c595e92-7670-4271-994b-13c13c2e14df
+		sourceLineageTag: 320a62d1-7850-4a73-a739-a1adff4232b9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Distance Group
+
+		annotation SummarizationSetBy = User
+
+	column 'Khung giờ'
+		dataType: string
+		lineageTag: 9a5506c4-3f7c-4a0c-886b-56ce8d92e799
+		sourceLineageTag: 775c7574-f828-4863-889b-eb51124b05d9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Khung giờ
+
+		annotation SummarizationSetBy = User
+
+	partition 'F_Logistics 2' = entity
+		mode: directQuery
+		source
+			entityName: F_Logistics
+			expressionSource: 'DirectQuery to AS - LOG_Logistics tổng quan'
+

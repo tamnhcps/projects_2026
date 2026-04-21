@@ -1,0 +1,49 @@
+table 'Parameter_Nhóm Shop'
+	lineageTag: ed2d8528-95df-482c-ace2-b268ebb7d182
+
+	column 'Parameter_Nhóm Shop'
+		lineageTag: 818440d1-0093-4608-be97-6a2c53ad470c
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter_Nhóm Shop Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter_Nhóm Shop Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter_Nhóm Shop Fields'
+		isHidden
+		lineageTag: 3340b42e-d33f-48b3-935e-3bff7df58e99
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter_Nhóm Shop Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter_Nhóm Shop Order'
+		isHidden
+		formatString: 0
+		lineageTag: 133a6d48-306a-46d8-9556-8a845135277e
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parameter_Nhóm Shop' = calculated
+		mode: import
+		source =
+				{
+				    ("Miền", NAMEOF('DIM_Danh mục_Phòng ban'[Miền]), 0),
+				    ("AM", NAMEOF('DIM_Danh mục_Phòng ban'[AM]), 1),
+				    ("Cửa hàng", NAMEOF('DIM_Danh mục_Phòng ban'[Cửa hàng]), 2)
+				}
+
+	annotation PBI_Id = 52ddc66f73c84673ab758df1ff9f9851
+

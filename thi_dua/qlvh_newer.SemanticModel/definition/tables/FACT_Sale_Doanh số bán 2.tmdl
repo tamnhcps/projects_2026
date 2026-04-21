@@ -1,0 +1,153 @@
+table 'FACT_Sale_Doanh số bán 2'
+	lineageTag: 6f07906a-fe9b-4b10-9816-7d8b888050f1
+	sourceLineageTag: abcb8b1b-a8ea-4d31-a660-5f436348b9bb
+
+	column date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 0397b3f9-f7de-4de6-9f5a-67b1f39d22e4
+		sourceLineageTag: cc0ba2ed-3f83-49c2-8ec3-000e72699c4c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = User
+
+	column store_code
+		dataType: string
+		lineageTag: b37331ce-b8d1-4353-a4eb-431a73003cd2
+		sourceLineageTag: 217a679a-0d9d-45a9-9ae6-257a820ad664
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: store_code
+
+		annotation SummarizationSetBy = User
+
+	column autocode
+		dataType: string
+		lineageTag: 9c628589-fb2e-458c-b5eb-3f1c0cd2d04b
+		sourceLineageTag: f4c17567-9b44-4f73-9acf-1b5640e5f7a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: autocode
+
+		annotation SummarizationSetBy = User
+
+	column phone
+		dataType: string
+		lineageTag: 414b1fef-6268-42f0-97b2-c4caf59f90b4
+		sourceLineageTag: 0433c6c3-8bef-4565-8879-1661c9722688
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: phone
+
+		annotation SummarizationSetBy = User
+
+	column app_already_installed_check
+		dataType: int64
+		formatString: 0
+		lineageTag: e29f29b6-a653-4f0d-8433-629d47567fa9
+		sourceLineageTag: ffaec25a-2885-4e0b-8aac-a74264548e97
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: app_already_installed_check
+
+		annotation SummarizationSetBy = User
+
+	column 'Giờ hiệu chỉnh'
+		dataType: int64
+		formatString: 0
+		lineageTag: 05ceed6b-c836-4165-ad3e-d8629ddf5f80
+		sourceLineageTag: 6eb5d6c1-e2d2-400b-9ff2-64672d68d3aa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Giờ hiệu chỉnh
+
+		annotation SummarizationSetBy = User
+
+	column giocapnhat
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: adf92c61-3c69-4160-98a5-2af03aa7d13d
+		sourceLineageTag: 25443bfd-a6c6-4efa-873e-66f4aa717bcb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: giocapnhat
+
+		annotation SummarizationSetBy = User
+
+	column CreateDate
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss
+		lineageTag: 42dad93a-bf32-40f3-905f-2dc3d41ff417
+		sourceLineageTag: c74edd1e-a31c-4272-a420-1b0ce0f6c597
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CreateDate
+
+		variation Variation
+			isDefault
+			relationship: cf2f2cbd-0cc3-4377-a9f7-d012b234a913
+			defaultHierarchy: LocalDateTable_32b598b8-c398-436b-95b6-03973380b71c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column first_app_login_check
+		dataType: int64
+		formatString: 0
+		lineageTag: a7a9b054-6d31-4148-8791-59112c10a822
+		sourceLineageTag: 3f272c04-3752-4eeb-8819-738c1cc3f499
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: first_app_login_check
+
+		annotation SummarizationSetBy = User
+
+	column login_date
+		dataType: dateTime
+		formatString: yyyy\-mm\-dd hh:nn:ss
+		lineageTag: f983e538-0ddc-4acc-a947-80bf89c4d43f
+		sourceLineageTag: 1b32d7d0-c6b1-4b0e-b411-b6454d343df5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: login_date
+
+		variation Variation
+			isDefault
+			relationship: c2f65ae5-6c95-4173-8224-d094ad79877b
+			defaultHierarchy: LocalDateTable_4f381816-34d0-4183-8b46-f77754c652b4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Tháng
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 8d3a8a2a-64dc-4550-87dc-ca0e18439c3b
+		sourceLineageTag: 2f97ea92-a6c0-4ad5-a7ab-3ab90a95b6ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Năm/Tháng
+
+		variation Variation
+			isDefault
+			relationship: a6d03759-ef23-42bb-91f3-03be46fbb5da
+			defaultHierarchy: LocalDateTable_f7802db7-3579-4eb9-9d60-f0c6f4db1291.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column platform
+		dataType: string
+		lineageTag: 6cb68099-5551-4e8d-b13a-863fac8b8038
+		sourceLineageTag: c1988b02-8ca2-4569-b74e-e74c194d0a90
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: platform
+
+		annotation SummarizationSetBy = User
+
+	partition 'FACT_Sale_Doanh số bán 2' = entity
+		mode: directQuery
+		source
+			entityName: FACT_Sale_Doanh số bán
+			expressionSource: 'DirectQuery to AS - CS_Báo cáo Lượt tải App 2'
+

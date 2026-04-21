@@ -1,0 +1,297 @@
+table FACT_TFEX_TICKET
+	lineageTag: a822476f-d233-4d53-98a7-ada0abff8143
+	sourceLineageTag: da3451cc-e6ff-420d-9c34-61358a9c6cb2
+
+	column 'Mã ticket'
+		dataType: string
+		lineageTag: 7f8faab1-684e-4362-aa85-9fa4282148e8
+		sourceLineageTag: 94db47fa-6e88-4dc2-9d39-a730d2be704c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã ticket
+
+		annotation SummarizationSetBy = User
+
+	column Nguồn
+		dataType: string
+		lineageTag: 54fdfe16-235f-4870-b5df-ca093049eecc
+		sourceLineageTag: 55b517c3-dfa5-4405-bc2a-8861bff97c08
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nguồn
+
+		annotation SummarizationSetBy = User
+
+	column 'Loại yêu cầu'
+		dataType: string
+		lineageTag: fa66d1b2-88f8-415c-b70e-75d961cba65b
+		sourceLineageTag: 863ed6dc-d96d-47c4-9fc3-1c30ceb32a64
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Loại yêu cầu
+
+		annotation SummarizationSetBy = User
+
+	column 'Tạo lúc'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: cc079054-92ab-4260-b240-e4921dc06b0b
+		sourceLineageTag: 7813abfb-5697-4294-878a-2e83ee69449a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tạo lúc
+
+		variation Variation
+			isDefault
+			relationship: c4c678cd-b517-43e6-b550-313170ea9d71
+			defaultHierarchy: LocalDateTable_dd6aee84-0ce8-40a7-a4a4-3bfdd56d0e14.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: c31affbc-c87d-4f9c-b6e5-d5506c04d6e4
+		sourceLineageTag: 75c45a1c-a7a2-4dcd-b3f2-4987e547419d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = User
+
+	column 'Tên khách hàng'
+		dataType: string
+		lineageTag: bdd37ca4-058c-42c6-ba66-48916dcff454
+		sourceLineageTag: 5b342ff1-c9fa-400a-b0f1-5e604f89401c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tên khách hàng
+
+		annotation SummarizationSetBy = User
+
+	column 'Số ĐT khách'
+		dataType: string
+		lineageTag: 129bf7a0-72f0-4c1a-9831-bbc437200dae
+		sourceLineageTag: 1a44525e-3758-4939-b60a-c06b15a5ee31
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Số ĐT khách
+
+		annotation SummarizationSetBy = User
+
+	column 'Email khách'
+		dataType: string
+		lineageTag: 97cf1270-1c86-4ac8-8647-4dd99bc3d34e
+		sourceLineageTag: 6665c868-c977-41a5-8289-fe701cf156a3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Email khách
+
+		annotation SummarizationSetBy = User
+
+	column 'Nội dung khách phản ánh'
+		dataType: string
+		lineageTag: 1d64968c-f74d-434e-a484-6751ccb4ad86
+		sourceLineageTag: 6c3bcfa3-b614-490f-a043-725391ef2300
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nội dung khách phản ánh
+
+		annotation SummarizationSetBy = User
+
+	column 'Trạng thái ticket'
+		dataType: string
+		lineageTag: c3b01339-2237-4bc5-9741-dcd2b2dc5e07
+		sourceLineageTag: 153c5c24-4d8a-43d0-bed9-508b8a195989
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trạng thái ticket
+
+		annotation SummarizationSetBy = User
+
+	column 'Kết luận'
+		dataType: string
+		lineageTag: 621e2be0-10fc-4915-b17a-ebf6e426d3a0
+		sourceLineageTag: 8ff26796-0b8a-4e97-be67-3294e53d25d1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Kết luận
+
+		annotation SummarizationSetBy = User
+
+	column 'Loại ghi nhận'
+		dataType: string
+		lineageTag: 8e4cf2c8-ad0f-44d2-80c9-137f0882c51a
+		sourceLineageTag: 22facb43-e7a8-4746-a895-27091d07a9ca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Loại ghi nhận
+
+		annotation SummarizationSetBy = User
+
+	column 'Đối tượng liên quan'
+		dataType: string
+		lineageTag: c16fa140-2bf2-4041-9a00-64565befe04e
+		sourceLineageTag: 86205056-cd80-438d-8466-93043f604529
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Đối tượng liên quan
+
+		annotation SummarizationSetBy = User
+
+	column 'Nhân viên liên quan'
+		dataType: string
+		lineageTag: 44683ce6-324e-4ba8-ab02-dc3d25673f4d
+		sourceLineageTag: 5010f3ac-5564-4a46-938d-632204babedc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nhân viên liên quan
+
+		annotation SummarizationSetBy = User
+
+	column 'Quản lý liên đới'
+		dataType: string
+		lineageTag: 09eb34a5-719c-4adc-b180-128047471ebb
+		sourceLineageTag: 3319e126-b49e-42f6-a21e-63b1c70aeb11
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Quản lý liên đới
+
+		annotation SummarizationSetBy = User
+
+	column Nhãn
+		dataType: string
+		lineageTag: df90b4f3-b2f4-40f7-9cb2-984118d268c4
+		sourceLineageTag: b67bcae0-34db-45fd-9589-f9d7e7dd96b6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nhãn
+
+		annotation SummarizationSetBy = User
+
+	column 'Mã phiếu khảo sát'
+		dataType: string
+		lineageTag: 1b73d824-45bd-4ed7-996e-77d4620a8738
+		sourceLineageTag: 0b376d56-1b23-4afc-9ae1-ffa2ee84017b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã phiếu khảo sát
+
+		annotation SummarizationSetBy = User
+
+	column 'Ngày tạo'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 860151cd-c1c9-46bf-ae12-7b2566c371a1
+		sourceLineageTag: 2ba0ea71-dc6c-484b-9dec-7151002a837b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ngày tạo
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Tháng
+		dataType: string
+		lineageTag: 306d1741-6aa7-4eb7-a3f7-df2cbf95965b
+		sourceLineageTag: d89f26f6-f160-4261-99da-d01c4f96c49c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Năm/Tháng
+
+		annotation SummarizationSetBy = User
+
+	column 'Nhân viên liên quan khảo sát'
+		dataType: string
+		lineageTag: 3658e9fd-6d68-4f65-a555-8d2ae228c251
+		sourceLineageTag: b930cf38-3d06-4efb-b0b5-4c89575b0554
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nhân viên liên quan khảo sát
+
+		annotation SummarizationSetBy = User
+
+	column Group_Nguồn
+		dataType: string
+		lineageTag: 51766734-5ac0-4852-bb51-072b5b0eba18
+		sourceLineageTag: 12fc3a9d-4101-4701-8934-47953c9068d1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Group_Nguồn
+
+		annotation SummarizationSetBy = User
+
+	column Evaluation_NPS
+		dataType: string
+		lineageTag: 30081c17-588e-4d1d-8be5-c9c150131a4d
+		sourceLineageTag: a70b47a5-45c8-45b6-9f2a-17928f44c84e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Evaluation_NPS
+
+		annotation SummarizationSetBy = User
+
+	column 'Link ticket'
+		dataType: string
+		lineageTag: 4dfaacee-a3bf-4d60-9b5b-f706750e3ab9
+		sourceLineageTag: 701b1caf-8712-4321-9936-85bfd15579a6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Link ticket
+
+		annotation SummarizationSetBy = User
+
+	column AM
+		dataType: string
+		lineageTag: 9bd7db68-5dd4-492a-a50f-cedddcf90ced
+		sourceLineageTag: af888b05-2534-430c-b3d1-1d3f8ae7c01f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AM
+
+		annotation SummarizationSetBy = User
+
+	column customer_info
+		dataType: string
+		lineageTag: eeee2b81-fb36-4f40-8aff-82b2e45d65d8
+		sourceLineageTag: f43fc1da-e5b8-410f-8e26-e8bf5c72b2a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: customer_info
+
+		annotation SummarizationSetBy = User
+
+	column Miền
+		dataType: string
+		lineageTag: d3f5d721-11a2-42ad-9525-2d4d04f34fc3
+		sourceLineageTag: eee62c44-bae2-4e24-99c6-a8e28220381d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Miền
+
+		annotation SummarizationSetBy = User
+
+	column responsible_by
+		dataType: string
+		lineageTag: 6c25432d-b070-4282-9a43-45bcf02efd9d
+		sourceLineageTag: e0e63445-dd2f-44d8-a55f-5c2624550769
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: responsible_by
+
+		annotation SummarizationSetBy = User
+
+	column key
+		dataType: string
+		lineageTag: 409c3c36-536f-4a4b-915c-30740d528312
+		sourceLineageTag: d00f81a9-a380-4d53-8641-d95154c5ee9b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: key
+
+		annotation SummarizationSetBy = User
+
+	partition FACT_TFEX_TICKET = entity
+		mode: directQuery
+		source
+			entityName: FACT_TFEX_TICKET
+			expressionSource: 'DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178'
+

@@ -1,0 +1,172 @@
+table FACT_Ranking_Shop
+	lineageTag: cfb1ac14-557d-40b6-80c4-c1228ec6e91d
+	sourceLineageTag: dcc23d22-77ae-49f1-9c4e-43b8f28caa5f
+
+	column Miền
+		dataType: string
+		lineageTag: 7eb72359-57df-476d-b371-6caf905eb1ee
+		sourceLineageTag: 329ffb39-e791-46f7-ae3d-515f67652f13
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Miền
+
+		annotation SummarizationSetBy = User
+
+	column Shop+Size
+		dataType: string
+		lineageTag: 9bfb1970-dcab-4374-9cc3-413aa9cc991f
+		sourceLineageTag: b8e4033b-2661-4a16-8edb-f69905da0e6b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Shop+Size
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Tháng
+		dataType: string
+		lineageTag: f7c6ce99-92eb-4c0c-b44d-99d809009fca
+		sourceLineageTag: 132fd61c-cd5a-4531-ae5b-7d8136994478
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Năm/Tháng
+
+		annotation SummarizationSetBy = User
+
+	column Ranking
+		dataType: int64
+		formatString: 0
+		lineageTag: 49d3ae07-b6d3-4892-b8d1-a8c3cd086f90
+		sourceLineageTag: 8be58dc6-05e3-48bc-a2e9-f41107b58992
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Ranking
+
+		annotation SummarizationSetBy = User
+
+	column '%Target Tải app'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7425852b-7191-4ba0-be5f-f00e0bd105c3
+		sourceLineageTag: c416f708-9586-481b-86bc-ae0554c4b42b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %Target Tải app
+
+		annotation SummarizationSetBy = User
+
+	column '%Tải app'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c4b4ac1b-cc7e-4571-9589-61305fedad62
+		sourceLineageTag: 2cd4e240-67d4-47a8-a21b-f40f07828f60
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %Tải app
+
+		annotation SummarizationSetBy = User
+
+	column 'Chưa có app'
+		dataType: int64
+		formatString: 0
+		lineageTag: ece24411-60a3-49da-90d9-069129de7f27
+		sourceLineageTag: ce2d78ec-0165-4d90-9f09-f2a8e557788b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Chưa có app
+
+		annotation SummarizationSetBy = User
+
+	column 'Lượt tải app'
+		dataType: int64
+		formatString: 0
+		lineageTag: e3e72d66-0878-4b9e-9bc4-ca5064fa96d0
+		sourceLineageTag: 0f37f51f-9de3-4a7e-a144-0980a9799786
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Lượt tải app
+
+		annotation SummarizationSetBy = User
+
+	column 'Xếp hạng cửa hàng'
+		dataType: int64
+		formatString: 0
+		lineageTag: cdc64f85-b4e7-418c-9a4d-7479fdbb76a1
+		sourceLineageTag: d858e197-ae7a-4e8a-9201-0229c3b57ae5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Xếp hạng cửa hàng
+
+		annotation SummarizationSetBy = User
+
+	column 'Đánh giá'
+		dataType: string
+		lineageTag: 67e27381-f710-46f4-98c2-b17450b3a808
+		sourceLineageTag: 375ffeab-a08e-4cd6-9907-3e1b6fd3f0b1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Đánh giá
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		lineageTag: a24bc8f1-4277-480a-8c2c-98d078496619
+		sourceLineageTag: 933f4f1b-4ff0-4f3c-a48a-50911775b42d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Target
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Đồng hạng'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e4b72d8-941e-42ae-9270-0bb94e801b47
+		sourceLineageTag: 42b68c83-e183-40ee-a0b6-2c539f9b4f03
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Đồng hạng
+
+		annotation SummarizationSetBy = User
+
+	column Thuong_1tr
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b8fb5d1-2c3f-4d5c-9c77-076bdc8d4c11
+		sourceLineageTag: 1fd11ffe-5007-4271-ac82-6470e88c93bd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thuong_1tr
+
+		annotation SummarizationSetBy = User
+
+	column Thuong_500k
+		dataType: int64
+		formatString: 0
+		lineageTag: ba2d0b31-e448-44f0-b800-a50b814a022a
+		sourceLineageTag: 7e0f547d-9d6a-42a9-8818-757b0c746c13
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thuong_500k
+
+		annotation SummarizationSetBy = User
+
+	column Thưởng/Phạt
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e088f6b-3005-46c9-b403-f01e4febee02
+		sourceLineageTag: dfb8d236-1101-4fc4-a3a5-32df7f0b8d64
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thưởng/Phạt
+
+		annotation SummarizationSetBy = User
+
+	partition FACT_Ranking_Shop = entity
+		mode: directQuery
+		source
+			entityName: FACT_Ranking_Shop
+			expressionSource: 'DirectQuery to AS - CS_Báo cáo Lượt tải App 3'
+

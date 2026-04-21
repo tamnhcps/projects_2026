@@ -1,0 +1,197 @@
+table 'F_Công chi tiết'
+	lineageTag: c7051a2a-2e37-4729-a350-1e4b2901b8eb
+
+	column 'Mã nhân viên'
+		dataType: string
+		lineageTag: cb663f0d-e9b8-44b5-884b-239eac2c746c
+		summarizeBy: none
+		sourceColumn: Mã nhân viên
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Đơn vị'
+		dataType: string
+		lineageTag: 5b948a85-66dd-43c2-ba3d-b99f869ddc91
+		summarizeBy: none
+		sourceColumn: Đơn vị
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vị trí công việc'
+		dataType: string
+		lineageTag: ec9179ec-cf53-42c3-9b7d-bbad87d25a6f
+		summarizeBy: none
+		sourceColumn: Vị trí công việc
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ca
+		dataType: string
+		lineageTag: c87a2a13-b9f2-49ab-8372-a377a7a15d35
+		summarizeBy: none
+		sourceColumn: Ca
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Phòng ban'
+		dataType: string
+		lineageTag: 594da3fb-1927-429d-b289-0fbddaf09a3a
+		summarizeBy: none
+		sourceColumn: Phòng ban
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trạng thái làm việc'
+		dataType: string
+		lineageTag: 927ee962-317f-49cd-abcb-d8713741dc6f
+		summarizeBy: none
+		sourceColumn: Trạng thái làm việc
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dd66657b-2a49-4ef9-9771-02025e9ae228
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: a1315db7-4c72-4502-b70c-c08aa886fb70
+			defaultHierarchy: LocalDateTable_bc3a0197-f787-41de-a64e-319596477b29.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Trạng thái công'
+		dataType: string
+		lineageTag: 34f16136-5d2f-45f4-b412-d0cba74485ed
+		summarizeBy: none
+		sourceColumn: Trạng thái công
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bắt đầu ca'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 884337ed-5f47-4c19-9e2a-e675c42a427f
+		summarizeBy: none
+		sourceColumn: Bắt đầu ca
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Kết thúc ca'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 0fcda3b6-922d-4901-b4ac-93d547cd0ce2
+		summarizeBy: none
+		sourceColumn: Kết thúc ca
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Tổng giờ'
+		dataType: double
+		lineageTag: 15d9b03b-dd85-44ae-ac7e-12fa574e04cf
+		summarizeBy: sum
+		sourceColumn: Tổng giờ
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 48fec198-e503-4d4e-9920-fbc32a0da979
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vị trí mới' =
+			
+			SWITCH (
+			    TRUE (),
+			    FIND (
+			        "BÁN HÀNG",
+			        'F_Công chi tiết'[Vị trí công việc],
+			        1,
+			        0
+			    ) > 0||'F_Công chi tiết'[Vị trí công việc]="NHÂN VIÊN XỬ LÝ ĐƠN HÀNG", "Bán hàng",
+			    FIND (
+			        "THU NGÂN",
+			        'F_Công chi tiết'[Vị trí công việc],
+			        1,
+			        0
+			    ) > 0, "Thu ngân",
+			    FIND (
+			        "KHO",
+			        'F_Công chi tiết'[Vị trí công việc],
+			        1,
+			        0
+			    ) > 0, "Nhân viên kho",
+			    FIND (
+			        "KỸ THUẬT",
+			        'F_Công chi tiết'[Vị trí công việc],
+			        1,
+			        0
+			    ) > 0, "Nhân viên kỹ thuật",
+			    FIND (
+			        "TIẾP ĐÓN",
+			        'F_Công chi tiết'[Vị trí công việc],
+			        1,
+			        0
+			    ) > 0, "Tiếp đón",
+			    'F_Công chi tiết'[Vị trí công việc] = "TRƯỞNG CỬA HÀNG"
+			        || 'F_Công chi tiết'[Vị trí công việc] = "TRỢ LÝ CỬA HÀNG"
+			        || 'F_Công chi tiết'[Vị trí công việc] = "TRỢ LÝ SHOP ONLINE"
+			        || 'F_Công chi tiết'[Vị trí công việc] = "QUẢN LÝ SHOP ONLINE", "Quản lý",
+			    BLANK ()
+			)
+		lineageTag: 5fe3127e-85d4-438e-8941-42e241750daa
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsHocviec =
+			
+			SWITCH(
+			    TRUE(),
+			    FIND(
+			        "học việc",
+			        LOWER('F_Công chi tiết'[Ca]),
+			        1,
+			        0
+			    ) > 0, "Học việc",
+			    // 'F_Công chi tiết'[Trạng thái làm việc] = "Học việc", "Học việc",
+			    "Không"
+			)
+		lineageTag: e1ca13ec-af5a-417c-bcbd-0f39930de510
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'F_Công chi tiết' = m
+		mode: import
+		queryGroup: NLVH
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=e004252c-1cb1-4b4f-84a2-4eeb9558361a""#(lf)SELECT #(lf)  employee_code AS `Mã nhân viên`, #(lf)  department AS `Đơn vị`,#(lf)  job_title AS `Vị trí công việc`,#(lf)  shift_name AS `Tên ca`,#(lf)  checkin_department AS `Phòng ban chấm công`,#(lf)  working_type AS `Trạng thái làm việc`,#(lf)  checkin_day AS `Ngày chấm công`,#(lf)  checkin_status AS `Trạng thái công`,#(lf)  start_shift AS `Bắt đầu ca`,#(lf)  end_shift AS `Kết thúc ca`,#(lf)  working_hours AS `Tổng giờ`#(lf)FROM #(lf)  cellphones-data-platform.cps_organization_datamart.cps_cong_chi_tiet#(lf)WHERE 1=1#(lf)  AND DATE(checkin_day) >= '2025-01-01'#(lf)  AND DATE(checkin_day) < CURRENT_DATE()#(lf)  AND LEFT(employee_code,1) IN ('S')#(lf)  AND checkin_status = 'Đã duyệt'", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Bắt đầu ca", type time}, {"Kết thúc ca", type time}}),
+				    #"Inserted Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([Ngày chấm công]), Int64.Type),
+				    #"Filtered Rows" = Table.SelectRows(#"Inserted Year", each ([Trạng thái công] = "Đã duyệt") and ([Ngày chấm công] < Date.From(DateTime.LocalNow())) and Text.Contains([Đơn vị], "CPS") and not Text.Contains([Đơn vị], "PG")),
+				    #"Renamed Columns" = Table.RenameColumns(#"Filtered Rows",{{"Tên ca", "Ca"}, {"Phòng ban chấm công", "Phòng ban"}, {"Ngày chấm công", "Date"}}),
+				    #"Uppercased Text" = Table.TransformColumns(#"Renamed Columns",{{"Vị trí công việc", Text.Upper, type text}})
+				in
+				    #"Uppercased Text"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

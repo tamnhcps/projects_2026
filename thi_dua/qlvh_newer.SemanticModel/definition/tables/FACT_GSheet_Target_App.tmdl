@@ -1,0 +1,137 @@
+table FACT_GSheet_Target_App
+	lineageTag: 5b874e86-27b6-484d-a2d2-b2fc49f923e5
+
+	column Miền
+		dataType: string
+		lineageTag: cdfcb6b0-5c9d-4ebd-ab11-3796bc308cd6
+		summarizeBy: none
+		sourceColumn: Miền
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngày bắt đầu'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ed6866a2-9e18-480e-804b-bed46d82e023
+		summarizeBy: none
+		sourceColumn: Ngày bắt đầu
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ngày kết thúc'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f348053a-8842-45aa-aef0-b259e6643d21
+		summarizeBy: none
+		sourceColumn: Ngày kết thúc
+
+		variation Variation
+			isDefault
+			relationship: d377a720-be7d-484f-b15c-7fdfec34310e
+			defaultHierarchy: LocalDateTable_3ef2c4f7-6cf3-4364-9fbe-20cc3b05d607.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Mã Kho' =
+			
+			VAR minindex_kho =
+			    CALCULATE (
+			        MIN ( 'DIM_Danh mục_Kho'[Index] ),
+			        FILTER (
+			            'DIM_Danh mục_Kho',
+			            'DIM_Danh mục_Kho'[Tên kho] = EARLIER ( 'FACT_GSheet_Target_App'[Cửa hàng] )
+			        )
+			    )
+			VAR minindex_cuahang =
+			    CALCULATE (
+			        MIN ( 'DIM_Danh mục_Kho'[Index] ),
+			        FILTER (
+			            'DIM_Danh mục_Kho',
+			            'DIM_Danh mục_Kho'[Phân loại kho] = "Kho cửa hàng"
+			            && 'DIM_Danh mục_Kho'[Kho phân tích] = "Kho bình thường"
+			            && 'DIM_Danh mục_Kho'[Cửa hàng] = EARLIER ( 'FACT_GSheet_Target_App'[Cửa hàng] )
+			        )
+			    )
+			VAR minindex =
+			    IF ( minindex_cuahang <> BLANK (), minindex_cuahang, minindex_kho )
+			RETURN
+			    LOOKUPVALUE ( 'DIM_Danh mục_Kho'[Mã kho], 'DIM_Danh mục_Kho'[Index], minindex )
+		lineageTag: 5f59cf61-600e-4748-abb8-6061d9365c4c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Target
+		dataType: double
+		lineageTag: e0368b5f-556e-4e74-aa1c-993debd1329c
+		summarizeBy: sum
+		sourceColumn: Target
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fccf133d-9303-422a-bdef-d837c5f365ee
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 8a9e473f-0baf-466b-a9b0-6880a616cccc
+			defaultHierarchy: LocalDateTable_245fb8a4-97f2-4b40-8190-bbc913b336c9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: 74ee2e5e-ab5e-4bec-a680-e64a614905a2
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Báo cáo'
+		dataType: string
+		lineageTag: 8dbaf509-a186-4a6d-bb21-e8a5bb529182
+		summarizeBy: none
+		sourceColumn: Báo cáo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_GSheet_Target_App = m
+		mode: import
+		queryGroup: NLVH
+		source =
+				let
+				    Source = Excel.Workbook(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vTA7nc01TSbED-PsVXqrupk9MvtxCEDnt_NPRfYrr_0Kz0ltAXpMRr-hYmc7F1UaugPp-kKsF_wad_e/pub?output=xlsx"), null, true),
+				    Target_Sheet = Source{[Item="Target_CS",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Target_Sheet, [PromoteAllScalars=true]),
+				    #"Filtered Rows" = Table.SelectRows(#"Promoted Headers", each ([Báo cáo] = "GGRT" or [Báo cáo] = "TAI_APP") and ([Tiêu chí] = null or [Tiêu chí] = "%Có tư vấn/Phiếu khảo sát")),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows",{{"Ngày bắt đầu", type date}, {"Ngày kết thúc", type date}}),
+				    #"Added Custom4" = Table.AddColumn(#"Changed Type1", "Custom", each #"DIM_Danh mục_Ngày"),
+				    #"Expanded Custom" = Table.ExpandTableColumn(#"Added Custom4", "Custom", {"Date"}, {"Date"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Custom",{{"Date", type date}}),
+				    #"Added Custom5" = Table.AddColumn(#"Changed Type", "IsTargetDate", each if [Date] > [Ngày kết thúc] then null else if [Date] < [Ngày bắt đầu] then null else 1, type number),
+				    #"Filtered Rows2" = Table.SelectRows(#"Added Custom5", each ([IsTargetDate] = 1)),
+				    #"Removed Duplicates" = Table.Distinct(#"Filtered Rows2"),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"Miền"}, #"DIM_Danh mục_Phòng ban", {"Custom"}, "DIM_BQ_Shop", JoinKind.LeftOuter),
+				    #"Expanded DIM_BQ_Shop" = Table.ExpandTableColumn(#"Merged Queries", "DIM_BQ_Shop", {"Cửa hàng"}, {"Cửa hàng"}),
+				    #"Sorted Rows" = Table.Sort(#"Expanded DIM_BQ_Shop",{{"Ngày bắt đầu", Order.Descending}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Sorted Rows",{{"IsTargetDate", Int64.Type}, {"Target", type number}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type2",{"Báo cáo", "Ngày bắt đầu", "Ngày kết thúc", "Miền", "Target", "Date", "Cửa hàng"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

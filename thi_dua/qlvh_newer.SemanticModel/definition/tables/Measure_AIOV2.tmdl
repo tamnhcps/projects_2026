@@ -1,0 +1,257 @@
+table Measure_AIOV2
+	lineageTag: 5b88f229-088b-4b5c-a6eb-57082392586b
+	sourceLineageTag: 34ce4b1e-5d82-4037-9f3e-3f31604daba7
+
+	measure 'Slg SP 2' = EXTERNALMEASURE("Slg SP", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: #,0
+		lineageTag: 49c44a81-cf05-4247-b5a9-790e3a3978ee
+		sourceLineageTag: 5b4d208d-56e8-454d-b73e-445f42d099e4
+		dataCategory: Uncategorized
+
+	measure 'Slg SP_AioV2' = EXTERNALMEASURE("Slg SP_AioV2", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: #,0
+		lineageTag: a61a45fd-4054-4f20-a9d2-d042c5e7b1d8
+		sourceLineageTag: c5bb4f93-fd5e-4586-941c-6935d2c0e449
+		dataCategory: Uncategorized
+
+	measure 'Slg SP_SepDesktop' = EXTERNALMEASURE("Slg SP_SepDesktop", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0
+		lineageTag: a6733bec-1164-479f-95c4-9eee7323563c
+		sourceLineageTag: 70d270ef-2c00-4a01-81c1-cb40c82ff447
+		dataCategory: Uncategorized
+
+	measure 'TyTrong SP_SepDesktop' = EXTERNALMEASURE("TyTrong SP_SepDesktop", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: de8693ae-834a-4229-babc-dc83a4a2ad48
+		sourceLineageTag: ec4bfa38-3018-46b9-afc4-3fd86413e6ab
+		dataCategory: Uncategorized
+
+	measure 'TyTrong SP_AioV2' = EXTERNALMEASURE("TyTrong SP_AioV2", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f75d53c3-b4a9-4cb6-91f5-5335346e4f1b
+		sourceLineageTag: b6100a7e-d8d7-4c8a-854b-98624b75a3ab
+		dataCategory: Uncategorized
+
+	measure 'Slg SP_issupport' = EXTERNALMEASURE("Slg SP_issupport", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0
+		lineageTag: 176af202-bf85-4109-8dfa-efa383295081
+		sourceLineageTag: 4fa59f06-486c-4685-af0c-b277deb2734e
+		dataCategory: Uncategorized
+
+	measure 'TyTrong SP_issupport' = EXTERNALMEASURE("TyTrong SP_issupport", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b08e7632-070d-4bfc-9588-b9513bee5901
+		sourceLineageTag: 12d9d776-b327-42af-b61d-94663595a752
+		dataCategory: Uncategorized
+
+	measure 'Slg DH_AioV2' = EXTERNALMEASURE("Slg DH_AioV2", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0
+		lineageTag: 003f1e10-9c79-4d4e-95a1-9648a85246e7
+		sourceLineageTag: 886bf728-b5a4-457a-b122-86131e779294
+		dataCategory: Uncategorized
+
+	measure Avg_CompletionTime = EXTERNALMEASURE("Avg_CompletionTime", STRING, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		lineageTag: 2e9a76c7-159d-4ffa-83b2-e349dc4cac6d
+		sourceLineageTag: 7b908e60-4ea8-42c5-9261-a3a7bc86bc8d
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Avg_CompletionTime_ = EXTERNALMEASURE("Avg_CompletionTime_", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: #,0.00
+		lineageTag: 7a8d8516-c41c-4451-8838-973100f9ce05
+		sourceLineageTag: da18e467-e9e5-418a-b5b6-d0f004ee26ad
+		dataCategory: Uncategorized
+
+	measure 'Slg combo CTKM' = EXTERNALMEASURE("Slg combo CTKM", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0
+		lineageTag: 8d695f6b-48f0-4037-904f-cd2852d9efe9
+		sourceLineageTag: 9f778fe0-963d-493f-9a55-e9840ee3376a
+		dataCategory: Uncategorized
+
+	measure 'Slg có CTKM' = EXTERNALMEASURE("Slg có CTKM", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0
+		lineageTag: f7e25484-4d1e-4be1-809a-07bc97a4c245
+		sourceLineageTag: bac52caa-d76b-4fac-9c50-4f82a317a0b3
+		dataCategory: Uncategorized
+
+	measure 'Slg không CTKM' = EXTERNALMEASURE("Slg không CTKM", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0
+		lineageTag: 6ac12c83-5a20-4a9f-b1d2-ccb17ca0e54b
+		sourceLineageTag: d6d2f7c8-2595-4d39-b5bf-039457c270d0
+		dataCategory: Uncategorized
+
+	measure 'TyTrong có CTKM' = EXTERNALMEASURE("TyTrong có CTKM", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 277b7a64-9e6a-41a2-840f-85455d5a2651
+		sourceLineageTag: 6d4ffd5b-86ee-41c6-9edc-86544d1d5a79
+		dataCategory: Uncategorized
+
+	measure 'TyTrong không CTKM' = EXTERNALMEASURE("TyTrong không CTKM", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 87bc2d07-3030-4181-81f9-8a2d936a9365
+		sourceLineageTag: 5df8e13f-0d07-4794-aa41-93e244fd48cc
+		dataCategory: Uncategorized
+
+	measure 'TyTrong combo CTKM' = EXTERNALMEASURE("TyTrong combo CTKM", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 015f1976-e487-4d3c-8704-12fc996c48ed
+		sourceLineageTag: 1378c49f-04a7-4c2b-9ad7-e976893273cb
+		dataCategory: Uncategorized
+
+	measure 'Slg SP_AioV2 g%' = EXTERNALMEASURE("Slg SP_AioV2 g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d8652f9c-c760-4792-bb43-b44ee8810b15
+		sourceLineageTag: 3a5e577a-b1ea-4946-b429-2a513b1d454f
+		dataCategory: Uncategorized
+
+	measure 'TyTrong SP_AioV2 g%' = EXTERNALMEASURE("TyTrong SP_AioV2 g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 67c05f6a-4e77-4178-9e20-4aefc2c37829
+		sourceLineageTag: dbb13fc5-ab41-40ed-9baa-892b56140be5
+		dataCategory: Uncategorized
+
+	measure 'TyTrong có CTKM g%' = EXTERNALMEASURE("TyTrong có CTKM g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3928cad3-53a6-412a-8c33-56d6400a4545
+		sourceLineageTag: 13650833-222f-4429-9163-5431e84aa448
+		dataCategory: Uncategorized
+
+	measure 'TyTrong không CTKM g%' = EXTERNALMEASURE("TyTrong không CTKM g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d9e97a91-55b2-4b68-97c4-f8f7d104531f
+		sourceLineageTag: e2553629-3f75-4710-832f-270177b42e6c
+		dataCategory: Uncategorized
+
+	measure 'TyTrong combo CTKM g%' = EXTERNALMEASURE("TyTrong combo CTKM g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d86f7973-5cde-41f1-949d-e4fa8a3579eb
+		sourceLineageTag: 947d9cee-8d7b-483c-a6df-695e39944788
+		dataCategory: Uncategorized
+
+	measure 'TyTrong SP_AioV2 LP' = EXTERNALMEASURE("TyTrong SP_AioV2 LP", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3aedbc3c-4a90-436b-916e-bdcc4836c6ea
+		sourceLineageTag: f46bed2d-7935-47a9-97b1-456b5b6bff28
+		dataCategory: Uncategorized
+
+	measure 'Thời gian cập nhật 2' = EXTERNALMEASURE("Thời gian cập nhật", DATETIME, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: General Number
+		lineageTag: 8eaf5cf6-c8e7-47bc-8b19-1f80bc263317
+		sourceLineageTag: de3cc149-94fb-414f-b2b5-1d287e9566a7
+		dataCategory: Uncategorized
+
+	measure 'Slg SP g%' = EXTERNALMEASURE("Slg SP g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bd033f90-c42d-43a3-a1bf-56e42084a36e
+		sourceLineageTag: 25c71bef-29f4-46b6-9d53-62358a38821b
+		dataCategory: Uncategorized
+
+	measure 'TyTrong SP_issupport g%' = EXTERNALMEASURE("TyTrong SP_issupport g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6e8a7b99-290b-4b94-bde0-360bc74a1040
+		sourceLineageTag: d164dd0d-21e1-4a40-91df-4056c3cd7055
+		dataCategory: Uncategorized
+
+	measure 'Avg_CompletionTime g%' = EXTERNALMEASURE("Avg_CompletionTime g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dbeb50f8-c0aa-4aa7-90ca-6103797e3b16
+		sourceLineageTag: addbf95c-ad60-4cc6-be54-1237e70d3dfc
+		dataCategory: Uncategorized
+
+	measure 'Slg DH 2' = EXTERNALMEASURE("Slg DH", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0
+		lineageTag: d59af3d8-b3d8-4f82-9fb9-2734e868ce0c
+		sourceLineageTag: 526972e9-88ab-46b8-bb54-0901d7e04b2e
+		dataCategory: Uncategorized
+
+	measure 'TyTrong DH_AioV2' = EXTERNALMEASURE("TyTrong DH_AioV2", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 60a539a0-9fe7-4992-af8b-d943750bfa73
+		sourceLineageTag: 1652ad74-ca92-4b7c-a7fd-ead122072c4d
+		dataCategory: Uncategorized
+
+	measure 'TyTrong DH_AioV2 g%' = EXTERNALMEASURE("TyTrong DH_AioV2 g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4b70b703-5bd3-48e8-aae3-fb8068e4b8e9
+		sourceLineageTag: 40c77bd6-17a8-48c2-9a99-a3464c95bb08
+		dataCategory: Uncategorized
+
+	measure _Update = EXTERNALMEASURE("_Update", STRING, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		lineageTag: cd06b2fe-0a3f-40af-91f5-a0b186af6771
+		sourceLineageTag: 6a383aa2-df3b-4c00-ae69-5a6fc7c08563
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Slg SP_SepDesktop_PG' = EXTERNALMEASURE("Slg SP_SepDesktop_PG", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0
+		lineageTag: 6299ac6f-93fb-45af-b49b-fddee4c531af
+		sourceLineageTag: 422008c7-f2d0-4929-9d7f-7ea1d1c8b0df
+		dataCategory: Uncategorized
+
+	measure 'TyTrong SP_SepDesktop_PG' = EXTERNALMEASURE("TyTrong SP_SepDesktop_PG", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 51c67b6a-a387-434c-871e-0c0aeaf4e957
+		sourceLineageTag: c3bc4f4e-801c-4328-bc3e-0accc262b61c
+		dataCategory: Uncategorized
+
+	measure 'TyTrong SP_SepDesktop_PG g%' = EXTERNALMEASURE("TyTrong SP_SepDesktop_PG g%", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fdd705eb-f6b0-40e6-9e3d-94fe5d4c5433
+		sourceLineageTag: 13198b5f-750b-444a-98a7-10ba6e082630
+		dataCategory: Uncategorized
+
+	measure 'Target TyTrong SP_AioV2' = EXTERNALMEASURE("Target TyTrong SP_AioV2", DOUBLE, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2dbb8b73-8e19-4b30-afbd-37d1b586289d
+		sourceLineageTag: 68268f8a-6366-4212-ae01-d1d34004402b
+		dataCategory: Uncategorized
+
+	measure 'Đánh giá SP_AioV2' = EXTERNALMEASURE("Đánh giá SP_AioV2", STRING, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		lineageTag: 9da394aa-4d77-4fe2-8cbd-8130d2e2ea20
+		sourceLineageTag: 6d5c7811-51ca-4fae-ac52-64ea7379b639
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Slg SP_Issup_notAIO' = EXTERNALMEASURE("Slg SP_Issup_notAIO", INTEGER, "DirectQuery to AS - VH_Theo dõi AIOv2")
+		formatString: #,0
+		lineageTag: 9290c5db-1150-481e-98c9-5fec2d00cf9a
+		sourceLineageTag: 1fd3df05-76a7-4ebb-a9d0-b6545ea23e95
+		dataCategory: Uncategorized
+
+	measure '% Sử dụng AIOv2' =
+			VAR target = 0.7 VAR actual = [TyTrong SP_AioV2]  RETURN MIN(
+			    1.2,
+			    ROUND(
+			        DIVIDE(actual, target, 0),
+			        4
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ac25e06d-97c9-49c0-8095-db110c1e6c87
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	column Column
+		dataType: int64
+		formatString: 0
+		lineageTag: 96f97e5b-65ef-4982-9ae3-ceee41605f9c
+		sourceLineageTag: c116a164-16a6-4a62-94d5-1d8a48daed77
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = User
+
+	partition Measure_AIOV2 = entity
+		mode: directQuery
+		source
+			entityName: 0. Measure
+			expressionSource: 'DirectQuery to AS - VH_Theo dõi AIOv2'
+
+	changedProperty = Name
+

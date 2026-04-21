@@ -1,0 +1,72 @@
+table 'F_Ngày nhận việc'
+	lineageTag: 8ca93790-703e-482b-b74b-305b35cced20
+
+	column 'Mã nhân viên'
+		dataType: string
+		lineageTag: cbbcb17a-0a45-4ff3-9c1d-be9af83e90ca
+		summarizeBy: none
+		sourceColumn: Mã nhân viên
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ngày nhận việc'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9701f3b6-91c6-4536-9865-39c71c0a2d9d
+		summarizeBy: none
+		sourceColumn: Ngày nhận việc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ngày kết thúc'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 554c1de8-f13b-4dba-ae31-39b45aeb82e4
+		summarizeBy: none
+		sourceColumn: Ngày kết thúc
+
+		variation Variation
+			isDefault
+			relationship: 831626fc-2351-42ea-a806-20079045e368
+			defaultHierarchy: LocalDateTable_82913970-af16-4078-8f05-4df4c660c8f2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Thâm niên'
+		dataType: double
+		lineageTag: 4d687667-f122-4d00-9fc7-446d443cd787
+		summarizeBy: sum
+		sourceColumn: Thâm niên
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Trạng thái làm việc'
+		dataType: string
+		lineageTag: a89248ec-1d73-4ac0-90bc-58057a7ccecf
+		summarizeBy: none
+		sourceColumn: Trạng thái làm việc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'F_Ngày nhận việc' = m
+		mode: import
+		queryGroup: NLVH
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=9968744d-0b17-472e-8313-797f520f52ac""#(lf)WITH TempWorkingHistories AS (#(lf)    SELECT #(lf)        user_id,#(lf)        MIN(start_date) AS start_date,#(lf)        MIN(CASE WHEN working_type_id = '6' #(lf)                 AND NOT working_form_type_id IN ('2', '3') #(lf)                 AND jobtitle_name NOT LIKE '%CTV%' #(lf)            THEN start_date END) AS NgayThuViec,#(lf)        MIN(CASE WHEN working_type_id = '1' #(lf)                 AND NOT working_form_type_id IN ('2', '3') #(lf)                 AND jobtitle_name NOT LIKE '%CTV%' #(lf)            THEN start_date END) AS NgayChinhThuc#(lf)    FROM #(lf)        `cellphones-data-platform.cps_organization_datamart.employee_working_histories`#(lf)    GROUP BY user_id#(lf))#(lf)#(lf)SELECT#(lf)  p.user_id AS `Mã nhân viên`,#(lf)  DATE(wh.start_date) AS `Ngày nhận việc`,#(lf)  DATE(p.end_date) AS `Ngày kết thúc`,#(lf)#(lf)  -- ✅ Phân loại trạng thái làm việc#(lf)  CASE #(lf)    WHEN wh.NgayChinhThuc IS NULL THEN 'Thử việc'#(lf)    ELSE 'Chính thức'#(lf)  END AS `Trạng thái làm việc`,#(lf)#(lf)  -- ✅ Tính thâm niên#(lf)  CASE #(lf)    WHEN p.end_date IS NULL #(lf)      THEN ROUND(TIMESTAMP_DIFF(TIMESTAMP(CURRENT_DATE('+07')), TIMESTAMP(wh.start_date), DAY) / 365, 2)#(lf)    ELSE ROUND(TIMESTAMP_DIFF(TIMESTAMP(p.end_date), TIMESTAMP(wh.start_date), DAY) / 365, 2)#(lf)  END AS `Thâm niên`#(lf)#(lf)FROM `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_profile` p  #(lf)INNER JOIN `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_jobtitle` j  #(lf)  ON j.id = p.jobtitle_id#(lf)INNER JOIN `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_department` d #(lf)  ON d.id = p.department_id#(lf)INNER JOIN TempWorkingHistories wh #(lf)  ON wh.user_id = p.user_id#(lf)#(lf)WHERE LEFT(p.user_id, 1) = 'S'#(lf)  AND LEFT(d.name, 3) <> 'PG_'#(lf)  AND d.working_place_name IN (#(lf)        'CPS - Văn Phòng (Miền Nam)', 'CPS - Văn Phòng (Miền Bắc)',#(lf)        'CPS - Shop (Miền Nam)', 'CPS - Shop (Miền Bắc)')", null, [EnableFolding=true]),
+				    #"Added Custom" = Table.AddColumn(Source, "IsOutlier", each if [Ngày nhận việc] = [Ngày kết thúc] then 1 else 0),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each ([IsOutlier] = 0)),
+				    #"Removed Columns" = Table.RemoveColumns(#"Filtered Rows",{"IsOutlier"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

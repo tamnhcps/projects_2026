@@ -1,0 +1,54 @@
+table 'DIM_Danh mục_Đánh giá_'
+	excludeFromModelRefresh
+	lineageTag: 8911ddae-b15f-492a-bbb7-5a248e4a44d5
+
+	column Tháng
+		dataType: string
+		lineageTag: 3cd96093-74bd-4fac-8bca-bca540841c12
+		summarizeBy: none
+		sourceColumn: Tháng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chỉ tiêu'
+		dataType: string
+		lineageTag: c568d5ad-728e-4291-831d-c3bc975e4cc0
+		summarizeBy: none
+		sourceColumn: Chỉ tiêu
+		sortByColumn: Index
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hệ số'
+		dataType: string
+		lineageTag: 6d5775cf-023a-4833-83bf-c8f63041bcbf
+		summarizeBy: none
+		sourceColumn: Hệ số
+
+		annotation SummarizationSetBy = Automatic
+
+	column Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 4300b765-f2ac-43cf-9e55-2ef0a8b73378
+		summarizeBy: sum
+		sourceColumn: Index
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Danh mục_Đánh giá_' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jZHBSsNAEIZfZQgICgVrpU+gggdBpN5KD8m6ZpduNqHd9C4iIp76Bg2lF7GQgyBk8bQl7zFv4mxTEIRqDgvDMP/3/7MzHAY3ufuC0+Net9cPOsEt2k9QaJ9hinYNd2hXOoYLxZmZpFoyGAiu7uEqjLii8ZP+QTDq/IacCbQvHjAHHW/rmSQk2yv4cd3MsSoM6M0j2U5zrFbG9+yrFhBJ96ZbMFRdol0aMFgtJYRZ5jXdvzVmgvaJnOpCQyzDFIRbUILDpn9+edSG4TUCmPsgZYO61kpqvl8rtgsakTpaurH0dSuzMPFJycgtUr9rkdLAP19j6hJm5KmBibqkhDFt7t4p9SDhScQnLRAip4fVOoOxcAUTu9yGTvyQNJfbUUbf", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Tháng = _t, #"Chỉ tiêu" = _t, #"Hệ số" = _t]),
+				    #"Added Index" = Table.AddIndexColumn(Source, "Index", 1, 1, Int64.Type)
+				in
+				    #"Added Index"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

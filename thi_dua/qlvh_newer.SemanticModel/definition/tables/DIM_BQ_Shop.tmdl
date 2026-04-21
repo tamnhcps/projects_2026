@@ -1,0 +1,143 @@
+table DIM_BQ_Shop
+	lineageTag: 86d97275-7b7d-4ad3-ad2e-be953678b5b3
+	sourceLineageTag: 1bc91dc3-b2e1-44e9-b361-b1640d317940
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: e63a0769-6e31-4edf-a80a-3300c3679951
+		sourceLineageTag: 20f04d0a-e40d-46e2-aa66-d2a7e54c6613
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = User
+
+	column Miền
+		dataType: string
+		lineageTag: 13381894-9284-451f-af00-4ae0718f9f8b
+		sourceLineageTag: 591be9c6-96d5-45a3-afc5-db9ec157525e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Miền
+
+		annotation SummarizationSetBy = User
+
+	column Size
+		dataType: string
+		lineageTag: de08933e-7e6a-42ea-b5ad-ea40df8c5dd9
+		sourceLineageTag: 390a179c-4922-49aa-949a-dca301d7951e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = User
+
+	column AM
+		dataType: string
+		lineageTag: d02419be-b1a6-42a2-9111-397b6a1e13dc
+		sourceLineageTag: 2b6ada45-d27a-4266-ae95-066d3a135aee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AM
+
+		annotation SummarizationSetBy = User
+
+	column RSM
+		dataType: string
+		lineageTag: d1d406f1-e73f-46a5-83ef-96ce95955790
+		sourceLineageTag: 3bf24ea1-d7ed-4593-ae61-ffc74f3e1439
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RSM
+
+		annotation SummarizationSetBy = User
+
+	column 'Mã kho'
+		dataType: string
+		isNullable: false
+		lineageTag: 0e5b633b-0a2e-490c-9775-2cd243367f96
+		sourceLineageTag: 9060be3b-24ca-4358-ab29-2f1d8295d3e6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã kho
+
+		annotation SummarizationSetBy = User
+
+	column 'Loại kho'
+		dataType: string
+		lineageTag: 18ccd87a-d111-49d9-956b-fc8848a5580b
+		sourceLineageTag: 46ac4dfe-649d-461c-919b-b4ab1ddf5cac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Loại kho
+
+		annotation SummarizationSetBy = User
+
+	column 'Địa chỉ kho'
+		dataType: string
+		lineageTag: f0a3ab71-9a9b-4703-a407-44e091aae992
+		sourceLineageTag: 05e8c9d1-16c2-41d9-96ed-00bc7a496c8f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Địa chỉ kho
+
+		annotation SummarizationSetBy = User
+
+	column Shop+Size
+		dataType: string
+		isNullable: false
+		lineageTag: 1346e309-5e1a-4af9-bbc8-8e27f5a7009a
+		sourceLineageTag: 46cacdac-a231-470f-9501-541c3b6f866b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Shop+Size
+
+		annotation SummarizationSetBy = User
+
+	column Vùng
+		dataType: string
+		lineageTag: beee4bca-acc3-45a9-8da4-d9b55115e38f
+		sourceLineageTag: b24ba1d1-8f96-4a1a-9794-a8364907c1a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Vùng
+
+		annotation SummarizationSetBy = User
+
+	column 'Hara ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: e5410927-2414-46c7-be19-b70511bda03d
+		sourceLineageTag: 180bdc10-9253-4fbb-8296-73b04aaa57b6
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: Hara ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Quận huyện'
+		dataType: string
+		lineageTag: 25833daf-101b-4533-90d0-79326ef80a0a
+		sourceLineageTag: e735058a-9de0-4813-9956-d99ab389fcdc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Quận huyện
+
+		annotation SummarizationSetBy = User
+
+	column Tỉnh
+		dataType: string
+		lineageTag: 41489e18-a8c8-43fa-8fda-29c7bb0633eb
+		sourceLineageTag: 75f5ab68-5ee9-4d4c-a47f-2f58778bacd5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tỉnh
+
+		annotation SummarizationSetBy = User
+
+	partition DIM_BQ_Shop = entity
+		mode: directQuery
+		source
+			entityName: DIM_BQ_Shop
+			expressionSource: 'DirectQuery to AS - CS_Báo cáo Lượt tải App 3'
+

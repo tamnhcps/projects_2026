@@ -1,0 +1,109 @@
+table F_Employee
+	lineageTag: d1416d45-007e-4873-8b29-d86dc7c35f56
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: a7e82d86-d8e1-44e0-b41e-0e65226c5c73
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: c7a326c3-7201-4a55-b3ff-acf19ee06549
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column DonVi
+		dataType: string
+		lineageTag: 1bd452f2-0efd-4e73-998d-861fa258b462
+		summarizeBy: none
+		sourceColumn: DonVi
+
+		annotation SummarizationSetBy = Automatic
+
+	column ViTri
+		dataType: string
+		lineageTag: 9a7f740e-1ec5-41f2-8080-4b649608b857
+		summarizeBy: none
+		sourceColumn: ViTri
+
+		annotation SummarizationSetBy = Automatic
+
+	column HinhThucLamViec
+		dataType: string
+		lineageTag: 97f20247-156c-4f47-8705-ac05ce99b47f
+		summarizeBy: none
+		sourceColumn: HinhThucLamViec
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrangThaiLamViec
+		dataType: string
+		lineageTag: 012055a0-0d25-46e6-a41d-0316f93c6d45
+		summarizeBy: none
+		sourceColumn: TrangThaiLamViec
+
+		annotation SummarizationSetBy = Automatic
+
+	column NhanSuMoi
+		dataType: int64
+		formatString: 0
+		lineageTag: 61c0042e-25a4-4fb2-995f-add8bc179c92
+		summarizeBy: sum
+		sourceColumn: NhanSuMoi
+
+		annotation SummarizationSetBy = Automatic
+
+	column NhanSuRoiDi
+		dataType: int64
+		formatString: 0
+		lineageTag: 14f2d09b-f1c2-4125-97a7-6678d952ca41
+		summarizeBy: sum
+		sourceColumn: NhanSuRoiDi
+
+		annotation SummarizationSetBy = Automatic
+
+	column NhanSuConLai
+		dataType: int64
+		formatString: 0
+		lineageTag: 44848b08-8ae0-4d4a-bec5-7be44b5ebc24
+		summarizeBy: sum
+		sourceColumn: NhanSuConLai
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsChinhThuc
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f67c014-f94a-48a4-9d78-25c046e779a8
+		summarizeBy: sum
+		sourceColumn: IsChinhThuc
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate = DATE([Year], [Month], 1)
+		formatString: General Date
+		lineageTag: 801544be-6793-4b0e-8cbf-9aa5c467ff27
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_Employee = m
+		mode: import
+		queryGroup: NLVH
+		source =
+				let
+				    Source = Value.NativeQuery(GoogleBigQuery.Database([BillingProject="cellphones-data-platform"]){[Name="cellphones-data-platform"]}[Data], "---""dataset_id=9968744d-0b17-472e-8313-797f520f52ac""#(lf)WITH TempWorkingHistories AS (#(lf)    SELECT #(lf)        user_id,#(lf)        MIN(start_date) AS start_date,#(lf)        MIN(CASE WHEN working_type_id = '6' AND NOT working_form_type_id IN ('2', '3') AND jobtitle_name NOT LIKE '%CTV%' THEN start_date END) AS NgayThuViec,#(lf)        MIN(CASE WHEN working_type_id = '1' AND NOT working_form_type_id IN ('2', '3') AND jobtitle_name NOT LIKE '%CTV%' THEN start_date END) AS NgayChinhThuc#(lf)    FROM #(lf)        `cellphones-data-platform.cps_organization_datamart.employee_working_histories`#(lf)    GROUP BY #(lf)        user_id#(lf)),#(lf)TempBoPhan_ViTri AS (#(lf)    SELECT *#(lf)    FROM (#(lf)        SELECT #(lf)            DISTINCT(d.name) AS DonVi,#(lf)            CASE #(lf)              WHEN j.name = 'Trưởng nhóm DA/DE' THEN 'Trưởng phòng DA/DE'#(lf)              WHEN j.name = 'Chuyên viên DataAnalyst' THEN 'Chuyên viên Data Analyst'#(lf)              ELSE j.name#(lf)            END AS ViTri,#(lf)            CASE #(lf)              WHEN d.working_place_name like '%Shop%' THEN 'Cửa Hàng'#(lf)              WHEN d.working_place_name like '%Văn Phòng%' THEN 'Văn Phòng'#(lf)            END AS NoiLamViec,#(lf)            CASE p.working_form_type#(lf)              WHEN 2 THEN 'Bán thời gian' #(lf)              WHEN 3 THEN 'Cộng tác viên' #(lf)            ELSE 'Toàn thời gian'#(lf)            END AS HinhThucLamViec,#(lf)            CASE p.working_type#(lf)              WHEN 5 THEN 'Thực tập'#(lf)              WHEN 15 THEN 'Cộng tác viên' #(lf)              ELSE 'Đang làm việc/Nghỉ việc'#(lf)            END AS TrangThaiLamViec,#(lf)            CURRENT_DATE(""Asia/Ho_Chi_Minh"") AS CurrentDate,#(lf)            IF(start_date = end_date, 1, 0) AS IsOutlier#(lf)        FROM `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_profile`  p  #(lf)        INNER JOIN `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_jobtitle` j  ON j.id =  p.jobtitle_id#(lf)        INNER JOIN `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_department` d ON d.id = p.department_id#(lf)        -- CROSS JOIN CurrentDate c#(lf)        WHERE LEFT(user_id, 1) = 'S'#(lf)          AND LEFT(d.name, 3) <> 'PG_'#(lf)          AND d.working_place_name IN ('CPS - Văn Phòng (Miền Nam)', 'CPS - Văn Phòng (Miền Bắc)', 'CPS - Shop (Miền Nam)', 'CPS - Shop (Miền Bắc)')#(lf)    ) temp#(lf)    WHERE temp.IsOutlier = 0#(lf)),#(lf)TempDate AS (#(lf)    SELECT#(lf)        d.DonVi,#(lf)        d.ViTri,#(lf)        d.HinhThucLamViec,#(lf)        d.TrangThaiLamViec,#(lf)        d.NoiLamViec,#(lf)        EXTRACT(YEAR FROM date) AS Year,#(lf)        EXTRACT(MONTH FROM date) AS Month#(lf)    FROM #(lf)        TempBoPhan_ViTri d,#(lf)        UNNEST(GENERATE_DATE_ARRAY('2022-01-01', d.CurrentDate, INTERVAL 1 MONTH)) AS date#(lf)),#(lf)TempStaff AS (#(lf)    SELECT *#(lf)    FROM (#(lf)    SELECT #(lf)            p.user_id AS MaNhanVien, #(lf)            CASE #(lf)                    WHEN p.status = 1 THEN FALSE#(lf)                    WHEN p.status = 0 THEN TRUE#(lf)            END AS Inactive,#(lf)            DATE(birthday) AS NgaySinh,#(lf)            CASE#(lf)                    WHEN gender = 1 THEN 'Nam'#(lf)                    WHEN gender = 0 THEN 'Nữ'#(lf)            END AS GioiTinh,#(lf)            wh.start_date AS NgayNhanViec,#(lf)            CASE WHEN j.name NOT LIKE 'CTV%' THEN COALESCE(DATE(NgayThuViec), e.ngay_thu_viec_chinh_thuc) END AS NgayThuViec,#(lf)            CASE WHEN j.name NOT LIKE 'CTV%' THEN COALESCE(DATE(NgayChinhThuc), e.ngay_thu_viec_chinh_thuc) END AS NgayChinhThuc,#(lf)            end_date AS NgayKetThuc,#(lf)            CASE #(lf)              WHEN j.name = 'Trưởng nhóm DA/DE' THEN 'Trưởng phòng DA/DE'#(lf)              WHEN j.name = 'Chuyên viên DataAnalyst' THEN 'Chuyên viên Data Analyst'#(lf)              ELSE j.name#(lf)            END AS ViTri,#(lf)            CASE #(lf)              WHEN d.working_place_name like '%Shop%' THEN 'Cửa Hàng'#(lf)              WHEN d.working_place_name like '%Văn Phòng%' THEN 'Văn Phòng'#(lf)            END AS NoiLamViec,#(lf)            COALESCE(d.name, 'Không thuộc phòng ban') AS DonVi,#(lf)                CASE p.working_form_type#(lf)                    WHEN 2 THEN 'Bán thời gian' #(lf)                    WHEN 3 THEN 'Cộng tác viên' #(lf)                    ELSE 'Toàn thời gian'#(lf)                END AS HinhThucLamViec,#(lf)                CASE p.working_type#(lf)                    WHEN 5 THEN 'Thực tập'#(lf)                    WHEN 15 THEN 'Cộng tác viên' #(lf)                    ELSE 'Đang làm việc/Nghỉ việc'#(lf)                END AS TrangThaiLamViec,#(lf)            IF(wh.start_date = DATE(end_date), 1, 0) AS IsOutlier#(lf)    FROM `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_profile`  p  #(lf)    INNER JOIN `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_jobtitle` j  ON j.id =  p.jobtitle_id#(lf)    INNER JOIN `cellphones-data-platform.cps_unified_postgres_dwh.hrw_hr_department` d ON d.id = p.department_id#(lf)    INNER JOIN TempWorkingHistories wh ON wh.user_id = p.user_id#(lf)    LEFT JOIN cellphones-data-platform.cps_google_sheets_dwh.employee_log e ON e.ma_nhan_vien = p.user_id#(lf)        WHERE LEFT(p.user_id, 1) = 'S'#(lf)          AND LEFT(d.name, 3) <> 'PG_'#(lf)          AND d.working_place_name IN ('CPS - Văn Phòng (Miền Nam)', 'CPS - Văn Phòng (Miền Bắc)', 'CPS - Shop (Miền Nam)', 'CPS - Shop (Miền Bắc)')#(lf)          --AND d.is_inactive = FALSE#(lf)    ) temp#(lf)    WHERE temp.IsOutlier = 0-- AND temp.NgayNhanViec IS NOT NULL#(lf)),#(lf)TempNhanViec AS (#(lf)    SELECT #(lf)        EXTRACT(YEAR FROM NgayNhanViec) AS Year,#(lf)        EXTRACT(MONTH FROM NgayNhanViec) AS Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        COUNT(MaNhanVien) AS NhanSuMoi_VP#(lf)    FROM TempStaff#(lf)    GROUP BY 1, 2, 3, 4, 5, 6#(lf)),#(lf)TempRoiDi AS (#(lf)    SELECT #(lf)        EXTRACT(YEAR FROM NgayKetThuc) AS Year,#(lf)        EXTRACT(MONTH FROM NgayKetThuc) AS Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        COUNT(MaNhanVien) AS NhanSuRoiDi_VP#(lf)    FROM TempStaff#(lf)    GROUP BY 1, 2, 3, 4, 5, 6#(lf)),#(lf)TempBase AS (#(lf)    SELECT #(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        COUNT(MaNhanVien) AS NhanSuBase_VP#(lf)    FROM TempStaff#(lf)    WHERE NgayNhanViec < '2022-01-01'#(lf)      AND (NgayKetThuc IS NULL OR NgayKetThuc >= '2022-01-01')#(lf)    GROUP BY 1, 2, 3, 4#(lf)),#(lf)MonthlyStats AS (#(lf)    SELECT #(lf)        d.Year,#(lf)        d.Month,#(lf)        d.DonVi,#(lf)        d.ViTri,#(lf)        d.HinhThucLamViec,#(lf)        d.TrangThaiLamViec,#(lf)        COALESCE(tnv.NhanSuMoi_VP, 0) AS NhanSuMoi_VP,#(lf)        COALESCE(trd.NhanSuRoiDi_VP, 0) AS NhanSuRoiDi_VP#(lf)    FROM TempDate d#(lf)    LEFT JOIN TempNhanViec tnv ON d.Year = tnv.Year AND d.Month = tnv.Month AND d.DonVi = tnv.DonVi AND d.ViTri = tnv.ViTri AND d.HinhThucLamViec = tnv.HinhThucLamViec AND d.TrangThaiLamViec = tnv.TrangThaiLamViec#(lf)    LEFT JOIN TempRoiDi trd ON d.Year = trd.Year AND d.Month = trd.Month AND d.DonVi = trd.DonVi AND d.ViTri = trd.ViTri AND d.HinhThucLamViec = trd.HinhThucLamViec AND d.TrangThaiLamViec = trd.TrangThaiLamViec#(lf)),#(lf)CumulativeStats AS (#(lf)    SELECT #(lf)        Year,#(lf)        Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        NhanSuMoi_VP,#(lf)        NhanSuRoiDi_VP,#(lf)        CASE #(lf)            WHEN Year = 2022 AND Month = 1 THEN #(lf)                (SELECT MAX(NhanSuBase_VP) #(lf)                 FROM TempBase b #(lf)                 WHERE b.DonVi = ms.DonVi#(lf)                 AND b.ViTri = ms.ViTri#(lf)                 AND b.HinhThucLamViec = ms.HinhThucLamViec#(lf)                 AND b.TrangThaiLamViec = ms.TrangThaiLamViec)#(lf)            ELSE NULL#(lf)        END AS NhanSuConLai_VP_Init#(lf)    FROM MonthlyStats ms#(lf)),#(lf)FinalStats AS (#(lf)    SELECT #(lf)        Year,#(lf)        Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        NhanSuMoi_VP,#(lf)        NhanSuRoiDi_VP,#(lf)        SUM(#(lf)            COALESCE(NhanSuMoi_VP, 0) - COALESCE(NhanSuRoiDi_VP, 0)#(lf)        ) OVER (#(lf)            PARTITION BY DonVi, ViTri, HinhThucLamViec, TrangThaiLamViec#(lf)            ORDER BY Year, Month#(lf)            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW#(lf)        ) + COALESCE(#(lf)            MAX(NhanSuConLai_VP_Init) OVER (PARTITION BY DonVi, ViTri, HinhThucLamViec, TrangThaiLamViec),#(lf)            0#(lf)        ) AS NhanSuConLai_VP#(lf)    FROM CumulativeStats#(lf)),#(lf)TempNhanViec_v2 AS (#(lf)    SELECT #(lf)        EXTRACT(YEAR FROM NgayChinhThuc) AS Year,#(lf)        EXTRACT(MONTH FROM NgayChinhThuc) AS Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        COUNT(MaNhanVien) AS NhanSuMoi_VP#(lf)    FROM TempStaff#(lf)    WHERE NoiLamViec = 'Văn Phòng'#(lf)    GROUP BY 1, 2, 3, 4, 5, 6#(lf)),#(lf)TempRoiDi_v2 AS (#(lf)    SELECT #(lf)        EXTRACT(YEAR FROM NgayKetThuc) AS Year,#(lf)        EXTRACT(MONTH FROM NgayKetThuc) AS Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        COUNT(CASE WHEN NgayChinhThuc IS NOT NULL THEN MaNhanVien ELSE NULL END) AS NhanSuRoiDi_VP#(lf)    FROM TempStaff#(lf)    WHERE NoiLamViec = 'Văn Phòng'#(lf)    GROUP BY 1, 2, 3, 4, 5, 6#(lf)),#(lf)TempBase_v2 AS (#(lf)    SELECT #(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        COUNT(MaNhanVien) AS NhanSuBase_VP#(lf)    FROM TempStaff#(lf)    WHERE NoiLamViec = 'Văn Phòng'#(lf)      AND NgayChinhThuc < '2022-01-01'#(lf)      AND (NgayKetThuc IS NULL OR NgayKetThuc >= '2022-01-01')#(lf)    GROUP BY 1, 2, 3, 4#(lf)),#(lf)MonthlyStats_v2 AS (#(lf)    SELECT #(lf)        d.Year,#(lf)        d.Month,#(lf)        d.DonVi,#(lf)        d.ViTri,#(lf)        d.HinhThucLamViec,#(lf)        d.TrangThaiLamViec,#(lf)        COALESCE(tnv.NhanSuMoi_VP, 0) AS NhanSuMoi_VP,#(lf)        COALESCE(trd.NhanSuRoiDi_VP, 0) AS NhanSuRoiDi_VP#(lf)    FROM TempDate d#(lf)    LEFT JOIN TempNhanViec_v2 tnv ON d.Year = tnv.Year AND d.Month = tnv.Month AND d.DonVi = tnv.DonVi AND d.ViTri = tnv.ViTri AND d.HinhThucLamViec = tnv.HinhThucLamViec AND d.TrangThaiLamViec = tnv.TrangThaiLamViec#(lf)    LEFT JOIN TempRoiDi_v2 trd ON d.Year = trd.Year AND d.Month = trd.Month AND d.DonVi = trd.DonVi AND d.ViTri = trd.ViTri AND d.HinhThucLamViec = trd.HinhThucLamViec AND d.TrangThaiLamViec = trd.TrangThaiLamViec#(lf)    WHERE d.NoiLamViec = 'Văn Phòng'#(lf)),#(lf)CumulativeStats_v2 AS (#(lf)    SELECT #(lf)        Year,#(lf)        Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        NhanSuMoi_VP,#(lf)        NhanSuRoiDi_VP,#(lf)        CASE #(lf)            WHEN Year = 2022 AND Month = 1 THEN #(lf)                (SELECT MAX(NhanSuBase_VP) #(lf)                 FROM TempBase_v2 b #(lf)                 WHERE b.DonVi = ms.DonVi#(lf)                 AND b.ViTri = ms.ViTri#(lf)                 AND b.HinhThucLamViec = ms.HinhThucLamViec#(lf)                 AND b.TrangThaiLamViec = ms.TrangThaiLamViec)#(lf)            ELSE NULL#(lf)        END AS NhanSuConLai_VP_Init#(lf)    FROM MonthlyStats_v2 ms#(lf)),#(lf)FinalStats_v2 AS (#(lf)    SELECT #(lf)        Year,#(lf)        Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        NhanSuMoi_VP,#(lf)        NhanSuRoiDi_VP,#(lf)        SUM(#(lf)            COALESCE(NhanSuMoi_VP, 0) - COALESCE(NhanSuRoiDi_VP, 0)#(lf)        ) OVER (#(lf)            PARTITION BY DonVi, ViTri, HinhThucLamViec, TrangThaiLamViec#(lf)            ORDER BY Year, Month#(lf)            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW#(lf)        ) + COALESCE(#(lf)            MAX(NhanSuConLai_VP_Init) OVER (PARTITION BY DonVi, ViTri, HinhThucLamViec, TrangThaiLamViec),#(lf)            0#(lf)        ) AS NhanSuConLai_VP#(lf)    FROM CumulativeStats_v2#(lf)),#(lf)TempNhanViec_v3 AS (#(lf)    SELECT #(lf)        EXTRACT(YEAR FROM NgayThuViec) AS Year,#(lf)        EXTRACT(MONTH FROM NgayThuViec) AS Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        COUNT(MaNhanVien) AS NhanSuMoi_CH#(lf)    FROM TempStaff#(lf)    WHERE NoiLamViec = 'Cửa Hàng'#(lf)    GROUP BY 1, 2, 3, 4, 5, 6#(lf)),#(lf)TempRoiDi_v3 AS (#(lf)    SELECT #(lf)        EXTRACT(YEAR FROM NgayKetThuc) AS Year,#(lf)        EXTRACT(MONTH FROM NgayKetThuc) AS Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        COUNT(CASE WHEN NgayThuViec IS NOT NULL THEN MaNhanVien ELSE NULL END) AS NhanSuRoiDi_CH#(lf)    FROM TempStaff#(lf)    WHERE NoiLamViec = 'Cửa Hàng'#(lf)    GROUP BY 1, 2, 3, 4, 5, 6#(lf)),#(lf)TempBase_v3 AS (#(lf)    SELECT #(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        COUNT(MaNhanVien) AS NhanSuBase_CH#(lf)    FROM TempStaff#(lf)    WHERE NoiLamViec = 'Cửa Hàng'#(lf)      AND NgayThuViec < '2022-01-01'#(lf)      AND (NgayKetThuc IS NULL OR NgayKetThuc >= '2022-01-01')#(lf)    GROUP BY 1, 2, 3, 4#(lf)),#(lf)MonthlyStats_v3 AS (#(lf)    SELECT #(lf)        d.Year,#(lf)        d.Month,#(lf)        d.DonVi,#(lf)        d.ViTri,#(lf)        d.HinhThucLamViec,#(lf)        d.TrangThaiLamViec,#(lf)        COALESCE(tnv.NhanSuMoi_CH, 0) AS NhanSuMoi_CH,#(lf)        COALESCE(trd.NhanSuRoiDi_CH, 0) AS NhanSuRoiDi_CH#(lf)    FROM TempDate d#(lf)    LEFT JOIN TempNhanViec_v3 tnv ON d.Year = tnv.Year AND d.Month = tnv.Month AND d.DonVi = tnv.DonVi AND d.ViTri = tnv.ViTri AND d.HinhThucLamViec = tnv.HinhThucLamViec AND d.TrangThaiLamViec = tnv.TrangThaiLamViec#(lf)    LEFT JOIN TempRoiDi_v3 trd ON d.Year = trd.Year AND d.Month = trd.Month AND d.DonVi = trd.DonVi AND d.ViTri = trd.ViTri AND d.HinhThucLamViec = trd.HinhThucLamViec AND d.TrangThaiLamViec = trd.TrangThaiLamViec#(lf)    WHERE d.NoiLamViec = 'Cửa Hàng'#(lf)),#(lf)CumulativeStats_v3 AS (#(lf)    SELECT #(lf)        Year,#(lf)        Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        NhanSuMoi_CH,#(lf)        NhanSuRoiDi_CH,#(lf)        CASE #(lf)            WHEN Year = 2022 AND Month = 1 THEN #(lf)                (SELECT MAX(NhanSuBase_CH) #(lf)                 FROM TempBase_v3 b #(lf)                 WHERE b.DonVi = ms.DonVi#(lf)                 AND b.ViTri = ms.ViTri#(lf)                 AND b.HinhThucLamViec = ms.HinhThucLamViec#(lf)                 AND b.TrangThaiLamViec = ms.TrangThaiLamViec)#(lf)            ELSE NULL#(lf)        END AS NhanSuConLai_CH_Init#(lf)    FROM MonthlyStats_v3 ms#(lf)),#(lf)FinalStats_v3 AS (#(lf)    SELECT #(lf)        Year,#(lf)        Month,#(lf)        DonVi,#(lf)        ViTri,#(lf)        HinhThucLamViec,#(lf)        TrangThaiLamViec,#(lf)        NhanSuMoi_CH,#(lf)        NhanSuRoiDi_CH,#(lf)        SUM(#(lf)            COALESCE(NhanSuMoi_CH, 0) - COALESCE(NhanSuRoiDi_CH, 0)#(lf)        ) OVER (#(lf)            PARTITION BY DonVi, ViTri, HinhThucLamViec, TrangThaiLamViec#(lf)            ORDER BY Year, Month#(lf)            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW#(lf)        ) + COALESCE(#(lf)            MAX(NhanSuConLai_CH_Init) OVER (PARTITION BY DonVi, ViTri, HinhThucLamViec, TrangThaiLamViec),#(lf)            0#(lf)        ) AS NhanSuConLai_CH#(lf)    FROM CumulativeStats_v3#(lf)),#(lf)TempResult AS (#(lf)  SELECT #(lf)    Year,#(lf)    Month,#(lf)    DonVi,#(lf)    ViTri,#(lf)    HinhThucLamViec,#(lf)    TrangThaiLamViec,#(lf)    NhanSuMoi_VP AS NhanSuMoi,#(lf)    NhanSuRoiDi_VP AS NhanSuRoiDi,#(lf)    NhanSuConLai_VP AS NhanSuConLai,#(lf)    0 AS IsChinhThuc#(lf)  FROM FinalStats#(lf)  --WHERE NhanSuConLai_VP > 0#(lf)#(lf)  UNION ALL#(lf)#(lf)    SELECT #(lf)    Year,#(lf)    Month,#(lf)    DonVi,#(lf)    ViTri,#(lf)    HinhThucLamViec,#(lf)    TrangThaiLamViec,#(lf)    NhanSuMoi_VP AS NhanSuMoi,#(lf)    NhanSuRoiDi_VP AS NhanSuRoiDi,#(lf)    NhanSuConLai_VP AS NhanSuConLai,#(lf)    1 AS IsChinhThuc#(lf)  FROM FinalStats_v2#(lf)  --WHERE NhanSuConLai_VP > 0#(lf)#(lf)  UNION ALL#(lf)#(lf)  SELECT #(lf)    Year,#(lf)    Month,#(lf)    DonVi,#(lf)    ViTri,#(lf)    HinhThucLamViec,#(lf)    TrangThaiLamViec,#(lf)    NhanSuMoi_CH AS NhanSuMoi,#(lf)    NhanSuRoiDi_CH AS NhanSuRoiDi,#(lf)    NhanSuConLai_CH AS NhanSuConLai,#(lf)    1 AS IsChinhThuc#(lf)  FROM FinalStats_v3#(lf)  --WHERE NhanSuConLai_CH > 0#(lf))#(lf)SELECT *#(lf)FROM TempResult#(lf)ORDER BY Year, Month, DonVi, ViTri", null, [EnableFolding=true])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

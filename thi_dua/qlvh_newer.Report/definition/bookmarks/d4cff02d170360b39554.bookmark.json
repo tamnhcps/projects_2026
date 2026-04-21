@@ -1,0 +1,2673 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Tỉ lệ",
+  "name": "d4cff02d170360b39554",
+  "options": {
+    "targetVisualNames": []
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "ReportSection16fa93ffb3e2c4a23a51",
+    "filters": {
+      "byExpr": [
+        {
+          "name": "dd19e4017e4d9c482b01",
+          "type": "Advanced",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DIM_Danh mục_Ngày"
+                }
+              },
+              "Property": "Tháng_IsActive"
+            }
+          },
+          "howCreated": 1
+        }
+      ]
+    },
+    "sections": {
+      "ReportSection16fa93ffb3e2c4a23a51": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "6b74abdb18aa0dc83187",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_Danh mục_Ngày"
+                    }
+                  },
+                  "Property": "Ngày_ActiveLog"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {
+          "1322e56d3607351ad037": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f9ff77900a9b31303e4a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "02fac9d1a46861252117",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt thu thập KHTN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "19dbd57c1e2223b96977",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt lượt tải app"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1e11cdd3e66e045a2758",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt trễ đơn giao hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "46f57ca4abe07158c40c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt năng suất định biên"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "86a75b70375d0e8006e7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt thành công đơn Online"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e778ebc1057c52d2e32d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt tư vấn smember"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bbaa7e920e151a4e8790",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt turnover rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "57b2da73e06968442308",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt sử dụng ESL"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "multiRowCard",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH đạt"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "df79e90fe329b0d9954d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "113038d26aebbed41e9d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko đạt"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "037c4596ab000bd7266d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko thu thập KHTN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "07d72b82c0dec4d04eaa",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko lượt tải app"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9ccb79ffe463d3426450",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko trễ đơn giao hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d50c63517cc68dc808a9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko năng suất định biên"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "271c58f189791032ce6b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko thành công đơn Online"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8d005774d7a2054e7715",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko tư vấn smember"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b01a3a2d051e736c92b2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko turnover rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e7a120a30b60c11a5324",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko sử dụng ESL"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "multiRowCard",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "% Số CH ko đạt"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "5672e26768159da77603": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e3015646cd259091addc": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "55259f78cc3b8c00ebc3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "270c74c19933ea38c076",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Hệ số Chỉ tiêu"
+                        }
+                      },
+                      "Property": "Chỉ tiêu"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3f22da748ea46bbc1027",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Hệ số Chỉ tiêu"
+                        }
+                      },
+                      "Property": "Tháng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7999e2e03a80050a300d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DIM_Danh mục_Hệ số Chỉ tiêu"
+                            }
+                          },
+                          "Property": "Hệ số"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Hệ số Chỉ tiêu"
+                        }
+                      },
+                      "Property": "Chỉ tiêu"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Hệ số Chỉ tiêu"
+                        }
+                      },
+                      "Property": "Tháng"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d7c04a82273105b404b8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "97abd23d80c569a67cc7",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Đánh giá cuối cùng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ceda79dfa57b2a720079",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Score"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "276838834d7b040563b6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "% Target Dso"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7759aac77d7a730eb7b6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "% Target lượt tải app"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "265997b362dcbc70d9ed",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "% Target trễ đơn giao hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9547acc804a4177470e3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "% Target năng suất định biên"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e7bd895635b00cb15818",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "% Target thành công đơn Online"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1fdfc58e905872720971",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "% Target tư vấn smember"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "490917c6c39830ea4bac",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Target turnover rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1b3bc075d53bb282786d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Xếp hạng cuối cùng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fed1db0be1e4ad03d311",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Tổng chỉ tiêu đạt"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "868f19eeb1b4d7824078",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Cửa hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9aa9661dbed018ac661b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Size"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0f9b8d2f4b14db64d4c9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "% Target sử dụng ESL"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ce28ad1517c2216080b9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FACT_Đánh giá Shop"
+                            }
+                          },
+                          "Property": "Ranking"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Xếp hạng cuối cùng"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "5492e86453e167dd414d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filter692821a9e27a67e580a0",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Measure",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 1,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "m"
+                                  }
+                                },
+                                "Property": "Dso"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Dso"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "794542f003bc9b73eec5",
+                  "type": "Categorical",
+                  "expression": {
+                    "GroupRef": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Key City",
+                      "GroupedColumns": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DIM_Danh mục_Phòng ban"
+                              }
+                            },
+                            "Property": "Province"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2de68b5fdb4abc0566ce",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Province"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "GroupRef": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Key City",
+                      "GroupedColumns": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DIM_Danh mục_Phòng ban"
+                              }
+                            },
+                            "Property": "Province"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "DIM_Danh mục_Phòng ban.Key City"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DIM_Danh mục_Phòng ban"
+                              }
+                            },
+                            "Property": "Key City"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "DIM_Danh mục_Phòng ban.Province"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          },
+          "64970b1dc0a0dc10de68": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filter03034a142303a0bbe04a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Province"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filter4e4f6f825ec9028830a4",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Measure",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 1,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "m"
+                                  }
+                                },
+                                "Property": "Dso"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Dso"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "Filter222020282e02b909a42b",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Cửa hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b566a7d0c188a2b82c57",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Size"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Size"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "Cửa hàng"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "DIM_Danh mục_Phòng ban.Size"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DIM_Danh mục_Phòng ban"
+                              }
+                            },
+                            "Property": "Size"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "DIM_Danh mục_Phòng ban.Cửa hàng"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null,
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'A'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'B'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'C'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'D'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'E'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "65087d78adec2903b58a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filterc1a18dc02a3006a09578",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Measure",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 1,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "m"
+                                  }
+                                },
+                                "Property": "Dso"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Dso"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "c22e3fc05aa7d7a20b04",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AM_SM_Current_Month"
+                        }
+                      },
+                      "Property": "SM/SUP"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AM_SM_Current_Month"
+                        }
+                      },
+                      "Property": "SM/SUP"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "5de59d12335e4e001d99": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filterc1a18dc02a3006a09578",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Measure",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 1,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "m"
+                                  }
+                                },
+                                "Property": "Dso"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Dso"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "744aca1834d68cd3be90",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Đánh giá"
+                        }
+                      },
+                      "Property": "Đánh giá"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7393aa3172d6a460409d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Đánh giá"
+                        }
+                      },
+                      "Property": "Đánh giá cuối cùng"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Đánh giá"
+                        }
+                      },
+                      "Property": "Đánh giá"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Đánh giá"
+                        }
+                      },
+                      "Property": "Đánh giá cuối cùng"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "DIM_Danh mục_Đánh giá.Đánh giá"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DIM_Danh mục_Đánh giá"
+                              }
+                            },
+                            "Property": "Đánh giá"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "DIM_Danh mục_Đánh giá.Đánh giá cuối cùng"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null,
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'Đạt'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'Không đạt'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "84182a32d577b06e4503": {
+            "filters": {
+              "byName": {
+                "855146c99140200d63cb": {
+                  "name": "855146c99140200d63cb",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "DIM_Danh mục_Miền",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "d"
+                                        }
+                                      },
+                                      "Property": "Miền"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Toàn quốc'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Miền"
+                        }
+                      },
+                      "Property": "Miền"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              }
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "d",
+                                "Entity": "DIM_Danh mục_Miền",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "d"
+                                            }
+                                          },
+                                          "Property": "Miền"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'Miền Nam'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Miền"
+                        }
+                      },
+                      "Property": "Miền"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "11474022341d08217147": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filter5987e82fc207ea47034a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Nhóm hàng"
+                        }
+                      },
+                      "Property": "Nhóm hàng cấp 1"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "54f7a3b8a7323763260e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số cửa hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "616dd9ce18749320c24d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Ngày"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c77b117f140aa0a8406c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "kpi",
+              "objects": {}
+            }
+          },
+          "0ba725131757594a47e3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "69e0d3433cbe0e4506e6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Ngày"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bdf6be650ac1a1277816",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số quản lý"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "kpi",
+              "objects": {}
+            }
+          },
+          "3c31f498e4c6a0603e44": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d81c417920a0939513c1",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số cửa hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e82e573b4b0088749e30",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Đánh giá cuối cùng"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "waterfallChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Đánh giá cuối cùng"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Đánh giá Shop"
+                        }
+                      },
+                      "Property": "Đánh giá cuối cùng"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "63ebff56130396284019": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e006140e0340c5228017",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Ngày"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3e34e395068bed0416de",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số AM"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "kpi",
+              "objects": {}
+            }
+          },
+          "910aa9d0871e33951b94": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a3f0c5411a0d06109171",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "48743669a667b899be45",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt thu thập KHTN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0b7dafcb0b9db2189754",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt lượt tải app"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dbad35e0a6043624d13e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt trễ đơn giao hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7b4504ee90ed4c15b900",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt năng suất định biên"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "65aa5fb38048a8e3e418",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt thành công đơn Online"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d2c7ad5c5caa282b1145",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt tư vấn smember"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "300d4dee29761a0400a9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt turnover rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5d59a1700a68ad410e18",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt sử dụng ESL"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "multiRowCard",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH đạt"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "c22d0777363ca51c0c05": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "61b48780d030997313a4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko đạt"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4c57d9a40a2a2dd133b6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko thu thập KHTN"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c3eec257e6d749e23768",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko lượt tải app"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1bf1dccd880e8700d5da",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko trễ đơn giao hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "34ca30edb79677742d7a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko năng suất định biên"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "130ef178c8b70411c543",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko thành công đơn Online"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1c053010ac8010dc5cb5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko tư vấn smember"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6472d37e1c0485b096a5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko turnover rate"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d77067f392c88a4d37b3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko sử dụng ESL"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "multiRowCard",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Số CH ko đạt"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "1c8fa079e9106e4d3030": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "a8d100f0379a9aa94cd5": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "d85c7724c14e4e3bc24e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "56213e4205a6acd5c031",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "filter_show"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+              "objects": {}
+            }
+          },
+          "24646208c9a295190764": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d32d7292b09bb3da11eb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Xếp hàng cuối cùng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "23a1499f09c9225c66ae",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Đánh giá cuối cùng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7d7535eee404413e7aad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Tổng chỉ tiêu đạt"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "923999cc70293ac1e05b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Tổng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d594975907db24b19655",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Chỉ tiêu doanh số [20%]"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4daaea043a5563ada2ab",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Chỉ tiêu tỷ lệ chốt đơn [20%]"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c8313e55a9d690b27aae",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Chỉ tiêu SPTT [15%]"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "197538c0ca08d5c00949",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Chỉ tiêu Laptop [15%]"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0687acb067937e035e6b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Chỉ tiêu bán kèm [10%]"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "af9650b50c380e2b22ec",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Chỉ tiêu thu cũ [10%]"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "88e6e66100003ecc4983",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Chỉ tiêu phục vụ [10%]"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "910a107953a39ca5dc62",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4f0f07cd67446b6a02d0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Cửa hàng"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3c320274878460ced255",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Chỉ tiêu Hàng cũ"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f7383799d0eb56150c70",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Log_Ranking"
+                            }
+                          },
+                          "Property": "Xếp hạng cửa hàng"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  }
+                },
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Log_Ranking"
+                        }
+                      },
+                      "Property": "Xếp hàng cuối cùng"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "664b388b165acc30d663": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "bd92946ea1c1a07d6045": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6b967d0355e447c8d9e1",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Ngày"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Between'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Ngày"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Ngày"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "5fc0752968051774047d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "Filterc1a18dc02a3006a09578",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Measure",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 1,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "m"
+                                  }
+                                },
+                                "Property": "Dso"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Measure"
+                        }
+                      },
+                      "Property": "Dso"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "cd9dd15e5e90a6e43503",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "AM"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_Danh mục_Phòng ban"
+                        }
+                      },
+                      "Property": "AM"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "a2cc80883cb8b037f34f": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "ce3239e0aca13d09a615": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "442f46c41814b2dae6b5": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "visible": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

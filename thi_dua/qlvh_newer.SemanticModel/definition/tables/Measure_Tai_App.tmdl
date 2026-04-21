@@ -1,0 +1,196 @@
+table Measure_Tai_App
+	lineageTag: a02549ca-b008-45ca-9248-aef299add129
+	sourceLineageTag: a55949cc-ddbc-4e3f-bc32-d19d25c951d5
+
+	measure Update-Filtered = EXTERNALMEASURE("Update-Filtered", STRING, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		displayFolder: Other
+		lineageTag: 12d8ef14-dafe-43af-a0f9-446d2e8cc96a
+		sourceLineageTag: 7a1e1553-fa48-42ca-aa6f-98be2d2d5b51
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Last_Update = EXTERNALMEASURE("Last_Update", DATETIME, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: General Number
+		displayFolder: Other
+		lineageTag: 948759d5-96ae-426d-9448-730c9c9e90b5
+		sourceLineageTag: b8fc2ff4-43ba-42b4-aee4-daf4107cd701
+		dataCategory: Uncategorized
+
+	measure 'Số khách mua hàng' = EXTERNALMEASURE("Số khách mua hàng", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: #,0
+		lineageTag: b16b2ba9-306a-40db-8a8b-f121e1f0377c
+		sourceLineageTag: d313cacc-42c6-4202-972e-89b7fb9401ca
+		dataCategory: Uncategorized
+
+	measure 'Lượt tải app cũ' = EXTERNALMEASURE("Lượt tải app cũ", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: #,0
+		lineageTag: baa27fa9-479b-48f7-bcf7-f2a4fb2a1177
+		sourceLineageTag: b28ae41a-e59c-48b5-a51d-81e9871335a9
+		dataCategory: Uncategorized
+
+	measure 'Đã có app' = EXTERNALMEASURE("Đã có app", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: #,0
+		lineageTag: 3b1ea295-01bd-40c2-beac-ae288dab1c7f
+		sourceLineageTag: 44a0b503-80c6-4219-9661-69eca809f43c
+		dataCategory: Uncategorized
+
+	measure '%Tải app cũ' = EXTERNALMEASURE("%Tải app cũ", DOUBLE, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 89b13bd3-8fad-4375-888b-84051268a6e6
+		sourceLineageTag: ac5ed5e8-4be9-474f-9c99-e5f401da9b2c
+		dataCategory: Uncategorized
+
+	measure '%Đã có app' = EXTERNALMEASURE("%Đã có app", DOUBLE, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 16ce453d-41ea-442c-a243-1dd03670de8a
+		sourceLineageTag: 494658d1-1516-480e-a8dd-876687707ad0
+		dataCategory: Uncategorized
+
+	measure 'Số lượt tải/Ngày' = EXTERNALMEASURE("Số lượt tải/Ngày", DOUBLE, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		lineageTag: ec454302-0533-4ef0-8206-d9c36cfbae64
+		sourceLineageTag: d42cf07a-3a61-4af2-840f-4c8d99394c0a
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Tổng Lượt tải app' = EXTERNALMEASURE("Tổng Lượt tải app", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0
+		lineageTag: 97cd8273-69ef-4e45-bb00-4fa1d34a8a13
+		sourceLineageTag: badeaa45-0f81-4ff6-aa89-99abf1bfb5ed
+		dataCategory: Uncategorized
+
+	measure 'Tải app_check' = EXTERNALMEASURE("Tải app_check", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0
+		lineageTag: c7f92b95-3b05-445b-ac22-4eecf945aab4
+		sourceLineageTag: 3273fc9c-2b72-4e75-a05b-48c9e4e44f89
+		dataCategory: Uncategorized
+
+	measure 'Lượt tải app' = EXTERNALMEASURE("Lượt tải app", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: #,0
+		lineageTag: 98f146c6-c41f-4b98-8476-46a8effb31a1
+		sourceLineageTag: 887e1d67-37f1-4cb8-87d3-fc8c8483c638
+		dataCategory: Uncategorized
+
+	measure 'Chưa có app' = EXTERNALMEASURE("Chưa có app", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: #,0
+		lineageTag: a472cf4e-4f24-4a12-8975-60bc2115c90b
+		sourceLineageTag: d0e6ccad-f490-4182-92c5-d3245798e5cc
+		dataCategory: Uncategorized
+
+	measure '%Tải app' = EXTERNALMEASURE("%Tải app", DOUBLE, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4898ef00-4dec-468c-b436-481e377555b9
+		sourceLineageTag: 80fc1119-8d2f-4a92-84e8-5289eef2bdfa
+		dataCategory: Uncategorized
+
+	measure Target = EXTERNALMEASURE("Target", DOUBLE, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		lineageTag: 109f372f-c75b-42a4-9ce9-4f74c4391982
+		sourceLineageTag: fb9fa1c8-85aa-4f0a-b20f-4b37435afee7
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '%Target Tải app' = EXTERNALMEASURE("%Target Tải app", DOUBLE, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0e1e7d1b-2716-4685-9514-32bffd68809d
+		sourceLineageTag: 82265b62-e145-402d-9741-23107f7649cb
+		dataCategory: Uncategorized
+
+	measure 'Đánh giá' = EXTERNALMEASURE("Đánh giá", STRING, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		lineageTag: c21c1386-e032-4582-b355-00a430402590
+		sourceLineageTag: c05e71f4-51c3-431c-a5d7-dfdbd1d6c9a9
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Số cửa hàng 2' = EXTERNALMEASURE("Số cửa hàng", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0
+		lineageTag: b2065bb7-ef31-4efa-a6e3-0048018bca0c
+		sourceLineageTag: bc41db2c-76d2-4e76-ab94-a3223dec075c
+		dataCategory: Uncategorized
+
+	measure 'Số cửa hàng không đạt' = EXTERNALMEASURE("Số cửa hàng không đạt", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0
+		lineageTag: d4f17763-970a-4776-b2af-f8224a0af1a9
+		sourceLineageTag: 1fdcab33-4f91-4d6f-ae91-a83e58de7930
+		dataCategory: Uncategorized
+
+	measure 'Số cửa hàng đạt' = EXTERNALMEASURE("Số cửa hàng đạt", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0
+		lineageTag: 708fd1d5-80ea-43d2-b009-e81d90cf2fe0
+		sourceLineageTag: 540f267f-7719-4e60-9294-880e1e851c61
+		dataCategory: Uncategorized
+
+	measure %Đạt = EXTERNALMEASURE("%Đạt", DOUBLE, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 99d4a70a-66c9-4f8f-b3c7-ce150fa0c65e
+		sourceLineageTag: 968db573-d4ee-45e0-9ce7-f70671c4c68e
+		dataCategory: Uncategorized
+
+	measure '%Không đạt' = EXTERNALMEASURE("%Không đạt", DOUBLE, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: d4aee2a1-b0f7-4567-a934-fa68e0e4d7b1
+		sourceLineageTag: 4c0c9da5-da5f-45c9-ae98-860e931384d0
+		dataCategory: Uncategorized
+
+	measure 'Thưởng phạt' = EXTERNALMEASURE("Thưởng phạt", INTEGER, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: #,0
+		lineageTag: 1400bb41-735d-4ba2-91b0-08f7bcd17ff7
+		sourceLineageTag: 187b5ab3-6ad8-403f-b1f5-aa86b9e5dbcc
+		dataCategory: Uncategorized
+
+	measure 'Target tải app_Rank' = EXTERNALMEASURE("Target tải app_Rank", DOUBLE, "DirectQuery to AS - CS_Báo cáo Lượt tải App")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 14ca6e1c-5f2c-4519-81c6-2117dfca693d
+		sourceLineageTag: d0268679-c926-4e90-9e80-9e8cfa215a8a
+		dataCategory: Uncategorized
+
+	measure '%Tải app_area' =
+			VAR var_noi   = 0.5
+			VAR var_ngoai = 0.55
+			VAR area =
+			    SELECTEDVALUE('DIM_Danh mục_Phòng ban'[Cửa hàng])
+			VAR target =
+			    IF(
+			        CONTAINSSTRING(area, "HCM") || CONTAINSSTRING(area, "HNO"),
+			        var_noi,
+			        var_ngoai
+			    )
+			VAR actual = Measure_Tai_App[%Tải app]
+			RETURN
+			     MIN(
+			        1.2,
+			        ROUND(
+			            DIVIDE(actual, target, 0),
+			            4
+			        )
+			    )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7c4533dd-aa4b-443d-9680-126a0ea76083
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	column Column
+		dataType: int64
+		isHidden
+		formatString: 0
+		displayFolder: Other
+		lineageTag: da74bc6f-cf64-448b-82a4-8259d9616c9a
+		sourceLineageTag: b202b5af-25d1-43af-b909-479090fadb90
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = User
+
+	partition Measure_Tai_App = entity
+		mode: directQuery
+		source
+			entityName: Measure
+			expressionSource: 'DirectQuery to AS - CS_Báo cáo Lượt tải App'
+
+	changedProperty = Name
+

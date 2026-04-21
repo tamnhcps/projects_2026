@@ -1,0 +1,5 @@
+role 'Kinh doanh_PK_Ốp bao da'
+	modelPermission: read
+
+	annotation PBI_Id = 15b10227dd7e4a9d96450e74344e37d0
+

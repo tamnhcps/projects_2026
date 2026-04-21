@@ -1,0 +1,33 @@
+table 'DIM_Đánh giá AM'
+	excludeFromModelRefresh
+	lineageTag: 3cb97b1a-94a7-4da1-945b-0ea7d6a5aa11
+
+	column 'Đánh giá cuối cùng'
+		dataType: string
+		lineageTag: 2ccf4ed0-f9f9-4505-adec-3b99125251b8
+		summarizeBy: none
+		sourceColumn: Đánh giá cuối cùng
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'AVG_Điểm quy đổi'
+		dataType: string
+		lineageTag: 5430dddc-7097-47f9-8a29-22cbcbc1061a
+		summarizeBy: none
+		sourceColumn: AVG_Điểm quy đổi
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DIM_Đánh giá AM' = m
+		mode: import
+		queryGroup: 'Danh mục'
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wiih9uGtpiULxw13rkxVKSisf7m4vUTgy8eHuiZlKOkqOYe4KMaUGBsaptgrGeqZKsTrRSiFAuRI0OSOonHfG4YVoUoYwqcMrc5GlkiEysQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Đánh giá cuối cùng" = _t, #"AVG_Điểm quy đổi" = _t])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

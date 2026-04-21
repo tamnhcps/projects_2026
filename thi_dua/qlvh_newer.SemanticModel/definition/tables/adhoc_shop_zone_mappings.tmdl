@@ -1,0 +1,29 @@
+table adhoc_shop_zone_mappings
+	lineageTag: c3a7de99-83b4-4028-bb2a-c8ab3e1dcdf5
+
+	column shop_id
+		dataType: string
+		lineageTag: 0d8bd126-1145-49e4-8b3f-fb7b719a5b5b
+		summarizeBy: none
+		sourceColumn: shop_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column zone
+		dataType: string
+		lineageTag: bde7a186-573d-4839-9c9b-b55e27c972ef
+		summarizeBy: none
+		sourceColumn: zone
+
+		annotation SummarizationSetBy = Automatic
+
+	partition adhoc_shop_zone_mappings = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("hZdNc+M2DIb/Sifn5SzBD5E6imJqekTRUkJr3O7ssdf2/98KKHbjrEH3gNMDUSQIvgB+/HgZl3cR4lnU4SzAdrE6416+vfz5z99//aZefn6784izAK+X3MZGuZhDbDgMRYCUZatt3umU5sTziFxZXYbyyNM44wZOQuW0PNJ4KiKkk3BhY9a+UesWbmuE85QEOJu2Bq5JaOkyc3DCNeDiPsy1sXpNR/E7xImnpb4JpV3mvq7liKsfhAKzZqVuDvqrA5q3dpyrf3QIb8fdNJTE3QuirQ7C9MDv/+YAnWVDH+JRrCWJrutrio//X8thN+X7tT7iCe+FAqArc+kFw74khLr/xF+/DaUKSCOzL/oWDffN7osSiny0czH8dy544FZ3l61U3mGVSsD95hjcy1Jji4OwNtR1anOl5BPuhDK+1Ob2nDDaPuXWQaqN85fwiq8COtYh5kFgygiAbgnMBRyQL9MZU5e794xvmVaQpmxjGyvXh3rhecj44DH4S+NzzCoPXN58aMkZtUgN0+ff4cGhN/opB79tjas/bIOwdxnPUGWHZ1w5VU5PPu9cXpt51QtQNm9bmysD/8fjJTXexZjEqJcGXaXHrOpjaGUdSFQDj4+rzbVxpZWVK+CrQilvfo54KEPz70r0+rsfmx5pPgnzXTcvb8TTQ69r9m1u/R1Wv4TH4Pbd1IweoKSY0owOcYvRmZuiYIXz96L3q6ihmCvXFIW6JGGcyk+56etU19YGOmwDnA3p0HYwnWxh2qD3GECQbQftu5RVY4fhKDqnhtbLRdzbrokXKhpQ3h9xQBQvJ9F3fnljeoHb6qj5IW2t+KGDtv3YTF8QxmKr0eAL1loAs8TM7A8ljwzsZ6/xKXsb6uUyUSMjh5hm3oEMm8SlhkcesRyOKMoeW4lHOhyOIl8OogfFFtwbx3qpmw4jtXiYfPkRZ+wO9w5Tqc827SsO+Sy8uutz7vokXHyuJ8rsgTnahHhZz3gx3Nq0szc0I+9r6deviQM4ltftuJsyd63GJx7nYTdt2LiEfNwNOyiu1r3jhZP1wHWvI95ZmXBrWo9sf3dzwKjzDSA57HE3UNhiWE5ipOD4yubsFYPCNmJ+wjtZJu7JXLkGOXKCgbhiH4jL58wJEvJ9roCReTAJizhZVzKTFCv21SM+eQWaC3xClHaxQLF8hvUQuS7kypXzlXtPtPNQMyaNWTZOywt1zsi9bgaWuJV8n4B4P7rrtwuPBxQLowaQbC3AMU1sR5zogHutdCdkqpNc7FYUwUhC5vjmvB53w/6NCzzdacT30slL42SEMeXZInrFCjhacJwhA8uPM6Teu4JrzaXMR1Tp2I5tH64YjNy47uaKvWN7q/MrTkMoz5xExTKIOmFI+rIx1/GBUftBsxJEPGPf4rCwRyaZiZPIANxN978cm0QEhhQa50JsbRuj/lnTsZPSFSucQLlumxSAJsjurix94g2f2PbHq9AzExYaELeP8bvnokpr50DSK5vaFyIubmyT799bVQ6NfKA5yUK5NMQrhYq/VzNT0G/YQhy5Tp4CczlTvWfn1yu2RnM4v592w3xgxKviRE+mpExcQgSUTjLdqmmo6GTAF1z6tOLPlVGcABQMacJa32u+kyDhphml62Vibn1XADTnZOuR7iWFDwwtng4oL7xA0NdLpFrvWVmml5RGvBXVs43KfrZC41+XuapAVQOV1/m7hEL8818=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [shop_id = _t, zone = _t])
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

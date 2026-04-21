@@ -1,0 +1,772 @@
+table 'FACT_DS Online'
+	lineageTag: 86980c7d-e476-4413-8ab9-4efb4b303520
+	sourceLineageTag: 510eef49-7f98-4897-ab46-48ef1ee7e55d
+
+	column 'Chi nhánh'
+		dataType: string
+		lineageTag: 359a4b28-ebf5-431a-a281-1be5b6985871
+		sourceLineageTag: ebb09030-f8f6-4e8b-8f20-d71d4ea864a0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Chi nhánh
+
+		annotation SummarizationSetBy = User
+
+	column 'Cửa hàng'
+		dataType: string
+		lineageTag: a49dfce2-088c-4281-8fc6-c59c1b9d513d
+		sourceLineageTag: bd41fce5-da6c-4f8a-9c24-81720b3d37ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cửa hàng
+
+		annotation SummarizationSetBy = User
+
+	column 'Số đơn hàng'
+		dataType: string
+		lineageTag: 1a163975-ecf1-4f04-b0e9-f267ce0d256c
+		sourceLineageTag: 3e81be00-19d8-4283-ad57-89b38a5d348f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Số đơn hàng
+
+		annotation SummarizationSetBy = User
+
+	column 'Số online'
+		dataType: string
+		lineageTag: 18dc1761-fa11-4d24-a6e5-b599c20aa0d7
+		sourceLineageTag: 0b3181f1-07d3-41d8-82d9-d7e3c2ac7bec
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Số online
+
+		annotation SummarizationSetBy = User
+
+	column 'Trạng thái đơn'
+		dataType: string
+		lineageTag: 7c9f04ba-6018-4f50-9b0c-d1fab92d3cd7
+		sourceLineageTag: d5a08929-fccb-4c21-a841-c64825fa4096
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trạng thái đơn
+
+		annotation SummarizationSetBy = User
+
+	column 'Đồng bộ lúc'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 974ea2aa-cecd-43dd-a921-cbefab3c0bd4
+		sourceLineageTag: 4d871f6a-2b92-455e-995c-bbb5e26f85ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Đồng bộ lúc
+
+		annotation SummarizationSetBy = User
+
+	column 'Trạng thái thanh toán'
+		dataType: string
+		lineageTag: 7a47b7c6-4d74-46ee-960f-4fee687f604a
+		sourceLineageTag: 97f28dc2-7cfd-4d84-8822-01d9e42b1e6e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Trạng thái thanh toán
+
+		annotation SummarizationSetBy = User
+
+	column 'Ngày đặt'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: f9286b8b-4cf2-4760-9c05-fb18ff485261
+		sourceLineageTag: 9b340a6d-f70d-40c6-a06c-ce26a1d99d86
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ngày đặt
+
+		annotation SummarizationSetBy = User
+
+	column SĐT
+		dataType: string
+		lineageTag: 65ef4e2c-7996-4a0a-8b96-bdc76457888e
+		sourceLineageTag: 81336a08-4d87-4a75-9400-6a3a246ad7b4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SĐT
+
+		annotation SummarizationSetBy = User
+
+	column 'Mã hàng'
+		dataType: string
+		lineageTag: 61e32bd6-8c35-4219-81fb-4e735940cb2b
+		sourceLineageTag: 29b84af5-a2b9-4d95-a876-f8347246d2c4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã hàng
+
+		annotation SummarizationSetBy = User
+
+	column 'Tên hàng'
+		dataType: string
+		lineageTag: 27b666d0-a29a-4ccb-a4e5-0da3b082fc29
+		sourceLineageTag: b9a4630c-acde-4d76-bdf7-3e25740b1344
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tên hàng
+
+		annotation SummarizationSetBy = User
+
+	column SL
+		dataType: int64
+		formatString: 0
+		lineageTag: d90e2baf-4d2e-4490-a71d-0dc2826f217f
+		sourceLineageTag: 6b61eee5-9dfd-47e9-a6d7-8d2242910d24
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SL
+
+		annotation SummarizationSetBy = User
+
+	column 'Đơn giá'
+		dataType: double
+		lineageTag: a8b02601-55de-4e80-adc7-71528976b6fb
+		sourceLineageTag: 8cd7c04e-b03d-46c4-9486-1ba24895016b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Đơn giá
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Thành tiền'
+		dataType: double
+		lineageTag: d95bedbc-3ef7-4b5f-a242-c605730dbb56
+		sourceLineageTag: fe86c7b1-f6b8-464c-9331-d43fe316d1c6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thành tiền
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PromotionPackValue
+		dataType: double
+		lineageTag: f10cb739-5276-4b5e-9a8e-fc5e6fb4ef4c
+		sourceLineageTag: 066ee2e0-b34d-4e4d-af08-c1cb967dfe71
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PromotionPackValue
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalAfterDiscount
+		dataType: double
+		lineageTag: 12c754d6-0542-4e90-b29e-5bd0d65d3895
+		sourceLineageTag: 3a5d1b7c-f3bc-4f93-80df-ef19a59d82c7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TotalAfterDiscount
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tổng đơn hàng'
+		dataType: double
+		lineageTag: 07b28b7b-7a3a-482d-ad15-a4583df22b8e
+		sourceLineageTag: c9447e46-43c4-42ec-b528-9b94cd21d269
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Tổng đơn hàng
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Đã trả trước'
+		dataType: double
+		lineageTag: 1be2d638-bb8a-4ec1-b96c-96dff7a97215
+		sourceLineageTag: 8ef41639-1cc8-45aa-b947-b7a652b18132
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Đã trả trước
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Hình thức thanh toán'
+		dataType: string
+		lineageTag: bd3fb945-4e44-4454-9a02-632fa0799fc7
+		sourceLineageTag: d1a9b418-6616-4f60-858f-966637e19240
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Hình thức thanh toán
+
+		annotation SummarizationSetBy = User
+
+	column 'Mã KM'
+		dataType: string
+		lineageTag: 4d7762ce-9e3c-4106-9ff4-151e1a5d6a85
+		sourceLineageTag: ca4205a5-31b2-464c-b681-e1fb60583a7a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã KM
+
+		annotation SummarizationSetBy = User
+
+	column ProvinceId
+		dataType: int64
+		formatString: 0
+		lineageTag: 557ceae4-7c1f-4168-a1d9-256894b6dd21
+		sourceLineageTag: 48107da6-d89a-4a01-b7d2-c3957d39a09b
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: ProvinceId
+
+		annotation SummarizationSetBy = User
+
+	column 'Thành phố'
+		dataType: string
+		lineageTag: ae93bba3-22bd-45c8-a1a8-858df639b812
+		sourceLineageTag: 8b2a1c14-8f5e-4c13-a7cb-b786bbd9abff
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Thành phố
+
+		annotation SummarizationSetBy = User
+
+	column DistrictId
+		dataType: int64
+		formatString: 0
+		lineageTag: d29505d9-3a5d-4da5-9138-26e2b2b921c5
+		sourceLineageTag: 2497766c-44c0-4780-b71e-95b36c38210e
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: DistrictId
+
+		annotation SummarizationSetBy = User
+
+	column 'Quận huyện'
+		dataType: string
+		lineageTag: 16d63017-5bf0-47c1-be73-a11cbc32a482
+		sourceLineageTag: 49901c0d-c5ff-497b-903d-b4703e75e7c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Quận huyện
+
+		annotation SummarizationSetBy = User
+
+	column 'Ngày xử lý'
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: db466e64-4458-4782-9be0-6693ea5db817
+		sourceLineageTag: 12efe3fb-6a99-435c-8272-d030a92aaa56
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ngày xử lý
+
+		annotation SummarizationSetBy = User
+
+	column 'Vận chuyển'
+		dataType: string
+		lineageTag: 1c0d5fc9-c801-497c-a27f-23463929c760
+		sourceLineageTag: 4481e5b6-70c3-4b1b-bddc-08176909bf04
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Vận chuyển
+
+		annotation SummarizationSetBy = User
+
+	column 'Người xử lý'
+		dataType: string
+		lineageTag: b578e5ff-86ef-46da-8998-5c7f71d5f5c3
+		sourceLineageTag: 9c904b30-29b1-43b4-9bb6-6c5edece763f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Người xử lý
+
+		annotation SummarizationSetBy = User
+
+	column 'Chức danh người xử lý'
+		dataType: string
+		lineageTag: a3cbac0f-4a93-439c-b394-65fd603afd00
+		sourceLineageTag: 77da4d87-d2d8-4764-add5-6eb298d1cddc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Chức danh người xử lý
+
+		annotation SummarizationSetBy = User
+
+	column 'Phòng ban người xử lý'
+		dataType: string
+		lineageTag: e5cb8c6c-3460-4872-8e0d-f3a4386e79b6
+		sourceLineageTag: ad6b87f4-ba0f-4cbc-8de7-f29a8412944a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Phòng ban người xử lý
+
+		annotation SummarizationSetBy = User
+
+	column 'Người từ chối'
+		dataType: string
+		lineageTag: 3dcc91c9-b970-427a-abff-349f14b267e2
+		sourceLineageTag: bf6d03ec-265b-4c7b-9ad1-4f7546ec8942
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Người từ chối
+
+		annotation SummarizationSetBy = User
+
+	column 'Phòng ban người từ chối'
+		dataType: string
+		lineageTag: ab29932d-55bf-46e4-a144-2e16b44c70d0
+		sourceLineageTag: 7fa608fd-1d9c-4b61-9332-c31c67091e6d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Phòng ban người từ chối
+
+		annotation SummarizationSetBy = User
+
+	column 'Chức danh người từ chối'
+		dataType: string
+		lineageTag: 40289534-1a53-43de-ab50-d8afa77e3e37
+		sourceLineageTag: 56266789-7647-4c2f-a0f6-6c7c67b0cb96
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Chức danh người từ chối
+
+		annotation SummarizationSetBy = User
+
+	column 'Lý do'
+		dataType: string
+		lineageTag: 35246ced-99d5-4563-800f-71af5c525a61
+		sourceLineageTag: 947bdc80-3c4e-41f8-b626-98383f5ae06d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lý do
+
+		annotation SummarizationSetBy = User
+
+	column 'Lý do từ chối'
+		dataType: string
+		lineageTag: e7649284-426d-4168-8254-68e3811521a8
+		sourceLineageTag: b321ec17-39fb-43df-b449-49d65d695414
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lý do từ chối
+
+		annotation SummarizationSetBy = User
+
+	column 'Mã ngân hàng'
+		dataType: string
+		lineageTag: a37ff065-a7dd-48f9-9137-b127abebc1f5
+		sourceLineageTag: f12e53fe-071b-4484-95f8-547c93a5c5dd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã ngân hàng
+
+		annotation SummarizationSetBy = User
+
+	column 'Phí giao dịch'
+		dataType: double
+		lineageTag: 2740d28a-6723-4c51-8fa8-838b432cddf3
+		sourceLineageTag: 4e32cb49-1311-449b-abe0-c30c86718b53
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Phí giao dịch
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Phí phụ thu'
+		dataType: double
+		lineageTag: 0b504236-7951-4342-9304-3e5ccce3ff2c
+		sourceLineageTag: 479310e0-ba5d-4e79-9f47-4fa4c853adbb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Phí phụ thu
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MerchantCode
+		dataType: string
+		lineageTag: 26e208eb-4c6c-4429-bd51-5f771f5972a5
+		sourceLineageTag: 49101000-a203-4e90-88ae-dbb720de32cd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MerchantCode
+
+		annotation SummarizationSetBy = User
+
+	column 'Nội dung thanh toán'
+		dataType: string
+		lineageTag: 8ee71629-ee8e-4645-9279-59e4d748bcc9
+		sourceLineageTag: 0acb6322-9106-48f4-9080-9523d176fd70
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nội dung thanh toán
+
+		annotation SummarizationSetBy = User
+
+	column Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 1f5ae861-8865-46af-9f15-0bf89ff1501e
+		sourceLineageTag: 4d65e34f-1e31-4a36-8237-3b48df3f2f8c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = User
+
+	column Startdate
+		dataType: dateTime
+		formatString: yyyy\-mm
+		lineageTag: 09d0cd83-c55e-45c9-8647-2cf1403339c2
+		sourceLineageTag: 82f82364-344a-4e81-a64c-c69e92ad11a6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Startdate
+
+		annotation SummarizationSetBy = User
+
+	column 'Bộ phận xử lý'
+		dataType: string
+		lineageTag: f96b7303-5390-4239-bde0-a4ffa0fcd078
+		sourceLineageTag: 8eb87768-62ca-485f-9136-faa40fe28e68
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bộ phận xử lý
+
+		annotation SummarizationSetBy = User
+
+	column 'Bộ phận từ chối'
+		dataType: string
+		lineageTag: b6079c91-6d86-4dd9-833a-60a403c5eddc
+		sourceLineageTag: c61099aa-6ac5-4309-a5ab-db47582fb6c3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bộ phận từ chối
+
+		annotation SummarizationSetBy = User
+
+	column 'Mã kho'
+		dataType: string
+		lineageTag: eb1e02a5-3df4-4fab-8492-cdbf8ab9d75e
+		sourceLineageTag: f7d62642-4892-4201-a287-ce89278925d7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã kho
+
+		annotation SummarizationSetBy = User
+
+	column ReviewByCode
+		dataType: string
+		lineageTag: 58eb48e2-d2a9-4d9d-9597-f1aae5801a11
+		sourceLineageTag: 9bbeeca7-b93d-44f4-b6c5-683a6caf2a83
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ReviewByCode
+
+		annotation SummarizationSetBy = User
+
+	column CancelByCode
+		dataType: string
+		lineageTag: 0769337b-35c0-4778-9aaf-efc9559320b2
+		sourceLineageTag: c639d868-b446-44c0-9af7-6bcb3d34b7e8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CancelByCode
+
+		annotation SummarizationSetBy = User
+
+	column CancelByDepartment
+		dataType: string
+		lineageTag: 6285814f-d774-44f5-8b50-da40b24e3075
+		sourceLineageTag: d5d0b8a3-afb0-4398-8faa-28ccb1e32db5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CancelByDepartment
+
+		annotation SummarizationSetBy = User
+
+	column OnlineState
+		dataType: string
+		lineageTag: 14bc32c3-93ab-4f7d-a84c-e2b37947d478
+		sourceLineageTag: d6bdc911-78e0-4d78-90a9-95da582aafd2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OnlineState
+
+		annotation SummarizationSetBy = User
+
+	column StatusPayment
+		dataType: string
+		lineageTag: c5c5cce8-a9c1-40b7-864b-0d69dd3d0dff
+		sourceLineageTag: 75168a0b-b14a-41c8-9355-00ec78adc684
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: StatusPayment
+
+		annotation SummarizationSetBy = User
+
+	column Product_HighestPrice
+		dataType: int64
+		formatString: 0
+		lineageTag: 841765b7-2f23-440c-b493-cf4a3f0338c3
+		sourceLineageTag: 4177ef02-fe2e-4016-bf2d-f016a95420cf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Product_HighestPrice
+
+		annotation SummarizationSetBy = User
+
+	column IsChased
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e1515f5-ddcf-4c0f-8960-ee61d3403839
+		sourceLineageTag: de05329a-ce0a-4e82-86e2-6fea713b6bba
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IsChased
+
+		annotation SummarizationSetBy = User
+
+	column NhomHang
+		dataType: string
+		lineageTag: a28ff46f-cb0d-4db3-8be4-2d6fa58d5c98
+		sourceLineageTag: 1bf3c2b6-221c-4213-a887-6c67e3bf271b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NhomHang
+
+		annotation SummarizationSetBy = User
+
+	column ChasedState
+		dataType: string
+		lineageTag: bffd8d40-8896-4d8c-9ae2-1c1e49866a67
+		sourceLineageTag: 29d47f67-cf2a-4735-b5db-55bf62de9b2f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ChasedState
+
+		annotation SummarizationSetBy = User
+
+	column 'SLA ra DH'
+		dataType: double
+		formatString: 0.00
+		lineageTag: 1517d47c-202a-435c-b5a6-b531bec669ca
+		sourceLineageTag: 957a44ae-b261-4a20-bcda-2c10a89485bf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SLA ra DH
+
+		annotation SummarizationSetBy = User
+
+	column OrderSource
+		dataType: string
+		lineageTag: 159ede97-cace-4577-b9e7-f93453b1053c
+		sourceLineageTag: 594b6508-d45a-4d04-aa1f-00d38981f3d3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OrderSource
+
+		annotation SummarizationSetBy = User
+
+	column 'Loại ca'
+		dataType: string
+		lineageTag: a139fe45-c3d8-4cac-bf82-f4e70f443237
+		sourceLineageTag: 462595a4-d1a8-45ae-aed2-b1ce1008a79d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Loại ca
+
+		annotation SummarizationSetBy = User
+
+	column PhieuBanLe
+		dataType: string
+		lineageTag: f78b34a5-cc6e-4b14-b9c0-f49a77e2b511
+		sourceLineageTag: e1737886-4c9b-440a-bb74-fe9ecd821b06
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PhieuBanLe
+
+		annotation SummarizationSetBy = User
+
+	column NgayBanLe
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a7ceb427-1913-4126-8b0f-0d91db1539f2
+		sourceLineageTag: ea610512-134a-4e82-a9f9-f81c7e4f48c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NgayBanLe
+
+		annotation SummarizationSetBy = User
+
+	column TrangThaiDon
+		dataType: string
+		lineageTag: e0b7b996-595f-404d-a01b-95a5e30f4991
+		sourceLineageTag: fbd87de2-da2b-4561-a411-6373ff45cc9b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TrangThaiDon
+
+		annotation SummarizationSetBy = User
+
+	column OrderState
+		dataType: string
+		lineageTag: 939360a7-b19e-4407-a0a6-68be4dfd9be8
+		sourceLineageTag: a19bebbd-e7ea-497e-96ad-a4443ead0f6f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OrderState
+
+		annotation SummarizationSetBy = User
+
+	column 'SLA ra DH_format'
+		dataType: string
+		lineageTag: 0cc48cba-a138-495b-be07-902632f5dedc
+		sourceLineageTag: 9e0bbbbb-489c-4a25-91d2-d089d82baf07
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SLA ra DH_format
+
+		annotation SummarizationSetBy = User
+
+	column 'SLA ra SP'
+		dataType: double
+		formatString: 0.00
+		lineageTag: 4e270da3-34ed-4d17-8a46-8c45ed305308
+		sourceLineageTag: 1d4b5c2b-b2f6-48bb-9f6b-5ce5e9905738
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SLA ra SP
+
+		annotation SummarizationSetBy = User
+
+	column 'SLA ra SP_format'
+		dataType: string
+		lineageTag: 89b9feff-a40c-473f-86f7-61509c726cbe
+		sourceLineageTag: 086748d3-31e6-4a60-89f0-c1341f2bf18c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SLA ra SP_format
+
+		annotation SummarizationSetBy = User
+
+	column LyDoHuyDon
+		dataType: string
+		lineageTag: 916c89bc-b2a1-41e7-8809-ea2f5e31b6b9
+		sourceLineageTag: 695a8cd8-e9cc-4d52-92cc-ce7735743574
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LyDoHuyDon
+
+		annotation SummarizationSetBy = User
+
+	column Lydohuy
+		dataType: string
+		lineageTag: 11b71972-d580-43c0-982d-089b8a72c887
+		sourceLineageTag: f0c98305-f469-451f-8d4b-c4274d6b3092
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Lydohuy
+
+		annotation SummarizationSetBy = User
+
+	column LoaiDon
+		dataType: string
+		lineageTag: efa7a6f3-a2e0-4a98-80e7-5af4e99f1310
+		sourceLineageTag: 649919f2-7311-4b8c-a47b-a499ef2d84c4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LoaiDon
+
+		annotation SummarizationSetBy = User
+
+	column SSHH_Date
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 745c7097-06d2-4140-b7c1-8926402b610f
+		sourceLineageTag: eac6639c-e12a-4ea8-81af-d298bfae56dc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SSHH_Date
+
+		annotation SummarizationSetBy = User
+
+	column 'SLA ra SSDH'
+		dataType: double
+		lineageTag: 4fdb45fe-a6c6-4e60-9477-e3d797aa13df
+		sourceLineageTag: 3df71a5f-8499-4bf5-9087-3d9e6d654a5c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SLA ra SSDH
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'SLA ra SSHH_format'
+		dataType: string
+		lineageTag: 04219fb0-4479-4138-8335-e64fea09d576
+		sourceLineageTag: 4a34f658-8b5d-4737-9347-f6232c3882ef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SLA ra SSHH_format
+
+		annotation SummarizationSetBy = User
+
+	column PhuongThuc
+		dataType: string
+		lineageTag: 1a54a37a-cf5f-4c11-ac0d-28de6ce1a51e
+		sourceLineageTag: a9911e39-6883-493b-8ed8-ee532171d12b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PhuongThuc
+
+		annotation SummarizationSetBy = User
+
+	column 'loai_giao_hang theo SP'
+		dataType: string
+		lineageTag: 47dde8a5-9791-418b-b716-71efb1f8176f
+		sourceLineageTag: 5cfeeb88-65bd-479c-b645-237e91883c3d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: loai_giao_hang theo SP
+
+		annotation SummarizationSetBy = User
+
+	column 'loai_giao_hang theo DH'
+		dataType: string
+		lineageTag: 811cb2f0-fae1-4265-9378-e6417f36fad0
+		sourceLineageTag: da116a91-442a-453a-8d10-83371358af82
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: loai_giao_hang theo DH
+
+		annotation SummarizationSetBy = User
+
+	column 'Mã giao dịch online'
+		dataType: string
+		lineageTag: 0617a609-4e70-45b6-83f9-662f2ae61419
+		sourceLineageTag: 79f19dcc-edb1-4ae4-9fe5-9339c2afb799
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mã giao dịch online
+
+		annotation SummarizationSetBy = User
+
+	partition 'FACT_DS Online' = entity
+		mode: directQuery
+		source
+			entityName: FACT_DS Online
+			expressionSource: 'DirectQuery to AS - VH_Xử lý Đơn hàng_new'
+

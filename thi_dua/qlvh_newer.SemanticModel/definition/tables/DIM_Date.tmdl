@@ -1,0 +1,279 @@
+table DIM_Date
+	lineageTag: 4f52a6cd-8333-4ce2-9caa-58fb0b9d3968
+	sourceLineageTag: 4a9ed876-ff60-4023-9e62-e5e941ab6270
+
+	column Ngay_isActive
+		dataType: int64
+		formatString: 0
+		lineageTag: 7de84461-0b91-4d2d-a2c3-27d660e4e585
+		sourceLineageTag: ececa943-c66c-4c6d-b265-126eb318ecf2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Ngay_isActive
+
+		annotation SummarizationSetBy = User
+
+	column Date
+		dataType: dateTime
+		isNullable: false
+		formatString: Short Date
+		lineageTag: 5e0c0560-f847-4773-8661-d6bdf4bc7255
+		sourceLineageTag: b8565989-373a-4043-a956-194d5e37b88e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Date
+		sortByColumn: DateKey
+
+		variation Variation
+			isDefault
+			relationship: 8e88b725-03ee-44b5-8731-0f6dfbd5745e
+			defaultHierarchy: LocalDateTable_7e3df1b8-3fbe-4f5d-9ab5-408e2da3b603.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column DateKey
+		dataType: double
+		lineageTag: a4c8b288-495d-4509-b8e4-620807c050d4
+		sourceLineageTag: 645a4170-25b8-4349-b8a1-7e80a7cb9c62
+		dataCategory: Uncategorized
+		summarizeBy: count
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Năm
+		dataType: int64
+		formatString: 0
+		lineageTag: 34ea58a8-8bfb-4c81-9718-9adf8f64d799
+		sourceLineageTag: 881b2263-fb3f-4863-bbfe-32a02fba8f5f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Năm
+
+		annotation SummarizationSetBy = User
+
+	column Quý
+		dataType: int64
+		formatString: 0
+		lineageTag: cdf94804-4cd8-4340-a5d9-f1452fdd96aa
+		sourceLineageTag: 25699657-b31c-4dd1-9f2a-b5c59a87564d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Quý
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Quý
+		dataType: string
+		lineageTag: 4bafe67a-87af-4eaf-a87c-068dc5b223cc
+		sourceLineageTag: 6f147982-73de-4a03-a7a5-90085e978def
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Năm/Quý
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Quý_Index
+		dataType: double
+		lineageTag: 280a01c7-4e62-4e14-be7a-b609e68bdf33
+		sourceLineageTag: 7eb3af90-47b6-4e7e-a435-4aae67d07dc8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Năm/Quý_Index
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tháng
+		dataType: int64
+		formatString: 0
+		lineageTag: b5f3dae2-60b3-4ad7-bb10-83c986f82fe7
+		sourceLineageTag: e62bc9aa-0916-43a1-839f-d2ca9f453563
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Tháng
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Tháng
+		dataType: string
+		lineageTag: 738a9839-41a1-4233-9a42-c7bf02a524a9
+		sourceLineageTag: c81e953d-225e-446b-9ded-dc486495cb93
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Năm/Tháng
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Tháng_Index
+		dataType: double
+		lineageTag: 694f357e-634e-48de-a752-98bd5d8a6fbb
+		sourceLineageTag: 3544cb15-6bc9-4e90-be9e-51a727009d9c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Năm/Tháng_Index
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Cuối tháng'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 86ab4ab4-8da7-4eb2-820a-7838eabeaa52
+		sourceLineageTag: 5d63aafd-faa0-4fdc-87c9-1c622a348498
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cuối tháng
+
+		variation Variation
+			isDefault
+			relationship: 5206c016-96fe-4bee-a4e5-28c4060888fc
+			defaultHierarchy: LocalDateTable_34999d5d-d72b-4b90-bcaf-e2ead14ef219.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Đầu tháng'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 51c8d0ee-2b26-4d32-acd1-bd860b2af80f
+		sourceLineageTag: 462b29df-c275-4cfa-8826-ac7a76633cd4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Đầu tháng
+
+		variation Variation
+			isDefault
+			relationship: 6011dd2c-b8ba-4296-aea8-c125a1f67a5e
+			defaultHierarchy: LocalDateTable_27633629-f0d3-465e-8f09-e01a83db623f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Tháng/Tuần
+		dataType: string
+		lineageTag: 3186f364-53c1-424d-837e-ffec585385e9
+		sourceLineageTag: b1795c7d-4b97-474b-9fe6-723419fce925
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Năm/Tháng/Tuần
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Tháng/Tuần_Index
+		dataType: double
+		lineageTag: 60d7fbda-a9c3-4bb8-8957-cc41e626c729
+		sourceLineageTag: c59f6f09-750d-40cf-b90c-d628028847d3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Năm/Tháng/Tuần_Index
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tuần
+		dataType: int64
+		formatString: 0
+		lineageTag: 709d4930-891b-48b2-b79a-be6207960371
+		sourceLineageTag: f7e3e91b-8b43-43e2-90f1-6b9b8ac0418a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Tuần
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Tuần
+		dataType: string
+		lineageTag: 45703b37-5e3b-475c-8d18-0ef87beef94a
+		sourceLineageTag: f4fcb731-68ed-428c-b7c1-918dfca4bbfd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Năm/Tuần
+
+		annotation SummarizationSetBy = User
+
+	column Năm/Tuần_Index
+		dataType: double
+		lineageTag: f54dd853-1880-40bf-954b-bd9180115c72
+		sourceLineageTag: 5c2a86e7-821b-4f4d-b4ef-624733420164
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Năm/Tuần_Index
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Thứ_Index_RAW
+		dataType: int64
+		formatString: 0
+		lineageTag: b53420b6-3ca5-4962-9a91-844dbd1f43f4
+		sourceLineageTag: f2b1d46d-5eff-4194-aa68-f6866c8b2c78
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thứ_Index_RAW
+
+		annotation SummarizationSetBy = User
+
+	column Thứ
+		dataType: string
+		lineageTag: 1f969f1a-d3ac-4b4a-be60-1dca14fa4637
+		sourceLineageTag: 3afe7f25-fa14-451c-9d85-52d228173f73
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Thứ
+		sortByColumn: Thứ_Index
+
+		annotation SummarizationSetBy = User
+
+	column Thứ_Index
+		dataType: int64
+		formatString: 0
+		lineageTag: 643abe94-69ad-4b04-a859-4761b9c8189d
+		sourceLineageTag: f3de1dc9-4472-4d91-9eb8-c7ee98e90e37
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Thứ_Index
+
+		annotation SummarizationSetBy = User
+
+	column 'Cuối tuần'
+		dataType: string
+		lineageTag: de37c33f-d1cc-44b9-aba9-21268532b1d7
+		sourceLineageTag: 5def8b0b-4976-446c-8b8d-b7f4e8da291b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cuối tuần
+
+		annotation SummarizationSetBy = User
+
+	column Ngày
+		dataType: int64
+		formatString: 0
+		lineageTag: c04a2dbf-c356-4915-b825-07a1f4f21be3
+		sourceLineageTag: 6c5f0f5b-3461-4987-901e-3fdb7f9c39ae
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Ngày
+
+		annotation SummarizationSetBy = User
+
+	column IsHoliday
+		dataType: string
+		lineageTag: 7caa7001-dd3e-443e-b763-c5b488f0c8c4
+		sourceLineageTag: 6601d0c3-0a2f-4e08-9e3f-eb3e06903eb8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IsHoliday
+
+		annotation SummarizationSetBy = User
+
+	partition DIM_Date = entity
+		mode: directQuery
+		source
+			entityName: DIM_Date
+			expressionSource: 'DirectQuery to AS - CS_Báo cáo Lượt tải App 3'
+
