@@ -8,11 +8,6 @@ table 'DIM_Danh mục_Ngày'
 		summarizeBy: none
 		sourceColumn: Date
 
-		variation Variation
-			isDefault
-			relationship: 1bafccf2-6a81-4210-8031-f205c2a29b93
-			defaultHierarchy: LocalDateTable_f4f18e9a-e1cd-431c-a6ae-e7d0a1813719.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

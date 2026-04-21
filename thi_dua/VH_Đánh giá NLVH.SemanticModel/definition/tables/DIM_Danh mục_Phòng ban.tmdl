@@ -5,7 +5,7 @@ table 'DIM_Danh mục_Phòng ban'
 		dataType: int64
 		formatString: 0
 		lineageTag: 33a34c15-32bd-4784-ac5d-b7c03db097c6
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: HaraID
 
 		annotation SummarizationSetBy = Automatic

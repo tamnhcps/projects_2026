@@ -648,6 +648,199 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "FACT_DS Online",
+          "nodeLineageTag": "86980c7d-e476-4413-8ab9-4efb4b303520",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Measure_DH_Online",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "F_StoreBills",
+          "nodeLineageTag": "4b70522e-914f-4f03-9d86-c4f3b7ec6348",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Measure_AIOV2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "FACT_NPS_TICKET",
+          "nodeLineageTag": "ec8f8a31-b0eb-458c-b55d-c99896223b2a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "FACT_TFEX_SHOP",
+          "nodeLineageTag": "7c77db95-591a-41ee-9f03-b80982314606",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "FACT_TFEX_TICKET",
+          "nodeLineageTag": "a822476f-d233-4d53-98a7-ada0abff8143",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "tháng_năm",
+          "nodeLineageTag": "29d11a01-efb5-4700-8413-cff2d2f894ce",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Measure_Tai_App",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "FACT_Sale_Doanh số bán 2",
+          "nodeLineageTag": "6f07906a-fe9b-4b10-9816-7d8b888050f1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "F_Logistics 2",
+          "nodeLineageTag": "c80ff6e3-3f59-46f3-988c-e4b07c49d14c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Measure_Giao_Hàng_Trễ",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "DIM_BQ_Shop",
+          "nodeLineageTag": "86d97275-7b7d-4ad3-ad2e-be953678b5b3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "DIM_Date",
+          "nodeLineageTag": "4f52a6cd-8333-4ce2-9caa-58fb0b9d3968",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "FACT_Ranking_Shop",
+          "nodeLineageTag": "cfb1ac14-557d-40b6-80c4-c1228ec6e91d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Measure_NPS",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "adhoc_tkkd",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "adhoc_shop_zone_mappings",
+          "nodeLineageTag": "c3a7de99-83b4-4028-bb2a-c8ab3e1dcdf5",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "adhoc_chi_so_nghi_viec",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Parameter",
+          "nodeLineageTag": "fb85cbf1-c03e-4896-bd6f-9fcaa549a202",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
@@ -2402,13 +2595,13 @@
       "ordinal": 14,
       "scrollPosition": {
         "x": 0,
-        "y": 0
+        "y": 13.588870480308866
       },
       "nodes": [
         {
           "location": {
-            "x": 183.33333206176758,
-            "y": 68.5
+            "x": 36.333332061767578,
+            "y": 0
           },
           "nodeIndex": "FACT_Đánh giá AM",
           "nodeLineageTag": "0e5582cd-da57-4744-bad6-3b9c17879fa1",
@@ -2417,10 +2610,101 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 403.20000076293945,
+            "y": 0
+          },
+          "nodeIndex": "DIM_BQ_Shop",
+          "nodeLineageTag": "86d97275-7b7d-4ad3-ad2e-be953678b5b3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 143.20000076293945,
+            "y": 335.5
+          },
+          "nodeIndex": "DIM_Danh mục_Ngày",
+          "nodeLineageTag": "cd0865da-b9e6-4d5b-af1e-10cda43247d7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 446.67688545028284,
+            "y": 334.76811929748555
+          },
+          "nodeIndex": "DIM_Date",
+          "nodeLineageTag": "4f52a6cd-8333-4ce2-9caa-58fb0b9d3968",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 787.97873353753778,
+            "y": 593.90470766003091
+          },
+          "nodeIndex": "FACT_Ranking_Shop",
+          "nodeLineageTag": "cfb1ac14-557d-40b6-80c4-c1228ec6e91d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1040.7949173058746,
+            "y": 67.731025192179573
+          },
+          "nodeIndex": "FACT_Sale_Doanh số bán 2",
+          "nodeLineageTag": "6f07906a-fe9b-4b10-9816-7d8b888050f1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 762.69711516070413,
+            "y": 0
+          },
+          "nodeIndex": "DIM_Danh mục_Phòng ban",
+          "nodeLineageTag": "f8dc71c4-0941-42f7-95b0-516cd83063c4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1073.977041425469,
+            "y": 460.54417132499395
+          },
+          "nodeIndex": "DIM_Danh mục_Miền",
+          "nodeLineageTag": "bab4f185-696d-48ec-9791-d1c3a1b4da73",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Layout 11",
-      "zoomValue": 100,
+      "zoomValue": 63.287087723234038,
       "pinKeyFieldsToTop": true,
       "showExtraHeaderInfo": true,
       "hideKeyFieldsWhenCollapsed": false,

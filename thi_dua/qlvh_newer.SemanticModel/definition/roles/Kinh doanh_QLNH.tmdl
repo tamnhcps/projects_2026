@@ -1,5 +1,0 @@
-role 'Kinh doanh_QLNH'
-	modelPermission: read
-
-	annotation PBI_Id = cffdc8f9fd5c4adea89d47055584523c
-

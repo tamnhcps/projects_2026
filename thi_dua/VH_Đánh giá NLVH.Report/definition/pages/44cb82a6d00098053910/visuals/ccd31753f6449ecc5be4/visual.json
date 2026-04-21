@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "ccd31753f6449ecc5be4",
   "position": {
-    "x": 11.961722488038278,
-    "y": 521.53110047846894,
+    "x": 12.479201331114808,
+    "y": 549.08485856905156,
     "z": 7000,
-    "height": 212.91866028708134,
-    "width": 348.08612440191388,
+    "height": 185.108153078203,
+    "width": 348.3777038269551,
     "tabOrder": 6000
   },
   "visual": {
@@ -15,34 +15,6 @@
       "queryState": {
         "Values": {
           "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DIM_Ghi chú_Đánh giá"
-                    }
-                  },
-                  "Property": "Điều kiện 1: Tổng điểm NLVH (X)"
-                }
-              },
-              "queryRef": "DIM_Ghi chú_Đánh giá.Điều kiện 1: Tổng điểm NLVH (X)",
-              "nativeQueryRef": "Điều kiện 1: Tổng điểm NLVH (X)"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DIM_Ghi chú_Đánh giá"
-                    }
-                  },
-                  "Property": "Điều kiện 2: (*)Tổng chi tiêu đạt (Y)"
-                }
-              },
-              "queryRef": "DIM_Ghi chú_Đánh giá.Điều kiện 2: (*)Tổng chi tiêu đạt (Y)",
-              "nativeQueryRef": "Điều kiện 2: (*)Tổng chi tiêu đạt (Y)"
-            },
             {
               "field": {
                 "Column": {
@@ -73,7 +45,7 @@
                 "Property": "Xếp loại"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
@@ -277,34 +249,6 @@
           },
           "selector": {
             "metadata": "DIM_Ghi chú_Đánh giá.Xếp loại"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "111.58373066839121D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "DIM_Ghi chú_Đánh giá.Điều kiện 1: Tổng điểm NLVH (X)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "111.42584105756504D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "DIM_Ghi chú_Đánh giá.Điều kiện 2: (*)Tổng chi tiêu đạt (Y)"
           }
         }
       ],
@@ -600,26 +544,6 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Xem chi tiết tại đây'"
                 }
               }
             }

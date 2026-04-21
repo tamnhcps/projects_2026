@@ -1,5 +1,0 @@
-role 'Kinh doanh_Máy cũ'
-	modelPermission: read
-
-	annotation PBI_Id = dd16b993bd01484f8cc048af89a2b573
-

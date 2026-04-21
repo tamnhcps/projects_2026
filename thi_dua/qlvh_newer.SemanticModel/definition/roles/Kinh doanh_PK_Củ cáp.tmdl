@@ -1,5 +1,0 @@
-role 'Kinh doanh_PK_Củ cáp'
-	modelPermission: read
-
-	annotation PBI_Id = 01490b8035df445f9b4f2ad86e0f92af
-

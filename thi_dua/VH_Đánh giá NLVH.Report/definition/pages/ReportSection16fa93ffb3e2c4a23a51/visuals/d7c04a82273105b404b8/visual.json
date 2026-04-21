@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d7c04a82273105b404b8",
   "position": {
-    "x": 479.69377990430621,
-    "y": 475.71291866028707,
+    "x": 469.16547448736287,
+    "y": 480.07629947544109,
     "z": 4000,
-    "height": 475.71291866028707,
-    "width": 1600.3062200956938,
+    "height": 476.10872675250351,
+    "width": 1600.9155937052931,
     "tabOrder": 2000
   },
   "visual": {
@@ -357,21 +357,16 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Column": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "FACT_Đánh giá Shop"
-                      }
-                    },
-                    "Property": "% Target thu thập KHTN"
+                  "SourceRef": {
+                    "Entity": "FACT_Đánh giá Shop"
                   }
                 },
-                "Function": 0
+                "Property": "Xếp hạng cuối cùng"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }

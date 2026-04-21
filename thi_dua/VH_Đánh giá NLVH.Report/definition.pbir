@@ -3,7 +3,7 @@
   "version": "4.0",
   "datasetReference": {
     "byPath": {
-      "path": "../VH_Đánh giá NLVH.SemanticModel"
+      "path": "../qlvh_newer.SemanticModel"
     }
   }
 }

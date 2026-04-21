@@ -34,7 +34,7 @@ queryGroup 'Query Errors - 10/21/2025 10:12:14 AM'
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["F_Combined_Metric_CS","F_PriceTag","Danh sách kho_DailyReport","FACT_Sale_Doanh số bán","FACT_Sale_Doanh số bán_realtime","Đơn không tính S-Star","S-Star_Nhóm hàng_SKU","DIM_Danh mục_Ngày","DIM_Danh mục_Miền","DIM_Danh mục_Kho","DIM_Danh mục_Phòng ban","Province","D_Sản phẩm","DIM_Danh mục_Sản phẩm_Web","DIM_Danh mục_Nhóm hàng","NhomHang_LaptopCu","DIM_Danh mục_Đánh giá","fxCalendar","MinYear","MaxYear","fxGetISO8601Week","FACT_Đánh giá SM","DIM_Danh mục_Shop_AM","DIM_Danh mục_Shop_SMKN","FACT_GSheet_Target_App","FACT_BQ_Target_Shop","FACT_GSheet_Target_Shop_Daily","Kết quả đánh giá NLQL","Kết quả đánh giá Shop","DIM_Đánh giá AM","DIM_Danh mục_Hệ số Chỉ tiêu","DIM_Danh mục_Hệ số SizeShop","DIM_Danh mục_Các loại chỉ số","DIM_Danh mục_Cách thức xếp hạng","DIM_Danh mục_Đánh giá_","DIM_Ghi chú","DIM_Ghi chú_Đánh giá","Heso_ThiDua","CurrentDate","F_Employee","F_Ngày nhận việc","F_Ngày kết thúc","F_Công chi tiết","F_Logistics","F_Xử lý hàng hóa","Kiểm kê hàng hóa","F_Hàng hóa thất thoát","F_Định biên trưng bày","DIM_Danh mục_Nhân viên","DinhBien","F_Tham gia đào tạo","Errors in DIM_Danh mục_Đánh giá_","DIM_Phân quyền user","DIM_Phân quyền vận hành_Vùng","tieu_chi_chay_nlvh_q2_2026"]
+annotation PBI_QueryOrder = ["F_Combined_Metric_CS","F_PriceTag","Danh sách kho_DailyReport","FACT_Sale_Doanh số bán","FACT_Sale_Doanh số bán_realtime","Đơn không tính S-Star","S-Star_Nhóm hàng_SKU","DIM_Danh mục_Ngày","DIM_Danh mục_Miền","DIM_Danh mục_Kho","DIM_Danh mục_Phòng ban","Province","D_Sản phẩm","DIM_Danh mục_Sản phẩm_Web","DIM_Danh mục_Nhóm hàng","NhomHang_LaptopCu","DIM_Danh mục_Đánh giá","fxCalendar","MinYear","MaxYear","fxGetISO8601Week","FACT_Đánh giá SM","DIM_Danh mục_Shop_AM","DIM_Danh mục_Shop_SMKN","FACT_GSheet_Target_App","FACT_BQ_Target_Shop","FACT_GSheet_Target_Shop_Daily","Kết quả đánh giá NLQL","Kết quả đánh giá Shop","DIM_Đánh giá AM","DIM_Danh mục_Hệ số Chỉ tiêu","DIM_Danh mục_Hệ số SizeShop","DIM_Danh mục_Các loại chỉ số","DIM_Danh mục_Cách thức xếp hạng","DIM_Danh mục_Đánh giá_","DIM_Ghi chú","DIM_Ghi chú_Đánh giá","Heso_ThiDua","CurrentDate","F_Employee","F_Ngày nhận việc","F_Ngày kết thúc","F_Công chi tiết","F_Logistics","F_Xử lý hàng hóa","Kiểm kê hàng hóa","F_Hàng hóa thất thoát","F_Định biên trưng bày","DIM_Danh mục_Nhân viên","DinhBien","F_Tham gia đào tạo","Errors in DIM_Danh mục_Đánh giá_","DIM_Phân quyền user","DIM_Phân quyền vận hành_Vùng","DirectQuery to AS - VH_Xử lý Đơn hàng_new","DirectQuery to AS - VH_Theo dõi AIOv2","DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178","DirectQuery to AS - CS_Báo cáo Lượt tải App","DirectQuery to AS - CS_Báo cáo Lượt tải App 2","DirectQuery to AS - LOG_Logistics tổng quan","DirectQuery to AS - CS_Báo cáo Lượt tải App 3","DirectQuery to AS - CS_Kết quả khảo sát CS 202603180168 and 202603180178 2","adhoc_tkkd","adhoc_shop_zone_mappings","adhoc_chi_so_nghi_viec"]
 
 annotation PBI_ProTooling = ["WebModelingEdit","DaxQueryView_Desktop","DevMode"]
 
@@ -87,7 +87,6 @@ ref table LocalDateTable_8c9f9962-52b5-420f-8d18-d46c5107670a
 ref table CurrentDate
 ref table 'Parameter_Nhóm Shop'
 ref table LocalDateTable_8d608702-9c4e-42ae-90a6-4c661ad23256
-ref table LocalDateTable_f4f18e9a-e1cd-431c-a6ae-e7d0a1813719
 ref table LocalDateTable_1fc41b9c-1454-4466-9696-138df71a4dc8
 ref table F_Combined_Metric_CS
 ref table LocalDateTable_0eab96b0-a3d8-4ce8-94ab-f67539d086b1
@@ -132,7 +131,48 @@ ref table 'DIM_Phân quyền vận hành'
 ref table 'DIM_Phân quyền vận hành_Vùng'
 ref table LocalDateTable_b553739a-6cf8-41be-8e68-f42d703dcd12
 ref table LocalDateTable_cf501fc1-6cf5-49a0-940c-373af6bef841
-ref table tieu_chi_chay_nlvh_q2_2026
+ref table 'FACT_DS Online'
+ref table Measure_DH_Online
+ref table Measure_AIOV2
+ref table F_StoreBills
+ref table FACT_TFEX_TICKET
+ref table FACT_NPS_TICKET
+ref table FACT_TFEX_SHOP
+ref table LocalDateTable_dd6aee84-0ce8-40a7-a4a4-3bfdd56d0e14
+ref table LocalDateTable_98e25595-9363-4e91-be83-12a3e9f872c0
+ref table LocalDateTable_4baebfbf-69a8-46ee-8688-a012a5d7e223
+ref table LocalDateTable_334e7e7d-4adc-4e4e-bf79-e1c8a435124c
+ref table LocalDateTable_379f84b0-f4f8-4f67-b054-f64c9a470bb0
+ref table LocalDateTable_94cf93bf-13ca-475b-8f3f-a444c41af905
+ref table LocalDateTable_59595a68-0e30-458c-896b-7aa6591d9c1b
+ref table LocalDateTable_0c21c16b-1581-4d7b-bd36-a67662ecc3ce
+ref table tháng_năm
+ref table Measure_Tai_App
+ref table 'FACT_Sale_Doanh số bán 2'
+ref table LocalDateTable_32b598b8-c398-436b-95b6-03973380b71c
+ref table LocalDateTable_4f381816-34d0-4183-8b46-f77754c652b4
+ref table LocalDateTable_f7802db7-3579-4eb9-9d60-f0c6f4db1291
+ref table Measure_Giao_Hàng_Trễ
+ref table 'F_Logistics 2'
+ref table LocalDateTable_d9c79dd0-c6bc-42c3-b194-5127d882cf25
+ref table LocalDateTable_499db68b-f487-45af-9a34-d0bfa6ce8116
+ref table LocalDateTable_d2ac3caf-162d-4f63-83b6-867d9f39df0b
+ref table LocalDateTable_b60e48ab-7d68-49be-9d81-12350cd53431
+ref table LocalDateTable_c3582277-f171-47ae-9b32-7c83088f4435
+ref table LocalDateTable_52b5b49a-596c-4e3d-86a3-f9fb6513ccaa
+ref table LocalDateTable_d8fd0895-3104-4aa5-abfc-4184fbbe9496
+ref table LocalDateTable_3f3e30ae-d2e8-49cf-8ebc-77eb946cfe06
+ref table DIM_BQ_Shop
+ref table DIM_Date
+ref table FACT_Ranking_Shop
+ref table LocalDateTable_7e3df1b8-3fbe-4f5d-9ab5-408e2da3b603
+ref table LocalDateTable_34999d5d-d72b-4b90-bcaf-e2ead14ef219
+ref table LocalDateTable_27633629-f0d3-465e-8f09-e01a83db623f
+ref table Measure_NPS
+ref table adhoc_tkkd
+ref table adhoc_shop_zone_mappings
+ref table adhoc_chi_so_nghi_viec
+ref table Parameter
 
 ref role Chung
 ref role 'Kinh doanh_QLNH'

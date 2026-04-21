@@ -35,7 +35,7 @@ table 'DIM_Danh mục_Các loại chỉ số'
 		queryGroup: 'Danh mục'
 		source =
 				let
-				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("lVKxSsNQFP2VS6DQoqUpnTu4FRSXFpckQ4whCW0T276IunaoHYRmKK4tWsRqoaAueRSHF/ofr1/iTV6ERqnikge55557zrlXUaQGp2PXAsPmdAjEYXMfooCHUyLtS3VOA2itl5zeI0QUDZstwGCvkKt5bOICsfFrQ0PvWiaBzXAGZVnOSdq+IkUjh9N+Gwinz5l+pN7cBPmddSQ1PTA4XegQ01twCTVOB9CLBXX8q1giHTsCV3euTejZ3jmQ9XI9RTSnT65VgBLglH/3JdLTVKJAKDw+OqmJpo7PVqn8RtdHyCl7Qfuo9VGHNqd3TsZH10NIJQ4J+QuCOhsjEcGpEkanSkidzbUKZdgDJX9gEF9vQTENulASr/YH5cMvlOnKiiC4d1I2bfaWZBFfBXoMZwRsHn4QtMfpLZbieHFMNEoQVdWX5YoJP6biXajuYYZtFza9oC0VLdzEgECTzZMl9sU6zti7g5O3cD0erlJElvRbF1ywyZc1whYIwB9e1pKmfQI=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Các loại chỉ số" = _t, #"Công thức tính" = _t]),
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("hZDNSsNAFIVf5TJQaLHFlK67cFdQ3BjcZLKIMSShaYLpxBfoQrsQzELctmgRigVB3WQoLib4HtMn8eanNSmImxmYe+Y79xxNI6rkD74NpiP5FJgrlhGksUzmjLTJmeQxeN9vkj+hpBiajliBKd6hMQjEzAfm4OmAaoS2xWAzXUBXURpEb+/QaexKPhnB6cn5AOVWAFeRWCN+cxs31TBCyYV4RYYp+YsBI8kf3aoZCwOU9DKnuW+3CnR9F1a4U4L+lCC6CwegNY9MFhkedMrtWofFrVP2D+S5AimTdaCg7SD7iKEjPvK0WXmYIlkwcGTyxTCA5Hc4GmOdiE3vc0WfRorSs/Z67Of10ZD6xzXeX+pt1b97eNj2DYOhWGZ/+aSo/FJ8uuhd0Y1lsi4VdejeL7gWs204JlYowIegHkrXfwA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Các loại chỉ số" = _t, #"Công thức tính" = _t]),
 				    #"Added Index" = Table.AddIndexColumn(Source, "Index", 1, 1, Int64.Type)
 				in
 				    #"Added Index"

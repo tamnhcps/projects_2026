@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "d08b1258ebe1636449c9",
   "position": {
-    "x": 389.95215311004785,
-    "y": 93.301435406698573,
+    "x": 373.33610648918471,
+    "y": 92.5540765391015,
     "z": 2000,
-    "height": 790.66985645933016,
-    "width": 860.04784688995221,
+    "height": 790.34941763727124,
+    "width": 860.02495840266226,
     "tabOrder": 1000
   },
   "visual": {
@@ -20,90 +20,17 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "tieu_chi_chay_nlvh_q2_2026"
-                    }
-                  },
-                  "Property": "Tên chỉ số"
-                }
-              },
-              "queryRef": "tieu_chi_chay_nlvh_q2_2026.Tên chỉ số",
-              "nativeQueryRef": "Tên chỉ số"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "tieu_chi_chay_nlvh_q2_2026"
+                      "Entity": "DIM_Ghi chú"
                     }
                   },
                   "Property": "Công thức tính"
                 }
               },
-              "queryRef": "tieu_chi_chay_nlvh_q2_2026.Công thức tính",
+              "queryRef": "DIM_Ghi chú.Công thức tính",
               "nativeQueryRef": "Công thức tính"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "tieu_chi_chay_nlvh_q2_2026"
-                    }
-                  },
-                  "Property": "Target"
-                }
-              },
-              "queryRef": "tieu_chi_chay_nlvh_q2_2026.Target",
-              "nativeQueryRef": "Target"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "tieu_chi_chay_nlvh_q2_2026"
-                    }
-                  },
-                  "Property": "Hướng dẫn cách lấy dữ liệu"
-                }
-              },
-              "queryRef": "tieu_chi_chay_nlvh_q2_2026.Hướng dẫn cách lấy dữ liệu",
-              "nativeQueryRef": "Hướng dẫn cách lấy dữ liệu"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "tieu_chi_chay_nlvh_q2_2026"
-                    }
-                  },
-                  "Property": "Nguồn dữ liệu"
-                }
-              },
-              "queryRef": "tieu_chi_chay_nlvh_q2_2026.Nguồn dữ liệu",
-              "nativeQueryRef": "Nguồn dữ liệu"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "tieu_chi_chay_nlvh_q2_2026"
-                  }
-                },
-                "Property": "Target"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "objects": {
@@ -291,69 +218,13 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "206.66729442203297D"
+                  "Value": "220.38060377919743D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "tieu_chi_chay_nlvh_q2_2026.Công thức tính"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "143.61457868744287D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "tieu_chi_chay_nlvh_q2_2026.Hướng dẫn cách lấy dữ liệu"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "202.21540578188322D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "tieu_chi_chay_nlvh_q2_2026.Target"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "202.8871272724859D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "tieu_chi_chay_nlvh_q2_2026.Tên chỉ số"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "75.96500486941957D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "tieu_chi_chay_nlvh_q2_2026.Nguồn dữ liệu"
+            "metadata": "DIM_Ghi chú.Công thức tính"
           }
         }
       ]
@@ -726,76 +597,6 @@
         },
         "type": "Categorical",
         "howCreated": "User"
-      },
-      {
-        "name": "dfe13d820f3599e4c38e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "tieu_chi_chay_nlvh_q2_2026"
-              }
-            },
-            "Property": "Tên chỉ số"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1f32e34a0ba6cd8b4539",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "tieu_chi_chay_nlvh_q2_2026"
-              }
-            },
-            "Property": "Công thức tính"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3510ee45b1a6cdb00574",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "tieu_chi_chay_nlvh_q2_2026"
-              }
-            },
-            "Property": "Target"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3ac961f86088d2499463",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "tieu_chi_chay_nlvh_q2_2026"
-              }
-            },
-            "Property": "Hướng dẫn cách lấy dữ liệu"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "019d1fa86c534403fd2f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "tieu_chi_chay_nlvh_q2_2026"
-              }
-            },
-            "Property": "Nguồn dữ liệu"
-          }
-        },
-        "type": "Categorical"
       }
     ],
     "filterSortOrder": "Custom"

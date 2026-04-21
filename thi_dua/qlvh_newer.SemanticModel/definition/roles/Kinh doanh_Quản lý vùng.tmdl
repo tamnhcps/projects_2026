@@ -1,5 +1,0 @@
-role 'Kinh doanh_Quản lý vùng'
-	modelPermission: read
-
-	annotation PBI_Id = 4c4e4dfc88c64209abd4e196c729a872
-
